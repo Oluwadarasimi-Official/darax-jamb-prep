@@ -18,6 +18,40 @@ function rateLimited(key: string): boolean {
   return false;
 }
 
+function unwrapTutorReply(content: unknown, depth = 0): string | null {
+  if (typeof content !== 'string') return null;
+  const text = content.trim();
+  if (!text) return null;
+  if (depth < 3) {
+    const jsonText = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+    if (jsonText.startsWith('{') || jsonText.startsWith('[')) {
+      try {
+        const parsed: unknown = JSON.parse(jsonText);
+        if (typeof parsed === 'string') return unwrapTutorReply(parsed, depth + 1);
+        if (Array.isArray(parsed)) {
+          return parsed.map(value => unwrapTutorReply(typeof value === 'string' ? value : JSON.stringify(value), depth + 1)).filter(Boolean).join('\n\n') || null;
+        }
+        if (parsed && typeof parsed === 'object') {
+          const record = parsed as Record<string, unknown>;
+          const preferredKeys = ['reply', 'answer', 'response', 'message', 'content', 'text', 'output', 'result', 'final'];
+          for (const key of preferredKeys) {
+            if (record[key] !== undefined) {
+              const value = typeof record[key] === 'string' ? record[key] : JSON.stringify(record[key]);
+              const unwrapped = unwrapTutorReply(value, depth + 1);
+              if (unwrapped) return unwrapped;
+            }
+          }
+          const values = Object.values(record).map(value => unwrapTutorReply(typeof value === 'string' ? value : JSON.stringify(value), depth + 1)).filter(Boolean);
+          if (values.length) return values.join('\n\n');
+        }
+      } catch {
+        return text;
+      }
+    }
+  }
+  return text;
+}
+
 const SYSTEM_PROMPT = `You are the Darax AI Tutor, the educational tutor of The Official Darax Free JAMB Prep, a free JAMB preparation platform for Nigerian science students. Your ONLY job is education: explain JAMB syllabus topics, solve academic problems step by step, explain Maths calculations, Physics principles, Chemistry reactions, Biology concepts, Geography and Agricultural Science, and English Language (comprehension, lexis and structure, oral English, grammar, vocabulary, sentence interpretation). Adapt explanations to a secondary-school student's level, use clear steps, give worked examples, and offer short practice questions when useful. If a student asks about anything non-educational (entertainment, gossip, cheating on a live exam, personal advice unrelated to study, or anything outside learning), politely redirect them to an educational topic. Never claim to be a human. Never invent official JAMB past-question years. Keep answers focused and reasonably concise.
 
 RESPONSE FORMAT — FOLLOW STRICTLY
@@ -67,7 +101,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'GROQ_ERROR', message: 'The AI tutor could not answer right now. Please try again in a moment.' }, { status: 502 });
     }
     const data = await res.json();
-    const text = data?.choices?.[0]?.message?.content?.trim();
+    const text = unwrapTutorReply(data?.choices?.[0]?.message?.content);
     if (!text) return NextResponse.json({ error: 'GROQ_EMPTY', message: 'The AI tutor returned an empty answer. Please try again.' }, { status: 502 });
     return NextResponse.json({ reply: text, model: MODEL });
   } catch {
