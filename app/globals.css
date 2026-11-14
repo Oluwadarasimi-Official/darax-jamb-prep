@@ -52,7 +52,7 @@
 }
 
 * { -webkit-tap-highlight-color: transparent; }
-html, body { min-height: 100%; }
+html, body { min-height: 100%; width: 100%; max-width: 100%; overflow-x: clip; }
 html { background: var(--bg); scroll-behavior: smooth; }
 body {
   background: var(--bg);
