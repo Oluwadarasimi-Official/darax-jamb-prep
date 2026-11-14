@@ -120,7 +120,6 @@ export default function TutorPage() {
 
   return (
     <div className="fixed inset-0 z-[60] flex min-h-0 flex-col overflow-hidden bg-[#0b1220] text-slate-100">
-      <Script id="mathjax-config" strategy="beforeInteractive">{`window.MathJax = { tex: { inlineMath: [['\\\\(', '\\\\)']], displayMath: [['\\\\[', '\\\\]'], ['$$', '$$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };`}</Script>
       <Script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" strategy="afterInteractive" onLoad={() => window.dispatchEvent(new Event('mathjax-ready'))} />
       <header className="flex h-[68px] shrink-0 items-center justify-between border-b border-white/10 bg-[#101a2b]/95 px-3 backdrop-blur-xl sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
