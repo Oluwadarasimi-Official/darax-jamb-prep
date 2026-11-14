@@ -119,7 +119,7 @@ export default function TutorPage() {
   );
 
   return (
-    <div className="fixed inset-0 z-[60] flex min-h-0 flex-col overflow-hidden bg-[#0b1220] text-slate-100">
+    <div className="fixed inset-0 z-[60] isolate flex h-[100dvh] w-full max-w-full min-h-0 flex-col overflow-x-clip overflow-y-hidden bg-[#0b1220] text-slate-100">
       <Script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" strategy="afterInteractive" onLoad={() => window.dispatchEvent(new Event('mathjax-ready'))} />
       <header className="flex h-[68px] shrink-0 items-center justify-between border-b border-white/10 bg-[#101a2b]/95 px-3 backdrop-blur-xl sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
@@ -135,7 +135,7 @@ export default function TutorPage() {
         </div>
       </header>
 
-      <div className="flex min-h-0 flex-1">
+      <div className="flex min-h-0 w-full min-w-0 flex-1 overflow-hidden">
         <aside className="hidden w-[290px] shrink-0 flex-col border-r border-white/10 bg-[#0e1727] p-3 lg:flex">
           <div className="mb-3 flex items-center justify-between px-2 py-2">
             <span className="text-xs font-semibold uppercase tracking-[.16em] text-slate-400">Your chats</span>
@@ -152,7 +152,7 @@ export default function TutorPage() {
           </aside>
         </div>}
 
-        <main className="flex min-w-0 flex-1 flex-col">
+        <main className="flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden">
           <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-white/10 bg-[#101a2b]/60 px-3 py-2.5 sm:px-6">
             <label className="flex items-center gap-2 text-xs text-slate-400">
               Subject
