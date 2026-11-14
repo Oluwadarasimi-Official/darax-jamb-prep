@@ -68,19 +68,19 @@ export default function AdminPage() {
         <GlassCard>
           <h2 className="font-bold text-lg mb-3">Subject enrolments</h2>
           {SUBJECTS.map(s => (
-            <div key={s.id} className="flex justify-between text-sm py-1.5 border-b border-white/5">
+            <div key={s.id} className="flex justify-between text-sm py-1.5 border-b border-ink/5">
               <span>{s.name}</span><strong>{enrolments[s.id] || 0} students</strong>
             </div>
           ))}
-          <p className="text-sm muted mt-3">Lessons completed across the platform: <strong className="text-white">{totalCompleted}</strong></p>
+          <p className="text-sm muted mt-3">Lessons completed across the platform: <strong className="text-ink">{totalCompleted}</strong></p>
           <Link href="/admin/content" className="btn-primary inline-block mt-4 text-sm">Open Content Studio →</Link>
         </GlassCard>
 
         <GlassCard>
           <h2 className="font-bold text-lg mb-3">Weekly leaderboard management</h2>
-          <p className="text-sm muted">Current week: <strong className="text-white">{wk}</strong> (Monday–Sunday, Africa/Lagos). Running the calculation is idempotent — a week already calculated will not create duplicate badges or notifications.</p>
+          <p className="text-sm muted">Current week: <strong className="text-ink">{wk}</strong> (Monday–Sunday, Africa/Lagos). Running the calculation is idempotent — a week already calculated will not create duplicate badges or notifications.</p>
           <button onClick={runWeeklyCalc} className="btn-primary mt-4 text-sm">Run weekly calculation for {wk}</button>
-          {runMsg && <p className="text-sm text-emerald-300 mt-3">{runMsg}</p>}
+          {runMsg && <p className="text-sm text-accent mt-3">{runMsg}</p>}
           <div className="mt-4">
             <h3 className="font-semibold text-sm mb-2">Saved weekly results</h3>
             {db.weekly.length === 0 ? <p className="text-sm muted">No weekly results saved yet.</p> : (
@@ -108,7 +108,7 @@ export default function AdminPage() {
           <input className="glass-input" value={annTitle} onChange={e => setAnnTitle(e.target.value)} placeholder="Announcement title" />
           <textarea className="glass-input" rows={3} value={annBody} onChange={e => setAnnBody(e.target.value)} placeholder="Message to all students…" />
           <button onClick={sendAnnouncement} className="btn-primary self-start text-sm">Publish announcement</button>
-          {annMsg && <p className="text-sm text-emerald-300">{annMsg}</p>}
+          {annMsg && <p className="text-sm text-accent">{annMsg}</p>}
         </div>
         {db.announcements.length > 0 && (
           <div className="mt-4 flex flex-col gap-1.5">

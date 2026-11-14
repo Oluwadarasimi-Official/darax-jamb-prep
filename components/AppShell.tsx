@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDb } from './db-context';
 import { Logo } from './Logo';
 import { Avatar } from './ui';
+import { ThemeToggle } from './ThemeToggle';
 
 const NAV = [
   { href: '/app/dashboard', label: 'Dashboard', icon: '▦' },
@@ -42,17 +43,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         const active = pathname === item.href || (item.href !== '/app/dashboard' && pathname.startsWith(item.href));
         return (
           <Link key={item.href} href={item.href} onClick={onNavigate}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${active ? 'bg-white/12 text-white border border-white/15' : 'text-white/70 hover:bg-white/5 hover:text-white'}`}>
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${active ? 'bg-ink/10 text-ink border border-ink/15' : 'text-ink/70 hover:bg-ink/5 hover:text-ink'}`}>
             <span className="text-base w-6 text-center" aria-hidden>{item.icon}</span>
             {!collapsed && <span className="truncate">{item.label}</span>}
             {!collapsed && item.href === '/app/notifications' && unread > 0 && (
-              <span className="ml-auto bg-emerald-400 text-navy-900 text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>
+              <span className="ml-auto bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>
             )}
           </Link>
         );
       })}
       {user.role === 'admin' && (
-        <Link href="/admin" className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mt-2 border border-amber-300/30 bg-amber-300/10 text-amber-200`}>
+        <Link href="/admin" className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mt-2 border border-warn/30 bg-warn/10 text-warn`}>
           <span className="text-base w-6 text-center" aria-hidden>⬢</span>
           {!collapsed && <span>Admin Panel</span>}
         </Link>
@@ -69,7 +70,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <button onClick={() => setCollapsed(c => !c)} className="btn-ghost !px-2 !py-1 text-sm" aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>{collapsed ? '»' : '«'}</button>
         </div>
         <div className="flex-1 overflow-y-auto no-scrollbar">{navList()}</div>
-        <div className="pt-3 border-t border-white/10">
+        <div className="pt-3 border-t border-ink/10">
           <div className="flex items-center gap-2.5 px-1">
             <Avatar name={user.fullName} size={36} />
             {!collapsed && (
@@ -78,6 +79,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <p className="text-xs muted truncate">@{user.username}</p>
               </div>
             )}
+          </div>
+          <div className="mt-3 px-1">
+            <ThemeToggle className={collapsed ? 'w-full !px-1' : 'w-full'} />
           </div>
           {!collapsed && <p className="text-[11px] muted mt-3 px-1">Official Darax Free JAMB Prep · v1.0.0</p>}
         </div>
@@ -89,7 +93,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <Logo size={32} />
           <div className="flex items-center gap-2">
             <Link href="/app/notifications" className="btn-ghost !px-3 !py-2 relative" aria-label="Notifications">
-              ◉{unread > 0 && <span className="absolute -top-1 -right-1 bg-emerald-400 text-navy-900 text-[10px] font-bold rounded-full px-1.5">{unread}</span>}
+              ◉{unread > 0 && <span className="absolute -top-1 -right-1 bg-brand text-white text-[10px] font-bold rounded-full px-1.5">{unread}</span>}
             </Link>
             <button onClick={() => setMobileOpen(true)} className="btn-ghost !px-3 !py-2" aria-label="Open menu">☰</button>
           </div>
@@ -102,7 +106,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <div className="absolute left-0 top-0 bottom-0 w-72 glass !rounded-none border-y-0 border-l-0 p-4 flex flex-col">
               <div className="flex items-center justify-between"><Logo /><button onClick={() => setMobileOpen(false)} className="btn-ghost !px-2 !py-1" aria-label="Close menu">✕</button></div>
               <div className="flex-1 overflow-y-auto">{navList(() => setMobileOpen(false))}</div>
-              <button onClick={logout} className="btn-ghost w-full mt-3">Log out</button>
+              <div className="flex gap-2 mt-3">
+                <ThemeToggle className="flex-1" />
+                <button onClick={logout} className="btn-ghost flex-1">Log out</button>
+              </div>
               <p className="text-[11px] muted mt-3">v1.0.0 · Official Darax</p>
             </div>
           </div>
@@ -112,7 +119,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <header className="hidden md:flex items-center justify-between px-6 py-4">
           <p className="text-sm muted">LEARN. PRACTICE. IMPROVE. EXCEL.</p>
           <div className="flex items-center gap-3">
-            <Link href="/app/notifications" className="btn-ghost relative">Notifications{unread > 0 && <span className="ml-2 bg-emerald-400 text-navy-900 text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}</Link>
+            <Link href="/app/notifications" className="btn-ghost relative">Notifications{unread > 0 && <span className="ml-2 bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}</Link>
             <button onClick={logout} className="btn-ghost">Log out</button>
           </div>
         </header>
@@ -130,7 +137,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           ].map(i => {
             const active = pathname === i.href || pathname.startsWith(i.href + '/');
             return (
-              <Link key={i.href} href={i.href} className={`flex flex-col items-center text-[11px] px-2 py-1 ${active ? 'text-emerald-300 font-semibold' : 'text-white/60'}`}>
+              <Link key={i.href} href={i.href} className={`flex flex-col items-center text-[11px] px-2 py-1 ${active ? 'text-accent font-semibold' : 'text-ink/60'}`}>
                 <span className="text-lg leading-none">{i.icon}</span>{i.label}
               </Link>
             );

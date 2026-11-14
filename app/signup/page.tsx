@@ -49,10 +49,10 @@ export default function SignupPage() {
           <label className="text-sm font-medium">Confirm password
             <input className="glass-input mt-1" type="password" value={confirm} onChange={e => setConfirm(e.target.value)} required autoComplete="new-password" />
           </label>
-          {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
+          {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
           <button className="btn-primary w-full" disabled={busy}>{busy ? 'Creating account…' : 'Create account'}</button>
         </form>
-        <p className="text-sm muted mt-4 text-center">Already have an account? <Link href="/login" className="text-emerald-300 underline">Log in</Link></p>
+        <p className="text-sm muted mt-4 text-center">Already have an account? <Link href="/login" className="text-accent underline">Log in</Link></p>
       </div>
     </div>
   );

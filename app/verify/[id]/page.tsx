@@ -17,12 +17,12 @@ export default function VerifyPage() {
         <div className="flex justify-center mb-5"><Logo size={48} /></div>
         {badge ? (
           <GlassCard className="text-center !p-8">
-            <p className="text-emerald-300 font-bold">✓ VERIFIED ACHIEVEMENT</p>
-            <p className="text-amber-300 text-5xl mt-4">★</p>
+            <p className="text-accent font-bold">✓ VERIFIED ACHIEVEMENT</p>
+            <p className="text-warn text-5xl mt-4">★</p>
             <h1 className="text-3xl font-extrabold mt-3">{badge.title}</h1>
             <p className="muted mt-2">Awarded to</p>
             <p className="text-2xl font-bold mt-1">{badge.fullName}</p>
-            <p className="mt-3">Position <strong className="text-emerald-300">#{badge.position}</strong> · Week <strong>{badge.week}</strong> · {badge.year}</p>
+            <p className="mt-3">Position <strong className="text-accent">#{badge.position}</strong> · Week <strong>{badge.week}</strong> · {badge.year}</p>
             <p className="text-sm muted mt-4 font-mono">{badge.id}</p>
             <p className="text-sm muted">Issued {new Date(badge.issueDate).toLocaleDateString()}</p>
             <div className="flex items-center justify-center gap-2 mt-5">

@@ -16,20 +16,20 @@ export default function LeaderboardsPage() {
     <GlassCard>
       <h2 className="font-bold text-xl">{title}</h2>
       <p className="muted text-sm mt-1">{expl}</p>
-      <p className="text-sm mt-2">Week <strong>{wk}</strong> (Monday–Sunday, Africa/Lagos){myRank ? <> · Your position: <strong className="text-emerald-300">#{myRank}</strong></> : ' · You are not ranked this week yet.'}</p>
+      <p className="text-sm mt-2">Week <strong>{wk}</strong> (Monday–Sunday, Africa/Lagos){myRank ? <> · Your position: <strong className="text-accent">#{myRank}</strong></> : ' · You are not ranked this week yet.'}</p>
       {rows.length === 0 ? (
         <div className="mt-4"><EmptyState title="Not enough data yet" body="Rankings appear once enough students complete assessments this week. Keep learning — your scores count automatically." /></div>
       ) : (
         <ol className="flex flex-col gap-2 mt-4">
           {rows.map((r, i) => (
-            <li key={r.userId} className={`glass-soft p-3 flex items-center gap-3 ${r.userId === user.id ? '!border-emerald-300/50 bg-emerald-400/10' : ''}`}>
+            <li key={r.userId} className={`glass-soft p-3 flex items-center gap-3 ${r.userId === user.id ? '!border-accent/50 bg-accent/10' : ''}`}>
               <span className="font-extrabold text-lg w-8 text-center">{i + 1}</span>
               <Avatar name={r.name} size={36} />
               <div className="min-w-0 flex-1">
                 <p className="font-semibold truncate">{r.name}{r.userId === user.id ? ' (you)' : ''}</p>
                 <p className="text-xs muted">{extra(r)}</p>
               </div>
-              <span className="font-bold text-emerald-300 shrink-0">{r.score}%</span>
+              <span className="font-bold text-accent shrink-0">{r.score}%</span>
             </li>
           ))}
         </ol>

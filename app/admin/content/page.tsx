@@ -81,7 +81,7 @@ export default function ContentStudioPage() {
           <input className="glass-input" value={genObjectives} onChange={e => setGenObjectives(e.target.value)} placeholder="Objectives (separate with commas)" />
         </div>
         <button onClick={generate} disabled={genBusy} className="btn-primary mt-3 text-sm">{genBusy ? 'Generating draft…' : 'Generate lesson draft with AI'}</button>
-        {genMsg && <p className="text-sm text-emerald-300 mt-3">{genMsg}</p>}
+        {genMsg && <p className="text-sm text-accent mt-3">{genMsg}</p>}
       </GlassCard>
 
       {db.drafts.length > 0 && (

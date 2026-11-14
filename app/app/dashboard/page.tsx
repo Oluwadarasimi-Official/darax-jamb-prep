@@ -68,14 +68,14 @@ export default function DashboardPage() {
           <GlassCard>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-bold text-lg">My Subjects</h2>
-              <Link href="/app/subjects" className="text-sm text-emerald-300 underline">View all</Link>
+              <Link href="/app/subjects" className="text-sm text-accent underline">View all</Link>
             </div>
             <div className="flex flex-col gap-3">
               {user.subjects.map(id => {
                 const s = getSubject(id)!;
                 const p = subjectProgress(db, user.id, id);
                 return (
-                  <Link key={id} href={`/app/subjects/${id}`} className="glass-soft p-3 block hover:bg-white/10">
+                  <Link key={id} href={`/app/subjects/${id}`} className="glass-soft p-3 block hover:bg-ink/10">
                     <div className="flex items-center justify-between">
                       <span className="font-semibold flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: s.colour }} />{s.name}</span>
                       <span className="text-sm muted">{p.completed}/{p.total} · {p.percent}%</span>
@@ -91,7 +91,7 @@ export default function DashboardPage() {
           <GlassCard>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-bold text-lg">Recent quiz scores</h2>
-              <Link href="/app/assessments" className="text-sm text-emerald-300 underline">All assessments</Link>
+              <Link href="/app/assessments" className="text-sm text-accent underline">All assessments</Link>
             </div>
             {recent.length === 0 ? (
               <EmptyState title="No assessments yet" body="Take your first lesson quiz and your scores will appear here." action={<Link href="/app/subjects" className="btn-primary">Start a lesson</Link>} />
@@ -100,12 +100,12 @@ export default function DashboardPage() {
                 {recent.map(a => (
                   <div key={a.id} className="glass-soft p-3 flex items-center justify-between gap-3">
                     <div className="min-w-0"><p className="font-medium truncate">{a.title}</p><p className="text-xs muted">{new Date(a.completedAt).toLocaleString()} · {a.kind}</p></div>
-                    <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-emerald-300' : 'text-amber-300'}`}>{a.score}%</span>
+                    <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-accent' : 'text-warn'}`}>{a.score}%</span>
                   </div>
                 ))}
               </div>
             )}
-            <p className="text-sm muted mt-3">Pending assessments: <strong className="text-white">{pending}</strong> lessons still to complete.</p>
+            <p className="text-sm muted mt-3">Pending assessments: <strong className="text-ink">{pending}</strong> lessons still to complete.</p>
           </GlassCard>
         </div>
 
@@ -129,7 +129,7 @@ export default function DashboardPage() {
           <GlassCard>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-bold text-lg">Achievement badges</h2>
-              <Link href="/app/achievements" className="text-sm text-emerald-300 underline">View all</Link>
+              <Link href="/app/achievements" className="text-sm text-accent underline">View all</Link>
             </div>
             {myBadges.length === 0 ? (
               <p className="muted text-sm">No badges yet. Finish in the weekly Top 10 to earn an official Official Darax badge.</p>
@@ -138,7 +138,7 @@ export default function DashboardPage() {
                 {myBadges.slice(0, 3).map(b => (
                   <Link key={b.id} href={`/app/achievements/${b.id}`} className="glass-soft p-3 flex items-center justify-between">
                     <span><span className="font-medium">{b.title}</span><span className="muted text-sm block">{b.week} · Position #{b.position}</span></span>
-                    <span className="text-amber-300">★</span>
+                    <span className="text-warn">★</span>
                   </Link>
                 ))}
               </div>
@@ -148,7 +148,7 @@ export default function DashboardPage() {
           <GlassCard>
             <div className="flex items-center justify-between mb-3">
               <h2 className="font-bold text-lg">Recent notifications</h2>
-              <Link href="/app/notifications" className="text-sm text-emerald-300 underline">View all</Link>
+              <Link href="/app/notifications" className="text-sm text-accent underline">View all</Link>
             </div>
             {notifs.length === 0 ? (
               <p className="muted text-sm">No notifications yet.</p>

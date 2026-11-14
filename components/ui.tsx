@@ -6,8 +6,8 @@ export function GlassCard({ children, className = '' }: { children: ReactNode; c
 
 export function ProgressBar({ value, className = '' }: { value: number; className?: string }) {
   return (
-    <div className={`h-2.5 rounded-full bg-white/10 overflow-hidden ${className}`} role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}>
-      <div className="h-full rounded-full transition-all" style={{ width: `${Math.min(100, Math.max(0, value))}%`, background: 'linear-gradient(90deg,#1769AA,#1E9E50)' }} />
+    <div className={`h-2.5 rounded-full bg-ink/10 overflow-hidden ${className}`} role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}>
+      <div className="h-full rounded-full transition-all" style={{ width: `${Math.min(100, Math.max(0, value))}%`, background: 'linear-gradient(90deg,#3367c1,#173b78)' }} />
     </div>
   );
 }
@@ -33,7 +33,7 @@ export function initials(name: string) {
 export function Avatar({ name, size = 40 }: { name: string; size?: number }) {
   return (
     <span className="inline-flex items-center justify-center rounded-full font-bold text-white shrink-0"
-      style={{ width: size, height: size, fontSize: size * 0.38, background: 'linear-gradient(135deg,#1769AA,#1E9E50)' }}>
+      style={{ width: size, height: size, fontSize: size * 0.38, background: 'linear-gradient(135deg,#3367c1,#173b78)' }}>
       {initials(name)}
     </span>
   );

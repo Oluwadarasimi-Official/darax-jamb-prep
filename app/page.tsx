@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { Logo } from '@/components/Logo';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { SUBJECTS } from '@/lib/curriculum';
 
 export default function Landing() {
   return (
     <div className="min-h-screen">
-      <header className="max-w-6xl mx-auto px-4 py-5 flex items-center justify-between">
+      <header className="max-w-6xl mx-auto px-4 py-5 flex flex-wrap items-center justify-between gap-2">
         <Logo />
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center flex-wrap justify-end">
+          <ThemeToggle />
           <Link href="/login" className="btn-ghost">Log in</Link>
           <Link href="/signup" className="btn-primary">Create free account</Link>
         </div>
@@ -16,7 +18,7 @@ export default function Landing() {
         <section className="glass p-8 md:p-12 mt-4 text-center">
           <p className="chip inline-block mb-4">100% FREE · FOR SCIENCE STUDENTS · POWERED BY OFFICIAL DARAX</p>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">The Official Darax<br />Free JAMB Prep</h1>
-          <p className="text-xl font-semibold text-emerald-300 mt-4 tracking-wide">LEARN. PRACTICE. IMPROVE. EXCEL.</p>
+          <p className="text-xl font-semibold text-accent mt-4 tracking-wide">LEARN. PRACTICE. IMPROVE. EXCEL.</p>
           <p className="muted max-w-2xl mx-auto mt-4 leading-relaxed">
             A complete JAMB preparation platform for science students: structured lessons across the
             JAMB syllabus, lesson quizzes with a 70% pass rule, timed mock examinations, a Darax AI

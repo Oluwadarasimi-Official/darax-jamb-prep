@@ -49,13 +49,13 @@ export default function LearnPage() {
   return (
     <div className="flex flex-col gap-5 max-w-4xl">
       <div className="flex items-center justify-between gap-3 flex-wrap">
-        <Link href={`/app/subjects/${lesson.subjectId}`} className="text-sm text-emerald-300 underline">← Back to subject</Link>
+        <Link href={`/app/subjects/${lesson.subjectId}`} className="text-sm text-accent underline">← Back to subject</Link>
         <span className="chip">{lesson.topic} · Lesson {lesson.order} of {lessons.length}</span>
       </div>
       <GlassCard>
         <h1 className="text-2xl font-bold">{lesson.title}</h1>
         <p className="muted text-sm mt-1">{lesson.subtopic}</p>
-        {prog?.completed && <p className="text-sm text-emerald-300 mt-2">✓ Completed — best score {prog.bestScore}% · You can revisit this lesson anytime.</p>}
+        {prog?.completed && <p className="text-sm text-accent mt-2">✓ Completed — best score {prog.bestScore}% · You can revisit this lesson anytime.</p>}
         <div className="prose-glass mt-4"><p>{lesson.introduction}</p></div>
       </GlassCard>
 
@@ -101,7 +101,7 @@ export default function LearnPage() {
               <ol className="list-decimal pl-5 mt-2 flex flex-col gap-1 text-sm leading-relaxed">
                 {ex.steps.map((s, j) => <li key={j}>{s}</li>)}
               </ol>
-              <p className="text-sm mt-2 text-emerald-300 font-semibold">Answer: {ex.answer}</p>
+              <p className="text-sm mt-2 text-accent font-semibold">Answer: {ex.answer}</p>
             </div>
           ))}
         </div>

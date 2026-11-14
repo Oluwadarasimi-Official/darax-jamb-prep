@@ -43,7 +43,7 @@ export default function OnboardingPage() {
         <h2 className="font-semibold mt-6 mb-2">1. English Language <span className="chip">Compulsory</span></h2>
         <div className="glass-soft p-3 flex items-center justify-between">
           <span className="font-medium">English Language</span>
-          <span className="text-emerald-300 text-sm font-semibold">✓ Locked in</span>
+          <span className="text-accent text-sm font-semibold">✓ Locked in</span>
         </div>
 
         <h2 className="font-semibold mt-6 mb-2">2. Pick exactly three more science subjects <span className="muted font-normal">({picked.length}/3 selected)</span></h2>
@@ -52,7 +52,7 @@ export default function OnboardingPage() {
             const on = picked.includes(id);
             return (
               <button key={id} onClick={() => toggle(id)} aria-pressed={on}
-                className={`text-left p-3 rounded-xl border transition-colors ${on ? 'bg-emerald-400/15 border-emerald-300/50' : 'bg-white/5 border-white/12 hover:bg-white/10'}`}>
+                className={`text-left p-3 rounded-xl border transition-colors ${on ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
                 <span className="font-medium">{SUBJECT_NAMES[id]}</span>
                 <span className="float-right">{on ? '✓' : '○'}</span>
               </button>
@@ -66,12 +66,12 @@ export default function OnboardingPage() {
           {COURSE_REQUIREMENTS.map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
         </select>
         {course && (
-          <p className={`text-sm mt-2 px-3 py-2 rounded-lg border ${validation.ok ? 'text-emerald-200 bg-emerald-500/10 border-emerald-400/30' : 'text-amber-200 bg-amber-500/10 border-amber-400/30'}`}>
+          <p className={`text-sm mt-2 px-3 py-2 rounded-lg border ${validation.ok ? 'text-accent bg-accent/10 border-accent/30' : 'text-warn bg-warn/10 border-warn/30'}`}>
             {validation.message}
           </p>
         )}
         {picked.length === 3 && !course && <p className="text-sm muted mt-2">{validation.message}</p>}
-        {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2 mt-4">{error}</p>}
+        {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 mt-4">{error}</p>}
         <button onClick={submit} className="btn-primary w-full mt-6" disabled={picked.length !== 3}>
           {picked.length !== 3 ? `Pick ${3 - picked.length} more subject${3 - picked.length === 1 ? '' : 's'} to continue` : 'Save my subjects and start learning'}
         </button>

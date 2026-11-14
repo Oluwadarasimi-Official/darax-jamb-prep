@@ -12,7 +12,7 @@ export default function SubjectsPage() {
     <div className="flex flex-col gap-5">
       <div>
         <h1 className="text-2xl font-bold">My Subjects</h1>
-        <p className="muted text-sm mt-1">Your four JAMB subjects. English Language is compulsory. Change subjects in <Link href="/app/profile" className="text-emerald-300 underline">My Profile</Link>.</p>
+        <p className="muted text-sm mt-1">Your four JAMB subjects. English Language is compulsory. Change subjects in <Link href="/app/profile" className="text-accent underline">My Profile</Link>.</p>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         {user.subjects.map(id => {

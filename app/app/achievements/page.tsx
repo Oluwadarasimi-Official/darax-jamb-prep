@@ -22,7 +22,7 @@ export default function AchievementsPage() {
             <GlassCard key={b.id}>
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-amber-300 text-2xl">★</p>
+                  <p className="text-warn text-2xl">★</p>
                   <p className="font-bold text-lg mt-1">{b.title}</p>
                   <p className="text-sm muted">Position #{b.position} · Week {b.week} · {b.year}</p>
                   <p className="text-xs muted mt-2 font-mono">{b.id}</p>

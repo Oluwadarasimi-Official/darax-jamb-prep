@@ -29,7 +29,7 @@ export default function NotificationsPage() {
             <GlassCard key={n.id} className={`!p-4 ${n.read ? 'opacity-70' : ''}`}>
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="font-semibold">{!n.read && <span className="text-emerald-300 mr-1">●</span>}{n.title}</p>
+                  <p className="font-semibold">{!n.read && <span className="text-accent mr-1">●</span>}{n.title}</p>
                   <p className="text-sm muted mt-1 leading-relaxed">{n.body}</p>
                   <p className="text-xs muted mt-2">{new Date(n.createdAt).toLocaleString()} · {n.kind}</p>
                 </div>

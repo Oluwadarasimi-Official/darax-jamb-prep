@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "computer-studies",
   name: "Computer Studies",
   short: "Computer",
-  colour: "#2563eb",
+  colour: "#122c5c",
   tagline: "From bits to programs — compute with confidence.",
   description: "Computer Studies for JAMB covers computer fundamentals, data representation, operating systems and software, databases and networks, and programming logic, using practical everyday examples.",
   topics: [

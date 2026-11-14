@@ -13,8 +13,8 @@ export function Logo({ size = 44, withWordmark = true }: { size?: number; withWo
       />
       {withWordmark && (
         <span className="leading-tight">
-          <span className="block font-extrabold tracking-tight text-white text-[15px]">Official Darax</span>
-          <span className="block text-[11px] tracking-[0.18em] text-emerald-200/80 font-semibold">FREE JAMB PREP</span>
+          <span className="block font-extrabold tracking-tight text-ink text-[15px]">Official Darax</span>
+          <span className="block text-[11px] tracking-[0.18em] text-accent/80 font-semibold">FREE JAMB PREP</span>
         </span>
       )}
     </span>
@@ -24,7 +24,7 @@ export function Logo({ size = 44, withWordmark = true }: { size?: number; withWo
 export function VerifiedBadge({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-label="Official Darax verified" role="img">
-      <circle cx="12" cy="12" r="11" fill="#1769AA" />
+      <circle cx="12" cy="12" r="11" fill="#3367c1" />
       <path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );

@@ -33,7 +33,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
             <input className="glass-input flex-1" type="password" value={code} onChange={e => setCode(e.target.value)} placeholder="Admin setup code" />
             <button onClick={claim} className="btn-primary">Claim admin</button>
           </div>
-          {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2 mt-3">{error}</p>}
+          {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 mt-3">{error}</p>}
           <button onClick={() => router.replace('/app/dashboard')} className="btn-ghost w-full mt-4">Back to dashboard</button>
         </div>
       </div>

@@ -49,24 +49,24 @@ export default function ResetPage() {
             <label className="text-sm font-medium">Email address
               <input className="glass-input mt-1" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
             </label>
-            {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
-            {msg && <p className="text-sm text-emerald-200 bg-emerald-500/10 border border-emerald-400/30 rounded-lg px-3 py-2">{msg}</p>}
+            {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
+            {msg && <p className="text-sm text-accent bg-accent/10 border border-accent/30 rounded-lg px-3 py-2">{msg}</p>}
             <button className="btn-primary w-full">Send reset code</button>
           </form>
         ) : (
           <form onSubmit={doReset} className="mt-6 flex flex-col gap-3">
-            {msg && <p className="text-sm text-emerald-200 bg-emerald-500/10 border border-emerald-400/30 rounded-lg px-3 py-2">{msg}</p>}
+            {msg && <p className="text-sm text-accent bg-accent/10 border border-accent/30 rounded-lg px-3 py-2">{msg}</p>}
             <label className="text-sm font-medium">6-digit code
               <input className="glass-input mt-1" value={code} onChange={e => setCode(e.target.value)} required inputMode="numeric" />
             </label>
             <label className="text-sm font-medium">New password
               <input className="glass-input mt-1" type="password" value={pw} onChange={e => setPw(e.target.value)} required />
             </label>
-            {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
+            {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
             <button className="btn-primary w-full">Change password</button>
           </form>
         )}
-        <p className="text-sm muted mt-4 text-center"><Link href="/login" className="text-emerald-300 underline">Back to login</Link></p>
+        <p className="text-sm muted mt-4 text-center"><Link href="/login" className="text-accent underline">Back to login</Link></p>
       </div>
     </div>
   );

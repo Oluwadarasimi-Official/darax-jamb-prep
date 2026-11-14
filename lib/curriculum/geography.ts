@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "geography",
   name: "Geography",
   short: "GEO",
-  colour: "#059669",
+  colour: "#7ea6e8",
   tagline: "Understand the Earth, its people and their livelihoods.",
   description: "Master physical geography, map work and GIS, climate and vegetation, population and settlement, and economic geography for JAMB, with Nigerian and African examples throughout, worked calculations and original practice questions.",
   topics: ["Physical Geography", "Map Work and GIS", "Climate and Vegetation", "Population and Settlement", "Economic Geography"],

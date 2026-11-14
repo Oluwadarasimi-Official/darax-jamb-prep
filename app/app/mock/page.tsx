@@ -45,7 +45,7 @@ export default function MockPage() {
         <button onClick={start} className="btn-primary mt-5">Start mock exam — 30 minutes</button>
         <p className="text-xs muted mt-3">Make sure you have a stable connection and 30 uninterrupted minutes.</p>
       </GlassCard>
-      <Link href="/app/assessments" className="text-sm text-emerald-300 underline">← Back to assessments</Link>
+      <Link href="/app/assessments" className="text-sm text-accent underline">← Back to assessments</Link>
     </div>
   );
 }

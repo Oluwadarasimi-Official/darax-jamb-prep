@@ -47,9 +47,9 @@ export default function SubjectDetailPage() {
                     ) : unlocked ? (
                       <Link href={`/app/learn/${l.id}`} className="btn-primary text-sm shrink-0">Start →</Link>
                     ) : unpublished ? (
-                      <span className="text-xs muted shrink-0 border border-white/15 rounded-lg px-3 py-2">Not published yet</span>
+                      <span className="text-xs muted shrink-0 border border-ink/15 rounded-lg px-3 py-2">Not published yet</span>
                     ) : (
-                      <span className="text-xs muted shrink-0 border border-white/15 rounded-lg px-3 py-2">🔒 Locked — score 70%+ on the previous lesson</span>
+                      <span className="text-xs muted shrink-0 border border-ink/15 rounded-lg px-3 py-2">🔒 Locked — score 70%+ on the previous lesson</span>
                     )}
                   </div>
                 );

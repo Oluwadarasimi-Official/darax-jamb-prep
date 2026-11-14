@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { hashPassword } from '@/lib/auth';
 import { GlassCard } from '@/components/ui';
+import { THEME_OPTIONS, useThemeChoice } from '@/components/ThemeToggle';
 
 export default function SettingsPage() {
   const { db, user, setDb } = useDb();
@@ -13,6 +14,7 @@ export default function SettingsPage() {
   const [newPw, setNewPw] = useState('');
   const [confirmPw, setConfirmPw] = useState('');
   const [prefs, setPrefs] = useState(user?.notifyPrefs || { weekly: true, lessons: true, results: true, announcements: true });
+  const [themeChoice, setThemeChoice] = useThemeChoice();
   const [msg, setMsg] = useState('');
   const [error, setError] = useState('');
   if (!user) return null;
@@ -51,15 +53,34 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-5 max-w-2xl">
       <h1 className="text-2xl font-bold">Settings</h1>
-      {msg && <p className="text-sm text-emerald-300 bg-emerald-500/10 border border-emerald-400/30 rounded-lg px-3 py-2">{msg}</p>}
-      {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
+      {msg && <p className="text-sm text-accent bg-accent/10 border border-accent/30 rounded-lg px-3 py-2">{msg}</p>}
+      {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
 
       <GlassCard>
         <h2 className="font-bold text-lg mb-3">Profile</h2>
-        <p className="text-sm muted">Full name: <strong className="text-white">{user.fullName}</strong> · Username: <strong className="text-white">@{user.username}</strong> (username cannot be changed) · Email: <strong className="text-white">{user.email}</strong></p>
+        <p className="text-sm muted">Full name: <strong className="text-ink">{user.fullName}</strong> · Username: <strong className="text-ink">@{user.username}</strong> (username cannot be changed) · Email: <strong className="text-ink">{user.email}</strong></p>
         <div className="flex gap-2 mt-3">
           <input className="glass-input flex-1" value={name} onChange={e => setName(e.target.value)} placeholder="New full name" />
           <button onClick={saveName} className="btn-primary text-sm">Save name</button>
+        </div>
+      </GlassCard>
+
+      <GlassCard>
+        <h2 className="font-bold text-lg mb-3">Appearance</h2>
+        <p className="text-sm muted mb-3">Choose how the app looks. Your choice applies instantly and is remembered on this device.</p>
+        <div className="grid grid-cols-3 gap-2">
+          {THEME_OPTIONS.map(o => (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => setThemeChoice(o.value)}
+              aria-pressed={themeChoice === o.value}
+              className={`text-left p-3 rounded-xl border transition-colors ${themeChoice === o.value ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}
+            >
+              <span className="block font-semibold text-sm">{o.label}</span>
+              <span className="block text-xs muted mt-0.5">{o.hint}</span>
+            </button>
+          ))}
         </div>
       </GlassCard>
 
@@ -84,7 +105,7 @@ export default function SettingsPage() {
           ] as const).map(([key, label]) => (
             <label key={key} className="flex items-center justify-between glass-soft p-3 text-sm cursor-pointer">
               {label}
-              <input type="checkbox" checked={prefs[key]} onChange={() => togglePref(key)} className="w-5 h-5 accent-emerald-400" />
+              <input type="checkbox" checked={prefs[key]} onChange={() => togglePref(key)} className="w-5 h-5 accent-brand" />
             </label>
           ))}
         </div>

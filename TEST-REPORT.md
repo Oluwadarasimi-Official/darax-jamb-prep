@@ -39,6 +39,14 @@ quiz load + 5 questions + submit + server-graded result with explanations +
 retake · tutor honest not-configured state · verify not-found · admin gate ·
 mobile 390px overflow on 5 routes (0px each).
 
+## Live verification (2026-11-14 ~17:56 WAT, by Maverick after deploy)
+
+- Production URL https://daraxjambprep.vercel.app serves the app (logo, title, tagline, feature sections verified in browser).
+- **TEST I (Groq) now ✅ PASS live**: POST /api/tutor with a real Physics question returned HTTP 200 with a correct Newton's First Law explanation from model openai/gpt-oss-120b. GROQ_API_KEY is set on Vercel (Production + Preview).
+- Deploy: GitHub Oluwadarasimi-Official/darax-jamb-prep → Vercel project daraxjambprep (Tech Nova Academy team), build READY in 42s. Vercel MCP API was 403-blocked on the team scope, so deploy went via the Vercel dashboard + identity code.
+- Admin code set on Vercel: DARAX-516ED1-8D18CD (tell David in chat; not in repo).
+- Still open: TEST Q (Supabase RLS — migration written, not yet run against a real project); first real weekly run needs real students; reference video not received.
+
 ## Known gaps (need David / deploy-time)
 
 1. **Groq live call** — set `GROQ_API_KEY` on Vercel, then send one tutor message
@@ -61,3 +69,23 @@ mobile 390px overflow on 5 routes (0px each).
   the app-shell `<main>` and dashboard grid columns.
 - Import-depth errors across nested routes — converted app imports to the `@/`
   alias.
+
+## Style update — Roemichs blue + theme switcher (2026-11-14, v1.0.1)
+
+- Recoloured the whole app from green/navy to the Roemichs blue family:
+  primary #3367c1, deep #173b78, tints #dce8ff / #eaf1ff / #f8faff.
+  Green accent #1E9E50 and navy base #102D46 are gone from the UI; the real
+  logo (public/logo.png) is untouched. Subject dots are now 8 distinct blues.
+- Theme switcher: Settings → Appearance offers Dark / Light / System,
+  persisted in localStorage (`darax-theme`), applied via `data-theme` on
+  <html> with CSS variables; a sun/moon toggle sits in the sidebar footer,
+  the mobile drawer and the landing header. Default is Dark; a boot script
+  in <head> applies the stored theme before first paint (no white flash).
+- Headless checks (playwright-core, production build on :3100): landing,
+  dashboard, lesson, settings at 390px and 1280px in BOTH themes — 0px
+  horizontal overflow on all 16 combos, logo loads everywhere, toggle click
+  flips the theme and persists it. Screenshots reviewed: light landing +
+  dashboard + settings, dark lesson + landing — all readable, no clipping.
+  One fix found in review: the mobile landing header crowded at 390px —
+  fixed by making the toggle icon-only below the sm breakpoint and letting
+  the header wrap.

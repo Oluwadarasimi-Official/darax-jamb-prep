@@ -36,16 +36,16 @@ export default function LoginPage() {
           <label className="text-sm font-medium">Password
             <input className="glass-input mt-1" type="password" value={password} onChange={e => setPassword(e.target.value)} required autoComplete="current-password" />
           </label>
-          {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
+          {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
           <button className="btn-primary w-full" disabled={busy}>{busy ? 'Logging in…' : 'Log in'}</button>
         </form>
         <p className="text-sm muted mt-4 text-center">
-          <Link href="/reset" className="text-emerald-300 underline">Forgot your password?</Link>
-          {' · '}New here? <Link href="/signup" className="text-emerald-300 underline">Create a free account</Link>
+          <Link href="/reset" className="text-accent underline">Forgot your password?</Link>
+          {' · '}New here? <Link href="/signup" className="text-accent underline">Create a free account</Link>
         </p>
         <div className="glass-soft p-3 mt-5 text-xs muted">
-          <p className="font-semibold text-white/85">Try it instantly — demo account</p>
-          <p className="mt-1">Username: <span className="text-white">demo_student</span> · Password: <span className="text-white">Demo1234!</span></p>
+          <p className="font-semibold text-ink/85">Try it instantly — demo account</p>
+          <p className="mt-1">Username: <span className="text-ink">demo_student</span> · Password: <span className="text-ink">Demo1234!</span></p>
           <p className="mt-1">Demo data is labelled as test data and never appears on leaderboards.</p>
         </div>
       </div>

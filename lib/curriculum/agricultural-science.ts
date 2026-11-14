@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "agricultural-science",
   name: "Agricultural Science",
   short: "Agric",
-  colour: "#16a34a",
+  colour: "#5b8ad9",
   tagline: "Grow knowledge, harvest success.",
   description: "Agricultural Science for JAMB covers soil science, crop production, animal production, farm management and mechanisation, and agricultural economics and extension, using Nigerian farming examples.",
   topics: [

@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "mathematics",
   name: "Mathematics",
   short: "Maths",
-  colour: "#2563EB",
+  colour: "#173b78",
   tagline: "Master numbers, algebra and geometry the JAMB way.",
   description: "Complete JAMB Mathematics coverage: number work, algebra, geometry, trigonometry, calculus, statistics and probability, with worked examples and original practice questions in every lesson.",
   topics: ["Number and Numeration", "Algebraic Processes", "Geometry and Trigonometry", "Calculus", "Statistics and Probability"],

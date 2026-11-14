@@ -78,7 +78,7 @@ export default function ProfilePage() {
                 const on = picked.includes(id);
                 return (
                   <button key={id} onClick={() => setPicked(p => p.includes(id) ? p.filter(x => x !== id) : p.length >= 3 ? p : [...p, id])}
-                    className={`text-left p-3 rounded-xl border ${on ? 'bg-emerald-400/15 border-emerald-300/50' : 'bg-white/5 border-white/12'}`}>
+                    className={`text-left p-3 rounded-xl border ${on ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10'}`}>
                     {SUBJECT_NAMES[id]} <span className="float-right">{on ? '✓' : '○'}</span>
                   </button>
                 );
@@ -90,8 +90,8 @@ export default function ProfilePage() {
                 {COURSE_REQUIREMENTS.map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
               </select>
             </label>
-            {course && <p className="text-sm mt-2 px-3 py-2 rounded-lg border bg-white/5 border-white/15">{validateCombination(['english', ...picked], course).message}</p>}
-            {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2 mt-3">{error}</p>}
+            {course && <p className="text-sm mt-2 px-3 py-2 rounded-lg border bg-ink/5 border-ink/15">{validateCombination(['english', ...picked], course).message}</p>}
+            {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 mt-3">{error}</p>}
             <div className="flex gap-2 mt-4">
               <button onClick={saveSubjects} className="btn-primary text-sm">Save subjects</button>
               <button onClick={() => setEditingSubjects(false)} className="btn-ghost text-sm">Cancel</button>
@@ -108,8 +108,8 @@ export default function ProfilePage() {
                 </div>
               );
             })}
-            <p className="text-sm muted">Intended course: <strong className="text-white">{user.intendedCourse || 'Not set'}</strong></p>
-            {msg && <p className="text-sm text-emerald-300">{msg}</p>}
+            <p className="text-sm muted">Intended course: <strong className="text-ink">{user.intendedCourse || 'Not set'}</strong></p>
+            {msg && <p className="text-sm text-accent">{msg}</p>}
           </div>
         )}
       </GlassCard>
@@ -117,14 +117,14 @@ export default function ProfilePage() {
       <GlassCard>
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-bold text-lg">Assessment records</h2>
-          <Link href="/app/assessments" className="text-sm text-emerald-300 underline">Full history</Link>
+          <Link href="/app/assessments" className="text-sm text-accent underline">Full history</Link>
         </div>
         {attempts.length === 0 ? <p className="muted text-sm">No assessments yet.</p> : (
           <div className="flex flex-col gap-2">
             {attempts.slice(0, 5).map(a => (
               <div key={a.id} className="glass-soft p-3 flex justify-between gap-3 text-sm">
                 <span className="truncate">{a.title}</span>
-                <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-emerald-300' : 'text-amber-300'}`}>{a.score}%</span>
+                <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-accent' : 'text-warn'}`}>{a.score}%</span>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default function ProfilePage() {
       <GlassCard>
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-bold text-lg">Achievement badges</h2>
-          <Link href="/app/achievements" className="text-sm text-emerald-300 underline">View all</Link>
+          <Link href="/app/achievements" className="text-sm text-accent underline">View all</Link>
         </div>
         {myBadges.length === 0 ? <p className="muted text-sm">No badges yet — finish in a weekly Top 10 to earn one.</p> : (
           <div className="flex flex-wrap gap-2">

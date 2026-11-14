@@ -87,7 +87,7 @@ export default function AssessmentsPage() {
           <h2 className="font-bold text-lg">Mixed-subject revision</h2>
           <p className="muted text-sm mt-1">20 questions across all four of your subjects.</p>
           <button onClick={startMixed} className="btn-primary w-full mt-3 text-sm">Start mixed test</button>
-          <div className="border-t border-white/10 mt-4 pt-4">
+          <div className="border-t border-ink/10 mt-4 pt-4">
             <h3 className="font-bold">Timed JAMB-style mock</h3>
             <p className="muted text-sm mt-1">20 questions · 30 minutes · auto-submits when time expires.</p>
             <Link href="/app/mock" className="btn-primary inline-block mt-3 text-sm">Open mock exam →</Link>
@@ -123,7 +123,7 @@ export default function AssessmentsPage() {
                   <p className="font-medium truncate">{a.title}</p>
                   <p className="text-xs muted">{new Date(a.completedAt).toLocaleString()} · {a.kind} · {a.correct}/{a.total} correct</p>
                 </div>
-                <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-emerald-300' : 'text-amber-300'}`}>{a.score}%</span>
+                <span className={`font-bold shrink-0 ${a.score >= 70 ? 'text-accent' : 'text-warn'}`}>{a.score}%</span>
               </div>
             ))}
           </div>

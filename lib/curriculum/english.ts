@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "english",
   name: "English Language",
   short: "ENG",
-  colour: "#2563eb",
+  colour: "#3367c1",
   tagline: "Read smart, write clearly, speak confidently.",
   description: "Master comprehension, lexis and structure, oral English, grammar and vocabulary for JAMB Use of English. Every lesson builds the reading, listening and writing skills the exam rewards, with worked examples and original practice questions.",
   topics: ["Comprehension", "Lexis and Structure", "Oral English", "Grammar and Sentence Interpretation", "Vocabulary Development"],

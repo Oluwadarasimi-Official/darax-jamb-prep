@@ -95,7 +95,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
         <div className="glass p-6 text-center">
           <p className="text-5xl font-extrabold">{result.score}%</p>
           <p className="mt-1 font-semibold">{result.correct} correct out of {result.total}</p>
-          <p className={`mt-2 font-semibold ${passed ? 'text-emerald-300' : 'text-amber-300'}`}>
+          <p className={`mt-2 font-semibold ${passed ? 'text-accent' : 'text-warn'}`}>
             {kind === 'lesson'
               ? passed ? '🎉 Passed! The next lesson is now unlocked.' : `Not yet — you need ${PASS_MARK}% to unlock the next lesson. Review the explanations and retake it.`
               : passed ? '🎉 Well done — you passed!' : 'Keep practising — review the explanations below and try again.'}
@@ -104,10 +104,10 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
         </div>
         <div className="flex flex-col gap-3">
           {result.graded.map((g, i) => (
-            <div key={i} className={`glass p-4 border-l-4 ${g.chosen === g.correct ? '!border-l-emerald-400' : '!border-l-red-400'}`}>
+            <div key={i} className={`glass p-4 border-l-4 ${g.chosen === g.correct ? '!border-l-accent' : '!border-l-danger'}`}>
               <p className="font-medium">Q{i + 1}. {g.q}</p>
               <p className="text-sm mt-2">Your answer: <strong>{g.chosen >= 0 ? g.options[g.chosen] : 'No answer'}</strong> {g.chosen === g.correct ? '✓ Correct' : '✗ Incorrect'}</p>
-              {g.chosen !== g.correct && <p className="text-sm mt-1 text-emerald-300">Correct answer: {g.options[g.correct]}</p>}
+              {g.chosen !== g.correct && <p className="text-sm mt-1 text-accent">Correct answer: {g.options[g.correct]}</p>}
               <p className="text-sm muted mt-1 leading-relaxed">Explanation: {g.explanation}</p>
             </div>
           ))}
@@ -130,9 +130,9 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
     <div className="flex flex-col gap-4">
       <div className="glass p-5 flex flex-wrap items-center justify-between gap-3">
         <div><h1 className="text-xl font-bold">{title}</h1><p className="muted text-sm mt-0.5">{questions.length} questions · Pass mark {PASS_MARK}% · Answers are hidden until you submit</p></div>
-        {timeLimitSec ? <p className={`font-bold text-lg ${secondsLeft < 120 ? 'text-red-300' : ''}`}>⏱ {mm}:{ss} left</p> : <p className="text-sm muted">Answered {answered}/{questions.length}</p>}
+        {timeLimitSec ? <p className={`font-bold text-lg ${secondsLeft < 120 ? 'text-danger' : ''}`}>⏱ {mm}:{ss} left</p> : <p className="text-sm muted">Answered {answered}/{questions.length}</p>}
       </div>
-      {error && <p className="text-sm text-red-300 bg-red-500/10 border border-red-400/30 rounded-lg px-3 py-2">{error}</p>}
+      {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}
       {questions.map((q, i) => (
         <div key={q.ref} className="glass p-5">
           <p className="font-semibold">Q{i + 1}. {q.q}</p>
@@ -141,7 +141,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
               const sel = answers[i] === oi;
               return (
                 <button key={oi} onClick={() => setAnswers(a => ({ ...a, [i]: oi }))}
-                  className={`text-left p-3 rounded-xl border text-sm transition-colors ${sel ? 'bg-emerald-400/15 border-emerald-300/50' : 'bg-white/5 border-white/12 hover:bg-white/10'}`}>
+                  className={`text-left p-3 rounded-xl border text-sm transition-colors ${sel ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
                   <span className="font-bold mr-2">{'ABCD'[oi]}.</span>{opt}
                 </button>
               );

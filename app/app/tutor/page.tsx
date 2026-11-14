@@ -102,7 +102,7 @@ export default function TutorPage() {
           <div className="flex flex-col gap-1 max-h-72 overflow-y-auto">
             {convs.map(c => (
               <button key={c.id} onClick={() => setActiveId(c.id)}
-                className={`text-left text-sm p-2.5 rounded-lg border ${active?.id === c.id ? 'bg-emerald-400/15 border-emerald-300/40' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}>
+                className={`text-left text-sm p-2.5 rounded-lg border ${active?.id === c.id ? 'bg-accent/15 border-accent/40' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
                 <span className="block truncate font-medium">{c.title}</span>
                 <span className="text-xs muted">{getSubject(c.subject)?.name || c.subject} · {c.messages.length} messages</span>
               </button>
@@ -112,7 +112,7 @@ export default function TutorPage() {
         </GlassCard>
 
         <GlassCard className="flex flex-col min-h-[480px]">
-          <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-white/10">
+          <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-ink/10">
             <label className="text-sm font-medium">Subject:</label>
             <select className="glass-input !w-auto" value={subject} onChange={e => setSubject(e.target.value)}>
               {user.subjects.map(s => <option key={s} value={s}>{getSubject(s)!.name}</option>)}
@@ -125,11 +125,11 @@ export default function TutorPage() {
               <EmptyState title="Ask your first question" body="Try: “Explain quadratic equations step by step”, “What is the difference between speed and velocity?”, or “Give me 3 practice questions on photosynthesis.”" />
             ) : (
               active.messages.map((m, i) => (
-                <div key={i} className={`p-3.5 rounded-xl max-w-[92%] ${m.role === 'user' ? 'ml-auto bg-emerald-500/20 border border-emerald-300/30' : 'bg-white/6 border border-white/12'}`}>
+                <div key={i} className={`p-3.5 rounded-xl max-w-[92%] ${m.role === 'user' ? 'ml-auto bg-accent/20 border border-accent/30' : 'bg-ink/5 border border-ink/10'}`}>
                   <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="text-[11px] muted">{m.role === 'user' ? 'You' : 'Darax AI Tutor'} · {new Date(m.at).toLocaleTimeString()}</span>
-                    {m.role === 'assistant' && <button onClick={() => copy(m.text)} className="text-[11px] text-emerald-300 underline">Copy response</button>}
+                    {m.role === 'assistant' && <button onClick={() => copy(m.text)} className="text-[11px] text-accent underline">Copy response</button>}
                   </div>
                 </div>
               ))
@@ -137,9 +137,9 @@ export default function TutorPage() {
             {busy && <div className="glass-soft p-3.5 w-40"><div className="skeleton h-3 w-full mb-2" /><div className="skeleton h-3 w-2/3" /><p className="text-xs muted mt-2">Darax AI Tutor is thinking…</p></div>}
           </div>
 
-          {error && <p className="text-sm text-amber-200 bg-amber-500/10 border border-amber-400/30 rounded-lg px-3 py-2 mb-3">{error}</p>}
+          {error && <p className="text-sm text-warn bg-warn/10 border border-warn/30 rounded-lg px-3 py-2 mb-3">{error}</p>}
 
-          <form onSubmit={send} className="flex gap-2 pt-3 border-t border-white/10">
+          <form onSubmit={send} className="flex gap-2 pt-3 border-t border-ink/10">
             <input className="glass-input flex-1" value={input} onChange={e => setInput(e.target.value)} placeholder={`Ask about ${getSubject(subject)?.name || 'your subject'}…`} maxLength={2000} />
             <button className="btn-primary" disabled={busy || !input.trim()}>{busy ? '…' : 'Send'}</button>
           </form>

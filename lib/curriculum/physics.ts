@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "physics",
   name: "Physics",
   short: "Physics",
-  colour: "#059669",
+  colour: "#2b55a0",
   tagline: "Understand motion, energy, waves and electricity for JAMB.",
   description: "Complete JAMB Physics coverage: measurements and motion, forces and energy, heat and waves, light and optics, electricity and magnetism, with worked examples and original practice questions in every lesson.",
   topics: ["Measurements and Motion", "Forces and Energy", "Heat and Waves", "Light and Optics", "Electricity and Magnetism"],

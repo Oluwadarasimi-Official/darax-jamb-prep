@@ -4,7 +4,7 @@ export const SUBJECT: SubjectDef = {
   id: "biology",
   name: "Biology",
   short: "BIO",
-  colour: "#22c55e",
+  colour: "#3b82c4",
   tagline: "Life, from cells to ecosystems — explained clearly for JAMB.",
   description: "A complete JAMB Biology course covering cells, genetics, ecology, human physiology and plant biology, with worked examples, exam tips and original practice questions in every lesson.",
   topics: [
