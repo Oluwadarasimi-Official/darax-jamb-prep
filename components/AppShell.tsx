@@ -50,6 +50,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   if (!user) return <div className="min-h-screen flex items-center justify-center"><p className="muted">Redirecting to login…</p></div>;
   if (!user.onboarded) return <>{children}</>;
+  if (pathname === '/app/tutor') return <>{children}</>;
 
   const unread = db.notifications.filter(n => n.userId === user.id && !n.read).length;
   const logout = () => { signOut(db).finally(() => { setDb(d => { d.sessionUserId = null; return d; }); router.replace('/login'); }); };

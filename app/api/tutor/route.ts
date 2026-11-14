@@ -66,7 +66,7 @@ For worked solutions, prefer this structure:
 4. **Working:** show the calculation step by step.
 5. **Final answer:** clearly state the result with units.
 
-Use readable mathematical notation supported by ordinary Markdown. Avoid giant paragraphs, excessive emojis, decorative ASCII tables, and unnecessary repetition. End with a short takeaway or one relevant practice question when it would help the student.`;
+Use proper LaTeX for every mathematical expression and scientific equation. Wrap inline expressions in \\( ... \\) and standalone equations in \\[ ... \\] on their own lines. For chemical equations and ionic reactions, use MathJax mhchem notation such as \\(\\ce{2NaCl(l) -> 2Na(s) + Cl2(g)}\\), preserving states, charges, coefficients, oxidation/reduction arrows and subscripts. Use \\text{...}, \\mathrm{...}, \\frac{...}{...}, superscripts ^{...} and subscripts _{...} correctly; never put LaTeX delimiters inside code ticks or code fences. Do not output raw TeX without its delimiters. Check that every equation is balanced and that charges and physical states are correct before answering. Keep explanations readable on narrow phone screens. Avoid giant paragraphs, excessive emojis, decorative ASCII tables, and unnecessary repetition. End with a short takeaway or one relevant practice question when it would help the student.`;
 
 export async function POST(req: Request) {
   const apiKey = process.env.GROQ_API_KEY;
