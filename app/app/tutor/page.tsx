@@ -4,6 +4,7 @@ import { useDb } from '@/components/db-context';
 import { getSubject } from '@/lib/curriculum';
 import { uid } from '@/lib/store';
 import { GlassCard, EmptyState } from '@/components/ui';
+import { TutorMarkdown } from '@/components/TutorMarkdown';
 
 export default function TutorPage() {
   const { db, user, setDb } = useDb();
@@ -94,15 +95,13 @@ export default function TutorPage() {
         </div>
         <button onClick={newConversation} className="btn-primary text-sm">+ New conversation</button>
       </div>
-
       <div className="grid lg:grid-cols-[240px_1fr] gap-5 items-start">
         <GlassCard className="!p-3">
           <h2 className="font-bold text-sm px-2 pt-1 pb-2">Conversation history</h2>
           {convs.length === 0 && <p className="text-xs muted px-2 pb-2">No conversations yet.</p>}
           <div className="flex flex-col gap-1 max-h-72 overflow-y-auto">
             {convs.map(c => (
-              <button key={c.id} onClick={() => setActiveId(c.id)}
-                className={`text-left text-sm p-2.5 rounded-lg border ${active?.id === c.id ? 'bg-accent/15 border-accent/40' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
+              <button key={c.id} onClick={() => setActiveId(c.id)} className={'text-left text-sm p-2.5 rounded-lg border ' + (active?.id === c.id ? 'bg-accent/15 border-accent/40' : 'bg-ink/5 border-ink/10 hover:bg-ink/10')}>
                 <span className="block truncate font-medium">{c.title}</span>
                 <span className="text-xs muted">{getSubject(c.subject)?.name || c.subject} · {c.messages.length} messages</span>
               </button>
@@ -110,7 +109,6 @@ export default function TutorPage() {
           </div>
           {active && <button onClick={clearConversation} className="btn-ghost text-sm w-full mt-3">Clear this conversation</button>}
         </GlassCard>
-
         <GlassCard className="flex flex-col min-h-[480px]">
           <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-ink/10">
             <label className="text-sm font-medium">Subject:</label>
@@ -119,29 +117,24 @@ export default function TutorPage() {
             </select>
             <span className="text-xs muted ml-auto">Max 20 messages per hour</span>
           </div>
-
           <div className="flex-1 py-4 flex flex-col gap-3 overflow-y-auto">
             {!active || active.messages.length === 0 ? (
               <EmptyState title="Ask your first question" body="Try: “Explain quadratic equations step by step”, “What is the difference between speed and velocity?”, or “Give me 3 practice questions on photosynthesis.”" />
-            ) : (
-              active.messages.map((m, i) => (
-                <div key={i} className={`p-3.5 rounded-xl max-w-[92%] ${m.role === 'user' ? 'ml-auto bg-accent/20 border border-accent/30' : 'bg-ink/5 border border-ink/10'}`}>
-                  <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>
-                  <div className="flex items-center gap-3 mt-2">
-                    <span className="text-[11px] muted">{m.role === 'user' ? 'You' : 'Darax AI Tutor'} · {new Date(m.at).toLocaleTimeString()}</span>
-                    {m.role === 'assistant' && <button onClick={() => copy(m.text)} className="text-[11px] text-accent underline">Copy response</button>}
-                  </div>
+            ) : active.messages.map((m, i) => (
+              <div key={i} className={'p-3.5 rounded-xl max-w-[92%] min-w-0 ' + (m.role === 'user' ? 'ml-auto bg-accent/20 border border-accent/30' : 'bg-ink/5 border border-ink/10')}>
+                {m.role === 'assistant' ? <TutorMarkdown content={m.text} /> : <p className="text-sm whitespace-pre-wrap leading-relaxed">{m.text}</p>}
+                <div className="flex items-center gap-3 mt-3">
+                  <span className="text-[11px] muted">{m.role === 'user' ? 'You' : 'Darax AI Tutor'} · {new Date(m.at).toLocaleTimeString()}</span>
+                  {m.role === 'assistant' && <button onClick={() => copy(m.text)} className="text-[11px] text-accent underline">Copy response</button>}
                 </div>
-              ))
-            )}
+              </div>
+            ))}
             {busy && <div className="glass-soft p-3.5 w-40"><div className="skeleton h-3 w-full mb-2" /><div className="skeleton h-3 w-2/3" /><p className="text-xs muted mt-2">Darax AI Tutor is thinking…</p></div>}
           </div>
-
           {error && <p className="text-sm text-warn bg-warn/10 border border-warn/30 rounded-lg px-3 py-2 mb-3">{error}</p>}
-
           <form onSubmit={send} className="flex gap-2 pt-3 border-t border-ink/10">
-            <input className="glass-input flex-1" value={input} onChange={e => setInput(e.target.value)} placeholder={`Ask about ${getSubject(subject)?.name || 'your subject'}…`} maxLength={2000} />
-            <button className="btn-primary" disabled={busy || !input.trim()}>{busy ? '…' : 'Send'}</button>
+            <input className="glass-input flex-1 min-w-0" value={input} onChange={e => setInput(e.target.value)} placeholder={'Ask about ' + (getSubject(subject)?.name || 'your subject') + '…'} maxLength={2000} />
+            <button className="btn-primary shrink-0" disabled={busy || !input.trim()}>{busy ? '…' : 'Send'}</button>
           </form>
         </GlassCard>
       </div>
