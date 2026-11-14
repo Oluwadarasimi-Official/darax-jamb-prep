@@ -64,7 +64,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {!isCollapsed && item.href === '/app/notifications' && unread > 0 && <span className="ml-auto bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}
         </Link>;
       })}
-      {user.role === 'admin' && <Link href="/admin" onClick={onNavigate} title={isCollapsed ? 'Admin Panel' : undefined} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium mt-2 border border-warn/30 bg-warn/10 text-warn"><span className="w-6 shrink-0 flex justify-center"><NavIcon name="admin" /></span>{!isCollapsed && <span>Admin Panel</span>}</Link>}
     </nav>
   );
 
