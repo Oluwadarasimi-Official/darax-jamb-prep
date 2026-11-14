@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body {
+  background: #102D46;
+  color: #F2F6FA;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(700px 420px at 12% -5%, rgba(23,105,170,.32), transparent 60%),
+    radial-gradient(600px 420px at 95% 10%, rgba(30,158,80,.22), transparent 60%),
+    radial-gradient(500px 500px at 50% 110%, rgba(23,105,170,.18), transparent 60%),
+    #102D46;
+}
+.glass {
+  background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.07));
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  border-radius: 1rem;
+}
+.glass-soft {
+  background: rgba(255,255,255,.09);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: .9rem;
+}
+.glass-input {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: .7rem;
+  color: #fff; width: 100%;
+  padding: .7rem .9rem; outline: none;
+}
+.glass-input:focus { border-color: #1E9E50; box-shadow: 0 0 0 3px rgba(30,158,80,.25); }
+.glass-input::placeholder { color: rgba(255,255,255,.45); }
+.btn-primary {
+  background: linear-gradient(135deg, #1769AA, #1E9E50);
+  color: #fff; font-weight: 600; border-radius: .7rem;
+  padding: .7rem 1.2rem; transition: opacity .15s, transform .15s;
+}
+.btn-primary:hover { opacity: .92; }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ghost {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
+  color: #fff; font-weight: 500; border-radius: .7rem; padding: .6rem 1rem;
+}
+.btn-ghost:hover { background: rgba(255,255,255,.12); }
+.chip { background: rgba(30,158,80,.16); color: #8FE3A8; border: 1px solid rgba(30,158,80,.35); border-radius: 999px; padding: .15rem .6rem; font-size: .75rem; }
+.muted { color: rgba(255,255,255,.68); }
+.skeleton { background: rgba(255,255,255,.08); border-radius: .6rem; animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.prose-glass p { margin-bottom: .8rem; line-height: 1.75; color: rgba(255,255,255,.88); }
