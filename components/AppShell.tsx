@@ -84,7 +84,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
 
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="md:hidden sticky top-0 z-40 glass !rounded-none border-x-0 border-t-0 px-4 py-3 flex items-center justify-between">
+        <header className="md:hidden sticky top-0 z-40 glass !rounded-none border-x-0 border-t-0 px-4 py-3 min-h-[76px] flex items-center justify-between">
           <Logo size={32} />
           <div className="flex items-center gap-2">
             <Link href="/app/notifications" className="btn-ghost !px-3 !py-2 relative flex items-center" aria-label="Notifications"><NavIcon name="bell" />{unread > 0 && <span className="absolute -top-1 -right-1 bg-brand text-white text-[10px] font-bold rounded-full px-1.5">{unread}</span>}</Link>
@@ -104,7 +104,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <p className="text-sm muted">LEARN. PRACTICE. IMPROVE. EXCEL.</p>
           <div className="flex items-center gap-3"><Link href="/app/notifications" className="btn-ghost relative">Notifications{unread > 0 && <span className="ml-2 bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}</Link><button onClick={logout} className="btn-ghost">Log out</button></div>
         </header>
-        <main className="flex-1 min-w-0 px-4 md:px-6 pb-10 max-w-6xl w-full mx-auto">{children}</main>
+        <main className="flex-1 min-w-0 px-4 md:px-6 pt-5 md:pt-2 pb-10 max-w-6xl w-full mx-auto">{children}</main>
       </div>
     </div>
   );
