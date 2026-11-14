@@ -27,6 +27,8 @@ export default function LoginPage() {
     router.replace(res.user!.onboarded ? '/app/dashboard' : '/onboarding');
   };
 
+  if (!ready || user) return <div className="min-h-screen flex items-center justify-center"><p className="muted text-sm">Restoring your account…</p></div>;
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="glass p-7 w-full max-w-md">
