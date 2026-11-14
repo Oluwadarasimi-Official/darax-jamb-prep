@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: `window.MathJax = { loader: { load: ['[tex]/mhchem'] }, tex: { packages: { '[+]': ['mhchem'] }, inlineMath: [['\\\\(', '\\\\)']], displayMath: [['\\\\[', '\\\\]'], ['$', '$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };` }} />
+        <script dangerouslySetInnerHTML={{ __html: String.raw`window.MathJax = { loader: { load: ['[tex]/mhchem'] }, tex: { packages: { '[+]': ['mhchem'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]'], ['$$', '$$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };` }} />
       </head>
       <body className={dmSans.variable}>
         <DbProvider>{children}</DbProvider>
