@@ -2,7 +2,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useDb } from './db-context';
-import { uid, notify } from '../lib/store';
+import { uid } from '../lib/store';
+import { mirrorAttempt, mirrorNotification } from '../lib/sync';
 import { PASS_MARK } from '../lib/progression';
 
 export interface RunnerQ { ref: string; q: string; options: string[]; }
@@ -49,31 +50,43 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
       if (!res.ok) throw new Error(data.error || 'Could not grade the assessment.');
       const durationSec = Math.round((Date.now() - startedAt.current) / 1000);
       const attemptId = uid('att');
+      const attempt = {
+        id: attemptId, userId: user.id, lessonId, subjectId, kind, title,
+        total: data.total, correct: data.correct, score: data.score,
+        answers: data.graded.map((g: GradeResult) => ({ q: g.q, chosen: g.chosen, correct: g.correct })),
+        startedAt: new Date(startedAt.current).toISOString(), completedAt: new Date().toISOString(), durationSec,
+      };
+      const progressEntry = lessonId ? (() => {
+        const prev = (db.progress[user.id] || []).find(x => x.lessonId === lessonId);
+        const best = Math.max(prev?.bestScore || 0, data.score);
+        const done = best >= PASS_MARK || data.score >= PASS_MARK;
+        return {
+          lessonId, completed: done, bestScore: best, attempts: (prev?.attempts || 0) + 1,
+          completedAt: done ? new Date().toISOString() : prev?.completedAt,
+          timeSpentSec: (prev?.timeSpentSec || 0) + durationSec,
+        };
+      })() : null;
+      const ntf = {
+        id: uid('ntf'), userId: user.id,
+        title: `Assessment result: ${data.score}%`,
+        body: `You scored ${data.correct} out of ${data.total} (${data.score}%) on “${title}”.${data.score >= PASS_MARK ? ' Well done — you passed!' : ' Keep practising — retake it to improve.'}`,
+        kind: 'result', link: '/app/assessments', read: false, createdAt: new Date().toISOString(),
+      };
+      const wantsResultNtf = db.profiles.find(p => p.id === user.id)?.notifyPrefs?.results !== false;
       // Persist ONLY the server-graded result — never a client-computed score.
       setDb(d => {
-        d.attempts.push({
-          id: attemptId, userId: user.id, lessonId, subjectId, kind, title,
-          total: data.total, correct: data.correct, score: data.score,
-          answers: data.graded.map((g: GradeResult) => ({ q: g.q, chosen: g.chosen, correct: g.correct })),
-          startedAt: new Date(startedAt.current).toISOString(), completedAt: new Date().toISOString(), durationSec,
-        });
-        if (lessonId) {
+        d.attempts.push(attempt);
+        if (lessonId && progressEntry) {
           const list = d.progress[user.id] || (d.progress[user.id] = []);
           const p = list.find(x => x.lessonId === lessonId);
-          if (p) {
-            p.attempts += 1;
-            p.bestScore = Math.max(p.bestScore, data.score);
-            if (data.score >= PASS_MARK) { p.completed = true; p.completedAt = new Date().toISOString(); }
-            p.timeSpentSec += durationSec;
-          } else {
-            list.push({ lessonId, completed: data.score >= PASS_MARK, bestScore: data.score, attempts: 1, completedAt: data.score >= PASS_MARK ? new Date().toISOString() : undefined, timeSpentSec: durationSec });
-          }
+          if (p) Object.assign(p, progressEntry); else list.push(progressEntry);
         }
-        if (d.profiles.find(p => p.id === user.id)?.notifyPrefs?.results !== false) {
-          notify(d, user.id, `Assessment result: ${data.score}%`, `You scored ${data.correct} out of ${data.total} (${data.score}%) on “${title}”.${data.score >= PASS_MARK ? ' Well done — you passed!' : ' Keep practising — retake it to improve.'}`, 'result', '/app/assessments');
-        }
+        if (wantsResultNtf) d.notifications.unshift(ntf);
         return d;
       });
+      // Mirror to Supabase when configured (fire-and-forget — never blocks UI).
+      mirrorAttempt(user.id, attempt, progressEntry);
+      if (wantsResultNtf) mirrorNotification(user.id, ntf);
       setResult({ score: data.score, correct: data.correct, total: data.total, graded: data.graded, serverValidated: !!data.serverValidated });
     } catch (e) {
       submittedRef.current = false;

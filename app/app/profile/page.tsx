@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useDb } from '@/components/db-context';
 import { getSubject } from '@/lib/curriculum';
+import { mirrorOnboarding } from '@/lib/sync';
 import { COURSE_REQUIREMENTS, SCIENCE_SUBJECTS, SUBJECT_NAMES, validateCombination } from '@/lib/store';
 import { GlassCard, Avatar, ProgressBar } from '@/components/ui';
 import { overallProgress, subjectProgress } from '@/lib/progression';
@@ -36,6 +37,7 @@ export default function ProfilePage() {
       u.subjects = subjects; u.intendedCourse = course || undefined;
       return d;
     });
+    mirrorOnboarding(user.id, subjects, course || undefined);
     setEditingSubjects(false);
     setMsg('Subjects updated. Your completed lessons, scores and badges are preserved.');
   };

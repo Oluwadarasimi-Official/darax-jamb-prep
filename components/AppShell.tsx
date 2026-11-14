@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useDb } from './db-context';
+import { logout as signOut } from '../lib/auth';
 import { Logo } from './Logo';
 import { Avatar } from './ui';
 import { ThemeToggle } from './ThemeToggle';
@@ -35,7 +36,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   if (!user.onboarded) return <>{children}</>;
 
   const unread = db.notifications.filter(n => n.userId === user.id && !n.read).length;
-  const logout = () => { setDb(d => { d.sessionUserId = null; return d; }); router.replace('/login'); };
+  const logout = () => { signOut(db).finally(() => { setDb(d => { d.sessionUserId = null; return d; }); router.replace('/login'); }); };
 
   const navList = (onNavigate?: () => void) => (
     <nav className="flex flex-col gap-1 mt-2">

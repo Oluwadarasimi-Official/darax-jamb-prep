@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useDb } from './db-context';
 import { Logo } from './Logo';
+import { mirrorProfile } from '../lib/sync';
 
 const ADMIN_CODE = process.env.NEXT_PUBLIC_ADMIN_CODE || 'CHANGE-ME';
 
@@ -18,6 +19,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
     const claim = () => {
       if (code.trim() === ADMIN_CODE && ADMIN_CODE !== '') {
         setDb(d => { const u = d.profiles.find(p => p.id === user.id)!; u.role = 'admin'; return d; });
+        mirrorProfile(user.id, { role: 'admin' });
         setError('');
       } else {
         setError('That setup code is not correct. Ask the platform owner for the admin setup code.');

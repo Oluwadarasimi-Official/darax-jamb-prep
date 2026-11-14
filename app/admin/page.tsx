@@ -5,6 +5,7 @@ import { useDb } from '@/components/db-context';
 import { getSubject, SUBJECTS } from '@/lib/curriculum';
 import { runWeekly, weekKey } from '@/lib/weekly';
 import { notify, uid } from '@/lib/store';
+import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
 
 export default function AdminPage() {
@@ -139,7 +140,7 @@ export default function AdminPage() {
               <span><strong>{p.fullName}</strong> <span className="muted">@{p.username} · {p.email} · {p.role}{p.isDemo ? ' · DEMO (test data)' : ''} · {p.active ? 'active' : 'deactivated'}</span></span>
               <span className="flex gap-2">
                 <button
-                  onClick={() => setDb(d => { const u = d.profiles.find(x => x.id === p.id)!; u.role = u.role === 'admin' ? 'student' : 'admin'; return d; })}
+                  onClick={() => { const next = p.role === 'admin' ? 'student' : 'admin'; setDb(d => { const u = d.profiles.find(x => x.id === p.id)!; u.role = next; return d; }); mirrorProfile(p.id, { role: next }); }}
                   className="btn-ghost !py-1 !px-2 text-xs" disabled={p.id === user.id}>
                   {p.role === 'admin' ? 'Remove admin' : 'Make admin'}
                 </button>

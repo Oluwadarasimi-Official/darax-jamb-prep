@@ -23,7 +23,7 @@ export default function SignupPage() {
     setError(''); setBusy(true);
     const res = await register(db, fullName, username.trim(), email.trim(), password);
     if (!res.ok) { setError(res.error || 'Registration failed.'); setBusy(false); return; }
-    setDb(d => { d.profiles.push(res.user!); d.sessionUserId = res.user!.id; return d; });
+    setDb(d => { if (!d.profiles.some(p => p.id === res.user!.id)) d.profiles.push(res.user!); d.sessionUserId = res.user!.id; return d; });
     router.replace('/onboarding');
   };
 

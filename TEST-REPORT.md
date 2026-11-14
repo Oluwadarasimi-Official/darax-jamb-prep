@@ -89,3 +89,55 @@ mobile 390px overflow on 5 routes (0px each).
   One fix found in review: the mobile landing header crowded at 390px —
   fixed by making the toggle icon-only below the sm breakpoint and letting
   the header wrap.
+
+## Supabase Auth + database wiring (2026-11-14, v1.0.2)
+
+- Installed @supabase/supabase-js; lib/supabase.ts is now a real client
+  (anon key only — no service-role key anywhere in the repo). lib/sync.ts
+  bridges the local store and the djp_* tables: Supabase is the source of
+  truth for identity when configured, the local store stays the working cache.
+- Auth rewritten (lib/auth.ts): signup/login/logout/password-reset go through
+  Supabase Auth when NEXT_PUBLIC_SUPABASE_URL + NEXT_PUBLIC_SUPABASE_ANON_KEY
+  are set; local SHA-256 accounts remain the fallback when they are absent.
+  Signup creates the djp_profiles row; login syncs profile, subjects,
+  progress, attempts and notifications from the server; sessions persist via
+  Supabase and are restored on load. Demo account stays local-only.
+- Mirrored to Supabase (fire-and-forget, never blocks UI): onboarding
+  subjects + intended course, profile subject changes, quiz attempts +
+  lesson progress + result notifications, admin role claims/grants, name
+  changes. Password change re-authenticates then uses Supabase updateUser.
+  Reset flow uses Supabase reset emails with a recovery session on /reset.
+- Role comes from djp_profiles.role; /admin (AdminGuard) and admin API
+  routes still require role='admin'; NEXT_PUBLIC_ADMIN_CODE first-admin
+  claim kept as the fallback path.
+- Migration fix: 001_djp_schema.sql had NO insert policy for djp_profiles
+  (signup could never create its profile row) and none for
+  djp_student_answers. Added "own profile insert" and "own answers insert"
+  policies to the file — if the migration was already applied WITHOUT them,
+  run those two CREATE POLICY statements in the SQL editor.
+- Fixes found while wiring: signup page pushed the new profile twice
+  (register() already pushes it) — guarded the page-side push.
+- Build: `npm run build` passes (24 routes, tsc clean). Dev server with
+  .env.local (real URL + anon key) serves landing/signup/login as 200s.
+
+### Live verification (2026-11-14 ~18:33 WAT)
+- Supabase Auth PROVEN live: signUp probe returned a session immediately
+  (email_confirmed_at set) — Confirm email is OFF, no confirmation needed.
+- djp_* tables NOT YET PRESENT: 5 supabase-js checks over ~10 minutes all
+  returned "Could not find the table 'public.djp_*' in the schema cache"
+  (the project is reachable and the anon key is valid — the migration had
+  not landed when tested). Full signup → profile → onboarding DB test is
+  BLOCKED until the migration is applied; no workaround was invented.
+  Re-run the table check, then sign up a test user in the app and confirm
+  a djp_profiles row + djp_student_subjects rows exist.
+- Probe auth user created by the Auth test (delete in dashboard Auth →
+  Users after testing): mav-probe-20261114@darax-test.example,
+  id f91ff2ee-9ae0-4331-8265-ce74a0c2a27b. It has no profile row (tables
+  absent); login after the migration will create it from the Auth metadata.
+- Known limits (honest): username login works via email everywhere, and via
+  username only on a device where that account was created (RLS prevents
+  resolving username→email anonymously). Cross-user leaderboards still
+  compute from the local store — the weekly endpoint has no service-role
+  key, so server-side weekly boards need a service-role-backed job later.
+  Leaderboard/badge rows are NOT mirrored from the client (RLS: only
+  service_role writes them, except admin writes via djp_roles).

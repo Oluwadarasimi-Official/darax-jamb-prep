@@ -288,6 +288,7 @@ create policy "public read badges" on public.djp_achievement_badges for select u
 -- Own records only: profiles (own row), student_subjects, progress, attempts,
 -- answers (via attempt owner), notifications, AI conversations/messages.
 create policy "own profile" on public.djp_profiles for select using (auth.uid() = auth_id);
+create policy "own profile insert" on public.djp_profiles for insert with check (auth.uid() = auth_id);
 create policy "own profile update" on public.djp_profiles for update using (auth.uid() = auth_id);
 create policy "own student subjects" on public.djp_student_subjects for all using (
   user_id in (select id from public.djp_profiles where auth_id = auth.uid()));
@@ -296,6 +297,9 @@ create policy "own progress" on public.djp_lesson_progress for all using (
 create policy "own attempts" on public.djp_assessment_attempts for all using (
   user_id in (select id from public.djp_profiles where auth_id = auth.uid()));
 create policy "own answers" on public.djp_student_answers for select using (
+  attempt_id in (select id from public.djp_assessment_attempts
+    where user_id in (select id from public.djp_profiles where auth_id = auth.uid())));
+create policy "own answers insert" on public.djp_student_answers for insert with check (
   attempt_id in (select id from public.djp_assessment_attempts
     where user_id in (select id from public.djp_profiles where auth_id = auth.uid())));
 create policy "own notifications" on public.djp_notifications for all using (

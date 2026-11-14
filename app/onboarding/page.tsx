@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { Logo } from '@/components/Logo';
+import { mirrorOnboarding } from '@/lib/sync';
 import { COURSE_REQUIREMENTS, SCIENCE_SUBJECTS, SUBJECT_NAMES, validateCombination } from '@/lib/store';
 
 export default function OnboardingPage() {
@@ -30,6 +31,7 @@ export default function OnboardingPage() {
       u.subjects = subjects; u.intendedCourse = course || undefined; u.onboarded = true;
       return d;
     });
+    mirrorOnboarding(user.id, subjects, course || undefined);
     router.replace('/app/dashboard');
   };
 

@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
-import { hashPassword } from '@/lib/auth';
+import { changePassword, logout } from '@/lib/auth';
+import { SUPABASE_CONFIGURED } from '@/lib/supabase';
+import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
 import { THEME_OPTIONS, useThemeChoice } from '@/components/ThemeToggle';
 
@@ -22,21 +24,15 @@ export default function SettingsPage() {
   const saveName = () => {
     if (name.trim().length < 3) { setError('Enter a full name of at least 3 characters.'); return; }
     setDb(d => { const u = d.profiles.find(p => p.id === user.id)!; u.fullName = name.trim(); return d; });
+    mirrorProfile(user.id, { fullName: name.trim() });
     setMsg('Name updated.'); setError(''); setName('');
   };
 
-  const changePassword = async () => {
+  const doChangePassword = async () => {
     setError(''); setMsg('');
-    if (newPw.length < 8) { setError('New password must be at least 8 characters.'); return; }
     if (newPw !== confirmPw) { setError('New passwords do not match.'); return; }
-    if (user.username === 'demo_student') {
-      if (currentPw !== 'Demo1234!') { setError('Current password is incorrect.'); return; }
-    } else {
-      const h = await hashPassword(currentPw, user.salt);
-      if (h !== user.passwordHash) { setError('Current password is incorrect.'); return; }
-    }
-    const nh = await hashPassword(newPw, user.salt);
-    setDb(d => { const u = d.profiles.find(p => p.id === user.id)!; u.passwordHash = nh; return d; });
+    const res = await changePassword(db, user, currentPw, newPw);
+    if (!res.ok) { setError(res.error || 'Password change failed.'); return; }
     setMsg('Password changed. Use your new password next time you log in.');
     setCurrentPw(''); setNewPw(''); setConfirmPw('');
   };
@@ -47,8 +43,8 @@ export default function SettingsPage() {
     setDb(d => { const u = d.profiles.find(p => p.id === user.id)!; u.notifyPrefs = next; return d; });
   };
 
-  const logout = () => { setDb(d => { d.sessionUserId = null; return d; }); router.replace('/login'); };
-  const logoutAll = () => { logout(); setMsg('Logged out of this device. (Sessions are per-device in this build.)'); };
+  const doLogout = () => { logout(db).finally(() => { setDb(d => { d.sessionUserId = null; return d; }); router.replace('/login'); }); };
+  const logoutAll = () => { doLogout(); setMsg('Logged out of this device. (Sessions are per-device in this build.)'); };
 
   return (
     <div className="flex flex-col gap-5 max-w-2xl">
@@ -90,7 +86,7 @@ export default function SettingsPage() {
           <input className="glass-input" type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} placeholder="Current password" autoComplete="current-password" />
           <input className="glass-input" type="password" value={newPw} onChange={e => setNewPw(e.target.value)} placeholder="New password (at least 8 characters)" autoComplete="new-password" />
           <input className="glass-input" type="password" value={confirmPw} onChange={e => setConfirmPw(e.target.value)} placeholder="Confirm new password" autoComplete="new-password" />
-          <button onClick={changePassword} className="btn-primary self-start text-sm">Change password</button>
+          <button onClick={doChangePassword} className="btn-primary self-start text-sm">Change password</button>
         </div>
       </GlassCard>
 
@@ -115,14 +111,14 @@ export default function SettingsPage() {
         <h2 className="font-bold text-lg mb-3">Sessions</h2>
         <p className="text-sm muted">You are signed in on this device. Sessions persist until you log out.</p>
         <div className="flex gap-2 mt-3">
-          <button onClick={logout} className="btn-ghost text-sm">Log out</button>
+          <button onClick={doLogout} className="btn-ghost text-sm">Log out</button>
           <button onClick={logoutAll} className="btn-ghost text-sm">Log out of all sessions</button>
         </div>
       </GlassCard>
 
       <GlassCard>
         <h2 className="font-bold text-lg mb-2">About this platform</h2>
-        <p className="text-sm muted leading-relaxed">The Official Darax Free JAMB Prep · v1.0.0 · Powered by Official Darax. Data in this build is stored on your device (localStorage) until Supabase is connected. See the README for the Supabase migration and deploy steps.</p>
+        <p className="text-sm muted leading-relaxed">The Official Darax Free JAMB Prep · v1.0.0 · Powered by Official Darax. {SUPABASE_CONFIGURED ? 'Your account and learning records are stored securely in Supabase and sync across your devices.' : 'Data in this build is stored on your device (localStorage) until Supabase is connected. See the README for the Supabase migration and deploy steps.'}</p>
       </GlassCard>
     </div>
   );
