@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { getSubject, SUBJECTS } from '@/lib/curriculum';
@@ -8,6 +8,7 @@ import { notify, uid } from '@/lib/store';
 import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
 import { AdminAnalytics } from '@/components/AdminAnalytics';
+import { getSb, SUPABASE_CONFIGURED } from '@/lib/supabase';
 
 export default function AdminPage() {
   const { db, user, setDb } = useDb();
@@ -15,6 +16,35 @@ export default function AdminPage() {
   const [annBody, setAnnBody] = useState('');
   const [runMsg, setRunMsg] = useState('');
   const [annMsg, setAnnMsg] = useState('');
+  const [liveProfiles, setLiveProfiles] = useState<any[] | null>(null);
+  const [userManagementError, setUserManagementError] = useState('');
+  const [userManagementLoading, setUserManagementLoading] = useState(false);
+  const [refreshUsers, setRefreshUsers] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadUsers = async () => {
+      if (!SUPABASE_CONFIGURED || user?.role !== 'admin') return;
+      const sb = getSb();
+      if (!sb) return;
+      setUserManagementLoading(true);
+      const { data, error } = await sb.rpc('djp_admin_user_directory');
+      if (cancelled) return;
+      if (error) {
+        setLiveProfiles(null);
+        setUserManagementError(error.message.includes('djp_admin_user_directory')
+          ? 'Apply migration 003_admin_user_management.sql in Supabase to enable the live user directory.'
+          : error.message);
+      } else {
+        setLiveProfiles(Array.isArray(data) ? data : []);
+        setUserManagementError('');
+      }
+      setUserManagementLoading(false);
+    };
+    void loadUsers();
+    return () => { cancelled = true; };
+  }, [user?.id, user?.role, refreshUsers]);
+
   if (!user) return null;
 
   const students = db.profiles.filter(p => p.role === 'student');
@@ -26,6 +56,29 @@ export default function AdminPage() {
 
   const enrolments: Record<string, number> = {};
   for (const s of students) for (const sub of s.subjects) enrolments[sub] = (enrolments[sub] || 0) + 1;
+
+  const displayProfiles = liveProfiles ?? db.profiles;
+
+  const updateManagedUser = async (profile: any, patch: { role?: 'student' | 'admin'; active?: boolean }) => {
+    setUserManagementError('');
+    if (SUPABASE_CONFIGURED) {
+      const sb = getSb();
+      if (!sb) { setUserManagementError('Database connection is unavailable.'); return; }
+      const { error } = await sb.rpc('djp_admin_update_user', {
+        target_profile_id: profile.id,
+        new_role: patch.role ?? null,
+        new_active: patch.active ?? null,
+      });
+      if (error) { setUserManagementError(error.message); return; }
+    }
+    setDb(d => {
+      const target = d.profiles.find(x => x.id === profile.id);
+      if (target) { if (patch.role) target.role = patch.role; if (patch.active !== undefined) target.active = patch.active; }
+      return d;
+    });
+    if (!SUPABASE_CONFIGURED && patch.role) mirrorProfile(profile.id, { role: patch.role });
+    setRefreshUsers(v => v + 1);
+  };
 
   const runWeeklyCalc = () => {
     const clone = structuredClone(db);
@@ -138,18 +191,21 @@ export default function AdminPage() {
 
       <GlassCard>
         <h2 className="font-bold text-lg mb-3">User management</h2>
+        <p className="text-xs muted mb-3">{liveProfiles ? 'Showing every registered account from the shared database.' : SUPABASE_CONFIGURED ? 'Live directory is not available yet; showing cached accounts.' : 'Showing accounts stored on this device only.'}</p>
+        {userManagementLoading && <p className="text-xs muted mb-2">Loading live user directory…</p>}
+        {userManagementError && <p className="text-xs text-danger mb-2 break-words">{userManagementError}</p>}
         <div className="flex flex-col gap-2 max-h-80 overflow-y-auto">
-          {db.profiles.map(p => (
+          {displayProfiles.map((p: any) => (
             <div key={p.id} className="glass-soft p-3 flex flex-wrap items-center justify-between gap-2 text-sm">
-              <span><strong>{p.fullName}</strong> <span className="muted">@{p.username} · {p.email} · {p.role}{p.isDemo ? ' · DEMO (test data)' : ''} · {p.active ? 'active' : 'deactivated'}</span></span>
+              <span><strong>{p.fullName || p.full_name}</strong> <span className="muted">@{p.username} · {p.email} · {p.role}{(p.isDemo || p.is_demo) ? ' · DEMO (test data)' : ''} · {p.active ? 'active' : 'deactivated'}</span></span>
               <span className="flex gap-2">
                 <button
-                  onClick={() => { const next = p.role === 'admin' ? 'student' : 'admin'; setDb(d => { const u = d.profiles.find(x => x.id === p.id)!; u.role = next; return d; }); mirrorProfile(p.id, { role: next }); }}
+                  onClick={() => { const next = p.role === 'admin' ? 'student' : 'admin'; void updateManagedUser(p, { role: next }); }}
                   className="btn-ghost !py-1 !px-2 text-xs" disabled={p.id === user.id}>
                   {p.role === 'admin' ? 'Remove admin' : 'Make admin'}
                 </button>
                 <button
-                  onClick={() => setDb(d => { const u = d.profiles.find(x => x.id === p.id)!; u.active = !u.active; return d; })}
+                  onClick={() => { void updateManagedUser(p, { active: !p.active }); }}
                   className="btn-ghost !py-1 !px-2 text-xs" disabled={p.id === user.id}>
                   {p.active ? 'Deactivate' : 'Reactivate'}
                 </button>
@@ -157,7 +213,7 @@ export default function AdminPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs muted mt-3">You cannot change your own role or deactivate yourself. Demo accounts are labelled and excluded from leaderboards.</p>
+        <p className="text-xs muted mt-3">You cannot change your own role or deactivate yourself. Demo accounts are labelled and excluded from platform analytics.</p>
       </GlassCard>
     </div>
   );
