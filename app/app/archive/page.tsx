@@ -53,6 +53,40 @@ export default function ArchivePage() {
       </section>
 
       <section className="glass p-5 md:p-6">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold tracking-[0.16em] uppercase text-accent">DARAX original practice</p>
+            <h2 className="font-bold text-xl mt-1">JAMB-standard practice questions</h2>
+            <p className="muted text-sm mt-2">25 original questions across all five subjects, each with four options, an answer key and a worked explanation. Correct-option positions vary.</p>
+          </div>
+          <span className="rounded-full px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20">25 questions · 5 subjects</span>
+        </div>
+        <p className="text-xs muted mt-3 leading-relaxed">{practiceBank.notice}</p>
+        <div className="grid md:grid-cols-2 gap-3 mt-4">
+          {(['english','mathematics','physics','chemistry','biology'] as const).map(subject => (
+            <article key={subject} className="glass-soft rounded-xl p-4">
+              <h3 className="font-semibold capitalize">{subject === 'english' ? 'Use of English' : subject}</h3>
+              <div className="flex flex-col gap-3 mt-3">
+                {practiceBank.questions.filter(item => item.subject === subject).map((item, index) => (
+                  <details key={item.id} className="rounded-lg border border-ink/10 bg-white/40 p-3">
+                    <summary className="cursor-pointer text-sm font-medium leading-relaxed">{index + 1}. {item.question}</summary>
+                    <ul className="pl-0 mt-3 text-sm flex flex-col gap-1.5 list-none">
+                      {item.options.map((option, optionIndex) => <li key={optionIndex}>{option}</li>)}
+                    </ul>
+                    <div className="mt-3 rounded-lg bg-accent/10 p-3 text-sm">
+                      <p className="font-semibold">Correct answer: {String.fromCharCode(65 + item.answer)} — {item.options[item.answer].replace(/^[A-D]\.\s*/, '')}</p>
+                      <p className="muted mt-1 leading-relaxed">{item.explanation}</p>
+                    </div>
+                    <p className="text-[11px] muted mt-2">{item.topic} · Original DARAX practice</p>
+                  </details>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="glass p-5 md:p-6">
         <h2 className="font-bold text-lg">DARAX question-bank integrity</h2>
         <p className="muted text-sm mt-2 leading-relaxed">Every historical question added to the in-app bank must retain its year, subject, source reference, four-option structure where applicable, verified answer and explanation. Questions that are only linked to an external source are not counted as imported questions. Original DARAX practice questions remain clearly labelled as original practice.</p>
         <div className="flex flex-wrap gap-2 mt-4">
