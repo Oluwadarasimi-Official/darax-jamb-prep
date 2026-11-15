@@ -284,3 +284,88 @@ table structure untouched; the 8 lib/curriculum/*.ts subject files untouched
 4. **Live AI lesson generation with 15 questions** — the prompt and token
    budget changed, but no live Groq generation was run in this task (no key
    in test env); verify one AI draft end-to-end after deploy.
+
+---
+
+## Merge note — 2026-11-15: origin/master merged into master (commit f111142)
+
+Local master was at 5459289 ("UI upgrade v1.1.0"); `git push` had been rejected
+as non-fast-forward. Merged origin/master (8 commits on top of shared base
+b75af75) with a merge commit — no rebase, no force-push. `.env.local` untouched
+and never committed.
+
+### What came in from origin/master
+- "Format AI tutor responses as plain text" + "Normalize JSON-shaped tutor
+  responses" (PR #1): `unwrapTutorReply` JSON unwrapping in
+  `app/api/tutor/route.ts`.
+- "Improve Darax AI Tutor and lesson experience": tutor + lesson page rework.
+- "Polish mobile layout, typography and glass UI": AppShell SVG icons,
+  focus-visible, font-inherit, mobile radius, reduced-motion rules.
+- "Keep students signed in across visits": Supabase `persistSession: true` +
+  `autoRefreshToken` + `detectSessionInUrl` in `lib/supabase.ts`, session
+  restore in `components/db-context.tsx`.
+- "Hide admin panel link from student navigation (#5)": the role-gated Admin
+  Panel link was removed from AppShell entirely — the admin route (/admin) is
+  still reachable by direct URL.
+- "Full-screen AI chat with scientific equation rendering (#6)": full-screen
+  tutor layout + new `components/TutorMarkdown.tsx` (MathJax via jsdelivr CDN).
+
+### Conflicts resolved (4 files)
+- `app/api/tutor/route.ts` — kept the local 4-section structured system prompt
+  (Direct answer / Step by step / Worked example / Try this) AND origin's
+  `unwrapTutorReply`; added one LaTeX sentence to the prompt's FORMATTING
+  section so equations can render via MathJax.
+- `app/app/tutor/page.tsx` — origin's full-screen chat layout + TutorMarkdown
+  rendering; restored local copy-feedback ("✓ Copied") and a note that every
+  answer follows the 4-section structure. `components/Markdown.tsx` stays in
+  the repo (unused by the tutor now, kept as fallback).
+- `app/app/learn/[lessonId]/page.tsx` — kept the local slideshow wholesale
+  (keyboard/swipe/slide tabs, 15-question quiz text); origin's rewrite was a
+  subset and still said "5 original practice questions".
+- `app/globals.css` — merged both sides (local md-body/typing-dots/slideshow
+  rules + origin's focus-visible, font-inherit, mobile radius,
+  reduced-motion rules; one duplicate `.prose-glass p` rule deduped).
+- Clean merges kept as-is: AppShell (hidden admin link + sidebar/theme),
+  `lib/supabase.ts` + `db-context.tsx` (session persistence + Auth wiring),
+  `app/layout.tsx`, `app/login/page.tsx`, `tailwind.config.js`,
+  `app/app/subjects/[id]/page.tsx`. Curriculum files untouched by either side
+  of the conflict; QuizRunner untouched by origin (reshuffle intact).
+
+### Verification (after the merge)
+- `node scripts/count-curriculum.js`: 112 lessons, 1680 questions,
+  zero non-15 quizzes (14 lessons x 15 questions per subject).
+- `npm run build`: passes, tsc clean, 24 routes.
+- Headless Chromium spot checks on the production build (demo_student login):
+  - Slideshow: Slide 1 of 15 "Introduction" -> Next -> Slide 2 of 15
+    "Objectives" -> Previous -> back to Slide 1. PASS.
+  - Quiz (mathematics-01): 15 questions shown; all-A submit graded
+    server-side (4/15); retake reshuffled question order (Q1 changed) and
+    option order (13 of 15 questions had a changed option order; same
+    15-question set). PASS.
+  - Tutor: seeded structured reply rendered all 4 headings (Direct answer,
+    Step by step, Worked example, Try this), bold intact, zero raw "##"
+    markdown leaked. PASS with one caveat (below).
+  - Admin Content Studio: opened as admin; seeded draft previewed
+    (Quiz questions 15/15), Approve -> Publish worked ("Published ...",
+    "Live in the Academy" badge), published lesson appeared on the
+    Mathematics subject page. PASS.
+
+### Still unverified / caveats
+- **MathJax typesetting not proven in headless Chromium**: the jsdelivr CDN
+  script failed in this VM's headless browser
+  (`net::ERR_TUNNEL_CONNECTION_FAILED`) even though curl reaches jsdelivr
+  fine (200) — a VM proxy limitation, not a code defect. `window.MathJax`
+  stayed partial (`typesetPromise` never appeared, 0 `mjx-container`s after
+  30 s). TutorMarkdown falls back to showing the raw LaTeX text, so nothing
+  breaks — but confirm on a real phone/browser that `\(...\)` equations
+  actually typeset after deploy.
+- **No live Groq tutor reply**: no GROQ_API_KEY in the test env, so a real
+  tutor answer following the 4-section structure + LaTeX still needs one live
+  message after deploy (pre-existing gap, see above).
+- One headless quiz submit was performed as demo_student (test data, excluded
+  from leaderboards); the grader route is server-side only and the client
+  mirror may or may not have written one demo attempt row to Supabase — could
+  not verify (run-sql returns 403 on this project). Harmless either way.
+- All seeded test data (conversation, draft, published lesson, admin role)
+  lived only in the throwaway headless browser profile — nothing was written
+  to the repo or the live database by the seeding itself.
