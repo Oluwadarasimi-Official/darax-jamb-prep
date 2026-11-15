@@ -87,17 +87,27 @@ export default function AdminPage() {
     setRunMsg(result.created ? `Week ${wk} calculated: ${result.scorers.length} scorers, ${result.scholars.length} scholars. Badges issued and notifications sent.` : `Week ${wk} was already calculated — no duplicates created (idempotent).`);
   };
 
-  const sendAnnouncement = () => {
+  const sendAnnouncement = async () => {
     if (!annTitle.trim() || !annBody.trim()) { setAnnMsg('Enter both a title and a message.'); return; }
+    const title = annTitle.trim();
+    const body = annBody.trim();
+    if (SUPABASE_CONFIGURED) {
+      const sb = getSb();
+      if (!sb) { setAnnMsg('Database connection is unavailable. Nothing was published.'); return; }
+      const { error } = await sb.rpc('djp_admin_publish_announcement', { p_title: title, p_body: body });
+      if (error) { setAnnMsg(`Announcement was not published: ${error.message}`); return; }
+    }
     const id = uid('ann');
     setDb(d => {
-      d.announcements.push({ id, title: annTitle.trim(), body: annBody.trim(), createdAt: new Date().toISOString(), author: user.fullName });
-      for (const s of d.profiles.filter(p => p.role === 'student' && p.active)) {
-        if (s.notifyPrefs?.announcements !== false) notify(d, s.id, `Announcement: ${annTitle.trim()}`, annBody.trim(), 'announcement', '/app/notifications');
+      d.announcements.unshift({ id, title, body, createdAt: new Date().toISOString(), author: user.fullName });
+      if (!SUPABASE_CONFIGURED) {
+        for (const s of d.profiles.filter(p => p.role === 'student' && p.active)) {
+          if (s.notifyPrefs?.announcements !== false) notify(d, s.id, `Announcement: ${title}`, body, 'announcement', '/app/notifications');
+        }
       }
       return d;
     });
-    setAnnMsg('Announcement published and sent to all active students.');
+    setAnnMsg(SUPABASE_CONFIGURED ? 'Announcement published to the shared platform and notifications queued for active students.' : 'Announcement saved on this device only; shared publishing requires Supabase.');
     setAnnTitle(''); setAnnBody('');
   };
 

@@ -361,10 +361,14 @@ export default function ContentStudioPage() {
     if (!genTopic.trim() || !genTitle.trim()) { setGenMsg('Enter a topic and a lesson title.'); return; }
     setGenBusy(true); setGenMsg('');
     try {
+      const sb = getSb();
+      const { data: sessionData } = sb ? await sb.auth.getSession() : { data: { session: null } };
+      if (!sessionData.session?.access_token) throw new Error('Your admin session has expired. Sign in again.');
       const res = await fetch('/api/admin/generate-lesson', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
         body: JSON.stringify({
-          role: user.role, subjectId,
+          subjectId,
           topic: genTopic.trim(), title: genTitle.trim(),
           objectives: genObjectives.split(',').map(s => s.trim()).filter(Boolean),
         }),

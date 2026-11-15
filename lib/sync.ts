@@ -59,6 +59,12 @@ export async function syncUserFromSupabase(db: DB, authUser: User): Promise<DB |
         email: (authUser.email || '').toLowerCase(),
       });
     }
+    // Record genuine account activity in the shared database, not only in this browser cache.
+    if (row.active) {
+      const activityTime = new Date().toISOString();
+      await sbUpdateProfile(row.id, { last_active_at: activityTime });
+      row.last_active_at = activityTime;
+    }
     const subjects = await sbSubjectsFor(row.id);
     const local = sbProfileToLocal(row, subjects);
     mergeProfileIntoDb(db, local);
