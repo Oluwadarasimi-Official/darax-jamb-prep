@@ -48,7 +48,7 @@ export async function POST(req: Request) {
       if (cq && typeof cq.q === 'string' && Array.isArray(cq.options) && cq.options.length === 4
         && typeof cq.answer === 'number' && cq.answer >= 0 && cq.answer <= 3 && typeof cq.explanation === 'string') {
         anyCustom = true;
-        graded.push({ q: cq.q, options: [...cq.options], chosen, correct: cq.answer, explanation: cq.explanation });
+        graded.push({ q: cq.q, options: [...cq.options], chosen, correct: cq.answer, explanation: cq.explanation, subjectId: typeof cq.subjectId === 'string' ? cq.subjectId : undefined });
         continue;
       }
       return NextResponse.json({ error: `Unknown question reference: ${ref}` }, { status: 400 });
