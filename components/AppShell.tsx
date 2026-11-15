@@ -12,6 +12,7 @@ const NAV = [
   { href: '/app/dashboard', label: 'Dashboard', icon: 'dashboard' },
   { href: '/app/subjects', label: 'My Subjects', icon: 'book' },
   { href: '/app/assessments', label: 'Assessments', icon: 'clipboard' },
+  { href: '/app/utme', label: 'Full UTME Simulation', icon: 'clipboard' },
   { href: '/app/tutor', label: 'Darax AI Tutor', icon: 'sparkles' },
   { href: '/app/leaderboards', label: 'Leaderboards', icon: 'trophy' },
   { href: '/app/achievements', label: 'My Achievements', icon: 'award' },

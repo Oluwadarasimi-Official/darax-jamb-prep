@@ -15,10 +15,10 @@ export async function POST(req: Request) {
     if (!Array.isArray(refs) || !Array.isArray(answers) || refs.length === 0 || refs.length !== answers.length) {
       return NextResponse.json({ error: 'Questions and answers do not match.' }, { status: 400 });
     }
-    if (!['lesson', 'topic', 'subject', 'mixed', 'mock'].includes(kind)) {
+    if (!['lesson', 'topic', 'subject', 'mixed', 'mock', 'utme'].includes(kind)) {
       return NextResponse.json({ error: 'Unknown assessment kind.' }, { status: 400 });
     }
-    const graded: { q: string; options: string[]; chosen: number; correct: number; explanation: string }[] = [];
+    const graded: { q: string; options: string[]; chosen: number; correct: number; explanation: string; subjectId?: string }[] = [];
     let anyCustom = false;
     for (let i = 0; i < refs.length; i++) {
       const ref = String(refs[i]);
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       const chosen = typeof answers[i] === 'number' ? answers[i] : -1;
       if (lesson && !Number.isNaN(idx) && lesson.quiz[idx]) {
         const qq = lesson.quiz[idx];
-        graded.push({ q: qq.q, options: [...qq.options], chosen, correct: qq.answer, explanation: qq.explanation });
+        graded.push({ q: qq.q, options: [...qq.options], chosen, correct: qq.answer, explanation: qq.explanation, subjectId: lesson.subjectId });
         continue;
       }
       // Admin-published custom lessons have no server-side question bank (the

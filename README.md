@@ -4,7 +4,7 @@
 
 A complete, free JAMB preparation platform for science students: structured lessons,
 lesson quizzes with a 70% unlock rule, topic/subject/mixed assessments, timed
-JAMB-style mocks, a Darax AI Tutor (Groq), weekly leaderboards, official
+JAMB-style mocks and full 180-question UTME simulations, a Darax AI Tutor (Groq), weekly leaderboards, official
 achievement badges with public verification, notifications, and an admin
 Content Studio with AI-assisted lesson authoring.
 
@@ -98,7 +98,7 @@ key — re-running a week never duplicates badges or notifications.
 
 - `/` landing · `/login` · `/signup` · `/reset` (password reset) · `/onboarding`
 - `/app/dashboard` · `/app/subjects` · `/app/subjects/[id]` · `/app/learn/[lessonId]`
-- `/app/quiz/[lessonId]` · `/app/assessments` · `/app/mock` (timed, 30 min)
+- `/app/quiz/[lessonId]` · `/app/assessments` · `/app/mock` (20-question, 30 min) · `/app/utme` (180-question, 120 min)
 - `/app/tutor` · `/app/leaderboards` · `/app/achievements` · `/app/achievements/[id]`
 - `/verify/[id]` (public badge verification) · `/app/notifications` · `/app/profile` · `/app/settings`
 - `/admin` · `/admin/content` (Content Studio)

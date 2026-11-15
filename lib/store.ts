@@ -11,7 +11,7 @@ export interface Profile {
   notifyPrefs?: { weekly: boolean; lessons: boolean; results: boolean; announcements: boolean };
 }
 export interface Attempt {
-  id: string; userId: string; lessonId?: string; subjectId: string; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock';
+  id: string; userId: string; lessonId?: string; subjectId: string; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock' | 'utme';
   title: string; total: number; correct: number; score: number; // percent
   answers: { q: string; chosen: number; correct: number }[];
   startedAt: string; completedAt: string; durationSec: number;

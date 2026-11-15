@@ -101,6 +101,11 @@ export default function AssessmentsPage() {
             <h3 className="font-bold">Timed JAMB-style mock</h3>
             <p className="muted text-sm mt-1">20 questions · 30 minutes · auto-submits when time expires.</p>
             <Link href="/app/mock" className="btn-primary inline-block mt-3 text-sm">Open mock exam →</Link>
+            <div className="border-t border-ink/10 mt-4 pt-4">
+              <h3 className="font-bold">Full UTME simulation</h3>
+              <p className="muted text-sm mt-1">180 questions · 2 hours · your selected four subjects.</p>
+              <Link href="/app/utme" className="btn-primary inline-block mt-3 text-sm">Start full UTME →</Link>
+            </div>
           </div>
         </GlassCard>
       </div>

@@ -2,22 +2,22 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useDb } from './db-context';
-import { uid } from '../lib/store';
+import { uid, SUBJECT_NAMES } from '../lib/store';
 import { mirrorAttempt, mirrorNotification } from '../lib/sync';
 import { PASS_MARK } from '../lib/progression';
 
 export interface RunnerQ {
-  ref: string; q: string; options: string[];
+  ref: string; q: string; options: string[]; subjectId?: string;
   /** Present ONLY for admin-published custom lessons, whose question bank lives
    *  on this device (no server bank exists for them). The server grades those
    *  from this supplied key and marks the result serverValidated:false. */
   answer?: number; explanation?: string;
 }
-export interface GradeResult { q: string; options: string[]; chosen: number; correct: number; explanation: string; }
+export interface GradeResult { q: string; options: string[]; chosen: number; correct: number; explanation: string; subjectId?: string; }
 
 /** One displayed question: its original ref + options in display order, with
  *  the map from each displayed option index back to its original option index. */
-interface ShuffledQ { ref: string; q: string; options: string[]; origOptionIdx: number[]; answer?: number; explanation?: string; }
+interface ShuffledQ { ref: string; q: string; options: string[]; origOptionIdx: number[]; answer?: number; explanation?: string; subjectId?: string; }
 
 /** Deterministic shuffle from a seed (mulberry32) so one attempt has one fixed
  *  order while every new attempt gets a fresh seed — and therefore a new order. */
@@ -35,19 +35,19 @@ function shuffleWith<T>(arr: T[], rand: () => number): T[] {
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
-function buildShuffle(questions: RunnerQ[]): ShuffledQ[] {
+function buildShuffle(questions: RunnerQ[], preserveQuestionOrder = false): ShuffledQ[] {
   const rand = mulberry32((Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0);
-  const order = shuffleWith(questions.map((_, i) => i), rand);
+  const order = preserveQuestionOrder ? questions.map((_, i) => i) : shuffleWith(questions.map((_, i) => i), rand);
   return order.map(i => {
     const q = questions[i];
     const optOrder = shuffleWith(q.options.map((_, oi) => oi), rand);
-    return { ref: q.ref, q: q.q, options: optOrder.map(oi => q.options[oi]), origOptionIdx: optOrder, answer: q.answer, explanation: q.explanation };
+    return { ref: q.ref, q: q.q, options: optOrder.map(oi => q.options[oi]), origOptionIdx: optOrder, answer: q.answer, explanation: q.explanation, subjectId: q.subjectId };
   });
 }
 
-export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLimitSec, nextHref }: {
-  questions: RunnerQ[]; title: string; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock';
-  subjectId: string; lessonId?: string; timeLimitSec?: number; nextHref?: string;
+export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLimitSec, nextHref, examMode = false }: {
+  questions: RunnerQ[]; title: string; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock' | 'utme';
+  subjectId: string; lessonId?: string; timeLimitSec?: number; nextHref?: string; examMode?: boolean;
 }) {
   const { db, user, setDb } = useDb();
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -55,6 +55,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   const [result, setResult] = useState<{ score: number; correct: number; total: number; graded: GradeResult[]; serverValidated: boolean } | null>(null);
   const [error, setError] = useState('');
   const [secondsLeft, setSecondsLeft] = useState(timeLimitSec || 0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [attemptNo, setAttemptNo] = useState(0);
   const [shuffled, setShuffled] = useState<ShuffledQ[] | null>(null);
   const startedAt = useRef(Date.now());
@@ -64,9 +65,10 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   // Built in an effect so server render and first client render match (no
   // hydration mismatch from Math.random during render).
   useEffect(() => {
-    setShuffled(buildShuffle(questions));
+    setShuffled(buildShuffle(questions, examMode));
+    setCurrentIndex(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attemptNo]);
+  }, [attemptNo, examMode]);
 
   useEffect(() => {
     if (!timeLimitSec) return;
@@ -166,7 +168,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   if (!user) return null;
 
   const retake = () => {
-    setResult(null); setAnswers({}); submittedRef.current = false;
+    setResult(null); setAnswers({}); setCurrentIndex(0); submittedRef.current = false;
     startedAt.current = Date.now();
     if (timeLimitSec) setSecondsLeft(timeLimitSec);
     setAttemptNo(n => n + 1); // fresh seed → brand-new question AND option order
@@ -179,6 +181,10 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
         <div className="glass p-6 text-center">
           <p className="text-5xl font-extrabold">{result.score}%</p>
           <p className="mt-1 font-semibold">{result.correct} correct out of {result.total}</p>
+          {kind === 'utme' && utmeBreakdown && <div className="mt-5 text-left border-t border-ink/10 pt-4">
+            <div className="flex items-end justify-between gap-3 mb-3"><div><p className="text-xs muted uppercase tracking-wide">DARAX raw practice score</p><p className="text-3xl font-extrabold text-accent">{utmeRawScore}<span className="text-base muted"> / 400</span></p></div><p className="text-xs muted max-w-[190px]">Practice estimate only — not an official JAMB result or JAMB scaling.</p></div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">{Object.entries(utmeBreakdown).map(([sid, row]) => <div key={sid} className="glass-soft p-3 rounded-xl"><p className="text-xs muted">{SUBJECT_NAMES[sid] || sid}</p><p className="text-lg font-bold">{Math.round((row.correct / row.total) * 100)}<span className="text-xs muted"> / 100</span></p><p className="text-xs muted">{row.correct}/{row.total} correct</p></div>)}</div>
+          </div>}
           <p className={`mt-2 font-semibold ${passed ? 'text-accent' : 'text-warn'}`}>
             {kind === 'lesson'
               ? passed ? '🎉 Passed! The next lesson is now unlocked.' : `Not yet — you need ${PASS_MARK}% to unlock the next lesson. Review the explanations and retake it.`
@@ -210,8 +216,17 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   }
 
   const answered = Object.keys(answers).length;
-  const mm = Math.floor(secondsLeft / 60);
+  const mm = Math.floor((secondsLeft % 3600) / 60);
+  const hh = Math.floor(secondsLeft / 3600);
   const ss = String(secondsLeft % 60).padStart(2, '0');
+  const utmeBreakdown = result?.graded.reduce((acc, item) => {
+    const sid = item.subjectId || 'unknown';
+    const row = acc[sid] || (acc[sid] = { correct: 0, total: 0 });
+    row.total += 1;
+    if (item.chosen === item.correct) row.correct += 1;
+    return acc;
+  }, {} as Record<string, { correct: number; total: number }>);
+  const utmeRawScore = utmeBreakdown ? Object.values(utmeBreakdown).reduce((sum, row) => sum + Math.round((row.correct / row.total) * 100), 0) : 0;
 
   if (!shuffled) {
     return (
@@ -231,10 +246,28 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
           <p className="muted text-sm mt-0.5">{shuffled.length} questions · Pass mark {PASS_MARK}% · Answers are hidden until you submit</p>
           <p className="text-xs muted mt-1">🔀 Questions and answer options reshuffle on every retake.</p>
         </div>
-        {timeLimitSec ? <p className={`font-bold text-lg shrink-0 ${secondsLeft < 120 ? 'text-danger' : ''}`}>⏱ {mm}:{ss} left</p> : <p className="text-sm muted shrink-0">Answered {answered}/{shuffled.length}</p>}
+        {timeLimitSec ? <p className={`font-bold text-lg shrink-0 ${secondsLeft < 120 ? 'text-danger' : ''}`}>⏱ {examMode ? `${hh}:${String(mm).padStart(2, '0')}:${ss}` : `${mm}:${ss}`} left</p> : <p className="text-sm muted shrink-0">Answered {answered}/{shuffled.length}</p>}
       </div>
       {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 break-words">{error}</p>}
-      {shuffled.map((q, i) => (
+      {examMode ? (() => {
+        const q = shuffled[currentIndex];
+        const unanswered = shuffled.length - answered;
+        return <>
+          <div className="glass p-4">
+            <div className="flex items-center justify-between gap-3 text-sm"><strong>Question {currentIndex + 1} of {shuffled.length}</strong><span className="muted">{answered} answered · {unanswered} remaining</span></div>
+            <div className="h-2 rounded-full bg-ink/10 mt-3 overflow-hidden"><div className="h-full rounded-full bg-accent" style={{ width: `${(answered / shuffled.length) * 100}%` }} /></div>
+            <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 mt-4 max-h-36 overflow-y-auto">{shuffled.map((item, index) => <button type="button" key={`${attemptNo}-nav-${item.ref}`} onClick={() => setCurrentIndex(index)} aria-label={`Go to question ${index + 1}`} className={`aspect-square rounded-lg border text-xs font-semibold ${index === currentIndex ? 'bg-accent text-white border-accent' : answers[index] !== undefined ? 'bg-accent/15 border-accent/40 text-ink' : 'bg-ink/5 border-ink/10 text-ink/70'}`}>{index + 1}</button>)}</div>
+            <div className="flex flex-wrap gap-3 text-[11px] muted mt-3"><span>Current</span><span>Answered</span><span>Not answered</span></div>
+          </div>
+          <div className="glass p-5">
+            <div className="flex items-center justify-between gap-2 mb-4"><span className="text-xs font-bold uppercase tracking-wide text-accent">{SUBJECT_NAMES[q.subjectId || ''] || 'UTME'}</span><span className="text-xs muted">Question {currentIndex + 1}</span></div>
+            <p className="font-semibold text-base md:text-lg break-words leading-relaxed">{q.q}</p>
+            <div className="grid gap-2 mt-4">{q.options.map((opt, oi) => { const sel = answers[currentIndex] === oi; return <button key={oi} onClick={() => setAnswers(a => ({ ...a, [currentIndex]: oi }))} className={`text-left p-3.5 rounded-xl border text-sm transition-colors break-words ${sel ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}><span className="font-bold mr-2">{'ABCD'[oi]}.</span>{opt}</button>; })}</div>
+            <div className="flex items-center justify-between gap-3 mt-6"><button type="button" onClick={() => setCurrentIndex(i => Math.max(0, i - 1))} disabled={currentIndex === 0} className="btn-ghost disabled:opacity-40">← Previous</button><button type="button" onClick={() => setCurrentIndex(i => Math.min(shuffled.length - 1, i + 1))} disabled={currentIndex === shuffled.length - 1} className="btn-primary disabled:opacity-40">Next →</button></div>
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs muted">Move between questions and change answers until submission.</p><button onClick={() => { const msg = unanswered ? `You have ${unanswered} unanswered question(s). Submit the examination anyway?` : 'Submit your examination now? You cannot change answers afterwards.'; if (window.confirm(msg)) submit(false); }} disabled={submitting} className="btn-primary">{submitting ? 'Submitting…' : 'Submit examination'}</button></div>
+        </>;
+      })() : shuffled.map((q, i) => (
         <div key={`${attemptNo}-${q.ref}`} className="glass p-5">
           <p className="font-semibold break-words">Q{i + 1}. {q.q}</p>
           <div className="grid gap-2 mt-3">
@@ -250,9 +283,9 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
           </div>
         </div>
       ))}
-      <button onClick={() => submit(false)} disabled={submitting || answered < shuffled.length} className="btn-primary w-full md:w-auto self-start">
+      {!examMode && <button onClick={() => submit(false)} disabled={submitting || answered < shuffled.length} className="btn-primary w-full md:w-auto self-start">
         {submitting ? 'Grading…' : answered < shuffled.length ? `Answer all questions to submit (${answered}/${shuffled.length})` : 'Submit assessment'}
-      </button>
+      </button>}
       {timeLimitSec ? <p className="text-xs muted">The assessment submits automatically when the timer reaches zero.</p> : null}
     </div>
   );

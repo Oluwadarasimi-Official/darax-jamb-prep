@@ -62,7 +62,8 @@ export function computeScholars(db: DB, week: string): ScholarRow[] {
     if (u.isDemo || !u.active || u.role !== 'student') continue;
     const weekAttempts = db.attempts.filter(a => a.userId === u.id && a.completedAt >= start && a.completedAt <= end);
     if (weekAttempts.length < 2) continue; // minimum assessment requirement
-    const accuracy = weekAttempts.reduce((s, a) => s + a.score, 0) / weekAttempts.length / 100;
+    const questionCount = weekAttempts.reduce((sum, a) => sum + a.total, 0);
+    const accuracy = questionCount ? weekAttempts.reduce((sum, a) => sum + a.correct, 0) / questionCount : 0;
     const prog = db.progress[u.id] || [];
     // Minimum-time safeguard: lessons finished in under 60s do not count toward speed.
     const genuine = prog.filter(p => p.completed && p.timeSpentSec >= 60 && p.completedAt && p.completedAt >= start && p.completedAt <= end);
