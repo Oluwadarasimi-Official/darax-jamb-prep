@@ -1,0 +1,355 @@
+{
+  "notice": "Original DARAX practice questions written in JAMB-style format. These are not reproduced historical JAMB questions.",
+  "questions": [
+    {
+      "id": "darax-eng-001",
+      "subject": "english",
+      "topic": "Lexis and Structure",
+      "question": "Choose the option nearest in meaning to the word in capital letters: The chairman gave a TACIT approval to the proposal.",
+      "options": [
+        "A. conditional",
+        "B. unspoken",
+        "C. reluctant",
+        "D. public"
+      ],
+      "answer": 1,
+      "explanation": "Tacit means understood or implied without being stated openly; therefore, unspoken is the nearest meaning."
+    },
+    {
+      "id": "darax-eng-002",
+      "subject": "english",
+      "topic": "Concord",
+      "question": "Neither the principal nor the teachers _____ aware of the change in the timetable.",
+      "options": [
+        "A. was",
+        "B. has been",
+        "C. were",
+        "D. is"
+      ],
+      "answer": 2,
+      "explanation": "With neither...nor, the verb agrees with the nearer subject. Teachers is plural, so were is correct."
+    },
+    {
+      "id": "darax-eng-003",
+      "subject": "english",
+      "topic": "Idiomatic Expressions",
+      "question": "If a person says that a plan has been put on the back burner, the plan has been",
+      "options": [
+        "A. abandoned permanently",
+        "B. given immediate attention",
+        "C. postponed for later consideration",
+        "D. secretly approved"
+      ],
+      "answer": 2,
+      "explanation": "To put something on the back burner is to postpone it while giving priority to other matters."
+    },
+    {
+      "id": "darax-eng-004",
+      "subject": "english",
+      "topic": "Word Classes",
+      "question": "In the sentence 'The committee reached a unanimous decision', the word 'unanimous' functions as a/an",
+      "options": [
+        "A. adjective",
+        "B. adverb",
+        "C. noun",
+        "D. conjunction"
+      ],
+      "answer": 0,
+      "explanation": "Unanimous describes the noun decision, so it is an adjective."
+    },
+    {
+      "id": "darax-eng-005",
+      "subject": "english",
+      "topic": "Sentence Interpretation",
+      "question": "'Although the evidence was incomplete, the panel reached a conclusion.' This sentence indicates that the panel",
+      "options": [
+        "A. refused to consider the evidence",
+        "B. reached a conclusion despite a limitation",
+        "C. waited until all evidence was available",
+        "D. found the evidence entirely false"
+      ],
+      "answer": 1,
+      "explanation": "Although introduces a contrast. The panel reached a conclusion in spite of the evidence being incomplete."
+    },
+    {
+      "id": "darax-math-001",
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve the equation 3(2x − 1) = 4x + 7.",
+      "options": [
+        "A. 2",
+        "B. 4",
+        "C. 5",
+        "D. 6"
+      ],
+      "answer": 2,
+      "explanation": "Expand: 6x − 3 = 4x + 7. Thus 2x = 10 and x = 5."
+    },
+    {
+      "id": "darax-math-002",
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "A trader reduces the marked price of an item from ₦8,000 by 15%. What is the new price?",
+      "options": [
+        "A. ₦6,600",
+        "B. ₦6,800",
+        "C. ₦6,900",
+        "D. ₦7,200"
+      ],
+      "answer": 1,
+      "explanation": "15% of ₦8,000 is ₦1,200. New price = ₦8,000 − ₦1,200 = ₦6,800."
+    },
+    {
+      "id": "darax-math-003",
+      "subject": "mathematics",
+      "topic": "Trigonometry",
+      "question": "If sin θ = 3/5 and θ is acute, find cos θ.",
+      "options": [
+        "A. 2/5",
+        "B. 3/4",
+        "C. 4/5",
+        "D. 5/4"
+      ],
+      "answer": 2,
+      "explanation": "Using sin²θ + cos²θ = 1, cos²θ = 1 − 9/25 = 16/25. Since θ is acute, cos θ = 4/5."
+    },
+    {
+      "id": "darax-math-004",
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "The mean of 4, 7, 9, 10 and x is 8. Find x.",
+      "options": [
+        "A. 8",
+        "B. 9",
+        "C. 10",
+        "D. 11"
+      ],
+      "answer": 2,
+      "explanation": "The total of five values is 5 × 8 = 40. The known values sum to 30, hence x = 10. Correction: the correct option is C (10)."
+    },
+    {
+      "id": "darax-math-005",
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "A circle has radius 7 cm. Using π = 22/7, calculate its area.",
+      "options": [
+        "A. 44 cm²",
+        "B. 77 cm²",
+        "C. 154 cm²",
+        "D. 308 cm²"
+      ],
+      "answer": 2,
+      "explanation": "Area = πr² = (22/7) × 7² = 154 cm²."
+    },
+    {
+      "id": "darax-phy-001",
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A car increases its velocity uniformly from 5 m s⁻¹ to 25 m s⁻¹ in 4 s. What is its acceleration?",
+      "options": [
+        "A. 4 m s⁻²",
+        "B. 5 m s⁻²",
+        "C. 6 m s⁻²",
+        "D. 8 m s⁻²"
+      ],
+      "answer": 1,
+      "explanation": "Acceleration = change in velocity ÷ time = (25 − 5)/4 = 5 m s⁻²."
+    },
+    {
+      "id": "darax-phy-002",
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 12 Ω resistor is connected across a 6 V battery. What current flows through it?",
+      "options": [
+        "A. 0.25 A",
+        "B. 0.5 A",
+        "C. 2.0 A",
+        "D. 72 A"
+      ],
+      "answer": 1,
+      "explanation": "By Ohm's law, I = V/R = 6/12 = 0.5 A."
+    },
+    {
+      "id": "darax-phy-003",
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 50 Hz and wavelength 0.8 m. Calculate its speed.",
+      "options": [
+        "A. 40 m s⁻¹",
+        "B. 50 m s⁻¹",
+        "C. 62.5 m s⁻¹",
+        "D. 400 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Wave speed v = fλ = 50 × 0.8 = 40 m s⁻¹."
+    },
+    {
+      "id": "darax-phy-004",
+      "subject": "physics",
+      "topic": "Heat",
+      "question": "Which process transfers heat through a vacuum?",
+      "options": [
+        "A. Conduction",
+        "B. Convection",
+        "C. Radiation",
+        "D. Diffusion"
+      ],
+      "answer": 2,
+      "explanation": "Radiation transfers energy by electromagnetic waves and does not require a material medium."
+    },
+    {
+      "id": "darax-phy-005",
+      "subject": "physics",
+      "topic": "Moments",
+      "question": "A force of 20 N acts perpendicularly at a distance of 0.3 m from a pivot. Find its moment.",
+      "options": [
+        "A. 6 N m",
+        "B. 20 N m",
+        "C. 23 N m",
+        "D. 66.7 N m"
+      ],
+      "answer": 0,
+      "explanation": "Moment = force × perpendicular distance = 20 × 0.3 = 6 N m."
+    },
+    {
+      "id": "darax-chem-001",
+      "subject": "chemistry",
+      "topic": "Atomic Structure",
+      "question": "An atom has atomic number 17 and mass number 35. How many neutrons does its nucleus contain?",
+      "options": [
+        "A. 17",
+        "B. 18",
+        "C. 35",
+        "D. 52"
+      ],
+      "answer": 1,
+      "explanation": "Number of neutrons = mass number − atomic number = 35 − 17 = 18."
+    },
+    {
+      "id": "darax-chem-002",
+      "subject": "chemistry",
+      "topic": "Acids and Bases",
+      "question": "What is the pH of a neutral aqueous solution at 25 °C?",
+      "options": [
+        "A. 0",
+        "B. 5",
+        "C. 7",
+        "D. 14"
+      ],
+      "answer": 2,
+      "explanation": "At 25 °C, a neutral aqueous solution has equal hydrogen and hydroxide ion concentrations and pH 7."
+    },
+    {
+      "id": "darax-chem-003",
+      "subject": "chemistry",
+      "topic": "Chemical Bonding",
+      "question": "The bond formed by the sharing of electron pairs between atoms is called",
+      "options": [
+        "A. ionic",
+        "B. metallic",
+        "C. covalent",
+        "D. coordinate only"
+      ],
+      "answer": 2,
+      "explanation": "A covalent bond forms when atoms share one or more pairs of electrons."
+    },
+    {
+      "id": "darax-chem-004",
+      "subject": "chemistry",
+      "topic": "Mole Concept",
+      "question": "How many moles are present in 18 g of water? [H = 1, O = 16]",
+      "options": [
+        "A. 0.5 mol",
+        "B. 1.0 mol",
+        "C. 2.0 mol",
+        "D. 18 mol"
+      ],
+      "answer": 1,
+      "explanation": "Molar mass of H₂O = 2(1) + 16 = 18 g mol⁻¹. Moles = 18/18 = 1."
+    },
+    {
+      "id": "darax-chem-005",
+      "subject": "chemistry",
+      "topic": "Separation Techniques",
+      "question": "Which method is most suitable for separating ethanol from water based on their different boiling points?",
+      "options": [
+        "A. Filtration",
+        "B. Separating funnel",
+        "C. Fractional distillation",
+        "D. Sublimation"
+      ],
+      "answer": 2,
+      "explanation": "Ethanol and water are miscible liquids with different boiling points; fractional distillation is suitable for separating them."
+    },
+    {
+      "id": "darax-bio-001",
+      "subject": "biology",
+      "topic": "Cell Biology",
+      "question": "Which organelle is the main site of aerobic respiration in a typical eukaryotic cell?",
+      "options": [
+        "A. Ribosome",
+        "B. Mitochondrion",
+        "C. Golgi apparatus",
+        "D. Lysosome"
+      ],
+      "answer": 1,
+      "explanation": "Mitochondria contain the machinery for the major stages of aerobic respiration and ATP production."
+    },
+    {
+      "id": "darax-bio-002",
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a monohybrid cross Tt × Tt, where T is dominant, what proportion of offspring is expected to show the recessive phenotype?",
+      "options": [
+        "A. 1/4",
+        "B. 1/2",
+        "C. 3/4",
+        "D. 1"
+      ],
+      "answer": 0,
+      "explanation": "The genotypes are TT, Tt, Tt and tt. Only tt shows the recessive phenotype, giving 1/4."
+    },
+    {
+      "id": "darax-bio-003",
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "Green plants are described as producers in an ecosystem because they",
+      "options": [
+        "A. feed on decomposers",
+        "B. convert light energy into chemical energy",
+        "C. obtain food from animals",
+        "D. release minerals from rocks"
+      ],
+      "answer": 1,
+      "explanation": "Producers manufacture organic food, commonly through photosynthesis, using light energy."
+    },
+    {
+      "id": "darax-bio-004",
+      "subject": "biology",
+      "topic": "Transport in Plants",
+      "question": "The movement of water molecules across a selectively permeable membrane from a region of higher water potential to lower water potential is",
+      "options": [
+        "A. diffusion",
+        "B. transpiration",
+        "C. osmosis",
+        "D. translocation"
+      ],
+      "answer": 2,
+      "explanation": "Osmosis is the net movement of water across a selectively permeable membrane down a water-potential gradient."
+    },
+    {
+      "id": "darax-bio-005",
+      "subject": "biology",
+      "topic": "Human Physiology",
+      "question": "Which blood component is primarily responsible for transporting oxygen?",
+      "options": [
+        "A. Platelets",
+        "B. Plasma proteins",
+        "C. Red blood cells",
+        "D. White blood cells"
+      ],
+      "answer": 2,
+      "explanation": "Haemoglobin in red blood cells binds and transports most oxygen in the blood."
+    }
+  ]
+}
