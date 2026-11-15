@@ -169,6 +169,12 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
 
   const utmeBreakdown = result?.subjectScores;
   const utmeRawScore = result?.utmeScore400Exact ?? result?.utmeScore400 ?? 0;
+  const examSubjects = examMode
+    ? Array.from(new Set(shuffled?.map(item => item.subjectId).filter((id): id is string => !!id) || []))
+    : [];
+  const subjectQuestionIndexes = (subjectId: string) => (shuffled || [])
+    .map((item, index) => item.subjectId === subjectId ? index : -1)
+    .filter(index => index >= 0);
 
   const retake = () => {
     setResult(null); setAnswers({}); setCurrentIndex(0); submittedRef.current = false;
@@ -255,6 +261,24 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
         const unanswered = shuffled.length - answered;
         return <>
           <div className="glass p-4">
+            <div className="mb-4">
+              <p className="text-xs font-semibold muted mb-2">JUMP TO SUBJECT</p>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                {examSubjects.map(subject => {
+                  const indexes = subjectQuestionIndexes(subject);
+                  const done = indexes.filter(index => answers[index] !== undefined).length;
+                  const active = q.subjectId === subject;
+                  return <button type="button" key={subject} onClick={() => {
+                    const target = indexes.find(index => answers[index] === undefined) ?? indexes[0];
+                    if (target !== undefined) setCurrentIndex(target);
+                  }} aria-current={active ? 'true' : undefined}
+                    className={`rounded-xl border px-3 py-2.5 text-left transition-colors ${active ? 'bg-accent text-white border-accent' : 'bg-ink/5 border-ink/10 hover:border-accent/50'}`}>
+                    <span className="block text-xs font-bold">{SUBJECT_NAMES[subject] || subject}</span>
+                    <span className={`block text-[11px] mt-1 ${active ? 'text-white/80' : 'muted'}`}>{done}/{indexes.length} answered</span>
+                  </button>;
+                })}
+              </div>
+            </div>
             <div className="flex items-center justify-between gap-3 text-sm"><strong>Question {currentIndex + 1} of {shuffled.length}</strong><span className="muted">{answered} answered · {unanswered} remaining</span></div>
             <div className="h-2 rounded-full bg-ink/10 mt-3 overflow-hidden"><div className="h-full rounded-full bg-accent" style={{ width: `${(answered / shuffled.length) * 100}%` }} /></div>
             <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 mt-4 max-h-36 overflow-y-auto">{shuffled.map((item, index) => <button type="button" key={`${attemptNo}-nav-${item.ref}`} onClick={() => setCurrentIndex(index)} aria-label={`Go to question ${index + 1}`} className={`aspect-square rounded-lg border text-xs font-semibold ${index === currentIndex ? 'bg-accent text-white border-accent' : answers[index] !== undefined ? 'bg-accent/15 border-accent/40 text-ink' : 'bg-ink/5 border-ink/10 text-ink/70'}`}>{index + 1}</button>)}</div>
