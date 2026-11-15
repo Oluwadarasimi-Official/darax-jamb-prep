@@ -58,6 +58,7 @@ export default function QuestionLibrary() {
             {Array.from({ length: 17 }, (_, index) => 2010 + index).map(value => <option key={value} value={value}>{value}</option>)}
           </select>
           <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a question or topic..." className="w-full rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent" />
+        </div>
         <div className="flex items-center justify-between gap-3 mt-4 text-xs muted">
           <span>{questions.length} questions</span>
           <span>{attempted} checked · {correct} correct</span>
