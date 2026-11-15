@@ -12,11 +12,9 @@ as $$
   select exists (
     select 1
     from public.djp_profiles p
-    join public.djp_roles r on r.user_id = p.id
     where p.auth_id = auth.uid()
       and p.role = 'admin'
       and p.active = true
-      and r.role = 'admin'
   );
 $$;
 

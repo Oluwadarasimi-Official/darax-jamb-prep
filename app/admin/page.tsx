@@ -45,6 +45,26 @@ export default function AdminPage() {
     return () => { cancelled = true; };
   }, [user?.id, user?.role, refreshUsers]);
 
+  useEffect(() => {
+    let cancelled = false;
+    const loadAnnouncements = async () => {
+      if (!SUPABASE_CONFIGURED || user?.role !== 'admin') return;
+      const sb = getSb();
+      if (!sb) return;
+      const { data, error } = await sb.from('djp_announcements')
+        .select('id,title,body,author,created_at').order('created_at', { ascending: false }).limit(100);
+      if (cancelled || error || !data) return;
+      setDb(d => {
+        d.announcements = data.map((a: any) => ({
+          id: a.id, title: a.title, body: a.body, author: a.author, createdAt: a.created_at,
+        }));
+        return d;
+      });
+    };
+    void loadAnnouncements();
+    return () => { cancelled = true; };
+  }, [user?.id, user?.role]);
+
   if (!user) return null;
 
   const students = db.profiles.filter(p => p.role === 'student');
