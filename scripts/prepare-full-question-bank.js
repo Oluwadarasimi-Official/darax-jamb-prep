@@ -11,6 +11,7 @@ for (const q of bank.questions || []) {
   const withoutGeneratedLabel = original
     .replace(/^For this separate \d{4} [a-z-]+ practice item \d+,\s*/i, '')
     .replace(/^Independent item [^:]+:\s*/i, '')
+    .replace(/^([a-z])\\s+([a-z])/i, '$1$2')
     .trim();
   if (withoutGeneratedLabel !== original) {
     q.question = withoutGeneratedLabel
