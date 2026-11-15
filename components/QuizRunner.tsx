@@ -167,6 +167,15 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
 
   if (!user) return null;
 
+  const utmeBreakdown = result?.graded.reduce((acc, item) => {
+    const sid = item.subjectId || 'unknown';
+    const row = acc[sid] || (acc[sid] = { correct: 0, total: 0 });
+    row.total += 1;
+    if (item.chosen === item.correct) row.correct += 1;
+    return acc;
+  }, {} as Record<string, { correct: number; total: number }>);
+  const utmeRawScore = utmeBreakdown ? Object.values(utmeBreakdown).reduce((sum, row) => sum + Math.round((row.correct / row.total) * 100), 0) : 0;
+
   const retake = () => {
     setResult(null); setAnswers({}); setCurrentIndex(0); submittedRef.current = false;
     startedAt.current = Date.now();
@@ -219,14 +228,6 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   const mm = Math.floor((secondsLeft % 3600) / 60);
   const hh = Math.floor(secondsLeft / 3600);
   const ss = String(secondsLeft % 60).padStart(2, '0');
-  const utmeBreakdown = result?.graded.reduce((acc, item) => {
-    const sid = item.subjectId || 'unknown';
-    const row = acc[sid] || (acc[sid] = { correct: 0, total: 0 });
-    row.total += 1;
-    if (item.chosen === item.correct) row.correct += 1;
-    return acc;
-  }, {} as Record<string, { correct: number; total: number }>);
-  const utmeRawScore = utmeBreakdown ? Object.values(utmeBreakdown).reduce((sum, row) => sum + Math.round((row.correct / row.total) * 100), 0) : 0;
 
   if (!shuffled) {
     return (
