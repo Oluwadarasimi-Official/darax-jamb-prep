@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       const ref = String(refs[i]);
       const [lid, idxStr, ...extra] = ref.split(':');
       const lesson = getLessonById(lid);
-      const idx = /^\\d+$/.test(idxStr || '') && extra.length === 0 ? Number(idxStr) : Number.NaN;
+      const idx = /^\d+$/.test(idxStr || '') && extra.length === 0 ? Number(idxStr) : Number.NaN;
       const chosen = typeof answers[i] === 'number' ? answers[i] : -1;
       if (lesson && !Number.isNaN(idx) && lesson.quiz[idx]) {
         const qq = lesson.quiz[idx];

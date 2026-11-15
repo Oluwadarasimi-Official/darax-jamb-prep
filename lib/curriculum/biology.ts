@@ -492,7 +492,7 @@ export const LESSONS: Lesson[] = [
     quiz: [
       {
         q: "What is the genotype of a heterozygous tall pea plant if T = tall and t = short?",
-        options: ["TT", "Tt", "tt", "tT"],
+        options: ["TT", "Tt", "tt", "T"],
         answer: 1,
         explanation: "A heterozygote carries one dominant and one recessive allele, so its genotype is Tt.",
       },

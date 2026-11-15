@@ -27,7 +27,7 @@ for (const file of files) {
       refs.add(ref);
       if (typeof q.q !== 'string' || !q.q.trim()) errors.push(`${ref}: empty question`);
       if (!Array.isArray(q.options) || q.options.length !== 4 || q.options.some(o => typeof o !== 'string' || !o.trim())) errors.push(`${ref}: requires four non-empty A-D options`);
-      if (Array.isArray(q.options) && new Set(q.options.map(o => String(o).trim().toLowerCase())).size !== 4) errors.push(`${ref}: duplicate options`);
+      if (Array.isArray(q.options) && new Set(q.options.map(o => String(o).trim())).size !== 4) errors.push(`${ref}: duplicate options`);
       if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) errors.push(`${ref}: answer key outside A-D`);
       if (typeof q.explanation !== 'string' || !q.explanation.trim()) errors.push(`${ref}: missing explanation`);
     }
