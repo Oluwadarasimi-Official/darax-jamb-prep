@@ -8,6 +8,9 @@ import { getLessonById } from '@/lib/curriculum';
 import { PASS_MARK } from '@/lib/progression';
 import { SCIENCE_SUBJECTS } from '@/lib/store';
 import { calculateUtmeScore } from '@/lib/utme-scoring';
+import practiceBank from '@/lib/darax-practice-bank.json';
+
+const utmeQuestionById = new Map(practiceBank.questions.map(question => [question.id, question]));
 
 export async function POST(req: Request) {
   try {
@@ -37,6 +40,11 @@ export async function POST(req: Request) {
       if (lesson && !Number.isNaN(idx) && lesson.quiz[idx]) {
         const qq = lesson.quiz[idx];
         graded.push({ q: qq.q, options: [...qq.options], chosen, correct: qq.answer, explanation: qq.explanation, subjectId: lesson.subjectId });
+        continue;
+      }
+      const utmeQuestion = kind === 'utme' ? utmeQuestionById.get(ref) : undefined;
+      if (utmeQuestion) {
+        graded.push({ q: utmeQuestion.question, options: [...utmeQuestion.options], chosen, correct: utmeQuestion.answer, explanation: utmeQuestion.explanation, subjectId: utmeQuestion.subject });
         continue;
       }
       // Admin-published custom lessons have no server-side question bank (the
