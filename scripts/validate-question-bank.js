@@ -40,13 +40,19 @@ const daraxIds = new Set();
 const expectedSubjects = ['english', 'mathematics', 'physics', 'chemistry', 'biology'];
 const subjectCounts = Object.fromEntries(expectedSubjects.map(subject => [subject, 0]));
 const yearlyCounts = Object.fromEntries(Array.from({ length: 17 }, (_, i) => [2010 + i, Object.fromEntries(expectedSubjects.map(subject => [subject, 0]))]));
+const yearlyQuestionTexts = new Set();
 if (!Array.isArray(daraxBank.questions)) errors.push('DARAX practice bank: questions must be an array');
 for (const q of daraxBank.questions || []) {
   if (!q.id || daraxIds.has(q.id)) errors.push(`DARAX ${q.id || '(missing id)'}: missing or duplicate id`);
   daraxIds.add(q.id);
   if (q.year !== undefined) {
     if (!Number.isInteger(q.year) || q.year < 2010 || q.year > 2026) errors.push(`DARAX ${q.id}: year outside 2010-2026`);
-    else if (yearlyCounts[q.year] && expectedSubjects.includes(q.subject)) yearlyCounts[q.year][q.subject]++;
+    else if (yearlyCounts[q.year] && expectedSubjects.includes(q.subject)) {
+      yearlyCounts[q.year][q.subject]++;
+      const text = String(q.question || '').trim().toLowerCase();
+      if (yearlyQuestionTexts.has(text)) errors.push(`DARAX ${q.id}: repeated year-organised question text`);
+      yearlyQuestionTexts.add(text);
+    }
   }
   if (!expectedSubjects.includes(q.subject)) errors.push(`DARAX ${q.id}: invalid subject`);
   else subjectCounts[q.subject]++;
@@ -57,10 +63,15 @@ for (const q of daraxBank.questions || []) {
   if (!q.explanation || !q.topic) errors.push(`DARAX ${q.id}: missing explanation or topic`);
 }
 for (const subject of expectedSubjects) if (!subjectCounts[subject]) errors.push(`DARAX bank: no questions for ${subject}`);
-for (const year of Object.keys(yearlyCounts)) for (const subject of expectedSubjects) if (yearlyCounts[year][subject] !== 5) errors.push(`DARAX ${year} ${subject}: expected 5 year-grouped questions, found ${yearlyCounts[year][subject]}`);
+for (const year of Object.keys(yearlyCounts)) for (const subject of expectedSubjects) {
+  const expected = subject === 'english' ? 60 : 40;
+  if (yearlyCounts[year][subject] !== expected) errors.push(`DARAX ${year} ${subject}: expected ${expected} full-length questions, found ${yearlyCounts[year][subject]}`);
+}
+const yearQuestionTotal = Object.values(yearlyCounts).reduce((sum, row) => sum + Object.values(row).reduce((a, b) => a + b, 0), 0);
+if (yearQuestionTotal !== 3740) errors.push(`DARAX year sets: expected 3740 questions, found ${yearQuestionTotal}`);
 
 if (errors.length) {
   console.error(`Question-bank validation failed (${errors.length} issue(s)):\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`Question-bank validation passed: ${lessons} lessons, ${questions} curriculum questions, ${daraxBank.questions.length} DARAX archive questions; four unique options, valid keys and explanations; five questions per subject for each year 2010-2026.`);
+console.log(`Question-bank validation passed: ${lessons} lessons, ${questions} curriculum questions, ${yearQuestionTotal} full-length year-organised questions; unique question stems, four unique options, valid keys and explanations.`);
