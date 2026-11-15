@@ -125,7 +125,7 @@
         "D. 11"
       ],
       "answer": 2,
-      "explanation": "The total of five values is 5 × 8 = 40. The known values sum to 30, hence x = 10. Correction: the correct option is C (10)."
+      "explanation": "The total of five values is 5 × 8 = 40. The known values sum to 30, so x = 40 − 30 = 10."
     },
     {
       "id": "darax-math-005",
