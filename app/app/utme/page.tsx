@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { QuizRunner, type RunnerQ } from '@/components/QuizRunner';
 import { getSubject, getSubjectLessons } from '@/lib/curriculum';
+import { SCIENCE_SUBJECTS } from '@/lib/store';
 import { GlassCard } from '@/components/ui';
 
 function pick<T>(items: T[], count: number): T[] {
@@ -29,7 +30,8 @@ export default function UTMEPage() {
 
   const startExam = () => {
     setError('');
-    if (!selected.includes('english') || optionalSubjects.length !== 3 || subjectOrder.some(id => !getSubject(id))) {
+    if (!selected.includes('english') || optionalSubjects.length !== 3 || new Set(subjectOrder).size !== 4
+      || optionalSubjects.some(id => !SCIENCE_SUBJECTS.includes(id)) || subjectOrder.some(id => !getSubject(id))) {
       setError('Your profile must contain Use of English and exactly three valid science subjects. Please review your subject selection in your profile.');
       return;
     }

@@ -52,7 +52,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   const { db, user, setDb } = useDb();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<{ score: number; correct: number; total: number; graded: GradeResult[]; serverValidated: boolean } | null>(null);
+  const [result, setResult] = useState<{ score: number; correct: number; total: number; graded: GradeResult[]; serverValidated: boolean; utmeScore400?: number } | null>(null);
   const [error, setError] = useState('');
   const [secondsLeft, setSecondsLeft] = useState(timeLimitSec || 0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -153,7 +153,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
       // Mirror to Supabase when configured (fire-and-forget — never blocks UI).
       mirrorAttempt(user.id, attempt, progressEntry);
       if (wantsResultNtf) mirrorNotification(user.id, ntf);
-      setResult({ score: data.score, correct: data.correct, total: data.total, graded: data.graded, serverValidated: !!data.serverValidated });
+      setResult({ score: data.score, correct: data.correct, total: data.total, graded: data.graded, serverValidated: !!data.serverValidated, utmeScore400: data.utmeScore400 });
     } catch (e) {
       submittedRef.current = false;
       setError(e instanceof Error ? e.message : 'Submission failed. Check your connection and try again.');
@@ -174,7 +174,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
     if (item.chosen === item.correct) row.correct += 1;
     return acc;
   }, {} as Record<string, { correct: number; total: number }>);
-  const utmeRawScore = utmeBreakdown ? Object.values(utmeBreakdown).reduce((sum, row) => sum + Math.round((row.correct / row.total) * 100), 0) : 0;
+  const utmeRawScore = result?.utmeScore400 ?? 0;
 
   const retake = () => {
     setResult(null); setAnswers({}); setCurrentIndex(0); submittedRef.current = false;
@@ -191,7 +191,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
           <p className="text-5xl font-extrabold">{result.score}%</p>
           <p className="mt-1 font-semibold">{result.correct} correct out of {result.total}</p>
           {kind === 'utme' && utmeBreakdown && <div className="mt-5 text-left border-t border-ink/10 pt-4">
-            <div className="flex items-end justify-between gap-3 mb-3"><div><p className="text-xs muted uppercase tracking-wide">DARAX raw practice score</p><p className="text-3xl font-extrabold text-accent">{utmeRawScore}<span className="text-base muted"> / 400</span></p></div><p className="text-xs muted max-w-[190px]">Practice estimate only — not an official JAMB result or JAMB scaling.</p></div>
+            <div className="flex items-end justify-between gap-3 mb-3"><div><p className="text-xs muted uppercase tracking-wide">DARAX practice index</p><p className="text-3xl font-extrabold text-accent">{utmeRawScore}<span className="text-base muted"> / 400</span></p></div><p className="text-xs muted max-w-[190px]">Practice estimate only — not an official JAMB result or JAMB scaling.</p></div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2">{Object.entries(utmeBreakdown).map(([sid, row]) => <div key={sid} className="glass-soft p-3 rounded-xl"><p className="text-xs muted">{SUBJECT_NAMES[sid] || sid}</p><p className="text-lg font-bold">{Math.round((row.correct / row.total) * 100)}<span className="text-xs muted"> / 100</span></p><p className="text-xs muted">{row.correct}/{row.total} correct</p></div>)}</div>
           </div>}
           <p className={`mt-2 font-semibold ${passed ? 'text-accent' : 'text-warn'}`}>
