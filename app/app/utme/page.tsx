@@ -6,6 +6,7 @@ import { useDb } from '@/components/db-context';
 import { QuizRunner, type RunnerQ } from '@/components/QuizRunner';
 import { getSubject, getSubjectLessons } from '@/lib/curriculum';
 import { GlassCard } from '@/components/ui';
+import practiceBank from '@/lib/darax-practice-bank.json';
 
 const OPTIONAL = [
   { id: 'mathematics', label: 'Mathematics' },
@@ -56,23 +57,27 @@ export default function UTMEPage() {
     }
 
     const exam: RunnerQ[] = [];
-    const seedBase = Number(year) * 7919;
+    const yearNumber = Number(year);
+    const allYearQuestions = practiceBank.questions.filter(item => item.year === yearNumber);
+    const seedBase = yearNumber * 7919;
     for (const subjectId of subjectOrder) {
       const required = subjectId === 'english' ? 60 : 40;
-      const pool: RunnerQ[] = getSubjectLessons(subjectId).flatMap(lesson =>
-        lesson.quiz.map((item, index) => ({
-          ref: `${lesson.id}:${index}`,
-          q: item.q,
+      const pool: RunnerQ[] = allYearQuestions
+        .filter(item => item.subject === subjectId)
+        .map(item => ({
+          ref: item.id,
+          q: item.question,
           options: [...item.options],
+          answer: item.answer,
+          explanation: item.explanation,
           subjectId,
-        }))
-      );
-      if (pool.length < required) {
-        setError(`The ${getSubject(subjectId)?.name || subjectId} bank has ${pool.length} available questions; ${required} are required. The exam has not started.`);
+        }));
+      if (pool.length !== required) {
+        setError(`The ${year} ${getSubject(subjectId)?.name || subjectId} set contains ${pool.length} questions; exactly ${required} are required. The exam has not started.`);
         return;
       }
       const subjectSeed = seedBase + subjectOrder.indexOf(subjectId) * 104729;
-      exam.push(...seededShuffle(pool, subjectSeed).slice(0, required));
+      exam.push(...seededShuffle(pool, subjectSeed));
     }
 
     if (exam.length !== 180 || new Set(exam.map(item => item.ref)).size !== 180) {
@@ -165,7 +170,7 @@ export default function UTMEPage() {
         </div>
 
         <div className="mt-4 rounded-xl border border-amber-500/25 bg-amber-500/5 p-3 text-xs muted leading-relaxed">
-          Year selection creates a year-organised practice sitting; it does not mean these are authenticated JAMB papers from that year. Questions are original curriculum practice questions. Each sitting contains 180 distinct question references, but the same curriculum pool may be sampled in another year's sitting.
+          Each year has its own full-length set: 60 Use of English questions and 40 for each optional subject. These are original DARAX JAMB-style practice questions, not authenticated or verbatim historical JAMB papers.
         </div>
 
         {error && <p role="alert" className="text-sm text-danger bg-danger/10 border border-danger/20 rounded-xl p-3 mt-4">{error}</p>}
