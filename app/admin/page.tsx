@@ -7,6 +7,7 @@ import { runWeekly, weekKey } from '@/lib/weekly';
 import { notify, uid } from '@/lib/store';
 import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
+import { AdminAnalytics } from '@/components/AdminAnalytics';
 
 export default function AdminPage() {
   const { db, user, setDb } = useDb();
@@ -64,6 +65,8 @@ export default function AdminPage() {
           <GlassCard key={s.label} className="!p-4"><p className="text-2xl font-extrabold">{s.value}</p><p className="text-xs muted mt-0.5">{s.label}</p></GlassCard>
         ))}
       </div>
+
+      <AdminAnalytics />
 
       <div className="grid lg:grid-cols-2 gap-5">
         <GlassCard>
