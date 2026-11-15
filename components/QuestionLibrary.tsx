@@ -29,7 +29,7 @@ export default function QuestionLibrary() {
 
   const questions = useMemo(() => bank.questions.filter(item =>
     (subject === 'all' || item.subject === subject) &&
-    (year === 'all' || item.year === Number(year) || item.year === undefined) &&
+    (year === 'all' || item.year === Number(year)) &&
     (query.trim() === '' || (item.question + ' ' + item.topic).toLowerCase().includes(query.trim().toLowerCase()))
   ), [subject, year, query]);
 
