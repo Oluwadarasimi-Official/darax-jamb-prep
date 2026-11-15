@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
@@ -7,12 +7,16 @@ import { login } from '@/lib/auth';
 import { Logo } from '@/components/Logo';
 
 export default function LoginPage() {
-  const { db, setDb } = useDb();
+  const { db, setDb, user, ready } = useDb();
   const router = useRouter();
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    if (ready && user) router.replace(user.onboarded ? '/app/dashboard' : '/onboarding');
+  }, [ready, user, router]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +26,8 @@ export default function LoginPage() {
     setDb(d => { const u = d.profiles.find(p => p.id === res.user!.id)!; u.lastActiveAt = new Date().toISOString(); d.sessionUserId = u.id; return d; });
     router.replace(res.user!.onboarded ? '/app/dashboard' : '/onboarding');
   };
+
+  if (!ready || user) return <div className="min-h-screen flex items-center justify-center"><p className="muted text-sm">Restoring your account…</p></div>;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">

@@ -10,33 +10,56 @@ const DbCtx = createContext<Ctx | null>(null);
 
 export function DbProvider({ children }: { children: ReactNode }) {
   const [db, setDbState] = useState<DB | null>(null);
+  const [ready, setReady] = useState(false);
+
   useEffect(() => {
     let alive = true;
     const initial = loadSeededDB();
     setDbState(initial);
-    // When Supabase is configured, restore the server session and pull the
-    // signed-in student's server records (profile, subjects, progress,
-    // attempts, notifications) into the local cache.
-    if (SUPABASE_CONFIGURED) {
-      restoreSupabaseSession(structuredClone(initial)).then(next => {
-        if (next && alive) { saveDB(next); setDbState(next); }
-      });
-      const sb = getSb();
-      const sub = sb?.auth.onAuthStateChange(event => {
-        if (event === 'SIGNED_OUT') {
-          setDbState(prev => {
-            if (!prev) return prev;
-            const n = structuredClone(prev);
-            n.sessionUserId = null;
-            saveDB(n);
-            return n;
-          });
-        }
-      });
-      return () => { alive = false; sub?.data.subscription.unsubscribe(); };
+
+    if (!SUPABASE_CONFIGURED) {
+      // The local account/session is already restored synchronously from
+      // localStorage by loadSeededDB().
+      setReady(true);
+      return () => { alive = false; };
     }
-    return () => { alive = false; };
+
+    const sb = getSb();
+    const sub = sb?.auth.onAuthStateChange(event => {
+      if (event === 'SIGNED_OUT') {
+        setDbState(prev => {
+          if (!prev) return prev;
+          const next = structuredClone(prev);
+          next.sessionUserId = null;
+          saveDB(next);
+          return next;
+        });
+      }
+    });
+
+    // Do not render protected routes until Supabase has had a chance to
+    // restore its persisted browser session. Otherwise AppShell can redirect
+    // a returning user to /login before their profile has been hydrated.
+    restoreSupabaseSession(structuredClone(initial))
+      .then(next => {
+        if (next && alive) {
+          saveDB(next);
+          setDbState(next);
+        }
+      })
+      .catch(error => {
+        console.warn('[darax-auth] session restoration failed:', error);
+      })
+      .finally(() => {
+        if (alive) setReady(true);
+      });
+
+    return () => {
+      alive = false;
+      sub?.data.subscription.unsubscribe();
+    };
   }, []);
+
   const setDb = (fn: (db: DB) => DB) => {
     setDbState(prev => {
       if (!prev) return prev;
@@ -45,19 +68,21 @@ export function DbProvider({ children }: { children: ReactNode }) {
       return next;
     });
   };
-  if (!db) {
+
+  if (!db || !ready) {
     return (
       <div className="min-h-screen flex items-center justify-center p-6">
         <div className="glass p-8 text-center w-full max-w-sm">
           <div className="skeleton h-6 w-48 mx-auto mb-3" />
           <div className="skeleton h-4 w-32 mx-auto mb-4" />
-          <p className="muted text-sm">Loading Darax JAMB Prep…</p>
+          <p className="muted text-sm">Restoring your session…</p>
         </div>
       </div>
     );
   }
+
   const user = db.sessionUserId ? db.profiles.find(p => p.id === db.sessionUserId) || null : null;
-  return <DbCtx.Provider value={{ db, setDb, user, ready: true }}>{children}</DbCtx.Provider>;
+  return <DbCtx.Provider value={{ db, setDb, user, ready }}>{children}</DbCtx.Provider>;
 }
 
 export function useDb(): Ctx {

@@ -20,7 +20,13 @@ export function getSb(): SupabaseClient | null {
   if (!SUPABASE_CONFIGURED) return null;
   if (!client) {
     client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+      auth: {
+        // Keep the same default Supabase storage key so existing sessions remain valid.
+        storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
     });
   }
   return client;
