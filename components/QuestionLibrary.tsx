@@ -17,7 +17,7 @@ type Subject = typeof SUBJECTS[number]['id'];
 function stableOrder(id: string, options: string[], answer: number) {
   const offset = [...id].reduce((sum, char) => sum + char.charCodeAt(0), 0) % 4;
   const order = options.map((_, index) => index).sort((a, b) => ((a + offset) % 4) - ((b + offset) % 4));
-  return { options: order.map(index => options[index].replace(/^[A-D]\.\\s*/, '')), answer: order.indexOf(answer) };
+  return { options: order.map(index => options[index].replace(/^[A-D]\.\s*/, '')), answer: order.indexOf(answer) };
 }
 
 export default function QuestionLibrary() {
