@@ -52,7 +52,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
   const { db, user, setDb } = useDb();
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<{ score: number; correct: number; total: number; graded: GradeResult[]; serverValidated: boolean; utmeScore400?: number } | null>(null);
+  const [result, setResult] = useState<{ score: number; correct: number; total: number; graded: GradeResult[]; serverValidated: boolean; utmeScore400?: number; utmeScore400Exact?: number; subjectScores?: Record<string, { correct: number; total: number; score: number }> } | null>(null);
   const [error, setError] = useState('');
   const [secondsLeft, setSecondsLeft] = useState(timeLimitSec || 0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -153,7 +153,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
       // Mirror to Supabase when configured (fire-and-forget — never blocks UI).
       mirrorAttempt(user.id, attempt, progressEntry);
       if (wantsResultNtf) mirrorNotification(user.id, ntf);
-      setResult({ score: data.score, correct: data.correct, total: data.total, graded: data.graded, serverValidated: !!data.serverValidated, utmeScore400: data.utmeScore400 });
+      setResult({ score: data.score, correct: data.correct, total: data.total, graded: data.graded, serverValidated: !!data.serverValidated, utmeScore400: data.utmeScore400, utmeScore400Exact: data.utmeScore400Exact, subjectScores: data.subjectScores });
     } catch (e) {
       submittedRef.current = false;
       setError(e instanceof Error ? e.message : 'Submission failed. Check your connection and try again.');
@@ -167,14 +167,8 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
 
   if (!user) return null;
 
-  const utmeBreakdown = result?.graded.reduce((acc, item) => {
-    const sid = item.subjectId || 'unknown';
-    const row = acc[sid] || (acc[sid] = { correct: 0, total: 0 });
-    row.total += 1;
-    if (item.chosen === item.correct) row.correct += 1;
-    return acc;
-  }, {} as Record<string, { correct: number; total: number }>);
-  const utmeRawScore = result?.utmeScore400 ?? 0;
+  const utmeBreakdown = result?.subjectScores;
+  const utmeRawScore = result?.utmeScore400Exact ?? result?.utmeScore400 ?? 0;
 
   const retake = () => {
     setResult(null); setAnswers({}); setCurrentIndex(0); submittedRef.current = false;
@@ -188,20 +182,26 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
     return (
       <div className="flex flex-col gap-4">
         <div className="glass p-6 text-center">
-          <p className="text-5xl font-extrabold">{result.score}%</p>
-          <p className="mt-1 font-semibold">{result.correct} correct out of {result.total}</p>
+          {kind === 'utme' ? <>
+            <p className="text-5xl font-extrabold">{Math.round(utmeRawScore)}<span className="text-2xl muted"> / 400</span></p>
+            <p className="mt-1 font-semibold">DARAX equal-subject practice benchmark</p>
+            <p className="text-sm muted mt-1">{result.correct} correct · {result.total - result.correct} incorrect or unanswered · {result.total} questions</p>
+          </> : <>
+            <p className="text-5xl font-extrabold">{result.score}%</p>
+            <p className="mt-1 font-semibold">{result.correct} correct out of {result.total}</p>
+          </>}
           {kind === 'utme' && utmeBreakdown && <div className="mt-5 text-left border-t border-ink/10 pt-4">
-            <div className="flex items-end justify-between gap-3 mb-3"><div><p className="text-xs muted uppercase tracking-wide">DARAX practice index</p><p className="text-3xl font-extrabold text-accent">{utmeRawScore}<span className="text-base muted"> / 400</span></p></div><p className="text-xs muted max-w-[190px]">Practice estimate only — not an official JAMB result or JAMB scaling.</p></div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">{Object.entries(utmeBreakdown).map(([sid, row]) => <div key={sid} className="glass-soft p-3 rounded-xl"><p className="text-xs muted">{SUBJECT_NAMES[sid] || sid}</p><p className="text-lg font-bold">{Math.round((row.correct / row.total) * 100)}<span className="text-xs muted"> / 100</span></p><p className="text-xs muted">{row.correct}/{row.total} correct</p></div>)}</div>
+            <div className="mb-3"><p className="text-xs muted uppercase tracking-wide">Subject breakdown · each subject is out of 100</p><p className="text-xs muted mt-1">DARAX practice conversion scales each subject's accuracy to 100. JAMB does not publish its complete raw-answer conversion algorithm.</p></div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">{Object.entries(utmeBreakdown).map(([sid, row]) => <div key={sid} className="glass-soft p-3 rounded-xl"><p className="text-xs muted">{SUBJECT_NAMES[sid] || sid}</p><p className="text-lg font-bold">{row.score.toFixed(2)}<span className="text-xs muted"> / 100</span></p><p className="text-xs muted">{row.correct}/{row.total} correct</p></div>)}</div>
           </div>}
-          <p className={`mt-2 font-semibold ${passed ? 'text-accent' : 'text-warn'}`}>
+          {kind === 'utme' ? <p className="mt-2 font-semibold text-accent">Examination completed. Review your subject performance and explanations below.</p> : <p className={`mt-2 font-semibold ${passed ? 'text-accent' : 'text-warn'}`}>
             {kind === 'lesson'
               ? passed ? '🎉 Passed! The next lesson is now unlocked.' : `Not yet — you need ${PASS_MARK}% to unlock the next lesson. Review the explanations and retake it.`
               : passed ? '🎉 Well done — you passed!' : 'Keep practising — review the explanations below and try again.'}
-          </p>
+          </p>}
           {result.serverValidated
-            ? <p className="text-xs muted mt-2">Score graded by the server from the official question bank — not calculated in your browser.</p>
-            : <p className="text-xs muted mt-2">This assessment includes an admin-published custom lesson, so it was graded on this device from that lesson&apos;s published question bank — not from the server&apos;s official bank.</p>}
+            ? <p className="text-xs muted mt-2">Answers were graded by the server against the published DARAX question bank. This is a practice assessment, not an official JAMB result.</p>
+            : <p className="text-xs muted mt-2">This assessment includes an admin-published custom lesson, so it was graded on this device from that lesson&apos;s published question bank — not from the server-side bank.</p>}
         </div>
         <div className="flex flex-col gap-3">
           {result.graded.map((g, i) => (
@@ -266,7 +266,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
             <div className="grid gap-2 mt-4">{q.options.map((opt, oi) => { const sel = answers[currentIndex] === oi; return <button key={oi} onClick={() => setAnswers(a => ({ ...a, [currentIndex]: oi }))} className={`text-left p-3.5 rounded-xl border text-sm transition-colors break-words ${sel ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}><span className="font-bold mr-2">{'ABCD'[oi]}.</span>{opt}</button>; })}</div>
             <div className="flex items-center justify-between gap-3 mt-6"><button type="button" onClick={() => setCurrentIndex(i => Math.max(0, i - 1))} disabled={currentIndex === 0} className="btn-ghost disabled:opacity-40">← Previous</button><button type="button" onClick={() => setCurrentIndex(i => Math.min(shuffled.length - 1, i + 1))} disabled={currentIndex === shuffled.length - 1} className="btn-primary disabled:opacity-40">Next →</button></div>
           </div>
-          <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs muted">Move between questions and change answers until submission.</p><button onClick={() => { const msg = unanswered ? `You have ${unanswered} unanswered question(s). Submit the examination anyway?` : 'Submit your examination now? You cannot change answers afterwards.'; if (window.confirm(msg)) submit(false); }} disabled={submitting} className="btn-primary">{submitting ? 'Submitting…' : 'Submit examination'}</button></div>
+          <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs muted">Answer all questions before submission. Keyboard: A–D select · N/P navigate · S then Y submit.</p><button onClick={() => { if (window.confirm('Submit your completed examination? You cannot change answers afterwards.')) submit(false); }} disabled={submitting || answered !== shuffled.length} className="btn-primary disabled:opacity-40">{submitting ? 'Submitting…' : answered !== shuffled.length ? `Answer all questions (${answered}/${shuffled.length})` : 'Submit examination'}</button></div>
         </>;
       })() : shuffled.map((q, i) => (
         <div key={`${attemptNo}-${q.ref}`} className="glass p-5">

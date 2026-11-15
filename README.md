@@ -117,7 +117,7 @@ questions — **never labelled as official past questions, no invented years**).
   curriculum question bank; the client persists only the server-returned score.
   The same `lib/progression.ts` rule drives the UI.
 - **Weekly leaderboards (Africa/Lagos, Mon–Sun):** Top Scorers = normalised
-  average %, min 3 assessments, tie-break accuracy → earliest completion.
+  average %, with full UTME attempts using equal-weight subject scores rather than raw English-heavy question counts; min 3 assessments, tie-break accuracy → earliest completion.
   Top Scholars = accuracy 40% + completion 30% + consistency 20% + quality 10%,
   min 2 assessments, lessons under 60 seconds don't count. Demo accounts excluded.
 - **Badges:** `DRX-JAMB-YYYY-Www-XXXX`, "Signed by Official Darax" + verified
@@ -134,3 +134,12 @@ questions — **never labelled as official past questions, no invented years**).
 
 See [TEST-REPORT.md](TEST-REPORT.md) for the TEST A–R checklist with honest
 pass/fail evidence from the local build and headless-browser smoke test.
+
+## UTME simulation and scoring integrity
+
+- Full sitting: 60 Use of English + 40 each from three selected science subjects = 180 questions, one 120-minute timer, four A–D options per question.
+- The server resolves each question reference against the published DARAX curriculum bank and computes the score; the browser does not submit answer keys or a score.
+- DARAX scales each subject's raw accuracy to 100 and adds the four subject marks for a transparent /400 practice benchmark. JAMB's official 2026 manual confirms the structure and duration but does not publish a complete raw-answer conversion algorithm; this is not represented as JAMB's proprietary official scaling.
+- Manual submission requires every question to be answered. If time expires, unanswered questions receive zero; wrong answers also receive zero, with no deduction.
+- The production build validates each built-in question for four unique options, an A–D answer key, a non-empty explanation, unique references, and 15 questions per lesson.
+- Historical JAMB papers may only be imported with documented permission or a licence. Original DARAX practice questions are never labelled as historical JAMB questions.

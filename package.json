@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:question-bank && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:question-bank": "node scripts/validate-question-bank.js",
+    "test:utme-scoring": "node scripts/test-utme-scoring.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",

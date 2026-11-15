@@ -33,13 +33,13 @@ export interface ScholarRow { userId: string; name: string; score: number; detai
 
 export function computeScorers(db: DB, week: string): ScorerRow[] {
   const { start, end } = weekRange(week);
-  const byUser = new Map<string, { total: number; correct: number; count: number; earliest: string }>();
+  const byUser = new Map<string, { total: number; weightedScore: number; count: number; earliest: string }>();
   for (const a of db.attempts) {
     if (a.completedAt < start || a.completedAt > end) continue;
     const u = db.profiles.find(p => p.id === a.userId);
     if (!u || u.isDemo || !u.active) continue;
-    const e = byUser.get(a.userId) || { total: 0, correct: 0, count: 0, earliest: a.completedAt };
-    e.total += a.total; e.correct += a.correct; e.count += 1;
+    const e = byUser.get(a.userId) || { total: 0, weightedScore: 0, count: 0, earliest: a.completedAt };
+    e.total += a.total; e.weightedScore += a.score * a.total; e.count += 1;
     if (a.completedAt < e.earliest) e.earliest = a.completedAt;
     byUser.set(a.userId, e);
   }
@@ -47,7 +47,8 @@ export function computeScorers(db: DB, week: string): ScorerRow[] {
   for (const [userId, e] of byUser) {
     if (e.count < 3) continue; // minimum participation: 3 assessments that week
     const u = db.profiles.find(p => p.id === userId)!;
-    rows.push({ userId, name: u.fullName, score: Math.round((e.correct / e.total) * 1000) / 10, assessments: e.count, accuracy: e.correct / e.total });
+    const normalized = e.total ? e.weightedScore / e.total : 0;
+    rows.push({ userId, name: u.fullName, score: Math.round(normalized * 10) / 10, assessments: e.count, accuracy: normalized / 100 });
   }
   // Normalised average % (not raw totals) — more attempts do not by themselves win.
   // Tie-break: higher accuracy, then earliest completion.
@@ -63,7 +64,8 @@ export function computeScholars(db: DB, week: string): ScholarRow[] {
     const weekAttempts = db.attempts.filter(a => a.userId === u.id && a.completedAt >= start && a.completedAt <= end);
     if (weekAttempts.length < 2) continue; // minimum assessment requirement
     const questionCount = weekAttempts.reduce((sum, a) => sum + a.total, 0);
-    const accuracy = questionCount ? weekAttempts.reduce((sum, a) => sum + a.correct, 0) / questionCount : 0;
+    // Attempt scores are normalized server-side; UTME uses equal subject weights.
+    const accuracy = questionCount ? weekAttempts.reduce((sum, a) => sum + a.score * a.total, 0) / questionCount / 100 : 0;
     const prog = db.progress[u.id] || [];
     // Minimum-time safeguard: lessons finished in under 60s do not count toward speed.
     const genuine = prog.filter(p => p.completed && p.timeSpentSec >= 60 && p.completedAt && p.completedAt >= start && p.completedAt <= end);

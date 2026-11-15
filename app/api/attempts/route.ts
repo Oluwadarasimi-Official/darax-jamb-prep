@@ -7,6 +7,7 @@ import { NextResponse } from 'next/server';
 import { getLessonById } from '@/lib/curriculum';
 import { PASS_MARK } from '@/lib/progression';
 import { SCIENCE_SUBJECTS } from '@/lib/store';
+import { calculateUtmeScore } from '@/lib/utme-scoring';
 
 export async function POST(req: Request) {
   try {
@@ -22,16 +23,16 @@ export async function POST(req: Request) {
     if (answers.some((a: unknown) => !Number.isInteger(a) || (a as number) < -1 || (a as number) > 3)) {
       return NextResponse.json({ error: 'Each answer must be A–D or unanswered.' }, { status: 400 });
     }
-    if (kind === 'utme' && (refs.length !== 180 || new Set(refs.map(String)).size !== 180)) {
+    if (kind === 'utme' && (refs.length !== 180 || refs.some((ref: unknown) => typeof ref !== 'string') || new Set(refs).size !== 180)) {
       return NextResponse.json({ error: 'A full UTME sitting must contain 180 unique questions.' }, { status: 400 });
     }
     const graded: { q: string; options: string[]; chosen: number; correct: number; explanation: string; subjectId?: string }[] = [];
     let anyCustom = false;
     for (let i = 0; i < refs.length; i++) {
       const ref = String(refs[i]);
-      const [lid, idxStr] = ref.split(':');
+      const [lid, idxStr, ...extra] = ref.split(':');
       const lesson = getLessonById(lid);
-      const idx = parseInt(idxStr, 10);
+      const idx = /^\\d+$/.test(idxStr || '') && extra.length === 0 ? Number(idxStr) : Number.NaN;
       const chosen = typeof answers[i] === 'number' ? answers[i] : -1;
       if (lesson && !Number.isNaN(idx) && lesson.quiz[idx]) {
         const qq = lesson.quiz[idx];
@@ -67,21 +68,17 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'UTME structure invalid: submit 60 Use of English questions and 40 questions from each of exactly three supported science subjects.' }, { status: 400 });
       }
     }
-    const correct = graded.filter(g => g.chosen === g.correct).length;
+    const correct = graded.filter(g => g.chosen >= 0 && g.chosen === g.correct).length;
     const total = graded.length;
-    const score = Math.round((correct / total) * 100);
-    const subjectScores = kind === 'utme' ? graded.reduce((acc, item) => {
-      const id = item.subjectId || 'unknown';
-      const row = acc[id] || (acc[id] = { correct: 0, total: 0, score: 0 });
-      row.total += 1;
-      if (item.chosen === item.correct) row.correct += 1;
-      row.score = Math.round((row.correct / row.total) * 100);
-      return acc;
-    }, {} as Record<string, { correct: number; total: number; score: number }>) : undefined;
-    const utmeScore400 = subjectScores ? Object.values(subjectScores).reduce((sum, row) => sum + row.score, 0) : undefined;
+    const utmeScoring = kind === 'utme' ? calculateUtmeScore(graded, SCIENCE_SUBJECTS) : undefined;
+    // UTME attempt.score is the equal-weighted /400 benchmark normalized to 0–100.
+    const score = utmeScoring ? utmeScoring.normalizedScore : Math.round((correct / total) * 100);
+    const subjectScores = utmeScoring?.subjectScores;
+    const utmeScore400 = utmeScoring?.utmeScore400;
+    const utmeScore400Exact = utmeScoring?.utmeScore400Exact;
     return NextResponse.json({
-      serverValidated: !anyCustom, total, correct, score, subjectScores, utmeScore400,
-      passed: score >= PASS_MARK,
+      serverValidated: !anyCustom, total, correct, score, subjectScores, utmeScore400, utmeScore400Exact,
+      passed: kind === 'utme' ? undefined : score >= PASS_MARK,
       unlocksNext: kind === 'lesson' ? score >= PASS_MARK : undefined,
       graded,
     });
