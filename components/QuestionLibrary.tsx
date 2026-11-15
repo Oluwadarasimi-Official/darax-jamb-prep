@@ -22,14 +22,16 @@ function stableOrder(id: string, options: string[], answer: number) {
 
 export default function QuestionLibrary() {
   const [subject, setSubject] = useState<Subject>('all');
+  const [year, setYear] = useState('all');
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<Record<string, number>>({});
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
   const questions = useMemo(() => bank.questions.filter(item =>
     (subject === 'all' || item.subject === subject) &&
+    (year === 'all' || item.year === Number(year) || item.year === undefined) &&
     (query.trim() === '' || (item.question + ' ' + item.topic).toLowerCase().includes(query.trim().toLowerCase()))
-  ), [subject, query]);
+  ), [subject, year, query]);
 
   const correct = questions.filter(item => revealed[item.id] && selected[item.id] === stableOrder(item.id, item.options, item.answer).answer).length;
   const attempted = questions.filter(item => revealed[item.id]).length;
@@ -50,7 +52,12 @@ export default function QuestionLibrary() {
             </button>
           ))}
         </div>
-        <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a question or topic..." className="w-full mt-4 rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+          <select aria-label="Filter by year" value={year} onChange={event => setYear(event.target.value)} className="w-full rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent">
+            <option value="all">All years</option>
+            {Array.from({ length: 17 }, (_, index) => 2010 + index).map(value => <option key={value} value={value}>{value}</option>)}
+          </select>
+          <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a question or topic..." className="w-full rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent" />
         <div className="flex items-center justify-between gap-3 mt-4 text-xs muted">
           <span>{questions.length} questions</span>
           <span>{attempted} checked · {correct} correct</span>
