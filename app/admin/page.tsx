@@ -55,12 +55,13 @@ export default function AdminPage() {
         <p className="muted text-sm mt-1">Signed in as {user.fullName} (@{user.username}) · Week {wk}</p>
       </div>
 
+      <p className="text-xs muted">The figures below are this browser’s cached records. Use Live platform analytics for server-wide totals.</p>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { label: 'Total students', value: String(students.length) },
-          { label: 'Active (7 days)', value: String(active) },
-          { label: 'Assessments taken', value: String(totalAttempts) },
-          { label: 'Average score', value: totalAttempts ? `${avgScore}%` : '—' },
+          { label: 'Cached students', value: String(students.length) },
+          { label: 'Cached active · 7d', value: String(active) },
+          { label: 'Cached assessments', value: String(totalAttempts) },
+          { label: 'Cached average score', value: totalAttempts ? `${avgScore}%` : '—' },
         ].map(s => (
           <GlassCard key={s.label} className="!p-4"><p className="text-2xl font-extrabold">{s.value}</p><p className="text-xs muted mt-0.5">{s.label}</p></GlassCard>
         ))}
