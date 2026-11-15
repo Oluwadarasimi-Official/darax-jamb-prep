@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run test:utme-scoring && npm run validate:question-bank && next build",
+    "build": "node scripts/prepare-full-question-bank.js && npm run test:utme-scoring && npm run validate:question-bank && next build",
     "start": "next start",
     "lint": "next lint",
     "validate:question-bank": "node scripts/validate-question-bank.js",
