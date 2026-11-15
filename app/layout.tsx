@@ -3,6 +3,7 @@ import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { DbProvider } from '@/components/db-context';
 import { THEME_BOOT_SCRIPT } from '@/lib/theme';
+import { PageViewTracker } from '@/components/PageViewTracker';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "window.MathJax = { loader: { load: ['[tex]/mhchem'] }, tex: { packages: { '[+]': ['mhchem'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]'], ['$$', '$$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };" }} />
       </head>
       <body className={dmSans.variable}>
-        <DbProvider>{children}</DbProvider>
+        <DbProvider><PageViewTracker />{children}</DbProvider>
       </body>
     </html>
   );
