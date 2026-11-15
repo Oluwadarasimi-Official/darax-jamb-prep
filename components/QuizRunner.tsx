@@ -92,12 +92,12 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
       // after the shuffle. Custom-lesson keys are supplied only for custom
       // questions (see RunnerQ); built-in questions are graded from the
       // server-side bank exactly as before.
-      const customQuestions: Record<string, { q: string; options: string[]; answer: number; explanation: string }> = {};
+      const customQuestions: Record<string, { q: string; options: string[]; answer: number; explanation: string; subjectId?: string }> = {};
       for (const q of shuffled) {
         if (typeof q.answer === 'number') {
           // Rebuild the ORIGINAL option order: display index d holds original
           // option origOptionIdx[d], so original[oi] = display[indexOf(oi)].
-          customQuestions[q.ref] = { q: q.q, options: q.options.map((_, oi) => q.options[q.origOptionIdx.indexOf(oi)]), answer: q.answer, explanation: q.explanation || '' };
+          customQuestions[q.ref] = { q: q.q, options: q.options.map((_, oi) => q.options[q.origOptionIdx.indexOf(oi)]), answer: q.answer, explanation: q.explanation || '', subjectId: q.subjectId };
         }
       }
       const res = await fetch('/api/attempts', {
