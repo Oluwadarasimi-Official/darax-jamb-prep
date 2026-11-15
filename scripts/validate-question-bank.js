@@ -33,8 +33,28 @@ for (const file of files) {
     }
   }
 }
+
+const daraxBankPath = path.join(__dirname, '../lib/darax-practice-bank.json');
+const daraxBank = JSON.parse(fs.readFileSync(daraxBankPath, 'utf8'));
+const daraxIds = new Set();
+const expectedSubjects = ['english', 'mathematics', 'physics', 'chemistry', 'biology'];
+const subjectCounts = Object.fromEntries(expectedSubjects.map(subject => [subject, 0]));
+if (!Array.isArray(daraxBank.questions)) errors.push('DARAX practice bank: questions must be an array');
+for (const q of daraxBank.questions || []) {
+  if (!q.id || daraxIds.has(q.id)) errors.push(`DARAX ${q.id || '(missing id)'}: missing or duplicate id`);
+  daraxIds.add(q.id);
+  if (!expectedSubjects.includes(q.subject)) errors.push(`DARAX ${q.id}: invalid subject`);
+  else subjectCounts[q.subject]++;
+  if (typeof q.question !== 'string' || !q.question.trim()) errors.push(`DARAX ${q.id}: empty question`);
+  if (!Array.isArray(q.options) || q.options.length !== 4 || q.options.some(o => typeof o !== 'string' || !o.trim())) errors.push(`DARAX ${q.id}: requires four non-empty options`);
+  if (Array.isArray(q.options) && new Set(q.options).size !== 4) errors.push(`DARAX ${q.id}: duplicate options`);
+  if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) errors.push(`DARAX ${q.id}: invalid answer index`);
+  if (!q.explanation || !q.topic) errors.push(`DARAX ${q.id}: missing explanation or topic`);
+}
+for (const subject of expectedSubjects) if (!subjectCounts[subject]) errors.push(`DARAX bank: no questions for ${subject}`);
+
 if (errors.length) {
   console.error(`Question-bank validation failed (${errors.length} issue(s)):\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`Question-bank validation passed: ${lessons} lessons, ${questions} original practice questions; four unique options, valid keys and explanations.`);
+console.log(`Question-bank validation passed: ${lessons} lessons, ${questions} curriculum questions, ${daraxBank.questions.length} DARAX archive questions; four unique options, valid keys and explanations.`);
