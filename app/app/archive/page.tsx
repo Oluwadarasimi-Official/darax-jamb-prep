@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const YEARS = Array.from({ length: 27 }, (_, i) => 2000 + i);
 const SUBJECTS = [
-  { id: 'english', name: 'Use of English', from: 2000, to: 2026, source: 'https://studentfirst.ng/jamb/english', note: 'Compulsory UTME subject' },
-  { id: 'mathematics', name: 'Mathematics', from: 2000, to: 2025, source: 'https://studentfirst.ng/jamb/mathematics', note: '2026 is not listed in the source index' },
-  { id: 'physics', name: 'Physics', from: 2000, to: 2026, source: 'https://studentfirst.ng/jamb/physics', note: 'Science subject' },
-  { id: 'chemistry', name: 'Chemistry', from: 2000, to: 2026, source: 'https://studentfirst.ng/jamb/chemistry', note: 'Science subject' },
-  { id: 'biology', name: 'Biology', from: 2010, to: 2026, source: 'https://studentfirst.ng/jamb/biology', note: '2000–2009 are not listed in the source index' },
+  { id: 'english', name: 'Use of English', years: YEARS, source: 'https://studentfirst.ng/jamb/english', note: 'Compulsory UTME subject' },
+  { id: 'mathematics', name: 'Mathematics', years: YEARS.filter(year => year <= 2025), source: 'https://studentfirst.ng/jamb/mathematics', note: '2026 is not listed' },
+  { id: 'physics', name: 'Physics', years: YEARS, source: 'https://studentfirst.ng/jamb/physics', note: 'Science subject' },
+  { id: 'chemistry', name: 'Chemistry', years: YEARS.filter(year => year <= 2004 || year >= 2010), source: 'https://studentfirst.ng/jamb/chemistry', note: '2005–2009 are not listed in the year index' },
+  { id: 'biology', name: 'Biology', years: YEARS.filter(year => year >= 2010), source: 'https://studentfirst.ng/jamb/biology', note: '2000–2009 are not listed' },
 ];
 
 export default function ArchivePage() {
@@ -15,33 +15,34 @@ export default function ArchivePage() {
       <header>
         <p className="text-xs font-bold tracking-[0.18em] uppercase text-accent">Official Darax · Question Library</p>
         <h1 className="text-2xl md:text-3xl font-bold mt-2">JAMB Past Questions Archive</h1>
-        <p className="muted text-sm mt-2 max-w-3xl leading-relaxed">Historical coverage tracker for 2000–2026. Historical papers are kept separate from original DARAX practice questions so students can always tell which material they are using.</p>
+        <p className="muted text-sm mt-2 max-w-3xl leading-relaxed">Browse the requested 2000–2026 years by subject. Historical source papers are kept separate from original DARAX practice questions.</p>
       </header>
 
       <section className="glass p-5 md:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div><p className="font-bold text-lg">Historical archive import</p><p className="text-sm muted mt-1">Coverage below reflects the StudentFirst subject index. A listed paper is not yet an imported paper in DARAX.</p></div>
-          <span className="rounded-full px-3 py-1 text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">Import in progress</span>
+          <div><p className="font-bold text-lg">Historical paper directory</p><p className="text-sm muted mt-1">Tap a year to open that paper on StudentFirst. These links do not mean the paper has been copied into DARAX.</p></div>
+          <span className="rounded-full px-3 py-1 text-xs font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">Source-linked · Import pending</span>
         </div>
         <div className="grid gap-3 mt-5">
           {SUBJECTS.map(subject => (
             <article key={subject.id} className="glass-soft rounded-xl p-4">
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div><h2 className="font-semibold">{subject.name}</h2><p className="text-xs muted mt-1">{subject.note}</p></div>
-                <span className="text-xs font-semibold rounded-full px-2.5 py-1 bg-ink/5 border border-ink/10">{subject.from}–{subject.to} listed</span>
+                <span className="text-xs font-semibold rounded-full px-2.5 py-1 bg-ink/5 border border-ink/10">{subject.years.length} years listed</span>
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {YEARS.map(year => {
-                  const listed = year >= subject.from && year <= subject.to;
-                  return <span key={year} title={listed ? 'Listed in StudentFirst index; not yet imported into DARAX' : 'Not listed in the StudentFirst subject index'} className={'text-[11px] rounded-md px-2 py-1 border ' + (listed ? 'border-accent/30 bg-accent/10 text-ink' : 'border-ink/10 bg-ink/5 text-ink/35 line-through')}>{year}</span>;
+                  const listed = subject.years.includes(year);
+                  return listed
+                    ? <a key={year} href={subject.source + '/' + year + '/objective'} target="_blank" rel="noreferrer" title={'Open ' + subject.name + ' ' + year + ' source paper'} className="text-[11px] rounded-md px-2 py-1 border border-accent/30 bg-accent/10 text-ink hover:bg-accent/20 underline-offset-2 hover:underline">{year} ↗</a>
+                    : <span key={year} title="No paper for this year is listed on the source index" className="text-[11px] rounded-md px-2 py-1 border border-ink/10 bg-ink/5 text-ink/35 line-through">{year}</span>;
                 })}
               </div>
-              <p className="text-xs muted mt-3">{subject.from === 2000 && subject.to === 2026 ? 'All years in the requested range are listed.' : 'Years outside the listed range are left as gaps; no historical questions are fabricated.'}</p>
-              <a href={subject.source} target="_blank" rel="noreferrer" className="inline-flex mt-3 text-sm text-accent underline underline-offset-4">View source subject index ↗</a>
+              <a href={subject.source} target="_blank" rel="noreferrer" className="inline-flex mt-3 text-sm text-accent underline underline-offset-4">View all {subject.name} years on StudentFirst ↗</a>
             </article>
           ))}
         </div>
-        <p className="text-xs muted mt-4 leading-relaxed">Source: StudentFirst JAMB subject index. “Listed” means the source advertises that year; it does not mean the paper has been extracted, independently checked or published inside this app. Some papers require sign-in to view in full.</p>
+        <p className="text-xs muted mt-4 leading-relaxed">Coverage is transcribed from the StudentFirst year indexes and reflects which years are listed there, not a completed DARAX import. Some papers show only a short preview until the visitor signs in. No missing historical paper is fabricated.</p>
       </section>
 
       <section className="glass p-5 md:p-6">
