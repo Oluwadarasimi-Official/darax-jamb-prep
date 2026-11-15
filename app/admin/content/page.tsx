@@ -1,11 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { ALL_LESSONS, SUBJECTS, getSubjectLessons } from '@/lib/curriculum';
 import { orderedLessons } from '@/lib/progression';
 import { uid, type CustomLesson, type DraftLesson } from '@/lib/store';
 import { GlassCard } from '@/components/ui';
+import { getSb, SUPABASE_CONFIGURED } from '@/lib/supabase';
 
 /* ------------------------------------------------------------------ */
 /* Draft validation + publishing                                       */
@@ -290,6 +291,52 @@ export default function ContentStudioPage() {
   const [publishMsg, setPublishMsg] = useState('');
   const [publishErr, setPublishErr] = useState('');
   const [showManual, setShowManual] = useState(false);
+  const [platformStateReady, setPlatformStateReady] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    const hydrate = async () => {
+      if (!user || !SUPABASE_CONFIGURED) { if (alive) setPlatformStateReady(true); return; }
+      const sb = getSb();
+      if (!sb) { if (alive) setPlatformStateReady(true); return; }
+      const { data, error } = await sb.rpc('djp_admin_get_content_state');
+      if (!alive) return;
+      if (!error && data && typeof data === 'object') {
+        setDb(d => {
+          const state = data as Record<string, any>;
+          d.drafts = Array.isArray(state.drafts) ? state.drafts : d.drafts;
+          d.customLessons = Array.isArray(state.customLessons) ? state.customLessons : d.customLessons;
+          d.publishedOverrides = state.publishedOverrides && typeof state.publishedOverrides === 'object' ? state.publishedOverrides : d.publishedOverrides;
+          d.lessonOrder = state.lessonOrder && typeof state.lessonOrder === 'object' ? state.lessonOrder : d.lessonOrder;
+          return d;
+        });
+      } else if (error) {
+        console.error('[darax-admin] shared content load failed:', error.message);
+      }
+      setPlatformStateReady(true);
+    };
+    void hydrate();
+    return () => { alive = false; };
+  }, [user?.id]);
+
+  useEffect(() => {
+    if (!platformStateReady || !user || !SUPABASE_CONFIGURED) return;
+    const sb = getSb();
+    if (!sb) return;
+    const state = {
+      drafts: db.drafts,
+      customLessons: db.customLessons || [],
+      publishedOverrides: db.publishedOverrides,
+      lessonOrder: db.lessonOrder,
+    };
+    const timer = window.setTimeout(() => {
+      void sb.rpc('djp_admin_save_content_state', { p_state: state }).then(({ error }) => {
+        if (error) console.error('[darax-admin] shared content save failed:', error.message);
+      });
+    }, 450);
+    return () => window.clearTimeout(timer);
+  }, [platformStateReady, user?.id, db.drafts, db.customLessons, db.publishedOverrides, db.lessonOrder]);
+
   if (!user) return null;
 
   const lessons = orderedLessons(db, subjectId);
