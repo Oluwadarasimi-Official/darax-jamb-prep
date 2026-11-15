@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import practiceBank from '@/lib/darax-practice-bank.json';
 
 const YEARS = Array.from({ length: 17 }, (_, i) => 2010 + i);
 const SUBJECTS = [
