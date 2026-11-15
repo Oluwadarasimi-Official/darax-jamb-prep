@@ -75,7 +75,7 @@ more science subjects, with optional intended-course JAMB combination validation
    server side (`/api/admin/*` rejects non-admin roles); hiding the button is
    never the only protection. **Change the default code before going live.**
 
-Admin can: view platform stats, manage users (promote/demote/deactivate),
+Admin can: view local cached stats plus live server-wide analytics (after migration 002 is applied), manage users (promote/demote/deactivate),
 run the weekly calculation, view badge records, publish announcements,
 monitor AI usage, and use Content Studio (publish/unpublish, reorder lessons,
 preview, AI lesson drafting with mandatory review before publishing).
