@@ -71,7 +71,7 @@ export default function BadgeDetailPage() {
         <p className="muted mt-3">This badge is awarded to</p>
         <p className="text-2xl font-bold mt-1">{badge.fullName}</p>
         <p className="mt-3 text-lg">Position <strong className="text-accent">#{badge.position}</strong> · Week <strong>{badge.week}</strong> · {badge.year}</p>
-        <p className="text-sm muted mt-4 font-mono">{badge.id}</p>
+        <p className="text-sm muted mt-4 font-mono break-all">{badge.id}</p>
         <p className="text-sm muted">Issued {new Date(badge.issueDate).toLocaleDateString()}</p>
         <div className="flex items-center justify-center gap-2 mt-5">
           <span className="font-semibold">Signed by Official Darax</span>

@@ -7,7 +7,7 @@ export const SUBJECT: SubjectDef = {
   colour: "#3367c1",
   tagline: "Read smart, write clearly, speak confidently.",
   description: "Master comprehension, lexis and structure, oral English, grammar and vocabulary for JAMB Use of English. Every lesson builds the reading, listening and writing skills the exam rewards, with worked examples and original practice questions.",
-  topics: ["Comprehension", "Lexis and Structure", "Oral English", "Grammar and Sentence Interpretation", "Vocabulary Development"],
+  topics: ["Comprehension", "Lexis and Structure", "Oral English", "Grammar and Sentence Interpretation", "Vocabulary Development", "Summary Writing", "Reported Speech and Voice"],
 };
 
 export const LESSONS: Lesson[] = [
@@ -69,7 +69,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which reading method is best for finding a specific date in a passage?", options: ["Skimming", "Scanning", "Memorising", "Summarising"], answer: 1, explanation: "Scanning is searching quickly for a specific piece of information such as a date, name or figure." },
       { q: "A paragraph lists three reasons why libraries matter. What is its main idea?", options: ["Libraries have three reasons to exist", "Libraries are important for several reasons", "The first reason is the most important", "Libraries contain many books"], answer: 1, explanation: "The main idea combines the topic, libraries, with the writer's point that they matter for several reasons." },
       { q: "What should a good summary of a passage do?", options: ["Repeat one paragraph in detail", "Cover the main idea of the whole passage", "Copy the first and last sentences", "List every example in the passage"], answer: 1, explanation: "A summary must capture the main points of the entire passage, not one part of it." },
-      { q: "Where is the topic sentence most commonly found?", options: ["In the middle of the paragraph", "At the beginning of the paragraph", "Only in the final paragraph", "In the title of the passage"], answer: 1, explanation: "The topic sentence is most often the first sentence, though it can sometimes appear at the end." }
+      { q: "Where is the topic sentence most commonly found?", options: ["In the middle of the paragraph", "At the beginning of the paragraph", "Only in the final paragraph", "In the title of the passage"], answer: 1, explanation: "The topic sentence is most often the first sentence, though it can sometimes appear at the end." },
+      { q: "What is the best first step before reading a passage closely?", options: ["Read every word slowly twice", "Preview the title and the first sentence of each paragraph", "Memorise all the questions first", "Skip straight to the last paragraph"], answer: 1, explanation: "Previewing gives you a map of the passage so you know what to look for when you read closely." },
+      { q: "A paragraph has no sentence that states its central point directly. What should you do?", options: ["Conclude that it has no main idea", "Work out the main idea implied by the whole paragraph", "Choose the longest sentence as the main idea", "Use the first example as the main idea"], answer: 1, explanation: "A main idea can be implied by the whole paragraph even when no single sentence states it." },
+      { q: "A passage explains that exercise strengthens the heart, improves mood and helps sleep. Which is the main idea?", options: ["Exercise strengthens the heart", "Exercise improves mood", "Exercise has several benefits", "Exercise helps sleep"], answer: 2, explanation: "The main idea covers all three benefits together; each benefit alone is only a supporting detail." },
+      { q: "What is skimming most useful for?", options: ["Finding one exact figure", "Getting the general sense of a passage quickly", "Learning the meaning of a difficult word", "Checking the spelling of a name"], answer: 1, explanation: "Skimming is quick reading for the general sense, while scanning is used to find a specific fact." },
+      { q: "What is the job of a concluding sentence in a paragraph?", options: ["To introduce a new topic", "To restate or round off the main idea", "To give the first example", "To ask the reader a question"], answer: 1, explanation: "A concluding sentence sums up or restates the paragraph's main idea and often points to the next paragraph." },
+      { q: "A question asks what a passage is mainly about. What should you look for?", options: ["The most interesting example", "The point developed across the whole passage", "The hardest word in the passage", "The first detail in the first paragraph"], answer: 1, explanation: "What a passage is mainly about is its overall main idea, developed across all its paragraphs." },
+      { q: "Why should you pause after reading each paragraph?", options: ["To count the words in it", "To summarise it in one short sentence", "To memorise it word for word", "To skip to the questions at once"], answer: 1, explanation: "Summarising each paragraph in your own words checks that you understood it before moving on." },
+      { q: "Which of these is a supporting detail, not a main idea?", options: ["Reading improves vocabulary and imagination", "Reading is useful for many reasons", "The cost of fuel rose last year", "Bicycles have many advantages"], answer: 2, explanation: "The cost of fuel is one specific fact that supports a point, while the other options state broad central points." },
+      { q: "A summary option mentions only the example in the second paragraph. Why is it wrong?", options: ["Because examples are never important", "Because a summary must cover the whole passage", "Because the second paragraph is always unimportant", "Because summaries must copy the title"], answer: 1, explanation: "A good summary covers the main idea of the whole passage, not one paragraph or one example." },
+      { q: "When should you use close reading in a comprehension passage?", options: ["For every sentence in the passage", "Only where a question asks about meaning, attitude or implication", "Only for the first paragraph", "When you want to finish as fast as possible"], answer: 1, explanation: "Close reading is slow and careful, so save it for questions about meaning, attitude or implication, and skim or scan elsewhere." }
     ],
     status: "published"
   },
@@ -131,7 +141,17 @@ export const LESSONS: Lesson[] = [
       { q: "The writer calls a careless driver a genius of the road. What tone is this?", options: ["Admiring", "Ironic", "Neutral", "Sympathetic"], answer: 1, explanation: "Calling a careless driver a genius is the opposite of what is meant, which is irony." },
       { q: "In the sentence The arid land, dry and dusty, could grow nothing, what does arid mean?", options: ["Fertile", "Dry", "Wet", "Cold"], answer: 1, explanation: "The context clues dry and dusty and could grow nothing show that arid means dry." },
       { q: "Which of these is a fact?", options: ["Abuja is the finest city in Africa", "The River Niger flows through Nigeria", "Football is the most exciting sport", "Reading is better than travelling"], answer: 1, explanation: "The River Niger flowing through Nigeria can be checked and proved, while the others are opinions." },
-      { q: "A passage argues strongly that plastic bags should be banned. What is the writer's purpose?", options: ["To entertain", "To persuade", "To describe a festival", "To tell a story"], answer: 1, explanation: "Strong argument in favour of a ban shows the writer wants to persuade readers to accept a position." }
+      { q: "A passage argues strongly that plastic bags should be banned. What is the writer's purpose?", options: ["To entertain", "To persuade", "To describe a festival", "To tell a story"], answer: 1, explanation: "Strong argument in favour of a ban shows the writer wants to persuade readers to accept a position." },
+      { q: "A passage says Tunde packed a torch, a blanket and food for the night. What can be inferred?", options: ["Tunde was going to a party in the morning", "Tunde expected to spend the night away from home", "Tunde disliked travelling", "Tunde had lost his house keys"], answer: 1, explanation: "A torch, blanket and food together suggest an overnight stay, which follows logically from the clues." },
+      { q: "Which of these best shows a sympathetic tone?", options: ["The foolish man deserved his punishment", "The poor widow struggled bravely to feed her children", "The figures were listed in the report", "The meeting ended at noon"], answer: 1, explanation: "Poor and bravely show pity and admiration for the widow, which is a sympathetic tone." },
+      { q: "In the sentence Unlike her generous sister, Ada was stingy with her money, what does stingy mean?", options: ["Kind and giving", "Unwilling to spend or share money", "Rich and famous", "Happy and cheerful"], answer: 1, explanation: "The contrast with generous shows that stingy means unwilling to spend or share money." },
+      { q: "Which statement is an opinion?", options: ["Water boils at 100 degrees Celsius at sea level", "Abuja is the capital of Nigeria", "This is the most beautiful song ever written", "The River Benue flows into the River Niger"], answer: 2, explanation: "Most beautiful is a personal judgement that cannot be proved, while the others are checkable facts." },
+      { q: "A writer describes a new road as a wasteful project that destroyed farmland. What is the writer's attitude?", options: ["Approving", "Critical", "Indifferent", "Humorous"], answer: 1, explanation: "Wasteful and destroyed farmland are loaded words showing disapproval, so the attitude is critical." },
+      { q: "What makes an inference different from a guess?", options: ["An inference is always about the future", "An inference is supported by evidence in the text", "An inference needs no evidence at all", "An inference is always stated directly"], answer: 1, explanation: "A good inference follows logically from clues in the passage, while a guess has no textual support." },
+      { q: "In the sentence The drought, a long period without rain, ruined the crops, how is the word drought explained?", options: ["By a contrast", "By a definition in the same sentence", "By an example from history", "By a synonym in the next paragraph"], answer: 1, explanation: "The phrase a long period without rain defines drought directly in the same sentence." },
+      { q: "A passage lists facts about malaria and explains how to prevent it. What is the writer's purpose?", options: ["To inform", "To entertain", "To criticise a person", "To tell a joke"], answer: 0, explanation: "A passage full of facts and explanations aims to inform the reader, not to persuade or entertain." },
+      { q: "The writer says The headmaster kindly fined the late students heavily. What tone is suggested?", options: ["Sincere praise", "Ironic", "Neutral reporting", "Sympathetic"], answer: 1, explanation: "Kindly clashes with fined heavily, so the praise is not sincere; the tone is ironic." },
+      { q: "For an inference question, which option should you reject first?", options: ["The option that follows from the evidence", "The option the passage gives no evidence for", "The option that repeats a stated fact", "The option that matches the writer's purpose"], answer: 1, explanation: "An inference must be supported by the passage, so reject any option that goes beyond what the text supports." }
     ],
     status: "published"
   },
@@ -193,7 +213,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which group of words is a phrase?", options: ["When the bell rang", "In the morning", "She was reading", "Because it rained"], answer: 1, explanation: "In the morning has no subject and finite verb, so it is a phrase; the others are clauses." },
       { q: "What is the subject in the sentence The children in the garden are playing?", options: ["The garden", "Are playing", "The children", "Playing"], answer: 2, explanation: "The children performs the action of playing, so it is the subject; in the garden only modifies it." },
       { q: "Which sentence is complex?", options: ["The dog barked.", "The dog barked and the cat ran.", "When the dog barked, the cat ran.", "The dog barked loudly."], answer: 2, explanation: "When the dog barked is a subordinate clause attached to a main clause, making the sentence complex." },
-      { q: "In the sentence He gave her a book, what is her?", options: ["Direct object", "Indirect object", "Subject", "Complement"], answer: 1, explanation: "Her receives the book indirectly, so it is the indirect object, while a book is the direct object." }
+      { q: "In the sentence He gave her a book, what is her?", options: ["Direct object", "Indirect object", "Subject", "Complement"], answer: 1, explanation: "Her receives the book indirectly, so it is the indirect object, while a book is the direct object." },
+      { q: "In the sentence The dog barked loudly, what is loudly?", options: ["Adjective", "Adverb", "Noun", "Pronoun"], answer: 1, explanation: "Loudly modifies the verb barked, telling how the dog barked, so it is an adverb." },
+      { q: "What is the subject in the sentence They visited us yesterday?", options: ["They", "Visited", "Us", "Yesterday"], answer: 0, explanation: "They performs the action of visiting, so it is the subject of the sentence." },
+      { q: "In the sentence The book on the table is mine, what is on the table?", options: ["A clause", "A phrase", "A sentence", "A verb"], answer: 1, explanation: "On the table has no subject and finite verb, so it is a phrase, not a clause." },
+      { q: "Which sentence is a simple sentence?", options: ["She sang and danced.", "She sang because she was happy.", "She sang.", "When she sang, we listened."], answer: 2, explanation: "She sang has one main clause and no subordinate clause, so it is a simple sentence." },
+      { q: "What is the object in the sentence The farmer planted maize?", options: ["The farmer", "Planted", "Maize", "The"], answer: 2, explanation: "Maize receives the action of planting, so it is the direct object." },
+      { q: "In the sentence She is a nurse, what is a nurse?", options: ["Object", "Subject", "Complement", "Adverb"], answer: 2, explanation: "A nurse completes the meaning of the linking verb is, so it is a complement." },
+      { q: "Which word is a conjunction in the sentence I stayed home because it rained?", options: ["Stayed", "Home", "Because", "It"], answer: 2, explanation: "Because joins the main clause to the subordinate clause, so it is a conjunction." },
+      { q: "Which sentence is compound?", options: ["The rain fell.", "The rain fell and the wind blew.", "When the rain fell, we stayed inside.", "The heavy rain fell."], answer: 1, explanation: "It joins two main clauses, The rain fell and the wind blew, so it is a compound sentence." },
+      { q: "In the sentence The tall girl in red won the race, which word is an adjective?", options: ["Tall", "Girl", "Won", "Race"], answer: 0, explanation: "Tall describes the noun girl, so it is an adjective." },
+      { q: "What does the word light show about word classes?", options: ["A word always belongs to one class", "The same word can belong to different classes", "Light is always a noun", "Light is never a verb"], answer: 1, explanation: "Light can be a noun, a verb or an adjective, so a word's class depends on its job in the sentence." }
     ],
     status: "published"
   },
@@ -255,7 +285,17 @@ export const LESSONS: Lesson[] = [
       { q: "Choose the correct sentence.", options: ["Each of the boys have a pen.", "Each of the boys has a pen.", "Each of the boys are having a pen.", "Each of the boys have pens."], answer: 1, explanation: "Each is singular, so it takes the singular verb has." },
       { q: "Neither the teacher nor the students ___ arrived.", options: ["has", "have", "is", "was"], answer: 1, explanation: "With neither-nor, the verb agrees with the nearer subject, students, which is plural, so have is correct." },
       { q: "She ___ here since 2020.", options: ["lives", "has lived", "lived", "is live"], answer: 1, explanation: "Since 2020 links a past start to the present, so the present perfect has lived is correct." },
-      { q: "Choose the correct sentence.", options: ["I have saw the film.", "I have seen the film.", "I have see the film.", "I has seen the film."], answer: 1, explanation: "After have, the past participle seen is required, not the simple past saw." }
+      { q: "Choose the correct sentence.", options: ["I have saw the film.", "I have seen the film.", "I have see the film.", "I has seen the film."], answer: 1, explanation: "After have, the past participle seen is required, not the simple past saw." },
+      { q: "Choose the correct sentence.", options: ["The team are playing well today.", "The team is playing well today.", "The team be playing well today.", "The team were playing well today as one unit."], answer: 1, explanation: "Team acts as one unit here, so the singular verb is is correct." },
+      { q: "Choose the correct sentence.", options: ["Everybody are invited.", "Everybody is invited.", "Everybody were invited.", "Everybody have been invited."], answer: 1, explanation: "Everybody is an indefinite pronoun and takes a singular verb, is." },
+      { q: "Musa and Ada ___ good friends.", options: ["is", "are", "was", "has been"], answer: 1, explanation: "Two subjects joined by and take a plural verb, are." },
+      { q: "Choose the correct sentence.", options: ["Yesterday she walks to school.", "Yesterday she walked to school.", "Yesterday she walk to school.", "Yesterday she walking to school."], answer: 1, explanation: "Yesterday shows past time, so the simple past walked is required." },
+      { q: "Ten thousand naira ___ a lot of money.", options: ["are", "were", "is", "have been"], answer: 2, explanation: "A sum of money takes a singular verb, so is is correct." },
+      { q: "Choose the correct sentence.", options: ["Neither of the answers are correct.", "Neither of the answers is correct.", "Neither of the answers were correct.", "Neither of the answers have correct."], answer: 1, explanation: "Neither is singular, so it takes the singular verb is." },
+      { q: "She ___ her homework before her mother arrived.", options: ["has finished", "had finished", "finishes", "is finishing"], answer: 1, explanation: "Her finishing happened before another past event, so the past perfect had finished is correct." },
+      { q: "Choose the correct sentence.", options: ["The quality of the mangoes are poor.", "The quality of the mangoes is poor.", "The quality of the mangoes were poor.", "The quality of the mangoes be poor."], answer: 1, explanation: "The true subject is quality, which is singular, so the verb must be is, not are." },
+      { q: "He said he ___ coming tomorrow.", options: ["is", "was", "are", "were"], answer: 1, explanation: "In reported speech the tense usually shifts back, so is becomes was." },
+      { q: "Choose the correct sentence.", options: ["Each of the students have a book.", "Each of the students has a book.", "Each of the students have books.", "Each of the students are having a book."], answer: 1, explanation: "Each is singular, so it takes the singular verb has." }
     ],
     status: "published"
   },
@@ -317,7 +357,17 @@ export const LESSONS: Lesson[] = [
       { q: "How is the noun record stressed?", options: ["re-CORD", "RE-cord", "re-cord with equal stress", "RE-CORD"], answer: 1, explanation: "As a noun, record is stressed on the first syllable: RE-cord." },
       { q: "Which sentence would normally take a rising intonation?", options: ["She is coming home.", "Are you coming home?", "What is your name?", "Close the door."], answer: 1, explanation: "Yes-no questions such as Are you coming home normally take a rising tone." },
       { q: "Which word is most likely to be stressed in the sentence I bought a new CAR?", options: ["I", "bought", "a", "car"], answer: 3, explanation: "Car is a content word carrying the key information, so it receives the main stress." },
-      { q: "What is rhythm in English speech?", options: ["The speed of reading", "The pattern of stressed and unstressed syllables", "The loudness of the voice", "The number of words in a sentence"], answer: 1, explanation: "Rhythm is the regular pattern created by stressed syllables occurring at intervals, with weak syllables between them." }
+      { q: "What is rhythm in English speech?", options: ["The speed of reading", "The pattern of stressed and unstressed syllables", "The loudness of the voice", "The number of words in a sentence"], answer: 1, explanation: "Rhythm is the regular pattern created by stressed syllables occurring at intervals, with weak syllables between them." },
+      { q: "Which syllable is stressed in the word table?", options: ["First syllable", "Second syllable", "Both syllables equally", "Neither syllable"], answer: 0, explanation: "Table is pronounced TA-ble, with the stress on the first syllable." },
+      { q: "How is the verb present stressed?", options: ["PRE-sent", "pre-SENT", "pre-sent with equal stress", "PRE-SENT"], answer: 1, explanation: "As a verb, present is stressed on the second syllable: pre-SENT, while the noun is PRE-sent." },
+      { q: "Which sentence would normally take a falling intonation?", options: ["Are you ready?", "She is ready.", "Do you understand?", "Is he coming?"], answer: 1, explanation: "Statements such as She is ready normally take a falling tone, while yes-no questions rise." },
+      { q: "Which question would normally take a rising intonation?", options: ["What is your name?", "Where do you live?", "Did you eat?", "Who is there?"], answer: 2, explanation: "Did you eat is a yes-no question, which normally takes a rising tone, while wh-questions fall." },
+      { q: "In the sentence I bought the BOOK, which word is emphasised?", options: ["I", "Bought", "The", "Book"], answer: 3, explanation: "The stress on book emphasises what was bought, not who bought it." },
+      { q: "Which words are usually unstressed in a sentence?", options: ["Nouns and main verbs", "Articles and prepositions", "Adjectives and adverbs", "Names of people"], answer: 1, explanation: "Function words such as articles and prepositions are usually weak and unstressed, while content words carry the stress." },
+      { q: "What does stress-timed mean about English?", options: ["Every syllable gets equal time", "Stressed syllables occur at roughly regular intervals", "Every word is stressed equally", "Speech has no rhythm at all"], answer: 1, explanation: "English is stress-timed, so stressed syllables fall at roughly regular intervals and weak syllables are squeezed between them." },
+      { q: "Which word has a different stress pattern from the others?", options: ["Begin", "Record as a verb", "Table", "Present as a verb"], answer: 2, explanation: "Table stresses the first syllable, while begin, re-CORD and pre-SENT stress the second syllable." },
+      { q: "What is the main difference between stress and intonation?", options: ["Stress is pitch movement and intonation is force", "Stress is force on a syllable and intonation is the rise and fall of the voice", "They mean exactly the same thing", "Stress applies only to sentences"], answer: 1, explanation: "Stress is extra force on a syllable or word, while intonation is the rise and fall of pitch across an utterance." },
+      { q: "A question tag takes a rising tune when the speaker is what?", options: ["Sure of the answer", "Unsure and really asking", "Angry", "Reading a statement"], answer: 1, explanation: "A question tag rises when the speaker is unsure and genuinely asking, and falls when the speaker is sure." }
     ],
     status: "published"
   },
@@ -379,7 +429,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which letter is silent in the word knife?", options: ["K", "N", "F", "E"], answer: 0, explanation: "The k in knife is written but not pronounced." },
       { q: "Which pair are homophones?", options: ["Cat and cut", "Bare and bear", "Hot and hat", "Pen and pan"], answer: 1, explanation: "Bare and bear sound exactly the same but have different spellings and meanings." },
       { q: "Which sound is voiced?", options: ["P", "T", "B", "F"], answer: 2, explanation: "B is made with vibrating vocal cords, while p, t and f are voiceless." },
-      { q: "Choose the correct sentence.", options: ["This is there house.", "This is their house.", "This is they are house.", "This is thier house."], answer: 1, explanation: "Their shows possession, so This is their house is correct; there refers to a place." }
+      { q: "Choose the correct sentence.", options: ["This is there house.", "This is their house.", "This is they are house.", "This is thier house."], answer: 1, explanation: "Their shows possession, so This is their house is correct; there refers to a place." },
+      { q: "Which word has the same vowel sound as sheep?", options: ["Ship", "Seat", "Set", "Sat"], answer: 1, explanation: "Sheep and seat both contain the long ee vowel sound, while ship, set and sat have different vowels." },
+      { q: "Which letter is silent in the word know?", options: ["K", "N", "O", "W"], answer: 0, explanation: "The k in know is written but not pronounced." },
+      { q: "Which pair of sounds differ only in voicing?", options: ["P and b", "P and t", "S and sh", "M and n"], answer: 0, explanation: "P and b are made in the same place and differ only in that b is voiced and p is voiceless." },
+      { q: "Choose the correct word: I will meet you ___ at the gate.", options: ["Their", "There", "They are", "Thier"], answer: 1, explanation: "There refers to a place, so I will meet you there is correct." },
+      { q: "Which word contains the sh sound?", options: ["Church", "Shop", "Sing", "Think"], answer: 1, explanation: "Shop begins with the sh sound, while church has ch, sing has ng, and think has th." },
+      { q: "Which of these is a homophone pair?", options: ["Principal and principle", "Hot and cold", "Big and large", "Run and walk"], answer: 0, explanation: "Principal and principle sound the same but differ in spelling and meaning, so they are homophones." },
+      { q: "Choose the correct word: We must follow the ___ of honesty in all we do.", options: ["Principle", "Principal", "Principals", "Principles"], answer: 0, explanation: "Principle means a rule or belief, so the principle of honesty is correct; principal means the head of a school." },
+      { q: "Which letter is silent in the word psychology?", options: ["P", "S", "Y", "G"], answer: 0, explanation: "The p in psychology is written but not pronounced." },
+      { q: "Which sound is voiceless?", options: ["B", "D", "S", "Z"], answer: 2, explanation: "S is made without vocal cord vibration, while b, d and z are voiced." },
+      { q: "Choose the correct word: The books are ___ on the table.", options: ["Stationary", "Stationery", "Stationeries", "Stationarys"], answer: 1, explanation: "Stationery means writing materials such as books and pens, while stationary means not moving." }
     ],
     status: "published"
   },
@@ -441,7 +501,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which sentence is a run-on?", options: ["The bell rang, and we left.", "The bell rang. We left.", "The bell rang we left.", "When the bell rang, we left."], answer: 2, explanation: "The bell rang we left joins two main clauses with no punctuation or conjunction, so it is a run-on." },
       { q: "Choose the correct punctuation.", options: ["Its raining today.", "It's raining today.", "Its' raining today.", "It is raining today,"], answer: 1, explanation: "It is is contracted to it is, with an apostrophe; its without an apostrophe is possessive." },
       { q: "In the sentence She arrived in the morning, what is in the morning?", options: ["Noun clause", "Adverbial phrase", "Adjective clause", "Main clause"], answer: 1, explanation: "In the morning has no finite verb and tells when she arrived, so it is an adverbial phrase." },
-      { q: "Which mark introduces a list?", options: ["Semicolon", "Comma", "Colon", "Full stop"], answer: 2, explanation: "A colon introduces a list, an explanation or a quotation." }
+      { q: "Which mark introduces a list?", options: ["Semicolon", "Comma", "Colon", "Full stop"], answer: 2, explanation: "A colon introduces a list, an explanation or a quotation." },
+      { q: "What is the function of the clause in the sentence I know that he is honest?", options: ["Adjective clause", "Adverbial clause", "Noun clause", "Main clause"], answer: 2, explanation: "That he is honest acts as the object of know, so it is a noun clause." },
+      { q: "In the sentence The man in the blue shirt is my uncle, what is in the blue shirt?", options: ["Adverbial clause", "Adjectival phrase", "Noun clause", "Main clause"], answer: 1, explanation: "In the blue shirt has no finite verb and describes the noun man, so it is an adjectival phrase." },
+      { q: "Which sentence contains an adverbial clause?", options: ["The girl who sang is my sister.", "We left because it was late.", "What he said was true.", "The tall man arrived."], answer: 1, explanation: "Because it was late tells why we left, so it is an adverbial clause." },
+      { q: "Choose the correct sentence.", options: ["Ada's book is on the table.", "Adas' book is on the table.", "Adas book is on the table.", "Ada book's is on the table."], answer: 0, explanation: "Ada's shows possession, with the apostrophe before the s for a singular owner." },
+      { q: "Which sentence is a fragment?", options: ["Because it rained.", "Because it rained, we stayed indoors.", "It rained heavily.", "We stayed indoors."], answer: 0, explanation: "Because it rained is a subordinate clause alone, with no main clause, so it is a fragment." },
+      { q: "Choose the correct punctuation for a list: I bought rice, beans ___ yam.", options: ["rice, beans, yam", "rice; beans; yam", "rice: beans: yam", "rice beans yam"], answer: 0, explanation: "Commas separate items in a simple list, with and before the last item." },
+      { q: "What is the function of the clause in the sentence The book that I borrowed is interesting?", options: ["Noun clause", "Adverbial clause", "Adjective clause", "Prepositional phrase"], answer: 2, explanation: "That I borrowed describes the noun book, so it is an adjective clause." },
+      { q: "Which sentence joins two main clauses with a semicolon?", options: ["The rain fell, the streets flooded.", "The rain fell; the streets flooded.", "The rain fell the streets flooded.", "The rain fell, and the streets flooded."], answer: 1, explanation: "A semicolon correctly joins two closely related main clauses; a comma alone would be a comma splice." },
+      { q: "In the sentence She has been reading all day, what is has been reading?", options: ["Noun phrase", "Verb phrase", "Adjectival phrase", "Prepositional phrase"], answer: 1, explanation: "Has been reading contains the main verb reading with its helpers, so it is a verb phrase." },
+      { q: "Choose the correct sentence.", options: ["She said, I am coming tomorrow.", "She said, 'I am coming tomorrow.'", "She said I am coming tomorrow.", "She said: I am coming tomorrow"], answer: 1, explanation: "Direct speech is enclosed in quotation marks, so the quoted words need opening and closing marks." }
     ],
     status: "published"
   },
@@ -503,7 +573,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which sentence is ambiguous?", options: ["Ada is a student.", "I saw the man with the telescope.", "The sun rises in the east.", "She bought a red dress."], answer: 1, explanation: "With the telescope can describe the man or the act of seeing, so the sentence has two meanings." },
       { q: "He is a lion in battle is an example of what?", options: ["Simile", "Metaphor", "Irony", "Literal statement"], answer: 1, explanation: "It directly compares the man to a lion without like or as, which is a metaphor." },
       { q: "What does She hardly ever visits mean?", options: ["She never visits", "She visits very rarely", "She visits often", "She visits every day"], answer: 1, explanation: "Hardly ever means very rarely, not never and not often." },
-      { q: "The word bank in The bank is near the river shows what kind of ambiguity?", options: ["Structural ambiguity", "Lexical ambiguity", "Punctuation error", "Tense error"], answer: 1, explanation: "Bank has more than one meaning, a financial institution or a river side, so the ambiguity is lexical." }
+      { q: "The word bank in The bank is near the river shows what kind of ambiguity?", options: ["Structural ambiguity", "Lexical ambiguity", "Punctuation error", "Tense error"], answer: 1, explanation: "Bank has more than one meaning, a financial institution or a river side, so the ambiguity is lexical." },
+      { q: "What does the sentence Ada only passed the test mean, compared with Only Ada passed the test?", options: ["Nobody else passed", "Ada did nothing more than pass", "Ada failed the test", "The test was very hard"], answer: 1, explanation: "Only before passed limits the verb, so Ada did nothing more than pass, while only before Ada limits the person." },
+      { q: "Which sentence contains a simile?", options: ["He is a lion in battle.", "She is as brave as a lion.", "Time is money.", "The wind whispered through the trees."], answer: 1, explanation: "As brave as a lion uses as to compare, which is a simile; the others are metaphor or personification." },
+      { q: "What does the sentence All that glitters is not gold mean?", options: ["Nothing that glitters is gold", "Some glittering things are not gold", "Gold never glitters", "All gold glitters"], answer: 1, explanation: "The sentence means not everything that glitters is gold; some glittering things are not gold." },
+      { q: "The wind whispered through the trees is an example of what?", options: ["Simile", "Metaphor", "Personification", "Irony"], answer: 2, explanation: "Whispered gives the wind a human quality, which is personification." },
+      { q: "What does She almost finished the work mean?", options: ["She finished the work completely", "She nearly finished it but did not complete it", "She never started the work", "She finished it easily"], answer: 1, explanation: "Almost means nearly but not completely, so she did not finish the work." },
+      { q: "Which sentence is structurally ambiguous?", options: ["The cat sat on the mat.", "Visiting relatives can be boring.", "She drank a glass of water.", "He opened the door slowly."], answer: 1, explanation: "Visiting relatives can mean the relatives who visit, or the act of visiting them, so the structure allows two meanings." },
+      { q: "A teacher says The examination is tomorrow. What is the likely implied meaning?", options: ["The examination has been cancelled", "Students should revise tonight", "Tomorrow is a holiday", "The teacher likes examinations"], answer: 1, explanation: "The statement implies that students should prepare, even though it does not say so directly." },
+      { q: "What does Time is money imply?", options: ["Time can be spent in a shop", "Time is valuable and should not be wasted", "Money is made of time", "Time and money are the same thing"], answer: 1, explanation: "The metaphor implies that time, like money, is valuable and should be used wisely." },
+      { q: "Which interpretation of Few students passed is correct?", options: ["No student passed", "Almost all students passed", "Only a small number of students passed", "All students passed"], answer: 2, explanation: "Few means only a small number, not none and not many." },
+      { q: "When choosing between two close interpretations, what should you do?", options: ["Choose the one that sounds most interesting", "Choose the one that is true in every part", "Choose the longest option", "Choose the first option"], answer: 1, explanation: "A correct interpretation must be true in every part; a partly true option is wrong." }
     ],
     status: "published"
   },
@@ -565,7 +645,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which word is opposite in meaning to scarce?", options: ["Rare", "Abundant", "Little", "Few"], answer: 1, explanation: "Scarce means in short supply, and abundant means existing in large quantities, its opposite." },
       { q: "What does the prefix mis- mean in misunderstand?", options: ["Again", "Before", "Wrongly", "Against"], answer: 2, explanation: "Mis- means wrongly, so misunderstand means to understand wrongly." },
       { q: "Which word is formed by adding -ness to kind?", options: ["Kindly", "Kindness", "Kinder", "Kindful"], answer: 1, explanation: "Adding -ness to the adjective kind forms the noun kindness." },
-      { q: "The root dict means say. Which word contains it?", options: ["Predict", "Portable", "Describe", "Biology"], answer: 0, explanation: "Predict contains dict, meaning say, as in saying before something happens." }
+      { q: "The root dict means say. Which word contains it?", options: ["Predict", "Portable", "Describe", "Biology"], answer: 0, explanation: "Predict contains dict, meaning say, as in saying before something happens." },
+      { q: "Which word is nearest in meaning to joyful?", options: ["Sad", "Happy", "Angry", "Tired"], answer: 1, explanation: "Joyful means very happy, so happy is nearest in meaning." },
+      { q: "Which word is opposite in meaning to love?", options: ["Like", "Adore", "Hate", "Cherish"], answer: 2, explanation: "Hate is the opposite of love, while like, adore and cherish are similar in meaning." },
+      { q: "What does the prefix re- mean in rewrite?", options: ["Not", "Before", "Again", "Against"], answer: 2, explanation: "Re- means again, so rewrite means to write again." },
+      { q: "What does the prefix un- mean in unhappy?", options: ["Again", "Not", "Before", "Wrongly"], answer: 1, explanation: "Un- means not, so unhappy means not happy." },
+      { q: "Which word is formed by adding -ly to quick?", options: ["Quickness", "Quicker", "Quickly", "Quickful"], answer: 2, explanation: "Adding -ly to the adjective quick forms the adverb quickly." },
+      { q: "Which word is formed by adding -tion to educate?", options: ["Educated", "Education", "Educator", "Educating"], answer: 1, explanation: "Adding -tion to educate forms the noun education." },
+      { q: "The root port means carry. Which word contains it?", options: ["Transport", "Biology", "Describe", "Predict"], answer: 0, explanation: "Transport contains port, meaning carry, as in carrying across." },
+      { q: "Which word is opposite in meaning to careful?", options: ["Cautious", "Careless", "Watchful", "Attentive"], answer: 1, explanation: "Careless means without care, the opposite of careful; cautious, watchful and attentive are similar to careful." },
+      { q: "Which is a compound word?", options: ["Classroom", "Happiness", "Rewrite", "Teacher"], answer: 0, explanation: "Classroom joins class and room into one word, so it is a compound word." },
+      { q: "What does the suffix -less mean in careless?", options: ["Full of", "Without", "Able to be", "Again"], answer: 1, explanation: "-Less means without, so careless means without care, the opposite of careful." }
     ],
     status: "published"
   },
@@ -627,7 +717,303 @@ export const LESSONS: Lesson[] = [
       { q: "What does the phrasal verb give up mean?", options: ["To hand something over", "To stop trying", "To lift something", "To donate money"], answer: 1, explanation: "Give up means to stop trying or to surrender, as in She refused to give up." },
       { q: "Which expression suits a formal letter?", options: ["I wanna apply for the job.", "I wish to apply for the post.", "Gimme the job, please.", "I dey apply for the job."], answer: 1, explanation: "I wish to apply for the post is formal and polite, suitable for an official letter." },
       { q: "What does to be under the weather mean?", options: ["To be outside in the rain", "To feel slightly ill", "To check the forecast", "To be very happy"], answer: 1, explanation: "To be under the weather is an idiom meaning to feel slightly unwell." },
-      { q: "What does look after mean?", options: ["To search for", "To take care of", "To look behind", "To admire"], answer: 1, explanation: "Look after means to take care of someone or something, as in She looks after her younger brother." }
+      { q: "What does look after mean?", options: ["To search for", "To take care of", "To look behind", "To admire"], answer: 1, explanation: "Look after means to take care of someone or something, as in She looks after her younger brother." },
+      { q: "What does the idiom to break the ice mean?", options: ["To smash frozen water", "To ease tension at the start of a meeting", "To fall on ice", "To make a drink cold"], answer: 1, explanation: "To break the ice means to ease tension and help people relax at the start of a meeting." },
+      { q: "What does to burn the midnight oil mean?", options: ["To cook at night", "To work late into the night", "To waste oil", "To light a lamp"], answer: 1, explanation: "To burn the midnight oil means to work or study late into the night." },
+      { q: "What does look for mean?", options: ["To take care of", "To search for", "To look behind", "To expect with pleasure"], answer: 1, explanation: "Look for means to search for something, which is different from look after, to take care of." },
+      { q: "What does to be in hot water mean?", options: ["To be in a bath", "To be in trouble", "To be very warm", "To cook food"], answer: 1, explanation: "To be in hot water is an idiom meaning to be in trouble." },
+      { q: "What does turn up mean in the sentence He turned up late for the meeting?", options: ["To switch on", "To arrive", "To increase the volume", "To turn around"], answer: 1, explanation: "Turn up can mean to arrive, so he turned up late means he arrived late." },
+      { q: "Which expression suits an informal chat with a friend?", options: ["I would be grateful if you could assist me.", "I wish to apply for the post.", "Can you help me out?", "I hereby request your assistance."], answer: 2, explanation: "Can you help me out is relaxed and informal, suitable for a friend, while the others are formal." },
+      { q: "What does to cost an arm and a leg mean?", options: ["To be very cheap", "To be very expensive", "To cause an injury", "To pay in parts"], answer: 1, explanation: "To cost an arm and a leg means to be very expensive." },
+      { q: "What does put off mean in the sentence They put off the match?", options: ["To cancel it at once", "To postpone it to a later time", "To switch it off", "To wear it"], answer: 1, explanation: "Put off means to postpone, so they put off the match means they moved it to a later time." },
+      { q: "What does to let the cat out of the bag mean?", options: ["To free a pet", "To reveal a secret", "To buy a cat", "To open a bag"], answer: 1, explanation: "To let the cat out of the bag means to reveal a secret that was meant to stay hidden." },
+      { q: "Which word best fits a formal letter: I ___ to inform you that the meeting is cancelled?", options: ["wanna", "dey", "wish", "gonna"], answer: 2, explanation: "Wish is formal and polite, as in I wish to inform you, while wanna, dey and gonna are informal." }
+    ],
+    status: "published"
+  },
+  {
+    id: "english-11",
+    subjectId: "english",
+    topic: "Summary Writing",
+    subtopic: "Principles and techniques of summary writing",
+    title: "Principles and Techniques of Summary Writing",
+    order: 11,
+    introduction: "A summary is a short, clear restatement of the main points of a longer passage, written in your own words. JAMB tests summary writing by asking you to reduce a passage to a set number of words while keeping only what matters. This lesson teaches you the principles of a good summary and the techniques that keep it short, accurate and complete.",
+    objectives: ["Explain what a summary is and what it is not", "Identify the main points of a passage for a summary", "Distinguish main points from examples and minor details", "Paraphrase ideas in your own words without changing the meaning", "Write a summary within a given word limit in clear, connected sentences"],
+    sections: [
+      {
+        heading: "What a Summary Is",
+        body: "A summary gives the main points of a passage in far fewer words, in your own words, and in the same order as the original. It is not a copy of sentences lifted from the passage, and it is not a personal opinion about the passage. For example, a summary of a passage about the causes of road accidents would state the main causes and the suggested solutions, but it would leave out long examples, statistics and repeated explanations. A good summary is shorter than the original, usually about one-third of its length, and it can be understood on its own without reading the original. It keeps the writer's meaning and tone, but it uses your own sentence patterns and vocabulary wherever possible."
+      },
+      {
+        heading: "Finding the Main Points",
+        body: "Before you write a summary, read the whole passage carefully and underline the main idea of each paragraph. The question often tells you exactly what to summarise, for example the causes of water pollution, so use that instruction as your guide and ignore points that do not answer it. Ask of every sentence: does this state a main point, or does it only explain, illustrate or repeat a main point? Main points are usually stated in topic sentences, while examples, figures and anecdotes are supporting details. For example, in a passage about reading, the statement Reading improves vocabulary is a main point, while the story of a boy who read fifty books in a year is an example that supports it. List the main points in order, and check that your list covers the whole passage, not only the first half."
+      },
+      {
+        heading: "Paraphrasing in Your Own Words",
+        body: "Paraphrasing means restating an idea with different words and a different sentence structure, without changing its meaning. For example, the sentence The government introduced a new policy to reduce the cost of transport can be paraphrased as A new government policy was introduced to make transport cheaper. To paraphrase well, read the sentence, close the passage in your mind, and say the idea aloud in your own words before writing it down. Change key words to synonyms where you can, and change the sentence structure, for example by turning an active sentence into a passive one, or by joining two short sentences into one. Do not copy long phrases from the original, and do not add your own ideas, examples or opinions to the summary."
+      },
+      {
+        heading: "Word Limit, Order and Presentation",
+        body: "JAMB summary questions usually give a word limit, such as in not more than 80 words, and you must respect it. Count your words carefully and cut any repetition, unnecessary adjectives and extra examples until you fit the limit. Keep the points in the same order as they appear in the passage, and join them with linking words such as firstly, in addition, however and finally so the summary reads as one connected piece, not as a list of separate sentences. Write in clear, complete sentences, and avoid abbreviations, contractions and note form. Finally, read your summary again and check three things: does it answer the question asked, does it contain only main points, and is it within the word limit? If any answer is no, revise it before you finish."
+      }
+    ],
+    definitions: [
+      { term: "Summary", meaning: "A short restatement of the main points of a longer text, in your own words." },
+      { term: "Main point", meaning: "An important idea in a passage that a summary must keep." },
+      { term: "Paraphrase", meaning: "Restating an idea in different words without changing its meaning." },
+      { term: "Supporting detail", meaning: "An example, figure or explanation that develops a main point but is left out of a summary." },
+      { term: "Word limit", meaning: "The maximum number of words allowed for a summary." },
+      { term: "Linking word", meaning: "A word such as however or in addition that connects ideas in a text." }
+    ],
+    formulas: ["A summary is about one-third of the original length.", "Keep main points only; leave out examples, figures and repetition.", "Use your own words and the same order as the original.", "A summary must answer the question asked and stay within the word limit."],
+    examples: [
+      {
+        title: "Picking the main points",
+        problem: "A passage about exercise gives three benefits, a story about a runner, and accident figures. Which points belong in a summary of the benefits of exercise?",
+        steps: ["Read the question: it asks for the benefits of exercise only.", "List the three benefits stated in the passage.", "Note that the runner's story is an example, not a benefit.", "Note that the accident figures do not describe benefits.", "Keep only the three benefits, in the order given."],
+        answer: "The summary should keep the three benefits of exercise and leave out the runner's story and the accident figures."
+      },
+      {
+        title: "Paraphrasing a sentence",
+        problem: "Paraphrase this sentence: The government introduced a new policy to reduce the cost of transport.",
+        steps: ["Identify the idea: a new policy made transport cheaper.", "Replace key words: introduced can become brought in, reduce can become lower.", "Change the structure: use a passive form if helpful.", "Write the idea in your own words.", "Check that the meaning is unchanged and no new idea was added."],
+        answer: "A new government policy was introduced to make transport cheaper."
+      }
+    ],
+    tips: ["Read the summary question first, so you know which points to look for.", "Underline the main idea of each paragraph before you write.", "Paraphrase by saying the idea aloud in your own words first.", "Count your words and cut repetition until you fit the limit."],
+    mistakes: ["Copying whole sentences from the passage instead of paraphrasing.", "Including striking examples while leaving out a main point.", "Adding your own opinion or new examples to the summary.", "Ignoring the word limit or the exact question asked."],
+    facts: ["A summary is usually about one-third of the length of the original.", "A summary keeps the points in the same order as the original passage.", "Examples, statistics and repetition are left out of a summary.", "A summary must be understandable on its own, without the original passage."],
+    quiz: [
+      { q: "What is a summary?", options: ["A copy of the longest sentences in a passage", "A short restatement of the main points in your own words", "Your personal opinion about a passage", "A list of every example in a passage"], answer: 1, explanation: "A summary gives the main points of a passage in far fewer words, in your own words." },
+      { q: "Which of these should be left out of a summary?", options: ["A main point", "A topic sentence", "A long example that illustrates a point", "The central idea of the passage"], answer: 2, explanation: "Examples illustrate main points but are supporting details, so they are left out of a summary." },
+      { q: "How long is a good summary usually?", options: ["Longer than the original", "About the same length as the original", "About one-third of the original", "Exactly half of every paragraph"], answer: 2, explanation: "A summary is much shorter than the original, usually about one-third of its length." },
+      { q: "What does paraphrasing mean?", options: ["Copying a sentence word for word", "Restating an idea in different words without changing its meaning", "Adding your own opinion to a passage", "Translating a passage into another language"], answer: 1, explanation: "Paraphrasing means saying the same idea with different words and a different structure." },
+      { q: "A summary question asks for the causes of water pollution. What should you do?", options: ["Summarise the whole passage including its effects", "Include only the points about causes", "Write about your own views on pollution", "Copy the first paragraph only"], answer: 1, explanation: "A summary must answer the exact question asked, so include only the points about causes." },
+      { q: "In what order should points appear in a summary?", options: ["In the order of importance to you", "In the same order as in the original passage", "In alphabetical order", "In reverse order"], answer: 1, explanation: "A summary keeps the main points in the same order as they appear in the original passage." },
+      { q: "Which sentence is a good paraphrase of The rain destroyed many farms?", options: ["The rain destroyed many farms.", "Many farms were destroyed by the rain.", "Rain is bad for farmers.", "Farms are destroyed every year."], answer: 1, explanation: "Many farms were destroyed by the rain restates the idea with a different structure and keeps the meaning." },
+      { q: "What should you do if your summary is over the word limit?", options: ["Write smaller", "Cut repetition and unnecessary words", "Remove a main point", "Change the word limit"], answer: 1, explanation: "Cut repetition, extra adjectives and examples, but keep every main point." },
+      { q: "Which of these is a main point, not a supporting detail?", options: ["The story of a boy who read fifty books", "Reading improves vocabulary", "The figure of 200 books sold last year", "A quotation from a famous writer"], answer: 1, explanation: "Reading improves vocabulary states a central idea, while the others are examples, figures or quotations." },
+      { q: "Why should a summary use linking words?", options: ["To make it longer", "To join the points into one connected piece", "To copy the original exactly", "To add new ideas"], answer: 1, explanation: "Linking words such as in addition and however connect the points so the summary reads smoothly." },
+      { q: "What is the first step before writing a summary?", options: ["Write the first sentence at once", "Read the whole passage and find the main idea of each paragraph", "Count the words in the passage", "Copy the topic sentences"], answer: 1, explanation: "Read the whole passage first and identify the main points before you begin to write." },
+      { q: "Which of these must a summary NOT contain?", options: ["Main points", "Your own opinion", "Paraphrased ideas", "The order of the original"], answer: 1, explanation: "A summary restates the writer's points; it must not add your own opinion or new ideas." },
+      { q: "What does a topic sentence help you to find when summarising?", options: ["The hardest word in a paragraph", "The main point of a paragraph", "The number of words in a paragraph", "The author's name"], answer: 1, explanation: "Topic sentences usually state the main point of each paragraph, which a summary must keep." },
+      { q: "Which presentation is correct for a summary?", options: ["Note form with abbreviations", "Clear, complete sentences", "A list of bullet points copied from the passage", "Contractions and slang"], answer: 1, explanation: "A summary is written in clear, complete sentences, not in note form or with slang." },
+      { q: "After writing a summary, what should you check last?", options: ["Whether it answers the question, keeps only main points and fits the word limit", "Whether it is longer than the original", "Whether it contains every example", "Whether it uses the writer's exact words"], answer: 0, explanation: "A final check must confirm that the summary answers the question, keeps only main points and stays within the word limit." }
+    ],
+    status: "published"
+  },
+  {
+    id: "english-12",
+    subjectId: "english",
+    topic: "Summary Writing",
+    subtopic: "Summary writing in practice",
+    title: "Summary Writing in Practice",
+    order: 12,
+    introduction: "Knowing the principles of summary writing is only the first step; you must also practise applying them under exam conditions. This lesson works through the full process, from reading the question to counting your words, so you can produce a short, accurate summary of any passage JAMB gives you.",
+    objectives: ["Follow the full summary process from question to final draft", "Select points that answer a specific summary question", "Combine related points into single sentences", "Use linking words to join points smoothly", "Check a summary for accuracy, completeness and word count"],
+    sections: [
+      {
+        heading: "The Full Summary Process",
+        body: "Start by reading the summary question, then read the whole passage once for understanding. On a second reading, underline or note every sentence that answers the question, and number the points in the order they appear. For example, if the question asks for the effects of deforestation, underline each effect as you find it, and ignore causes and solutions, even if they are interesting. Next, write a rough draft in your own words, joining related points where you can. Then count the words, cut what is unnecessary, and write a neat final version. Finally, read your summary once more against the question and the passage to be sure nothing important is missing and nothing extra has crept in. Practising this process on several passages will make it fast and automatic in the exam."
+      },
+      {
+        heading: "Selecting Points That Answer the Question",
+        body: "JAMB summary questions are specific: they may ask for the reasons for a problem, the qualities of a person, or the steps in a process. Only points that answer that exact question earn marks, so be strict with yourself. For example, in a passage about a successful farmer, a question asking for the reasons for his success wants points such as hard work, use of modern methods and good planning; it does not want a description of his farm or his family. A point may appear in several sentences, so collect it once and move on. If two sentences say the same thing in different words, they are one point, not two. Write your selected points as a short numbered list before you draft, and check each one against the question: if it does not answer the question, cross it out."
+      },
+      {
+        heading: "Combining Points and Using Linking Words",
+        body: "A summary should not read like a list of separate sentences. Combine related points into single sentences with and, because, so and but, and use linking words to show the relationship between points. For example, instead of writing The soil became dry. The crops failed. The farmers lost money, you can write The soil became dry, so the crops failed and the farmers lost money. Words such as firstly, secondly, in addition, however, therefore and finally show order, addition, contrast and conclusion. Do not overuse them: one linking word per sentence is usually enough. The aim is a smooth paragraph that a reader can follow without going back to the original passage."
+      },
+      {
+        heading: "Checking Accuracy and Word Count",
+        body: "Accuracy matters more than style in a summary. Every point in your summary must be true to the passage: do not exaggerate, soften or reverse what the writer said. For example, if the passage says many farmers lost money, do not write all farmers lost money. Check names, figures and quantities carefully, and leave out figures unless the question asks for them. Count your words by counting every word, including small words such as a, the and of, and write the total at the end if the exam asks for it. If you are over the limit, cut adjectives, combine sentences, and remove any repeated point; if you are well under the limit, check whether you missed a main point. A summary that is accurate, complete and within the limit is a strong summary, even if its sentences are simple."
+      }
+    ],
+    definitions: [
+      { term: "Rough draft", meaning: "A first version of a summary, written before counting words and correcting it." },
+      { term: "Final version", meaning: "The neat, corrected version of a summary handed in for marking." },
+      { term: "Point", meaning: "One distinct idea that answers the summary question." },
+      { term: "Linking word", meaning: "A word such as therefore or however that shows the relationship between ideas." },
+      { term: "Accuracy", meaning: "Saying exactly what the passage says, without exaggeration or change." }
+    ],
+    formulas: ["Read the question, read the passage, list the points, draft, count, check.", "One point in the passage, stated twice, counts as one point in the summary.", "Combine related points with and, so, because and but.", "Every word counts, including a, the and of."],
+    examples: [
+      {
+        title: "Selecting points for a question",
+        problem: "A passage about a farmer describes his farm, his family, and three reasons for his success. The question asks for the reasons for his success. Which points should the summary keep?",
+        steps: ["Read the question again: it asks for reasons for success only.", "List the three reasons given in the passage.", "Note that the description of the farm does not answer the question.", "Note that the description of his family does not answer the question.", "Keep only the three reasons, in the order they appear."],
+        answer: "The summary should keep only the three reasons for his success and leave out the descriptions of his farm and family."
+      },
+      {
+        title: "Combining points into one sentence",
+        problem: "Combine these points into one smooth sentence: The soil became dry. The crops failed. The farmers lost money.",
+        steps: ["Find the relationship: the dry soil caused the crops to fail.", "Use so to show the result.", "Join the last two points with and.", "Write one sentence with all three points.", "Check that no point was lost and no new idea was added."],
+        answer: "The soil became dry, so the crops failed and the farmers lost money."
+      }
+    ],
+    tips: ["Make a numbered list of points before you write your draft.", "If two sentences say the same thing, count them as one point.", "Combine short points into one sentence to save words.", "Read your final summary against the question, not only against the passage."],
+    mistakes: ["Including points that do not answer the exact question asked.", "Counting the same point twice because it appears in two sentences.", "Writing a list of separate sentences with no linking words.", "Changing many to all or some to every when paraphrasing."],
+    facts: ["Only points that answer the summary question earn marks.", "A point repeated in different words is still one point.", "Small words such as a, the and of count in the word total.", "A summary should be accurate even if its sentences are simple."],
+    quiz: [
+      { q: "What is the first step in the summary process?", options: ["Write the final version at once", "Read the summary question, then read the whole passage", "Count the words in the passage", "Copy the first paragraph"], answer: 1, explanation: "Start by reading the question, then read the whole passage for understanding before selecting points." },
+      { q: "A question asks for the effects of deforestation. Which points should you include?", options: ["Only the effects", "The causes and the effects", "The solutions only", "Everything in the passage"], answer: 0, explanation: "Only points that answer the exact question earn marks, so include only the effects." },
+      { q: "Two sentences in a passage say the same thing in different words. How many points is that?", options: ["Two points", "One point", "No point", "Three points"], answer: 1, explanation: "A point stated twice is still one point, so count it once in your summary." },
+      { q: "Which sentence best combines these points: The soil became dry. The crops failed.?", options: ["The soil became dry. The crops failed.", "The soil became dry, so the crops failed.", "The soil became dry and the rain fell.", "The crops failed because of the farmers."], answer: 1, explanation: "So shows that the dry soil caused the crops to fail, joining the points into one smooth sentence." },
+      { q: "Which linking word shows a result?", options: ["However", "Firstly", "Therefore", "In addition"], answer: 2, explanation: "Therefore shows that what follows is a result or conclusion of what came before." },
+      { q: "The passage says many farmers lost money. What must your summary NOT say?", options: ["Many farmers lost money", "Some farmers lost money", "All farmers lost money", "Farmers lost money"], answer: 2, explanation: "Changing many to all exaggerates the passage, so the summary would be inaccurate." },
+      { q: "What is a rough draft in summary writing?", options: ["The final neat version", "A first version written before counting words and correcting it", "A copy of the original passage", "A list of difficult words"], answer: 1, explanation: "A rough draft is the first version, which you then count, cut and correct into a final version." },
+      { q: "Why should you make a numbered list of points before drafting?", options: ["To make the summary longer", "To check each point against the question and keep them in order", "To copy the passage exactly", "To avoid using linking words"], answer: 1, explanation: "A numbered list lets you check that every point answers the question and that the order matches the passage." },
+      { q: "Which words count in a summary word total?", options: ["Only nouns and verbs", "Every word, including a, the and of", "Only the main points", "Only words longer than three letters"], answer: 1, explanation: "Every word counts in the total, including small words such as a, the and of." },
+      { q: "If your summary is over the word limit, what should you cut first?", options: ["A main point", "Repetition and unnecessary adjectives", "A linking word that joins two points", "The first point in the passage"], answer: 1, explanation: "Cut repetition and unnecessary words, but keep every main point." },
+      { q: "Which linking word shows contrast?", options: ["In addition", "Therefore", "However", "Firstly"], answer: 2, explanation: "However introduces a contrast with what came before it." },
+      { q: "What should you do after writing your final summary?", options: ["Hand it in without reading it", "Read it once more against the question and the passage", "Add an extra example", "Copy a sentence from the passage"], answer: 1, explanation: "A final check against the question and the passage confirms nothing important is missing and nothing extra has crept in." },
+      { q: "A summary question asks for the steps in a process. What should the summary contain?", options: ["Only the steps, in order", "The steps and your opinion of them", "The steps and a long example", "Only the first step"], answer: 0, explanation: "The summary should contain only the steps, in the order given in the passage." },
+      { q: "Which is the best way to save words in a summary?", options: ["Use abbreviations and note form", "Combine related points into single sentences", "Leave out a main point", "Write in very long sentences"], answer: 1, explanation: "Combining related points into one sentence saves words while keeping all the points." },
+      { q: "What makes a summary strong, even if its sentences are simple?", options: ["Long, difficult words", "Accuracy, completeness and staying within the word limit", "Copying the writer's exact words", "Adding extra examples"], answer: 1, explanation: "A summary that is accurate, complete and within the limit is strong, even with simple sentences." }
+    ],
+    status: "published"
+  },
+  {
+    id: "english-13",
+    subjectId: "english",
+    topic: "Reported Speech and Voice",
+    subtopic: "Direct and indirect speech",
+    title: "Direct and Indirect Speech",
+    order: 13,
+    introduction: "Direct speech reports a person's exact words, while indirect speech, also called reported speech, reports what was said without repeating the exact words. JAMB regularly tests the changes in tense, pronouns and time words that happen when direct speech becomes indirect speech. This lesson teaches you those changes for statements, questions and commands.",
+    objectives: ["Distinguish direct speech from indirect speech", "Change direct statements into indirect speech with the correct tense shift", "Report questions and commands correctly", "Change pronouns, time words and place words in reported speech", "Choose the correct reporting verb for the situation"],
+    sections: [
+      {
+        heading: "Direct and Indirect Speech",
+        body: "Direct speech gives the speaker's exact words inside quotation marks: Ada said, I am coming tomorrow. Indirect speech reports the meaning without quotation marks: Ada said that she was coming the next day. Notice three changes: the pronoun I becomes she, the present tense am coming becomes the past tense was coming, and the time word tomorrow becomes the next day. These changes happen because the report is made later, from a different point of view. The reporting verb, such as said, told, asked or ordered, introduces the reported words, and the word that often joins a reported statement to the reporting verb, although it can be left out: She said she was coming is also correct."
+      },
+      {
+        heading: "Reporting Statements",
+        body: "When the reporting verb is in the past tense, the verb in the reported statement usually shifts one step back in time. The present simple becomes the past simple: I like rice becomes He said that he liked rice. The present continuous becomes the past continuous: I am reading becomes She said that she was reading. The present perfect becomes the past perfect: I have finished becomes He said that he had finished. The past simple becomes the past perfect: I saw him becomes She said that she had seen him. The future with will becomes would: I will come becomes He said that he would come. If the reporting verb is in the present tense, as in He says, or if the statement is a general truth, such as Water boils at 100 degrees, the tense often stays the same. Learn the shift as a table and practise it until it is automatic."
+      },
+      {
+        heading: "Reporting Questions and Commands",
+        body: "Reported questions do not use question word order or a question mark. A yes-no question is reported with if or whether: Are you coming? becomes He asked if I was coming. A wh-question keeps its question word but uses statement word order: Where do you live? becomes She asked where I lived. Note that the auxiliary verb do disappears and the tense shifts back as in statements. Commands and requests are reported with an infinitive: Close the door becomes He told me to close the door, and Do not shout becomes She asked us not to shout. The reporting verbs change too: ask, tell, order, command, request and advise are common, and the listener is named after tell and ask: He told me, not He told that I. Practise each type separately before mixing them."
+      },
+      {
+        heading: "Pronouns, Time and Place Words",
+        body: "Pronouns change to match the new point of view. I becomes he or she, my becomes his or her, we becomes they, and you becomes I, he, she or they, depending on who is spoken to. For example, Ada said, I will bring my book becomes Ada said that she would bring her book. Time words also change: today becomes that day, tomorrow becomes the next day, yesterday becomes the day before, now becomes then, and this becomes that. Place words change too: here becomes there. For example, He said, I met her here yesterday becomes He said that he had met her there the day before. These changes follow one idea: reported speech is told from the reporter's time and place, not from the speaker's original moment."
+      }
+    ],
+    definitions: [
+      { term: "Direct speech", meaning: "The exact words of a speaker, given inside quotation marks." },
+      { term: "Indirect speech", meaning: "Reported speech: what was said, reported without the exact words." },
+      { term: "Reporting verb", meaning: "A verb such as said, told or asked that introduces reported speech." },
+      { term: "Tense shift", meaning: "Moving a verb one step back in time when reporting past speech." },
+      { term: "Reported question", meaning: "A question reported in indirect speech, using statement word order." },
+      { term: "Reported command", meaning: "A command reported in indirect speech, using to plus the verb." }
+    ],
+    formulas: ["Present simple becomes past simple; present perfect becomes past perfect; will becomes would.", "Yes-no questions are reported with if or whether.", "Wh-questions keep the question word but use statement word order.", "Today becomes that day; tomorrow becomes the next day; yesterday becomes the day before."],
+    examples: [
+      {
+        title: "Reporting a statement",
+        problem: "Change to indirect speech: Ada said, I am reading a book.",
+        steps: ["Identify the reporting verb: said, in the past tense, so the tense must shift.", "Change the pronoun I to she, matching Ada.", "Shift the present continuous am reading to the past continuous was reading.", "Remove the quotation marks and join with that.", "Write the reported sentence and check the meaning."],
+        answer: "Ada said that she was reading a book."
+      },
+      {
+        title: "Reporting a question and a command",
+        problem: "Change to indirect speech: The teacher asked, Are you ready? Then she said, Close your books.",
+        steps: ["For the question, use if and statement word order: He asked if we were ready.", "Note that are you ready becomes we were ready, with the tense shifted.", "For the command, use told plus to plus the verb.", "Write: She told us to close our books.", "Check that neither reported sentence uses a question mark."],
+        answer: "The teacher asked if we were ready. Then she told us to close our books."
+      }
+    ],
+    tips: ["When the reporting verb is past, shift the reported verb one step back.", "Reported questions use statement word order, never question word order.", "Use if or whether for yes-no questions.", "Change pronouns, time words and place words to the reporter's point of view."],
+    mistakes: ["Keeping question word order in a reported question.", "Forgetting to shift the tense after a past reporting verb.", "Keeping tomorrow and yesterday unchanged in reported speech.", "Using told without naming the listener, as in He told that."],
+    facts: ["Direct speech uses quotation marks; indirect speech does not.", "Will becomes would in reported speech after a past reporting verb.", "A reported command uses to plus the verb.", "General truths often keep their tense in reported speech."],
+    quiz: [
+      { q: "What is indirect speech?", options: ["The exact words of a speaker in quotation marks", "What was said, reported without the exact words", "A question asked directly", "A command given in the present tense"], answer: 1, explanation: "Indirect speech reports what was said without repeating the speaker's exact words or using quotation marks." },
+      { q: "Change to indirect speech: He said, I like rice.", options: ["He said that he likes rice.", "He said that he liked rice.", "He said that he like rice.", "He said that he is liking rice."], answer: 1, explanation: "After the past reporting verb said, the present simple like shifts to the past simple liked." },
+      { q: "Change to indirect speech: She said, I have finished my work.", options: ["She said that she has finished her work.", "She said that she had finished her work.", "She said that she finishes her work.", "She said that she will finish her work."], answer: 1, explanation: "The present perfect have finished shifts to the past perfect had finished in reported speech." },
+      { q: "Change to indirect speech: He said, I will come tomorrow.", options: ["He said that he will come tomorrow.", "He said that he would come the next day.", "He said that he would come tomorrow.", "He said that he comes the next day."], answer: 1, explanation: "Will becomes would, and tomorrow becomes the next day in reported speech." },
+      { q: "How is a yes-no question reported?", options: ["With that and a question mark", "With if or whether and statement word order", "With question word order", "With an exclamation mark"], answer: 1, explanation: "A yes-no question is reported with if or whether, using statement word order and no question mark." },
+      { q: "Change to indirect speech: She asked, Where do you live?", options: ["She asked where do I live?", "She asked where I lived.", "She asked where did I live?", "She asked that where I live."], answer: 1, explanation: "The wh-word is kept, but the word order becomes statement order and the tense shifts to lived." },
+      { q: "Change to indirect speech: He told me, Close the door.", options: ["He told me close the door.", "He told me to close the door.", "He told me that close the door.", "He told me closing the door."], answer: 1, explanation: "A reported command uses told plus to plus the verb: told me to close the door." },
+      { q: "In reported speech, what does yesterday become?", options: ["Tomorrow", "The next day", "The day before", "That day"], answer: 2, explanation: "Yesterday becomes the day before when speech is reported from a later point in time." },
+      { q: "Change to indirect speech: Ada said, I will bring my book.", options: ["Ada said that she will bring my book.", "Ada said that she would bring her book.", "Ada said that I would bring her book.", "Ada said that she would bring my book."], answer: 1, explanation: "I becomes she, my becomes her, and will becomes would in reported speech." },
+      { q: "Which sentence is correct reported speech?", options: ["He asked did I come?", "He asked if I had come.", "He asked that I come?", "He asked do I come?"], answer: 1, explanation: "He asked if I had come uses if and statement word order with the tense shifted, which is correct." },
+      { q: "Change to indirect speech: She said, Do not shout.", options: ["She said to not shout.", "She told us not to shout.", "She said that do not shout.", "She told us to not shout."], answer: 1, explanation: "A negative command is reported as told us not to shout, with not before to." },
+      { q: "What does today become in reported speech?", options: ["Tomorrow", "That day", "The next day", "Yesterday"], answer: 1, explanation: "Today becomes that day when speech is reported from a later time." },
+      { q: "When does the tense usually stay the same in reported speech?", options: ["When the reporting verb is in the past tense", "When the statement is a general truth", "When the sentence is a question", "When the speaker is angry"], answer: 1, explanation: "A general truth, such as Water boils at 100 degrees, often keeps its tense in reported speech." },
+      { q: "Change to indirect speech: He said, I saw him yesterday.", options: ["He said that he saw him yesterday.", "He said that he had seen him the day before.", "He said that he has seen him the day before.", "He said that he sees him yesterday."], answer: 1, explanation: "The past simple saw shifts to the past perfect had seen, and yesterday becomes the day before." },
+      { q: "Which reporting verb fits a command?", options: ["Wondered", "Ordered", "Knew", "Believed"], answer: 1, explanation: "Ordered is a reporting verb for commands, as in He ordered us to leave." }
+    ],
+    status: "published"
+  },
+  {
+    id: "english-14",
+    subjectId: "english",
+    topic: "Reported Speech and Voice",
+    subtopic: "Active and passive voice",
+    title: "Active and Passive Voice",
+    order: 14,
+    introduction: "In the active voice the subject does the action, while in the passive voice the subject receives the action. JAMB tests your ability to change active sentences into passive ones, to choose the correct passive form for each tense, and to know when the passive is the better choice. This lesson teaches you the full transformation step by step.",
+    objectives: ["Distinguish active voice from passive voice", "Change active sentences into passive sentences in all major tenses", "Use the correct form of be plus the past participle", "Decide when to include or leave out the agent with by", "Choose active or passive voice for the right situation"],
+    sections: [
+      {
+        heading: "Active and Passive Voice",
+        body: "In the active voice, the subject performs the action: The boy kicked the ball. In the passive voice, the subject receives the action: The ball was kicked by the boy. The object of the active sentence becomes the subject of the passive sentence, the verb becomes a form of be plus the past participle, and the active subject becomes the agent, introduced by by, if it is mentioned at all. For example, The teacher praised Ada becomes Ada was praised by the teacher. The passive is useful when the doer is unknown or unimportant, as in The window was broken, or when the receiver of the action matters more than the doer. It is also common in formal and scientific writing, where the action matters more than the person who performed it."
+      },
+      {
+        heading: "Forming the Passive in Different Tenses",
+        body: "The passive is always formed with a form of be plus the past participle of the main verb, and the form of be carries the tense. In the present simple, The boy kicks the ball becomes The ball is kicked by the boy. In the past simple, it becomes The ball was kicked by the boy. In the present continuous, it becomes The ball is being kicked by the boy. In the present perfect, it becomes The ball has been kicked by the boy. In the future, it becomes The ball will be kicked by the boy. To change a sentence, first find the object and make it the new subject, then choose the correct form of be for the tense, then add the past participle, and finally add by plus the agent if it is needed. Practise each tense separately, because JAMB often asks for the passive form of a sentence in a particular tense."
+      },
+      {
+        heading: "The Agent and When to Leave It Out",
+        body: "The agent is the person or thing that performs the action, introduced by by in the passive: The letter was written by Ada. Often the agent is left out because it is unknown, obvious or unimportant. For example, My bicycle was stolen does not name the thief, because the thief is unknown, and The house was built in 1990 does not name the builders, because they do not matter. The agent is kept when it is important or surprising, as in The novel was written by a twelve-year-old girl. A common error is to use by with the wrong pronoun: say by me, by him and by her, not by I, by he or by she. Another error is to forget that some verbs, such as intransitive verbs like sleep, arrive and die, have no object and therefore cannot be made passive."
+      },
+      {
+        heading: "Choosing Active or Passive Voice",
+        body: "Active voice is usually clearer, shorter and more direct, so it is the better choice in most writing: The committee approved the plan is stronger than The plan was approved by the committee. Use the passive when the receiver of the action is more important than the doer, when the doer is unknown, or when you want to be formal and impersonal, as in scientific reports: The samples were tested twice. In JAMB questions, first identify the voice of the given sentence, then work out the transformation carefully, checking the tense, the subject and the past participle. Watch out for sentences with two objects: The teacher gave Ada a book can become Ada was given a book or A book was given to Ada, and both are correct. Choose the form the question asks for, and check that your answer keeps the original meaning."
+      }
+    ],
+    definitions: [
+      { term: "Active voice", meaning: "A sentence form in which the subject performs the action." },
+      { term: "Passive voice", meaning: "A sentence form in which the subject receives the action." },
+      { term: "Past participle", meaning: "The form of a verb used after be in the passive, such as kicked or written." },
+      { term: "Agent", meaning: "The person or thing that performs the action, introduced by by in the passive." },
+      { term: "Intransitive verb", meaning: "A verb that takes no object, such as sleep or arrive, and cannot be made passive." }
+    ],
+    formulas: ["Passive = a form of be + past participle.", "The object of the active sentence becomes the subject of the passive sentence.", "Present simple passive uses is or are; past simple passive uses was or were.", "Leave out the agent when the doer is unknown or unimportant."],
+    examples: [
+      {
+        title: "Changing a sentence to the passive",
+        problem: "Change to the passive voice: The boy kicked the ball.",
+        steps: ["Find the object of the active sentence: the ball.", "Make the ball the new subject.", "Find the tense: past simple, so use was.", "Add the past participle of kick: kicked.", "Add the agent: by the boy."],
+        answer: "The ball was kicked by the boy."
+      },
+      {
+        title: "Changing a present perfect sentence",
+        problem: "Change to the passive voice: The workers have finished the job.",
+        steps: ["Find the object: the job, and make it the new subject.", "Find the tense: present perfect, so use has been.", "Add the past participle of finish: finished.", "Add the agent if needed: by the workers.", "Write the full passive sentence and check the tense."],
+        answer: "The job has been finished by the workers."
+      }
+    ],
+    tips: ["First find the object; it becomes the new subject in the passive.", "The form of be carries the tense, so choose it carefully.", "Use the past participle, not the simple past, after be.", "Leave out the agent when the doer is unknown or unimportant."],
+    mistakes: ["Using the simple past instead of the past participle after be.", "Keeping the active subject as the subject of the passive sentence.", "Using by I or by he instead of by me or by him.", "Trying to make an intransitive verb passive."],
+    facts: ["The passive is formed with be plus the past participle.", "The ball was kicked by the boy is the passive of The boy kicked the ball.", "Intransitive verbs cannot be made passive because they have no object.", "The passive is common in formal and scientific writing."],
+    quiz: [
+      { q: "Which sentence is in the passive voice?", options: ["The boy kicked the ball.", "The ball was kicked by the boy.", "The boy is kicking the ball.", "The boy kicks the ball."], answer: 1, explanation: "The ball was kicked by the boy has the subject receiving the action, so it is passive." },
+      { q: "Change to the passive: The teacher praised Ada.", options: ["Ada praised the teacher.", "Ada was praised by the teacher.", "Ada is praising the teacher.", "The teacher was praised by Ada."], answer: 1, explanation: "Ada becomes the subject, was carries the past tense, and praised is the past participle." },
+      { q: "What is the passive form of The boy kicks the ball?", options: ["The ball is kicked by the boy.", "The ball was kicked by the boy.", "The ball has been kicked by the boy.", "The ball is being kicked by the boy."], answer: 0, explanation: "The present simple passive uses is plus the past participle: is kicked." },
+      { q: "Change to the passive: The workers are building the house.", options: ["The house is built by the workers.", "The house is being built by the workers.", "The house was built by the workers.", "The house has been built by the workers."], answer: 1, explanation: "The present continuous passive uses is being plus the past participle: is being built." },
+      { q: "What is the agent in the sentence The letter was written by Ada?", options: ["The letter", "Was written", "Ada", "By"], answer: 2, explanation: "Ada is the person who performed the action, introduced by by, so she is the agent." },
+      { q: "Change to the passive: The cat has eaten the fish.", options: ["The fish has eaten the cat.", "The fish has been eaten by the cat.", "The fish is eaten by the cat.", "The fish was eaten by the cat."], answer: 1, explanation: "The present perfect passive uses has been plus the past participle: has been eaten." },
+      { q: "Which verb cannot be made passive?", options: ["Kick", "Write", "Sleep", "Break"], answer: 2, explanation: "Sleep is intransitive and takes no object, so it cannot be made passive." },
+      { q: "Change to the passive: She will finish the work.", options: ["The work will finish.", "The work will be finished by her.", "The work is finished by her.", "The work was finished by her."], answer: 1, explanation: "The future passive uses will be plus the past participle: will be finished." },
+      { q: "Why is the agent left out in My bicycle was stolen?", options: ["Because the bicycle is the agent", "Because the thief is unknown", "Because stolen is not a verb", "Because the sentence is active"], answer: 1, explanation: "The agent is left out when the doer is unknown, as the thief is here." },
+      { q: "Which sentence is in the active voice?", options: ["The window was broken.", "The house was built in 1990.", "The committee approved the plan.", "The plan was approved."], answer: 2, explanation: "The committee performs the action of approving, so the sentence is active." },
+      { q: "Change to the passive: The teacher gave Ada a book.", options: ["Ada was given a book by the teacher.", "Ada gave the teacher a book.", "A book gave Ada to the teacher.", "The teacher was given a book by Ada."], answer: 0, explanation: "With two objects, the indirect object Ada can become the subject: Ada was given a book." },
+      { q: "What is wrong with the sentence The ball was kick by the boy?", options: ["The tense is wrong", "Kick should be the past participle kicked", "The agent is wrong", "The subject is wrong"], answer: 1, explanation: "After was, the past participle kicked is required, not the base form kick." },
+      { q: "Which is the correct passive with the right pronoun?", options: ["The letter was written by I.", "The letter was written by me.", "The letter was written by he.", "The letter was written by she."], answer: 1, explanation: "After by, the object pronoun me is required, not the subject pronoun I." },
+      { q: "When is the passive voice the better choice?", options: ["When you want the shortest, most direct sentence", "When the doer is unknown or the receiver matters more", "When the verb is intransitive", "When the subject is the doer"], answer: 1, explanation: "The passive is better when the doer is unknown or unimportant, or when the receiver of the action matters more." },
+      { q: "Change to the passive: They have tested the samples twice.", options: ["The samples have tested twice.", "The samples have been tested twice.", "The samples are tested twice.", "The samples were tested twice."], answer: 1, explanation: "The present perfect passive uses have been plus the past participle: have been tested." }
     ],
     status: "published"
   }

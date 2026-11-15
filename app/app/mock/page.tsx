@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useDb } from '@/components/db-context';
-import { getSubjectLessons } from '@/lib/curriculum';
+import { getSubjectLessons, isCustomLesson } from '@/lib/curriculum';
 import { QuizRunner, type RunnerQ } from '@/components/QuizRunner';
 import { GlassCard } from '@/components/ui';
 
@@ -13,7 +13,7 @@ function pick<T>(arr: T[], n: number): T[] {
 }
 
 export default function MockPage() {
-  const { user } = useDb();
+  const { db, user } = useDb();
   const [started, setStarted] = useState(false);
   const [qs, setQs] = useState<RunnerQ[] | null>(null);
   if (!user) return null;
@@ -21,7 +21,13 @@ export default function MockPage() {
   const start = () => {
     const pool: RunnerQ[] = [];
     for (const sid of user.subjects) {
-      for (const l of getSubjectLessons(sid)) l.quiz.forEach((q, i) => pool.push({ ref: `${l.id}:${i}`, q: q.q, options: [...q.options] }));
+      for (const l of getSubjectLessons(sid, db)) {
+        const custom = isCustomLesson(db, l.id);
+        l.quiz.forEach((q, i) => pool.push({
+          ref: `${l.id}:${i}`, q: q.q, options: [...q.options],
+          ...(custom ? { answer: q.answer, explanation: q.explanation } : {}),
+        }));
+      }
     }
     setQs(pick(pool, 20));
     setStarted(true);

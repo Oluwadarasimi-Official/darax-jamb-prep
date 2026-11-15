@@ -8,7 +8,7 @@ export const PASS_MARK = 70;
 
 /** Subject lessons with any admin reorder override applied (db.lessonOrder). */
 export function orderedLessons(db: DB, subjectId: string): Lesson[] {
-  const base = getSubjectLessons(subjectId);
+  const base = getSubjectLessons(subjectId, db);
   const order = db.lessonOrder?.[subjectId];
   if (!order || order.length === 0) return base;
   const byId = new Map(base.map(l => [l.id, l]));
@@ -19,7 +19,7 @@ export function orderedLessons(db: DB, subjectId: string): Lesson[] {
 }
 
 export function isLessonUnlocked(db: DB, userId: string, lessonId: string): boolean {
-  const lesson = getLessonById(lessonId);
+  const lesson = getLessonById(lessonId, db);
   if (!lesson) return false;
   if (db.publishedOverrides[lessonId] === false) return false;
   const lessons = orderedLessons(db, lesson.subjectId);

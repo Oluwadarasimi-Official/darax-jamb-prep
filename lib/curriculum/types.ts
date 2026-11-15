@@ -36,7 +36,7 @@ export interface Lesson {
   tips: string[]; // JAMB tips, 3-4
   mistakes: string[]; // common mistakes, 3-4
   facts: string[]; // key facts to remember, 3-5
-  quiz: QuizQ[]; // exactly 5, ORIGINAL practice questions, never labelled past questions
+  quiz: QuizQ[]; // exactly 15, ORIGINAL practice questions, never labelled past questions
   status: LessonStatus;
 }
 

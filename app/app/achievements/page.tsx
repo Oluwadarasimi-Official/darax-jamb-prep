@@ -25,7 +25,7 @@ export default function AchievementsPage() {
                   <p className="text-warn text-2xl">★</p>
                   <p className="font-bold text-lg mt-1">{b.title}</p>
                   <p className="text-sm muted">Position #{b.position} · Week {b.week} · {b.year}</p>
-                  <p className="text-xs muted mt-2 font-mono">{b.id}</p>
+                  <p className="text-xs muted mt-2 font-mono break-all">{b.id}</p>
                 </div>
                 <VerifiedBadge size={26} />
               </div>

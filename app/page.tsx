@@ -33,7 +33,7 @@ export default function Landing() {
 
         <section className="grid md:grid-cols-3 gap-4 mt-6">
           {[
-            { t: 'Structured Academy', d: '80 lessons across 8 science subjects, each with full notes, worked examples, JAMB tips and a quiz.' },
+            { t: 'Structured Academy', d: '112 lessons across 8 science subjects, each with full notes, worked examples, JAMB tips and a 15-question quiz.' },
             { t: '70% unlock rule', d: 'Score at least 70% on a lesson quiz to unlock the next lesson. Retake as many times as you need — mastery first.' },
             { t: 'Darax AI Tutor', d: 'Ask questions, get step-by-step explanations in Maths, Physics, Chemistry, Biology and English.' },
             { t: 'Timed mock exams', d: 'JAMB-style timed mocks with automatic grading, explanations and per-subject analytics.' },

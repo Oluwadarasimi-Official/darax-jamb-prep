@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useDb } from '@/components/db-context';
-import { ALL_LESSONS, getSubject, getSubjectLessons } from '@/lib/curriculum';
+import { ALL_LESSONS, getSubject, getSubjectLessons, isCustomLesson } from '@/lib/curriculum';
 import { QuizRunner, type RunnerQ } from '@/components/QuizRunner';
 import { GlassCard, EmptyState } from '@/components/ui';
 
@@ -30,20 +30,30 @@ export default function AssessmentsPage() {
     bySubject[a.subjectId] = e;
   }
 
-  const startTopic = () => {
-    const lessons = getSubjectLessons(topicSubject).filter(l => l.topic === topic);
+  // Build a pool from lessons, attaching the answer key ONLY for custom
+  // lessons (built-in questions are graded from the server bank).
+  const poolFrom = (lessons: { id: string; quiz: { q: string; options: readonly string[]; answer: number; explanation: string }[] }[]): RunnerQ[] => {
     const qs: RunnerQ[] = [];
-    for (const l of lessons) l.quiz.forEach((q, i) => qs.push({ ref: `${l.id}:${i}`, q: q.q, options: [...q.options] }));
-    setRun({ questions: pick(qs, 10), title: `${getSubject(topicSubject)!.name} — ${topic} Test`, kind: 'topic', subjectId: topicSubject });
+    for (const l of lessons) {
+      const custom = isCustomLesson(db, l.id);
+      l.quiz.forEach((q, i) => qs.push({
+        ref: `${l.id}:${i}`, q: q.q, options: [...q.options],
+        ...(custom ? { answer: q.answer, explanation: q.explanation } : {}),
+      }));
+    }
+    return qs;
+  };
+
+  const startTopic = () => {
+    const lessons = getSubjectLessons(topicSubject, db).filter(l => l.topic === topic);
+    setRun({ questions: pick(poolFrom(lessons), 10), title: `${getSubject(topicSubject)!.name} — ${topic} Test`, kind: 'topic', subjectId: topicSubject });
   };
   const startSubject = (sid: string) => {
-    const qs: RunnerQ[] = [];
-    for (const l of getSubjectLessons(sid)) l.quiz.forEach((q, i) => qs.push({ ref: `${l.id}:${i}`, q: q.q, options: [...q.options] }));
-    setRun({ questions: pick(qs, 20), title: `${getSubject(sid)!.name} — Practice Examination`, kind: 'subject', subjectId: sid });
+    setRun({ questions: pick(poolFrom(getSubjectLessons(sid, db)), 20), title: `${getSubject(sid)!.name} — Practice Examination`, kind: 'subject', subjectId: sid });
   };
   const startMixed = () => {
     const qs: RunnerQ[] = [];
-    for (const sid of user.subjects) for (const l of getSubjectLessons(sid)) l.quiz.forEach((q, i) => qs.push({ ref: `${l.id}:${i}`, q: q.q, options: [...q.options] }));
+    for (const sid of user.subjects) qs.push(...poolFrom(getSubjectLessons(sid, db)));
     setRun({ questions: pick(qs, 20), title: 'Mixed-Subject Revision Test', kind: 'mixed', subjectId: user.subjects[0] });
   };
 

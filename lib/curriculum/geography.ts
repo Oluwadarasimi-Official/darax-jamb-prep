@@ -7,7 +7,7 @@ export const SUBJECT: SubjectDef = {
   colour: "#7ea6e8",
   tagline: "Understand the Earth, its people and their livelihoods.",
   description: "Master physical geography, map work and GIS, climate and vegetation, population and settlement, and economic geography for JAMB, with Nigerian and African examples throughout, worked calculations and original practice questions.",
-  topics: ["Physical Geography", "Map Work and GIS", "Climate and Vegetation", "Population and Settlement", "Economic Geography"],
+  topics: ["Physical Geography", "Map Work and GIS", "Climate and Vegetation", "Population and Settlement", "Economic Geography", "Environmental Issues and Conservation", "Soils and Water Resources"],
 };
 
 export const LESSONS: Lesson[] = [
@@ -69,7 +69,17 @@ export const LESSONS: Lesson[] = [
       { q: "The East African Rift Valley was formed mainly by what process?", options: ["Folding", "Faulting", "Volcanic eruption", "River deposition"], answer: 1, explanation: "The rift valley formed when blocks of crust sank between faults as plates pulled apart." },
       { q: "Which of these is an internal force?", options: ["Weathering", "Erosion", "Volcanism", "Deposition"], answer: 2, explanation: "Volcanism comes from inside the Earth, while weathering, erosion and deposition are external forces." },
       { q: "An upward fold in rock layers is called what?", options: ["Syncline", "Graben", "Anticline", "Horst"], answer: 2, explanation: "An anticline is an upward fold produced by compression; a syncline folds downward." },
-      { q: "Why does Nigeria experience very few earthquakes?", options: ["It has no rivers", "It is far from active plate boundaries", "It is too hot for earthquakes", "It has no mountains"], answer: 1, explanation: "Nigeria sits on a stable part of the African plate, away from active plate boundaries where most earthquakes occur." }
+      { q: "Why does Nigeria experience very few earthquakes?", options: ["It has no rivers", "It is far from active plate boundaries", "It is too hot for earthquakes", "It has no mountains"], answer: 1, explanation: "Nigeria sits on a stable part of the African plate, away from active plate boundaries where most earthquakes occur." },
+      { q: "The movement of liquid iron in which layer creates the Earth's magnetic field?", options: ["Crust", "Mantle", "Outer core", "Inner core"], answer: 2, explanation: "The outer core is liquid iron and nickel, and its movement generates the Earth's magnetic field." },
+      { q: "The Himalayas were formed when two plates did what?", options: ["Moved apart", "Collided", "Slid past each other", "Sank into the mantle"], answer: 1, explanation: "The Himalayas rose when the Indian plate collided with the Eurasian plate, folding and thrusting the crust upward." },
+      { q: "A block of crust that rises between two faults is called what?", options: ["Graben", "Horst", "Syncline", "Peneplain"], answer: 1, explanation: "A horst is an uplifted block between faults, while the block that sinks is a graben." },
+      { q: "The Mambilla Plateau, one of the highest areas in Nigeria, is in which state?", options: ["Plateau State", "Taraba State", "Bauchi State", "Kaduna State"], answer: 1, explanation: "The Mambilla Plateau is in Taraba State in eastern Nigeria, and its height gives it a cool climate." },
+      { q: "Folding and faulting are examples of which forces?", options: ["Exogenic forces", "Endogenic forces", "Erosional forces", "Depositional forces"], answer: 1, explanation: "Folding and faulting come from inside the Earth, so they are endogenic forces that build up landforms." },
+      { q: "New crust forms at the Mid-Atlantic Ridge because the plates there are doing what?", options: ["Colliding", "Moving apart", "Sliding past each other", "Sinking"], answer: 1, explanation: "At a divergent boundary such as the Mid-Atlantic Ridge, plates move apart and magma rises to form new crust." },
+      { q: "Which of these is a volcanic landform?", options: ["Oxbow lake", "Rift valley", "Volcanic cone", "Peneplain"], answer: 2, explanation: "A volcanic cone is built up by lava and ash from a volcano; the others are formed by rivers or faulting." },
+      { q: "Which layer of the Earth is solid iron and nickel?", options: ["Outer core", "Mantle", "Crust", "Inner core"], answer: 3, explanation: "The inner core is solid iron and nickel, kept solid by immense pressure despite its great heat." },
+      { q: "A downward fold in rock layers is called what?", options: ["Syncline", "Anticline", "Horst", "Graben"], answer: 0, explanation: "A syncline is a downward fold produced by compression, while an anticline folds upward." },
+      { q: "The Atlas Mountains of North Africa were formed mainly by what process?", options: ["Faulting", "Folding", "Volcanism", "River erosion"], answer: 1, explanation: "The Atlas Mountains were formed by folding, when rock layers were squeezed and bent upward by compression." }
     ],
     status: "published"
   },
@@ -131,7 +141,17 @@ export const LESSONS: Lesson[] = [
       { q: "What is an oxbow lake?", options: ["A lake in a crater", "A lake formed when a meander is cut off", "A lake formed by a dam", "A lake at the source of a river"], answer: 1, explanation: "When a river cuts through the neck of a meander, the abandoned bend becomes an oxbow lake." },
       { q: "Which is an example of chemical weathering?", options: ["Frost cracking rocks", "Rainwater dissolving limestone", "Tree roots splitting rocks", "Wind blowing sand"], answer: 1, explanation: "Rainwater dissolving limestone changes the minerals of the rock, which is chemical weathering." },
       { q: "Where do the River Niger and River Benue meet?", options: ["Lagos", "Lokoja", "Abuja", "Port Harcourt"], answer: 1, explanation: "The Niger and Benue meet at Lokoja in Kogi State, forming a famous confluence." },
-      { q: "Which process wears down rock fragments as they knock together in a river?", options: ["Hydraulic action", "Abrasion", "Attrition", "Solution"], answer: 2, explanation: "Attrition is the wearing down of fragments as they collide with each other in the water." }
+      { q: "Which process wears down rock fragments as they knock together in a river?", options: ["Hydraulic action", "Abrasion", "Attrition", "Solution"], answer: 2, explanation: "Attrition is the wearing down of fragments as they collide with each other in the water." },
+      { q: "Which river erosion process is the force of the water itself?", options: ["Hydraulic action", "Abrasion", "Attrition", "Solution"], answer: 0, explanation: "Hydraulic action is the sheer force of moving water wearing away the river bed and banks." },
+      { q: "Saltation is a way a river transports material by doing what?", options: ["Dissolving it", "Carrying it in suspension", "Bouncing it along the bed", "Rolling large stones"], answer: 2, explanation: "In saltation, small particles bounce along the river bed in a series of hops." },
+      { q: "Where do rapids and waterfalls mainly occur in a river's course?", options: ["Upper course", "Middle course", "Lower course", "Delta"], answer: 0, explanation: "Rapids and waterfalls form in the upper course, where the river flows fast over steep ground." },
+      { q: "Which of these is a depositional river feature?", options: ["Gorge", "Levee", "Waterfall", "V-shaped valley"], answer: 1, explanation: "A levee is a raised bank built by sediment deposited when a river floods its banks." },
+      { q: "Physical weathering in northern Nigeria is mainly caused by what?", options: ["Temperature change", "Dissolving by rainwater", "Tree roots", "Burrowing animals"], answer: 0, explanation: "The wide daily temperature range in the north cracks rocks as they expand by day and contract by night." },
+      { q: "Gurara Falls, a well-known waterfall in Nigeria, is in which state?", options: ["Lagos State", "Niger State", "Kano State", "Enugu State"], answer: 1, explanation: "Gurara Falls is in Niger State, where the river drops over resistant rock in its upper course." },
+      { q: "At a delta, a river splits into what?", options: ["Tributaries", "Distributaries", "Meanders", "Rapids"], answer: 1, explanation: "Distributaries are the branches a river splits into as it spreads its load across a delta." },
+      { q: "Which process dissolves soluble minerals in a river?", options: ["Hydraulic action", "Abrasion", "Attrition", "Solution"], answer: 3, explanation: "Solution is the dissolving of soluble minerals, such as limestone, in the river water." },
+      { q: "Floodplains are built mainly by what?", options: ["Deposition during floods", "Volcanic eruption", "Faulting", "Folding"], answer: 0, explanation: "When a river floods, it drops fertile silt beside its channel, building up the floodplain over time." },
+      { q: "In the middle course, a river mainly erodes in which direction?", options: ["Vertically downward", "Sideways, or laterally", "By solution only", "It does not erode at all"], answer: 1, explanation: "In the middle course the river erodes sideways, widening its valley and forming meanders." }
     ],
     status: "published"
   },
@@ -193,7 +213,17 @@ export const LESSONS: Lesson[] = [
       { q: "On a 1:100,000 map, a road measures 5 cm. How long is it on the ground?", options: ["0.5 km", "5 km", "50 km", "500 m"], answer: 1, explanation: "On a 1:100,000 map, 1 cm equals 1 km, so 5 cm equals 5 km." },
       { q: "In a grid reference, which is read first?", options: ["Northing", "Easting", "Altitude", "Latitude"], answer: 1, explanation: "Grid references are read easting first, then northing: along the corridor, then up the stairs." },
       { q: "Which map shows the most detail?", options: ["1:1,000,000", "1:500,000", "1:100,000", "1:10,000"], answer: 3, explanation: "1:10,000 is the largest scale listed, so it shows the smallest area in the most detail." },
-      { q: "What is a four-figure grid reference used for?", options: ["Pinpointing a single building", "Locating a grid square", "Measuring height", "Showing the scale"], answer: 1, explanation: "A four-figure reference identifies the grid square containing a feature; a six-figure reference pinpoints it." }
+      { q: "What is a four-figure grid reference used for?", options: ["Pinpointing a single building", "Locating a grid square", "Measuring height", "Showing the scale"], answer: 1, explanation: "A four-figure reference identifies the grid square containing a feature; a six-figure reference pinpoints it." },
+      { q: "On a 1:50,000 map, what ground distance does 10 cm represent?", options: ["0.5 km", "5 km", "50 km", "500 m"], answer: 1, explanation: "On a 1:50,000 map, 1 cm equals 0.5 km, so 10 cm equals 5 km on the ground." },
+      { q: "Which of these is a statement scale?", options: ["One centimetre represents one kilometre", "1:50,000", "A bar scale", "A grid reference"], answer: 0, explanation: "A statement scale uses words, such as one centimetre represents one kilometre, to state the scale." },
+      { q: "A farm measures 2 cm by 2 cm on a 1:50,000 map. What is its ground area?", options: ["1 square kilometre", "2 square kilometres", "4 square kilometres", "0.5 square kilometres"], answer: 0, explanation: "Each 2 cm side equals 1 km on the ground, so the area is 1 km by 1 km, which is 1 square kilometre." },
+      { q: "How many figures does a six-figure grid reference have?", options: ["4", "6", "8", "2"], answer: 1, explanation: "A six-figure grid reference has six figures: three for the easting and three for the northing." },
+      { q: "Which of these is a small-scale map?", options: ["1:10,000", "1:25,000", "1:50,000", "1:1,000,000"], answer: 3, explanation: "1:1,000,000 is the smallest scale listed, so it shows a large area with the least detail." },
+      { q: "A linear scale is especially useful because it does what?", options: ["It still works if the map is enlarged or reduced", "It gives grid references", "It shows height above sea level", "It measures temperature"], answer: 0, explanation: "Because the bar is drawn on the map, it grows or shrinks with the map when it is photocopied." },
+      { q: "On a 1:100,000 map, a road measures 12 cm. How long is it on the ground?", options: ["1.2 km", "6 km", "12 km", "120 km"], answer: 2, explanation: "On a 1:100,000 map, 1 cm equals 1 km, so 12 cm equals 12 km." },
+      { q: "Eastings are grid lines that run in which direction?", options: ["Horizontally", "Vertically", "Diagonally", "In circles"], answer: 1, explanation: "Eastings are vertical lines, numbered from west to east across the map." },
+      { q: "What statement scale is the same as a representative fraction of 1:250,000?", options: ["1 cm represents 25 km", "1 cm represents 2.5 km", "1 cm represents 250 m", "1 cm represents 25 m"], answer: 1, explanation: "250,000 cm equals 2.5 km, so 1 cm on the map represents 2.5 km on the ground." },
+      { q: "A winding river on a map is best measured with what?", options: ["A piece of string", "A straight ruler only", "A protractor", "A compass"], answer: 0, explanation: "A piece of string follows the curves of the river and is then measured straight, unlike a rigid ruler." }
     ],
     status: "published"
   },
@@ -255,7 +285,17 @@ export const LESSONS: Lesson[] = [
       { q: "A slope rises 100 m over 2,000 m. What is the gradient?", options: ["1 in 2", "1 in 20", "1 in 200", "1 in 10"], answer: 1, explanation: "Gradient is 100 divided by 2,000, which simplifies to 1 in 20." },
       { q: "What does GIS stand for?", options: ["Global Internet Service", "Geographic Information System", "General Information Survey", "Ground Inspection Service"], answer: 1, explanation: "GIS stands for Geographic Information System, a computer system for geographic data." },
       { q: "Which colour on a topographic map shows water?", options: ["Brown", "Green", "Blue", "Black"], answer: 2, explanation: "Blue is used for water features such as rivers, lakes and reservoirs." },
-      { q: "What is a cross-section?", options: ["A type of grid reference", "A side view of land along a line on a map", "A map scale", "A compass bearing"], answer: 1, explanation: "A cross-section is a side view of the relief along a chosen line, drawn from contour heights." }
+      { q: "What is a cross-section?", options: ["A type of grid reference", "A side view of land along a line on a map", "A map scale", "A compass bearing"], answer: 1, explanation: "A cross-section is a side view of the relief along a chosen line, drawn from contour heights." },
+      { q: "Which colour on a topographic map shows vegetation?", options: ["Blue", "Green", "Brown", "Black"], answer: 1, explanation: "Green is used for vegetation such as forest and farmland on topographic maps." },
+      { q: "Concentric contours with values increasing towards the centre show what?", options: ["A hill", "A depression", "A valley", "A flat plain"], answer: 0, explanation: "Closed contours with rising values towards the middle show a hill rising above the surrounding land." },
+      { q: "A V-shaped contour pattern pointing uphill shows what?", options: ["A hill", "A ridge", "A valley", "A lake"], answer: 2, explanation: "Contours form a V pointing uphill where a valley cuts into the slope, with the river running through the point of the V." },
+      { q: "What does a spot height give?", options: ["The exact height at a single point", "The average height of an area", "The depth of a river", "The gradient of a slope"], answer: 0, explanation: "A spot height is the exact height above sea level at one marked point on the map." },
+      { q: "In GIS, roads, rivers and population are stored as separate what?", options: ["Maps", "Layers", "Grids", "Scales"], answer: 1, explanation: "GIS stores each kind of geographic data as a separate layer, and layers can be combined for analysis." },
+      { q: "Which is a use of GIS in Nigeria?", options: ["Measuring rainfall with a rain gauge", "Printing paper maps only", "Tracking deforestation", "Measuring temperature"], answer: 2, explanation: "GIS is used in Nigeria to map farmland, track deforestation, plan cities and respond to floods." },
+      { q: "If the contour interval is 50 m and a point is two contours above a river at 200 m, how high is it?", options: ["250 m", "300 m", "350 m", "200 m"], answer: 1, explanation: "Two contours above 200 m add 100 m, so the point is 200 plus 100, which is 300 m high." },
+      { q: "Which colour on a topographic map shows human features such as roads and boundaries?", options: ["Black", "Blue", "Green", "Brown"], answer: 0, explanation: "Black is used for human features such as roads, railways, boundaries and buildings." },
+      { q: "Intervisibility means what?", options: ["The distance between two towns", "Whether one point can be seen from another", "The height of a hill", "The scale of a map"], answer: 1, explanation: "Intervisibility is whether one point can be seen from another, judged from a cross-section." },
+      { q: "Which colour on a topographic map shows main roads and built-up areas?", options: ["Blue", "Red", "Green", "Brown"], answer: 1, explanation: "Red is used for main roads and built-up areas on topographic maps." }
     ],
     status: "published"
   },
@@ -317,7 +357,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which instrument measures rainfall?", options: ["Thermometer", "Barometer", "Rain gauge", "Anemometer"], answer: 2, explanation: "A rain gauge collects and measures rainfall in millimetres." },
       { q: "If the maximum is 34 degrees and the minimum is 22 degrees, what is the daily range?", options: ["28 degrees", "12 degrees", "56 degrees", "6 degrees"], answer: 1, explanation: "The daily range is maximum minus minimum: 34 minus 22 equals 12 degrees." },
       { q: "Which wind brings dry, dusty air to Nigeria?", options: ["South-west monsoon", "Harmattan", "Sea breeze", "Land breeze"], answer: 1, explanation: "The Harmattan is the dry north-east trade wind from the Sahara." },
-      { q: "Why is the Jos Plateau cooler than the lowlands?", options: ["It is nearer the sea", "It is higher in altitude", "It has more rainfall", "It is nearer the equator"], answer: 1, explanation: "Temperature falls with height, so the high Jos Plateau is cooler than the surrounding lowlands." }
+      { q: "Why is the Jos Plateau cooler than the lowlands?", options: ["It is nearer the sea", "It is higher in altitude", "It has more rainfall", "It is nearer the equator"], answer: 1, explanation: "Temperature falls with height, so the high Jos Plateau is cooler than the surrounding lowlands." },
+      { q: "Which instrument measures air pressure?", options: ["Thermometer", "Rain gauge", "Barometer", "Anemometer"], answer: 2, explanation: "A barometer measures air pressure, and pressure differences drive the winds." },
+      { q: "Which instrument measures wind speed?", options: ["Wind vane", "Barometer", "Hygrometer", "Anemometer"], answer: 3, explanation: "An anemometer measures the speed of the wind, while a wind vane shows its direction." },
+      { q: "Wind direction is measured with which instrument?", options: ["Wind vane", "Anemometer", "Rain gauge", "Sunshine recorder"], answer: 0, explanation: "A wind vane points in the direction from which the wind blows." },
+      { q: "Relief rainfall occurs when air is forced up over what?", options: ["Heated ground on a hot afternoon", "High ground", "A cold air mass", "The sea at night"], answer: 1, explanation: "Relief rainfall happens when moist air is forced to rise over hills or mountains, cooling and condensing as it rises." },
+      { q: "If the maximum temperature is 30 degrees and the minimum is 18 degrees, what is the daily mean?", options: ["24 degrees", "12 degrees", "48 degrees", "6 degrees"], answer: 0, explanation: "The daily mean is maximum plus minimum divided by two: 30 plus 18 is 48, divided by two is 24 degrees." },
+      { q: "If the warmest month averages 28 degrees and the coldest month 24 degrees, what is the annual range?", options: ["52 degrees", "4 degrees", "26 degrees", "2 degrees"], answer: 1, explanation: "The annual range is the warmest month mean minus the coldest month mean: 28 minus 24 equals 4 degrees." },
+      { q: "The south-west monsoon brings rain to Nigeria roughly between which months?", options: ["November and March", "April and October", "All year round", "December and January"], answer: 1, explanation: "The moist south-west monsoon blows from the Atlantic roughly from April to October, bringing the rainy season." },
+      { q: "Humidity is measured with which instrument?", options: ["Thermometer", "Barometer", "Hygrometer", "Rain gauge"], answer: 2, explanation: "A hygrometer measures the amount of water vapour in the air." },
+      { q: "Why is the temperature range of coastal Lagos smaller than that of Kano?", options: ["The sea moderates temperature", "Lagos is higher in altitude", "Lagos is nearer the equator", "Kano has more rainfall"], answer: 0, explanation: "The sea warms and cools slowly, so coastal places have smaller temperature ranges than inland places." },
+      { q: "Temperature falls by about 6.5 degrees Celsius for every rise in height of what?", options: ["100 m", "1,000 m", "10,000 m", "100 km"], answer: 1, explanation: "The lapse rate is about 6.5 degrees Celsius per 1,000 metres of height." }
     ],
     status: "published"
   },
@@ -379,7 +429,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which zone lies immediately north of the tropical rainforest?", options: ["Sahel savanna", "Guinea savanna", "Mangrove swamp", "Sudan savanna"], answer: 1, explanation: "North of the rainforest is the Guinea savanna, with tall grasses and scattered trees." },
       { q: "What is the main cause of desertification in northern Nigeria?", options: ["Heavy rainfall", "Drought plus overgrazing and deforestation", "Too many rivers", "Coastal flooding"], answer: 1, explanation: "Desertification is driven by drought combined with overgrazing, tree cutting and over-cultivation." },
       { q: "Which crop is typical of the rainforest zone?", options: ["Millet", "Cocoa", "Groundnut", "Sorghum"], answer: 1, explanation: "Cocoa grows in the humid rainforest zone of south-western Nigeria, while millet and sorghum suit the drier north." },
-      { q: "An equatorial climate is best described as what?", options: ["Hot and dry all year", "Hot and wet all year", "Cold and wet all year", "Hot in summer and cold in winter"], answer: 1, explanation: "Equatorial climates are hot and wet throughout the year, with little seasonal change." }
+      { q: "An equatorial climate is best described as what?", options: ["Hot and dry all year", "Hot and wet all year", "Cold and wet all year", "Hot in summer and cold in winter"], answer: 1, explanation: "Equatorial climates are hot and wet throughout the year, with little seasonal change." },
+      { q: "Which climate has hot, dry summers and cool, wet winters?", options: ["Equatorial", "Savanna", "Mediterranean", "Polar"], answer: 2, explanation: "The Mediterranean climate is marked by hot, dry summers and cool, wet winters." },
+      { q: "A hot desert climate receives less than how much rain a year?", options: ["100 mm", "250 mm", "1,000 mm", "2,000 mm"], answer: 1, explanation: "Hot deserts such as the Sahara receive under 250 mm of rain a year." },
+      { q: "Which tree is well adapted to the dry savanna?", options: ["Baobab", "Mahogany", "Mangrove", "Iroko"], answer: 0, explanation: "The baobab stores water in its thick trunk and sheds its leaves in the dry season, suiting the savanna." },
+      { q: "Which crop is typical of the Sudan savanna?", options: ["Cocoa", "Oil palm", "Rubber", "Millet"], answer: 3, explanation: "Millet is a hardy grain that suits the short rainy season and dry conditions of the Sudan savanna." },
+      { q: "The freshwater swamp in Nigeria lies where?", options: ["North of the Sahel savanna", "Between the mangrove swamp and the rainforest", "In the far north-east", "On the Jos Plateau"], answer: 1, explanation: "Inland from the coastal mangrove swamp is the freshwater swamp, which then gives way to tropical rainforest." },
+      { q: "Tropical rainforest is found in which of these Nigerian states?", options: ["Sokoto", "Cross River", "Yobe", "Kano"], answer: 1, explanation: "Cross River State in the south-east has extensive tropical rainforest, while the northern states are savanna." },
+      { q: "Why are tropical rainforest soils often poor?", options: ["They are too cold", "They have no trees", "Nutrients are washed away by heavy rain", "They are too dry"], answer: 2, explanation: "Heavy rain leaches nutrients out of rainforest soils, so most nutrients are held in the living vegetation." },
+      { q: "Which is a human cause of desertification in northern Nigeria?", options: ["Cutting trees for firewood", "Heavy rainfall", "Irrigation", "Planting shelterbelts"], answer: 0, explanation: "Cutting trees for firewood removes the cover that holds the soil, speeding desertification." },
+      { q: "The Great Green Wall project aims to do what?", options: ["Build dams across the north", "Grow cocoa in the Sahel", "Mine minerals in the desert", "Fight desertification by planting trees"], answer: 3, explanation: "The Great Green Wall is a belt of trees planted across the Sahel to hold back the desert." },
+      { q: "Which vegetation zone has the shortest grasses and fewest trees in Nigeria?", options: ["Sahel savanna", "Guinea savanna", "Tropical rainforest", "Mangrove swamp"], answer: 0, explanation: "The Sahel savanna at the edge of the Sahara has sparse grasses, thorny shrubs and very little rain." }
     ],
     status: "published"
   },
@@ -441,7 +501,17 @@ export const LESSONS: Lesson[] = [
       { q: "A town has 150,000 people on 500 sq km. What is its density?", options: ["150 people per sq km", "300 people per sq km", "750 people per sq km", "30 people per sq km"], answer: 1, explanation: "150,000 divided by 500 equals 300 people per square kilometre." },
       { q: "Natural increase is calculated as what?", options: ["Birth rate plus death rate", "Birth rate minus death rate", "Births plus migrants", "Deaths minus births"], answer: 1, explanation: "Natural increase is the birth rate minus the death rate, excluding migration." },
       { q: "Which is a push factor?", options: ["Good jobs in a city", "Drought in a village", "Better schools in a town", "Cheap housing in a city"], answer: 1, explanation: "Drought drives people away from their home, so it is a push factor; the others attract people." },
-      { q: "Which area of Nigeria is most densely settled?", options: ["Chad Basin", "Lagos area", "Mambilla Plateau", "Sokoto desert fringe"], answer: 1, explanation: "The Lagos area is densely settled because of its port, commerce and jobs." }
+      { q: "Which area of Nigeria is most densely settled?", options: ["Chad Basin", "Lagos area", "Mambilla Plateau", "Sokoto desert fringe"], answer: 1, explanation: "The Lagos area is densely settled because of its port, commerce and jobs." },
+      { q: "If the birth rate is 40 per 1,000 and the death rate is 15 per 1,000, what is the natural increase?", options: ["55 per 1,000", "25 per 1,000", "15 per 1,000", "40 per 1,000"], answer: 1, explanation: "Natural increase is birth rate minus death rate: 40 minus 15 equals 25 per 1,000 people." },
+      { q: "Which area of Nigeria is thinly settled?", options: ["Chad Basin", "Lagos", "Kano", "Onitsha"], answer: 0, explanation: "The Chad Basin is thinly settled because of low rainfall and poor soils." },
+      { q: "Rural-to-urban migration in Nigeria is mainly driven by what?", options: ["Better farm yields", "Jobs and services in cities", "More land in villages", "Lower city rents"], answer: 1, explanation: "Young people move to cities mainly for jobs, better pay, education and services." },
+      { q: "What are remittances?", options: ["Taxes paid by migrants", "Loans from banks", "Money sent home by migrants", "Money paid to leave a village"], answer: 2, explanation: "Remittances are money sent home by migrants to support their families in the sending area." },
+      { q: "The demographic transition model describes what?", options: ["Movement from high to low birth and death rates as a country develops", "Movement of people to cities", "Growth of slums", "Fall in population density"], answer: 0, explanation: "The model shows how countries move from high birth and death rates to low ones as they develop." },
+      { q: "In Nigeria, herders move their cattle south in which season?", options: ["Rainy season", "Dry season", "Harmattan only", "Winter"], answer: 1, explanation: "In the dry season, herders move cattle south in search of pasture and water." },
+      { q: "Which of these is a pull factor?", options: ["Unemployment", "Poor harvests", "Better pay in a city", "Flooding"], answer: 2, explanation: "Better pay attracts people to a city, so it is a pull factor; the others drive people away." },
+      { q: "Population change is calculated as what?", options: ["Births minus deaths plus net migration", "Births only", "Deaths only", "Births plus deaths"], answer: 0, explanation: "Population change equals natural increase, births minus deaths, plus net migration." },
+      { q: "Nigeria's population is best described as what?", options: ["Old and shrinking", "Evenly spread across the country", "Mostly over 60 years old", "Young, with many people under 15"], answer: 3, explanation: "Nigeria has a young population, with a large share under 15 years old, which means many dependants." },
+      { q: "Which is an effect of migration on the sending area?", options: ["More housing pressure", "Loss of young, able-bodied workers", "Growth of slums", "More traffic congestion"], answer: 1, explanation: "Migration removes the young and able-bodied from villages, leaving older people and fewer workers." }
     ],
     status: "published"
   },
@@ -503,7 +573,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which is a linear settlement?", options: ["A village spread over farmland", "A town around a palace", "Houses along a railway line", "A city on a hilltop"], answer: 2, explanation: "A linear settlement stretches along a line such as a road, river or railway." },
       { q: "What is the site of a settlement?", options: ["Its position relative to other towns", "The exact place where it is built", "Its population size", "Its main function"], answer: 1, explanation: "Site is the exact place of a settlement, while situation is its position relative to other places." },
       { q: "Which town is a major Nigerian port?", options: ["Jos", "Lagos", "Kano", "Abuja"], answer: 1, explanation: "Lagos is Nigeria's main port city, handling most of the country's sea trade." },
-      { q: "What is urbanisation?", options: ["The movement of people to villages", "The growth in the share of people living in towns and cities", "The building of rural roads", "The fall in city population"], answer: 1, explanation: "Urbanisation is the increase in the proportion of a population living in urban areas." }
+      { q: "What is urbanisation?", options: ["The movement of people to villages", "The growth in the share of people living in towns and cities", "The building of rural roads", "The fall in city population"], answer: 1, explanation: "Urbanisation is the increase in the proportion of a population living in urban areas." },
+      { q: "Which settlement pattern is common in Yoruba towns?", options: ["Nucleated", "Dispersed", "Linear", "Isolated"], answer: 0, explanation: "Yoruba towns are often nucleated, clustered around a market, palace or church." },
+      { q: "The main function of Jos as a settlement is what?", options: ["Port", "Mining", "Fishing", "Administration only"], answer: 1, explanation: "Jos grew as a mining town, extracting tin and other minerals from the Jos Plateau." },
+      { q: "Which city is Nigeria's administrative capital?", options: ["Lagos", "Kano", "Ibadan", "Abuja"], answer: 3, explanation: "Abuja is the Federal Capital Territory and the seat of Nigeria's government." },
+      { q: "Which is a cause of urbanisation in Nigeria?", options: ["Falling birth rates", "Fewer jobs in cities", "Reclassification of growing villages as towns", "Rural depopulation only"], answer: 2, explanation: "When a growing village is reclassified as a town, its people count as urban, adding to urbanisation." },
+      { q: "Makoko in Lagos is an example of what?", options: ["A planned city", "A slum settlement", "A mining town", "A farm village"], answer: 1, explanation: "Makoko is a densely settled waterside community with poor housing and inadequate services, a slum." },
+      { q: "Settlements cluster around wells in the dry north mainly because of what?", options: ["Water supply", "Defence", "Trade", "Mining"], answer: 0, explanation: "In dry areas, people settle where water is available, so wells and rivers attract nucleated settlements." },
+      { q: "Which is a solution to urban problems in Nigeria?", options: ["Ignoring slums", "Building affordable housing", "Closing markets", "Banning migration"], answer: 1, explanation: "Building affordable housing reduces overcrowding and slum growth in fast-growing cities." },
+      { q: "Ibadan is best described as what kind of centre?", options: ["Commercial, educational and administrative centre", "Port city", "Mining town", "Fishing village"], answer: 0, explanation: "Ibadan has several functions: it is a commercial, educational and administrative centre." },
+      { q: "Linear settlements most often develop along what?", options: ["Hilltops only", "Deserts", "Roads and rivers", "Swamps"], answer: 2, explanation: "Houses line up along roads, rivers and railways where transport and trade are easiest." },
+      { q: "When city growth outpaces housing, water and transport, what results?", options: ["Overcrowding and slums", "More farmland", "Falling population", "Less traffic"], answer: 0, explanation: "Services cannot keep up with rapid growth, so overcrowding, slums and congestion appear." }
     ],
     status: "published"
   },
@@ -565,7 +645,17 @@ export const LESSONS: Lesson[] = [
       { q: "Which is a cash crop of south-western Nigeria?", options: ["Millet", "Cocoa", "Sorghum", "Groundnut"], answer: 1, explanation: "Cocoa is the leading cash crop of the south-west, grown in Ondo, Osun and Oyo States." },
       { q: "Where is cement made from local limestone in Nigeria?", options: ["Kano", "Obajana", "Enugu", "Jos"], answer: 1, explanation: "Obajana in Kogi State has large limestone deposits and a major cement factory." },
       { q: "Which livestock are mainly herded by the Fulani?", options: ["Pigs", "Cattle", "Chickens", "Fish"], answer: 1, explanation: "The Fulani are Nigeria's main cattle herders, moving their herds seasonally for pasture and water." },
-      { q: "What is the main problem facing Nigerian industry?", options: ["Too much rainfall", "Unreliable power supply", "Too many workers", "Lack of raw materials"], answer: 1, explanation: "Unreliable electricity is the most widely cited problem for Nigerian manufacturers, raising costs and limiting output." }
+      { q: "What is the main problem facing Nigerian industry?", options: ["Too much rainfall", "Unreliable power supply", "Too many workers", "Lack of raw materials"], answer: 1, explanation: "Unreliable electricity is the most widely cited problem for Nigerian manufacturers, raising costs and limiting output." },
+      { q: "Groundnuts are mainly grown in which part of Nigeria?", options: ["South-west", "Kano and the north", "Niger Delta", "Jos Plateau"], answer: 1, explanation: "Groundnuts are a cash crop of the north, grown around Kano and other northern states." },
+      { q: "Which of these is a primary industry?", options: ["Oil and gas extraction", "Cement making", "Banking", "Transport"], answer: 0, explanation: "Primary industries extract raw materials, such as oil and gas from the Niger Delta." },
+      { q: "Which of these is a tertiary industry?", options: ["Mining", "Farming", "Steel making", "Banking"], answer: 3, explanation: "Tertiary industries provide services, such as banking, transport and trade." },
+      { q: "Rubber is grown mainly in which Nigerian states?", options: ["Kano and Kaduna", "Sokoto and Borno", "Edo and Delta", "Yobe and Jigawa"], answer: 2, explanation: "Rubber is a plantation crop of the humid south, grown mainly in Edo and Delta States." },
+      { q: "Which farming system combines crops and livestock on the same farm?", options: ["Shifting cultivation", "Mixed farming", "Plantation farming", "Subsistence farming only"], answer: 1, explanation: "Mixed farming combines crops and livestock, so the animals provide manure and the crops provide feed." },
+      { q: "Ajaokuta in Kogi State is known for what industry?", options: ["Steel", "Cement", "Textiles", "Oil refining"], answer: 0, explanation: "Ajaokuta is the site of Nigeria's steel complex, built to use local iron ore." },
+      { q: "Textile industries in Nigeria are found mainly in which cities?", options: ["Lagos only", "Kano and Kaduna", "Enugu only", "Calabar only"], answer: 1, explanation: "Kano and Kaduna have long been centres of textile manufacturing in northern Nigeria." },
+      { q: "Which is a major problem of agriculture in Nigeria?", options: ["Too much fertiliser", "Too many farm workers", "Poor storage and post-harvest losses", "Too much rainfall everywhere"], answer: 2, explanation: "Poor storage means much harvested food is lost before it reaches the market." },
+      { q: "The Anchor Borrowers programme supports which group?", options: ["Farmers", "Miners", "Bankers", "Traders"], answer: 0, explanation: "The Anchor Borrowers scheme gives farmers credit and inputs to raise food production." },
+      { q: "Oil palm is mainly grown in which part of Nigeria?", options: ["Far north", "South-east", "Jos Plateau", "Chad Basin"], answer: 1, explanation: "Oil palm is a cash crop of the humid south-east, where rainfall is high all year." }
     ],
     status: "published"
   },
@@ -627,7 +717,305 @@ export const LESSONS: Lesson[] = [
       { q: "What is Nigeria's main export?", options: ["Cocoa", "Crude oil", "Groundnut", "Rubber"], answer: 1, explanation: "Crude oil provides most of Nigeria's export earnings and foreign exchange." },
       { q: "Balance of trade is calculated as what?", options: ["Imports minus exports", "Exports minus imports", "Exports plus imports", "Exports divided by imports"], answer: 1, explanation: "Balance of trade equals the value of exports minus the value of imports." },
       { q: "Which market is one of the largest in West Africa?", options: ["Mile 12, Lagos", "Onitsha Main Market", "Bodija Market", "Kurmi Market"], answer: 1, explanation: "Onitsha Main Market in Anambra State is one of the largest markets in West Africa." },
-      { q: "What does the Human Development Index combine?", options: ["Income only", "Income, health and education", "Population and area", "Exports and imports"], answer: 1, explanation: "The Human Development Index combines income, life expectancy and education to measure development." }
+      { q: "What does the Human Development Index combine?", options: ["Income only", "Income, health and education", "Population and area", "Exports and imports"], answer: 1, explanation: "The Human Development Index combines income, life expectancy and education to measure development." },
+      { q: "Which transport mode is the fastest?", options: ["Air", "Rail", "Water", "Road"], answer: 0, explanation: "Air transport is the fastest mode, but it is also the most expensive." },
+      { q: "The Lagos-Ibadan railway line is built to which gauge?", options: ["Narrow gauge", "Expressway", "Standard gauge", "Waterway"], answer: 2, explanation: "The Lagos-Ibadan line is a modern standard gauge railway, unlike the older narrow-gauge lines." },
+      { q: "Which of these is a Nigerian seaport?", options: ["Lokoja", "Warri", "Kano", "Jos"], answer: 1, explanation: "Warri is a port on the Niger Delta coast, handling sea trade like Lagos, Port Harcourt and Calabar." },
+      { q: "Mile 12 in Lagos is a major centre for what?", options: ["Internal trade in foodstuffs", "Oil export", "Car assembly", "Textile export"], answer: 0, explanation: "Mile 12 is a major foodstuffs market, where produce from across Nigeria is traded." },
+      { q: "Nigeria trades within West Africa mainly through which body?", options: ["The European Union only", "OPEC only", "ECOWAS", "The Commonwealth only"], answer: 2, explanation: "ECOWAS, the Economic Community of West African States, promotes trade among West African countries." },
+      { q: "Life expectancy in Nigeria is around how many years?", options: ["75 years", "53 years", "40 years", "90 years"], answer: 1, explanation: "Nigeria's life expectancy is around 53 years, which is low compared with developed countries." },
+      { q: "If Nigeria exports goods worth 40 billion dollars and imports goods worth 45 billion dollars, what is the balance of trade?", options: ["Favourable 5 billion dollars", "Unfavourable 5 billion dollars", "Balanced", "Favourable 85 billion dollars"], answer: 1, explanation: "Exports minus imports is 40 minus 45, which is minus 5 billion dollars, an unfavourable balance." },
+      { q: "Which of these is an indicator of development?", options: ["Literacy rate", "Number of cars", "Size of the army", "Amount of rainfall"], answer: 0, explanation: "The literacy rate measures education, which is one of the key indicators of development." },
+      { q: "Over-dependence on crude oil makes Nigeria vulnerable to what?", options: ["Heavy rainfall", "Falling oil prices", "Too many exports", "Cold weather"], answer: 1, explanation: "When world oil prices fall, Nigeria's export earnings and government revenue fall with them." },
+      { q: "The Dangote refinery, one of the largest in Africa, is located in which state?", options: ["Lagos", "Kano", "Abuja", "Port Harcourt"], answer: 0, explanation: "The Dangote refinery is in the Lekki area of Lagos State." }
+    ],
+    status: "published"
+  },
+  {
+    id: "geography-11",
+    subjectId: "geography",
+    topic: "Environmental Issues and Conservation",
+    subtopic: "Environmental hazards and disasters",
+    title: "Environmental Hazards and Disasters",
+    order: 11,
+    introduction: "Floods, drought, erosion and oil spills regularly disrupt life in Nigeria. This lesson explains what environmental hazards and disasters are, why they happen, and how they can be managed, with Nigerian examples from the Niger Delta to the gullies of the south-east.",
+    objectives: ["Distinguish between a hazard and a disaster", "Describe the main natural hazards affecting Nigeria", "Explain the causes and effects of flooding in Nigeria", "Explain the causes and effects of drought and gully erosion", "Discuss how hazards can be predicted, prevented and managed"],
+    sections: [
+      {
+        heading: "Hazards and Disasters",
+        body: "A hazard is a natural or human event that has the potential to cause harm, such as a heavy rainstorm, an earthquake or an oil spill. A disaster happens when a hazard strikes people and causes serious loss of life, property and livelihoods. The same flood is a hazard in an empty field but a disaster in a crowded town, because disaster depends on how many people and how much property are exposed, and how vulnerable they are. Vulnerability is higher where houses are built on floodplains, where drainage is poor, and where people are too poor to rebuild. This is why the same amount of rain can cause a minor flood in one place and a disaster in another. Disaster management has four stages: prevention, reducing the risk before it happens; preparedness, such as early warning systems; response, such as rescue and relief; and recovery, rebuilding after the event."
+      },
+      {
+        heading: "Flooding in Nigeria",
+        body: "Flooding is Nigeria's most common disaster. It is caused by heavy rainfall, rivers overflowing their banks, poor drainage in towns, building on floodplains, and the release of water from dams. Coastal flooding affects Lagos and the Niger Delta, where the land is low and the sea can push water inland, while river flooding affects towns along the Niger and Benue, such as Lokoja and Makurdi. The severe floods of 2012 affected millions of Nigerians and were worsened by heavy rain and the release of water from the Lagdo Dam in Cameroon. Floods destroy homes, farms and roads, spread water-borne diseases such as cholera, and displace families. They can be reduced by building dykes and levees, clearing drains, avoiding construction on floodplains, planting trees to slow runoff, and giving early warnings so people can move to safety."
+      },
+      {
+        heading: "Drought, Erosion and Other Hazards",
+        body: "Drought is a prolonged period of little or no rainfall, and it is a serious hazard in northern Nigeria, where it dries up wells, kills crops and livestock, and forces people to migrate. It is linked to desertification, the spread of desert-like conditions, and to climate change, which is making rainfall more erratic. Gully erosion is another major hazard, worst in the south-east in states such as Anambra and Imo, where heavy rain on sandy soils cuts deep gullies that swallow farmland, roads and houses. It is worsened by deforestation and poor farming on slopes. Other hazards include oil spillage in the Niger Delta, which pollutes rivers and farmland and destroys fishing and farming livelihoods, and landslides on steep slopes during heavy rain. Earthquakes are rare in Nigeria because the country sits away from plate boundaries, but small tremors have been felt in parts of the south-west."
+      },
+      {
+        heading: "Managing Hazards and Disasters",
+        body: "Hazards cannot always be prevented, but their damage can be reduced. Prediction and early warning are the first step: the Nigerian Meteorological Agency forecasts heavy rain, and river levels are monitored so warnings can reach people in time. The National Emergency Management Agency, NEMA, coordinates disaster response in Nigeria, working with state emergency agencies, the Red Cross and local communities. Mitigation measures include building flood defences, enforcing planning laws so people do not build on floodplains, planting shelterbelts and trees to control erosion and desertification, and cleaning up oil spills quickly. After a disaster, relief such as food, shelter and medicine is given, and recovery means rebuilding homes, roads and farms, often with better protection than before. Communities that prepare, with evacuation plans and stored supplies, suffer far less than those caught unprepared."
+      }
+    ],
+    definitions: [
+      { term: "Hazard", meaning: "A natural or human event that has the potential to cause harm." },
+      { term: "Disaster", meaning: "A hazard that causes serious loss of life, property and livelihoods." },
+      { term: "Vulnerability", meaning: "How exposed and how poorly prepared people are when a hazard strikes." },
+      { term: "Flood", meaning: "An overflow of water onto land that is normally dry." },
+      { term: "Drought", meaning: "A prolonged period of little or no rainfall." },
+      { term: "Mitigation", meaning: "Action taken to reduce the damage a hazard can cause." }
+    ],
+    formulas: ["Disaster = hazard + vulnerable people and property.", "Flood risk rises with heavy rain, poor drainage and building on floodplains.", "Drought + overgrazing + deforestation = desertification.", "Disaster management = prevention + preparedness + response + recovery."],
+    examples: [
+      {
+        title: "Deciding whether an event is a disaster",
+        problem: "Heavy rain falls on an empty farmland and causes a small flood with no damage. In a nearby town, the same rain floods homes and destroys a market. Which is a disaster and why?",
+        steps: ["Recall that a hazard is an event with the potential to cause harm.", "Note the farmland flood caused no loss of life or property.", "Note the town flood destroyed homes and a market.", "Recall that a disaster needs serious loss to people and property.", "Conclude the town flood is a disaster, while the farmland flood is only a hazard."],
+        answer: "The town flood is a disaster because it caused serious loss; the farmland flood is only a hazard."
+      },
+      {
+        title: "Explaining gully erosion in the south-east",
+        problem: "Why is gully erosion so severe in parts of Anambra State?",
+        steps: ["Note the rainfall: heavy rain falls in the south-east.", "Note the soil: sandy soils are easily washed away.", "Add the human causes: deforestation and farming on slopes remove plant cover.", "Note the result: rainwater cuts deep channels into the bare soil.", "Conclude the gullies come from heavy rain on erodible soil without plant cover."],
+        answer: "Heavy rain on sandy soils, worsened by deforestation and slope farming, cuts deep gullies in Anambra State."
+      }
+    ],
+    tips: ["A hazard becomes a disaster only when it causes serious loss to people and property.", "Learn Nigeria's flood zones: Lagos, the Niger Delta, Lokoja and Makurdi.", "Gully erosion is worst in the south-east; drought is worst in the north.", "NEMA coordinates disaster management in Nigeria."],
+    mistakes: ["Calling every hazard a disaster.", "Saying earthquakes are common in Nigeria; they are rare.", "Forgetting the human causes of flooding, such as building on floodplains.", "Confusing drought with desertification; drought is lack of rain, desertification is the spread of desert conditions."],
+    facts: ["Flooding is Nigeria's most common disaster.", "The 2012 floods affected millions of Nigerians.", "Gully erosion is worst in south-eastern states such as Anambra and Imo.", "NEMA is the National Emergency Management Agency."],
+    quiz: [
+      { q: "A disaster is best described as what?", options: ["Any natural event", "A hazard that causes serious loss of life and property", "A man-made event only", "A weather forecast"], answer: 1, explanation: "A disaster is a hazard that strikes people and causes serious loss of life, property and livelihoods." },
+      { q: "Which Nigerian city is most affected by coastal flooding?", options: ["Kano", "Lagos", "Jos", "Abuja"], answer: 1, explanation: "Lagos is low-lying on the coast, so it suffers coastal flooding when the sea pushes water inland." },
+      { q: "Gully erosion is a serious problem in which part of Nigeria?", options: ["South-east", "North-west coast", "Lagos Island", "Jos Plateau"], answer: 0, explanation: "Gully erosion is worst in the south-east, in states such as Anambra and Imo, where heavy rain cuts deep gullies in sandy soils." },
+      { q: "Which is a human cause of flooding?", options: ["Tides", "Heavy rainfall", "Building on floodplains", "High altitude"], answer: 2, explanation: "Building houses on floodplains puts people and property in the path of flood water." },
+      { q: "What is a drought?", options: ["A prolonged period of little or no rainfall", "A sudden flood", "A volcanic eruption", "A strong wind"], answer: 0, explanation: "Drought is a long period with little or no rain, which dries up wells and kills crops." },
+      { q: "The severe 2012 floods in Nigeria were worsened by the release of water from which dam?", options: ["Kainji Dam", "Lagdo Dam", "Shiroro Dam", "Jebba Dam"], answer: 1, explanation: "Water released from the Lagdo Dam in Cameroon flowed down the Benue and worsened the 2012 floods." },
+      { q: "Which agency coordinates disaster management in Nigeria?", options: ["NEMA", "NNPC", "NAFDAC", "FRSC"], answer: 0, explanation: "The National Emergency Management Agency, NEMA, coordinates disaster response in Nigeria." },
+      { q: "An earthquake is caused by what?", options: ["Heavy rain", "Sudden release of stress along a fault", "Volcanic ash", "High tides"], answer: 1, explanation: "An earthquake happens when stress built up along a fault is suddenly released as the rocks move." },
+      { q: "Which is a mitigation measure against flooding?", options: ["Building on river banks", "Cutting down trees", "Blocking drains", "Building dykes and proper drainage"], answer: 3, explanation: "Dykes hold back flood water and good drainage carries it away, reducing flood damage." },
+      { q: "Oil spillage in the Niger Delta mainly damages what?", options: ["Air transport", "Fishing and farming livelihoods", "Mountain climbing", "Desert farming"], answer: 1, explanation: "Oil spills pollute rivers and farmland, destroying the fishing and farming on which Delta communities depend." },
+      { q: "Which hazard is caused by the movement of plates?", options: ["Drought", "Flooding", "Earthquake", "Gully erosion"], answer: 2, explanation: "Earthquakes are caused by plate movement, when stress along faults is released as a sudden shock." },
+      { q: "Early warning systems help people mainly by doing what?", options: ["Giving people time to prepare and evacuate", "Stopping the hazard", "Increasing rainfall", "Building houses"], answer: 0, explanation: "Early warnings give people time to move to safety and protect their property before the hazard strikes." },
+      { q: "Which hazard in northern Nigeria is linked to desertification?", options: ["Flooding", "Drought", "Landslide", "Tsunami"], answer: 1, explanation: "Drought dries the land and, with overgrazing and tree cutting, turns it into desert-like land." },
+      { q: "Planting trees helps control which hazards?", options: ["Earthquakes", "Volcanoes", "Gully erosion and desertification", "Tsunamis"], answer: 2, explanation: "Tree roots hold the soil against erosion and shelterbelts slow the advance of the desert." },
+      { q: "Which is a secondary effect of flooding?", options: ["Heavy rainfall", "Dam collapse", "Earthquake", "Outbreak of water-borne diseases such as cholera"], answer: 3, explanation: "Flood water contaminates drinking water, leading to outbreaks of cholera and other water-borne diseases." }
+    ],
+    status: "published"
+  },
+  {
+    id: "geography-12",
+    subjectId: "geography",
+    topic: "Environmental Issues and Conservation",
+    subtopic: "Conservation and sustainable development",
+    title: "Conservation and Sustainable Development",
+    order: 12,
+    introduction: "Nigeria's forests, wildlife, soils and waters are being used faster than they can recover. This lesson explains why conservation matters, how resources can be protected, and what sustainable development means for Nigeria's future.",
+    objectives: ["Explain what conservation means and why it matters", "Distinguish renewable from non-renewable resources", "Describe methods of conserving forests, wildlife, soil and water", "Explain sustainable development and its principles", "Discuss Nigeria's main environmental problems and their solutions"],
+    sections: [
+      {
+        heading: "Why Conserve Resources",
+        body: "Conservation is the wise use and protection of natural resources so that they last and can keep serving people. Resources fall into two groups. Renewable resources, such as sunlight, wind, water and forests, can be replaced naturally if they are not used faster than they regrow. Non-renewable resources, such as crude oil, coal and solid minerals, exist in fixed amounts and are used up once they are mined. Nigeria is rich in both, but its forests are shrinking, its wildlife is declining, and its oil will one day run out. Without conservation, the next generation will inherit bare land, empty rivers and no fuel. Conservation is therefore not about stopping use, but about using resources at a rate the environment can sustain, and protecting the places and species that cannot be replaced."
+      },
+      {
+        heading: "Conserving Forests, Wildlife, Soil and Water",
+        body: "Forests are conserved by controlling logging, planting new trees, which is called afforestation, and replanting trees where they were cut, which is reforestation. Shelterbelts of trees are planted in the north to hold back the desert, and the Great Green Wall is a large tree-planting project across the Sahel. Wildlife is conserved in national parks and game reserves, such as Yankari Game Reserve in Bauchi State and Cross River National Park, where hunting is controlled and habitats are protected. Soil is conserved by terracing steep slopes, contour ploughing, planting cover crops and leaving land fallow to recover. Water is conserved by protecting rivers and lakes from pollution, using irrigation carefully, and harvesting rainwater. Each method protects the resource while still allowing people to use it, which is the heart of conservation."
+      },
+      {
+        heading: "Sustainable Development",
+        body: "Sustainable development is development that meets the needs of the present without harming the ability of future generations to meet their own needs. It rests on three pillars: economic growth, so people have jobs and incomes; social progress, so people have health, education and fairness; and environmental protection, so the land, water and air are not destroyed. In practice, this means using renewable energy such as hydroelectric power and solar power, farming in ways that keep the soil fertile, building towns with proper waste disposal, and making sure industries clean up their waste instead of dumping it in rivers. For Nigeria, sustainable development means diversifying away from crude oil into agriculture, manufacturing and technology, investing in education and health, and protecting the Niger Delta from further oil damage, so that growth today does not destroy the chances of tomorrow."
+      },
+      {
+        heading: "Environmental Problems and Solutions in Nigeria",
+        body: "Nigeria faces several serious environmental problems. Deforestation is driven by cutting trees for fuelwood and farming, and it causes soil erosion, loss of wildlife and changes in rainfall. Air pollution from vehicles, generators and gas flaring harms health in cities such as Lagos and Port Harcourt, while gas flaring in the Niger Delta also adds carbon dioxide to the atmosphere, contributing to global warming. Water pollution from oil spills, industrial waste and sewage damages rivers and fishing. Waste disposal is a problem in cities, where refuse is often dumped in open sites. Solutions include enforcing environmental laws through the National Environmental Standards and Regulations Enforcement Agency, NESREA, promoting clean energy such as solar power, recycling waste, planting trees, and teaching people why the environment matters. International agreements on climate change also commit Nigeria to cutting emissions and protecting its forests."
+      }
+    ],
+    definitions: [
+      { term: "Conservation", meaning: "The wise use and protection of natural resources so they last." },
+      { term: "Renewable resource", meaning: "A resource that can be replaced naturally, such as sunlight, water or forest." },
+      { term: "Non-renewable resource", meaning: "A resource in fixed supply that is used up once mined, such as crude oil." },
+      { term: "Sustainable development", meaning: "Development that meets present needs without harming future generations." },
+      { term: "Afforestation", meaning: "Planting trees in an area where there was no forest before." },
+      { term: "Deforestation", meaning: "The clearing of forests for farming, fuelwood or other uses." }
+    ],
+    formulas: ["Sustainable development = economic growth + social progress + environmental protection.", "Renewable resources regrow if use is slower than regrowth; non-renewable resources do not.", "Conservation = wise use + protection + restoration of resources.", "Global warming is driven mainly by carbon dioxide from burning fossil fuels."],
+    examples: [
+      {
+        title: "Classifying a resource",
+        problem: "A community uses firewood from its forest and crude oil from a nearby well. Which resource is renewable and which is not, and why?",
+        steps: ["Recall that a renewable resource can be replaced naturally.", "Note that trees regrow if the forest is replanted and not overcut.", "Recall that a non-renewable resource exists in a fixed amount.", "Note that crude oil formed over millions of years and cannot regrow in a human lifetime.", "Conclude firewood is renewable if managed, while crude oil is non-renewable."],
+        answer: "Firewood is renewable because trees regrow; crude oil is non-renewable because it cannot be replaced once used."
+      },
+      {
+        title: "Choosing a sustainable practice",
+        problem: "A farmer cuts down all the trees on a slope to plant yams, and the soil washes away in the rains. What sustainable practice should he have used instead?",
+        steps: ["Identify the problem: removing all trees exposed the soil to erosion.", "Recall that conservation allows use while protecting the soil.", "Consider agroforestry: keeping some trees with the crops.", "Add contour ploughing and terracing to slow runoff on the slope.", "Conclude the farmer should have combined trees with crops and ploughed along the contour."],
+        answer: "He should have practised agroforestry and contour ploughing, keeping tree cover so the soil is not washed away."
+      }
+    ],
+    tips: ["Renewable means it can regrow or be replaced; non-renewable means it runs out.", "Sustainable development has three pillars: economy, society and environment.", "Learn Yankari Game Reserve and Cross River National Park as conservation examples.", "NESREA enforces environmental standards in Nigeria."],
+    mistakes: ["Calling crude oil a renewable resource.", "Saying conservation means never using resources at all.", "Confusing afforestation with deforestation.", "Forgetting that gas flaring adds carbon dioxide to the atmosphere."],
+    facts: ["Crude oil is a non-renewable resource; sunlight is renewable.", "Yankari Game Reserve in Bauchi State protects wildlife.", "The Great Green Wall is a tree-planting project against desertification.", "NESREA enforces environmental standards and regulations in Nigeria."],
+    quiz: [
+      { q: "What does conservation mean?", options: ["Never using natural resources", "The wise use and protection of resources so they last", "Cutting down all forests", "Mining as fast as possible"], answer: 1, explanation: "Conservation is the wise use and protection of resources so they can keep serving people." },
+      { q: "Which of these is a renewable resource?", options: ["Solar energy", "Crude oil", "Coal", "Iron ore"], answer: 0, explanation: "Solar energy comes from the sun and is renewed daily, unlike oil, coal and iron ore." },
+      { q: "Which of these is a non-renewable resource?", options: ["Wind", "Water", "Crude oil", "Forest"], answer: 2, explanation: "Crude oil exists in a fixed amount and is used up once it is extracted." },
+      { q: "Sustainable development means what?", options: ["Using resources as fast as possible", "Meeting present needs without harming future generations", "Stopping all industries", "Building more cities"], answer: 1, explanation: "Sustainable development meets today's needs while protecting the ability of future generations to meet theirs." },
+      { q: "Which Nigerian reserve protects wildlife?", options: ["Yankari Game Reserve", "Tafawa Balewa Square", "National Theatre", "Aso Rock"], answer: 0, explanation: "Yankari Game Reserve in Bauchi State protects wildlife such as elephants, lions and baboons." },
+      { q: "Deforestation in Nigeria is mainly caused by what?", options: ["Too much rainfall", "Cutting trees for fuelwood and farming", "Building dams", "Planting shelterbelts"], answer: 1, explanation: "Trees are cut for fuelwood and to clear land for farming, which is the main cause of deforestation." },
+      { q: "Which is a method of conservation?", options: ["Overgrazing", "Dumping waste in rivers", "Creating national parks", "Burning forests"], answer: 2, explanation: "National parks protect habitats and wildlife by controlling hunting and logging." },
+      { q: "Recycling helps the environment mainly by doing what?", options: ["Reducing waste and saving resources", "Increasing mining", "Burning more fuel", "Cutting more trees"], answer: 0, explanation: "Recycling turns waste into useful material, so less is thrown away and fewer new resources are mined." },
+      { q: "Which gas is the main cause of global warming?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"], answer: 1, explanation: "Carbon dioxide from burning fossil fuels traps heat in the atmosphere and warms the Earth." },
+      { q: "The Great Green Wall project aims to do what?", options: ["Build dams across the north", "Grow cocoa in the Sahel", "Mine minerals in the desert", "Stop the desert spreading by planting trees"], answer: 3, explanation: "The Great Green Wall is a belt of trees across the Sahel that holds back desertification." },
+      { q: "Which is a renewable energy source used in Nigeria?", options: ["Hydroelectric power", "Coal", "Crude oil", "Natural gas"], answer: 0, explanation: "Hydroelectric power uses flowing water, which is renewed by the water cycle, unlike fossil fuels." },
+      { q: "Afforestation means what?", options: ["Cutting down a forest", "Planting trees where there was no forest", "Burning farmland", "Mining under a forest"], answer: 1, explanation: "Afforestation is planting trees in an area that had no forest, while reforestation replants a cleared forest." },
+      { q: "Which agency enforces environmental standards in Nigeria?", options: ["NEMA", "NNPC", "NESREA", "NAFDAC"], answer: 2, explanation: "NESREA, the National Environmental Standards and Regulations Enforcement Agency, enforces environmental laws." },
+      { q: "Overfishing in rivers and lakes leads to what?", options: ["Depletion of fish stocks", "More fish", "Cleaner water", "Bigger boats"], answer: 0, explanation: "Catching fish faster than they can breed depletes the stocks and harms fishing livelihoods." },
+      { q: "Which practice conserves soil on a slope?", options: ["Ploughing up and down the slope", "Terracing and contour ploughing", "Removing all plant cover", "Burning the vegetation"], answer: 1, explanation: "Terracing and contour ploughing slow water running down a slope, so the soil is not washed away." }
+    ],
+    status: "published"
+  },
+  {
+    id: "geography-13",
+    subjectId: "geography",
+    topic: "Soils and Water Resources",
+    subtopic: "Soils: formation, types and conservation",
+    title: "Soils: Formation, Types and Conservation",
+    order: 13,
+    introduction: "Soil is the thin layer on which all farming depends, yet it takes hundreds of years to form and can be lost in a single rainy season. This lesson explains how soils form, the layers of a soil profile, the main soil types in Nigeria, and how soil can be conserved.",
+    objectives: ["Explain how soil is formed", "Describe the layers of a soil profile", "Identify the main soil types and their characteristics", "Explain soil acidity and how it is measured", "Discuss soil erosion and methods of soil conservation"],
+    sections: [
+      {
+        heading: "How Soil Forms",
+        body: "Soil is the loose material on the Earth's surface in which plants grow, formed from weathered rock mixed with decayed organic matter. Five factors control its formation: the parent material, the rock from which the soil comes; climate, which controls the speed of weathering and leaching; organisms, such as plants, animals and microbes that add humus; relief, because steep slopes lose soil while flat land keeps it; and time, because soil forms very slowly, often taking hundreds of years to build a few centimetres. Weathering breaks the parent rock into small particles, rain washes minerals down through the soil, and dead plants and animals decay into humus, the dark organic part of soil. A good soil is about half mineral particles, a quarter water, a quarter air, and a small amount of humus, and each part matters for plant growth."
+      },
+      {
+        heading: "The Soil Profile",
+        body: "A soil profile is a vertical section through the soil, showing its layers, called horizons. The O horizon is the surface layer of dead leaves and organic matter. The A horizon, or topsoil, is dark and rich in humus, and it is where most plant roots feed. The B horizon, or subsoil, is where minerals washed down from above collect, and it is usually lighter in colour and harder. The C horizon is weathered parent material, partly broken rock, and below it lies the solid bedrock, called the R horizon. Leaching is the washing of minerals down from the A horizon to the B horizon by rainwater, and it is strongest in the wet south, where heavy rain washes nutrients out of the topsoil. Reading a profile tells you how fertile a soil is: a deep, dark A horizon means a rich soil, while a thin, pale one means a poor soil."
+      },
+      {
+        heading: "Soil Types in Nigeria",
+        body: "Nigeria has several soil types, shaped by its climate and parent rock. Sandy soils have large particles, drain quickly, are easy to work, but hold few nutrients and dry out fast. Clay soils have tiny particles, hold water and nutrients well, but become waterlogged in the wet season and crack hard in the dry season. Loamy soils mix sand, silt and clay, and are the best for farming because they hold water and nutrients while still draining well. Laterite soils form in the humid south, where heavy rain leaches silica and leaves iron and aluminium oxides, giving the soil a red colour; laterite hardens when exposed and is often used as a building material. In the north, the soils of the savanna are lighter and less leached, suiting millet, sorghum and groundnuts, while the forest soils of the south suit cocoa, oil palm and cassava. Soil acidity is measured on the pH scale from 0 to 14: below 7 is acidic, 7 is neutral, and above 7 is alkaline. Most crops grow best in slightly acidic to neutral soils, around pH 6 to 7, and very acidic soils can be improved by adding lime."
+      },
+      {
+        heading: "Soil Erosion and Conservation",
+        body: "Soil erosion is the removal of topsoil by water, wind or human action, and it is one of Nigeria's greatest threats to farming. Sheet erosion washes away a thin layer of soil over a wide area, rill erosion cuts small channels, and gully erosion cuts deep channels that destroy farmland, as in the south-east. Wind erosion blows away light, dry soil in the north during the Harmattan. Erosion is caused by heavy rain on bare soil, deforestation, overgrazing, and farming up and down slopes. It is controlled by keeping the soil covered with crops or trees, ploughing along the contour instead of up and down, building terraces on steep slopes, planting shelterbelts against the wind, practising crop rotation and fallowing so the soil recovers, and adding manure and compost to rebuild humus. Conserving soil means conserving the food supply, because once the topsoil is gone, the land may take centuries to recover."
+      }
+    ],
+    definitions: [
+      { term: "Soil", meaning: "The loose material on the Earth's surface in which plants grow." },
+      { term: "Soil profile", meaning: "A vertical section through the soil showing its horizons." },
+      { term: "Humus", meaning: "Dark, decayed organic matter in the soil that adds nutrients." },
+      { term: "Leaching", meaning: "The washing of minerals down through the soil by rainwater." },
+      { term: "Laterite", meaning: "A red soil rich in iron and aluminium oxides, formed by heavy leaching in the humid tropics." },
+      { term: "Soil erosion", meaning: "The removal of topsoil by water, wind or human action." }
+    ],
+    formulas: ["Soil = weathered rock + humus + water + air.", "Soil profile: O horizon, A horizon (topsoil), B horizon (subsoil), C horizon, R horizon (bedrock).", "pH scale: below 7 is acidic, 7 is neutral, above 7 is alkaline; most crops prefer pH 6 to 7.", "Soil formation = parent material + climate + organisms + relief + time."],
+    examples: [
+      {
+        title: "Reading a soil profile",
+        problem: "A farmer digs a pit and sees a dark, humus-rich layer on top, a pale hard layer below it, and broken rock at the bottom. Which horizons are these?",
+        steps: ["Recall the profile order: O, A, B, C, then bedrock.", "Match the dark, humus-rich layer to the A horizon, the topsoil.", "Match the pale, hard layer where minerals collect to the B horizon, the subsoil.", "Match the broken rock to the C horizon, weathered parent material.", "Conclude the pit shows A, B and C horizons in order."],
+        answer: "The dark layer is the A horizon (topsoil), the pale hard layer is the B horizon (subsoil), and the broken rock is the C horizon."
+      },
+      {
+        title: "Interpreting soil pH",
+        problem: "A soil test shows pH 5.0, and the farmer wants to grow maize, which prefers pH 6 to 7. What does the test mean, and what should the farmer do?",
+        steps: ["Recall the pH scale: below 7 is acidic, 7 is neutral.", "Note pH 5.0 is acidic, below the range maize prefers.", "Recall that acidic soils lock up nutrients and reduce yields.", "Recall that adding lime raises soil pH towards neutral.", "Conclude the farmer should apply lime to raise the pH."],
+        answer: "The soil is acidic at pH 5.0; the farmer should add lime to raise the pH towards 6 to 7 for maize."
+      }
+    ],
+    tips: ["Learn the profile order: O, A, B, C, R, with A as topsoil and B as subsoil.", "Loamy soil is the best for farming; sandy drains fast, clay holds water.", "pH below 7 is acidic, 7 is neutral, above 7 is alkaline.", "Laterite is red and forms in the humid south by heavy leaching."],
+    mistakes: ["Confusing the A horizon with the B horizon; A is topsoil, B is subsoil.", "Saying sandy soils are the best for farming; loamy soils are.", "Calling pH 5 alkaline; it is acidic.", "Forgetting that leaching is strongest where rainfall is heaviest."],
+    facts: ["Soil forms very slowly, taking hundreds of years to build a few centimetres.", "The A horizon is the topsoil, rich in humus.", "Laterite soils are red and common in southern Nigeria.", "Most crops grow best in soils of pH 6 to 7."],
+    quiz: [
+      { q: "Soil is formed from what?", options: ["Solid bedrock only", "Weathered rock and organic matter", "Rainwater only", "Volcanic ash only"], answer: 1, explanation: "Soil forms when rock weathers into particles and mixes with decayed organic matter, humus." },
+      { q: "Which horizon is the topsoil, rich in humus?", options: ["A horizon", "B horizon", "C horizon", "R horizon"], answer: 0, explanation: "The A horizon is the topsoil, dark and rich in humus, where most plant roots feed." },
+      { q: "Which horizon is the subsoil, where minerals washed down from above collect?", options: ["O horizon", "B horizon", "C horizon", "A horizon"], answer: 1, explanation: "The B horizon is the subsoil, where minerals leached from the topsoil accumulate." },
+      { q: "Leaching is best described as what?", options: ["Breaking rocks by frost", "Washing minerals down through the soil by rain", "Planting trees on a slope", "Burning farmland"], answer: 1, explanation: "Leaching is the washing of minerals from the upper soil down to lower layers by rainwater." },
+      { q: "Laterite soils are common in which part of Nigeria?", options: ["Humid south", "Far north desert fringe", "Jos Plateau only", "Chad Basin"], answer: 0, explanation: "Laterite forms in the humid south, where heavy rain leaches silica and leaves iron and aluminium oxides." },
+      { q: "Which soil is best for farming in northern Nigeria?", options: ["Sandy soil", "Loamy soil", "Clayey soil", "Laterite"], answer: 1, explanation: "Loamy soil holds water and nutrients while still draining well, making it the best farming soil." },
+      { q: "Sandy soils are best described as what?", options: ["Well drained but poor in nutrients", "Waterlogged and hard to work", "Rich in humus", "Sticky when wet"], answer: 0, explanation: "Sandy soils drain quickly and are easy to work, but they hold few nutrients and dry out fast." },
+      { q: "Clay soils are difficult to farm because they do what?", options: ["Drain too fast", "Become waterlogged and hard when dry", "Have no minerals", "Are too acidic always"], answer: 1, explanation: "Clay soils hold water and become waterlogged in the wet season, then crack hard in the dry season." },
+      { q: "A soil with pH 7 is best described as what?", options: ["Acidic", "Neutral", "Alkaline", "Salty"], answer: 1, explanation: "On the pH scale, 7 is neutral, below 7 is acidic and above 7 is alkaline." },
+      { q: "A soil with pH 5 is best described as what?", options: ["Acidic", "Neutral", "Alkaline", "Waterlogged"], answer: 0, explanation: "pH 5 is below 7, so the soil is acidic and may need lime for most crops." },
+      { q: "Which practice prevents soil erosion on a slope?", options: ["Ploughing up and down the slope", "Removing all trees", "Contour ploughing", "Burning the vegetation"], answer: 2, explanation: "Contour ploughing runs along the slope, slowing water so it does not wash the soil away." },
+      { q: "Humus improves soil mainly by doing what?", options: ["Making it red", "Adding nutrients and holding water", "Making it sandy", "Raising its pH to 14"], answer: 1, explanation: "Humus adds nutrients, holds water and improves soil structure for plant growth." },
+      { q: "The parent material of a soil is what?", options: ["The rock from which the soil forms", "The top layer of leaves", "The fertiliser added by farmers", "The rainwater in the soil"], answer: 0, explanation: "Parent material is the rock or deposit from which the soil develops through weathering." },
+      { q: "How does climate affect soil formation?", options: ["It decides the colour only", "It has no effect", "It controls temperature only", "It controls the rate of weathering and leaching"], answer: 3, explanation: "Warm, wet climates speed up weathering and leaching, while cold, dry climates slow them down." },
+      { q: "Gully erosion removes which soil layer first?", options: ["Topsoil, the A horizon", "Bedrock, the R horizon", "Subsoil, the B horizon", "Parent material, the C horizon"], answer: 0, explanation: "Erosion strips the topsoil first, which is why it is so damaging to farming." }
+    ],
+    status: "published"
+  },
+  {
+    id: "geography-14",
+    subjectId: "geography",
+    topic: "Soils and Water Resources",
+    subtopic: "Water resources and oceanography",
+    title: "Water Resources and Oceanography",
+    order: 14,
+    introduction: "Water covers most of the Earth, yet only a small part of it is fresh and usable. This lesson explains the water cycle, Nigeria's rivers, lakes and groundwater, and the oceans: their currents, tides and waves, and why they matter to Nigerians.",
+    objectives: ["Describe the water cycle and its processes", "Identify Nigeria's main rivers, lakes and dams", "Explain groundwater and aquifers", "Describe ocean currents, tides and waves", "Explain the importance and problems of water resources in Nigeria"],
+    sections: [
+      {
+        heading: "The Water Cycle",
+        body: "The water cycle is the continuous movement of water between the Earth and the atmosphere, driven by energy from the sun. Water evaporates from seas, rivers and lakes, and plants release water vapour by transpiration. The vapour rises, cools and condenses into clouds, then falls back as precipitation, rain or snow. Some of the rain runs off into rivers and lakes, some soaks into the ground to become groundwater, and some is stored as ice. The balance can be written as a simple water budget: precipitation equals evaporation plus runoff plus infiltration. In Nigeria, the wet south has a large water surplus, while the dry north has a deficit, which is why irrigation matters in the north. The cycle never stops, so the water we use today is the same water that has circulated for millions of years."
+      },
+      {
+        heading: "Rivers, Lakes and Groundwater in Nigeria",
+        body: "Nigeria's rivers are its most important water resource. The River Niger, the longest river in Nigeria, rises in Guinea, flows through Mali and Nigeria, meets the Benue at Lokoja, and reaches the Atlantic through its delta. The River Benue is its main tributary, and other rivers include the Sokoto-Rima, the Kaduna, the Gongola and the Cross River. Lakes include Lake Chad, the largest lake in Nigeria, shared with neighbouring countries, and the man-made Kainji Lake, formed by the Kainji Dam on the River Niger for hydroelectric power. Groundwater is water stored underground in aquifers, layers of porous rock such as sandstone that hold water, and it is reached through wells and boreholes. In the north, where surface water is scarce, boreholes are a vital source of drinking water. Rivers and lakes provide water for farming, fishing, transport and power, but they are threatened by pollution, siltation and falling water levels, as Lake Chad has shrunk greatly in recent decades because of reduced rainfall and heavy water use."
+      },
+      {
+        heading: "Oceans and Seas",
+        body: "Nigeria borders the Atlantic Ocean through the Gulf of Guinea, and the ocean shapes its climate, trade and food supply. The ocean floor near the coast is the continental shelf, a shallow, gently sloping area rich in fish and oil, beyond which the sea floor drops steeply into the deep ocean. The Guinea Current, a warm current, flows east along the Gulf of Guinea coast, warming the coastal climate and bringing moist air. Ocean currents are driven by prevailing winds, the rotation of the Earth and differences in water temperature and saltiness: warm currents flow from the equator towards the poles, and cold currents flow from the poles towards the equator. The cold Benguela Current off south-west Africa cools the coast there, which is one reason the Namib Desert is so dry. Oceans also absorb carbon dioxide and heat, so they help to control the world's climate."
+      },
+      {
+        heading: "Tides, Waves and the Uses of the Sea",
+        body: "Tides are the regular rise and fall of sea level, caused mainly by the gravitational pull of the moon, with the sun adding a smaller effect. There are usually two high tides and two low tides each day, and the highest tides, spring tides, happen when the sun, moon and Earth line up. Waves are caused mainly by wind blowing over the sea surface, and they erode cliffs, move sand along beaches and can damage coastal buildings. The sea gives Nigeria fish, oil and gas from offshore fields, salt, and transport through its ports, while the coast offers tourism and recreation. But the sea also brings problems: coastal erosion eats away beaches at Lagos and in the Niger Delta, oil spills pollute the water, and sea-level rise threatens low-lying coastal communities. Managing the sea means protecting the coast, controlling pollution, and using its resources without destroying them."
+      }
+    ],
+    definitions: [
+      { term: "Water cycle", meaning: "The continuous movement of water between the Earth and the atmosphere." },
+      { term: "Aquifer", meaning: "A layer of porous rock underground that holds groundwater." },
+      { term: "Groundwater", meaning: "Water stored underground in soil and rock." },
+      { term: "Tide", meaning: "The regular rise and fall of sea level caused mainly by the moon's pull." },
+      { term: "Ocean current", meaning: "A large, regular flow of sea water in a set direction." },
+      { term: "Continental shelf", meaning: "The shallow, gently sloping seabed near a coast." }
+    ],
+    formulas: ["Water budget: precipitation = evaporation + runoff + infiltration.", "Warm currents flow from the equator towards the poles; cold currents flow from the poles towards the equator.", "Tides are caused mainly by the gravitational pull of the moon.", "Runoff = precipitation - evaporation - infiltration."],
+    examples: [
+      {
+        title: "Working out a water budget",
+        problem: "A catchment receives 2,000 mm of rain in a year. 1,200 mm evaporates and 300 mm soaks into the ground. How much water runs off?",
+        steps: ["Write the water budget: precipitation equals evaporation plus runoff plus infiltration.", "Insert the known values: 2,000 equals 1,200 plus runoff plus 300.", "Add the known losses: 1,200 plus 300 equals 1,500.", "Subtract from precipitation: 2,000 minus 1,500 equals 500.", "State the answer with the correct unit, millimetres."],
+        answer: "The runoff is 500 mm for the year."
+      },
+      {
+        title: "Explaining why Lake Chad is shrinking",
+        problem: "Lake Chad was once much larger than it is today. What has caused it to shrink?",
+        steps: ["Note the lake depends on rainfall and rivers flowing into it.", "Recall that rainfall in the region has fallen and become less reliable.", "Add the human cause: more water is taken from rivers for irrigation.", "Note the result: less water reaches the lake, so it shrinks.", "Conclude the shrinkage comes from reduced rainfall plus heavy water use."],
+        answer: "Reduced rainfall and heavy abstraction of river water for irrigation have shrunk Lake Chad."
+      }
+    ],
+    tips: ["Learn the water cycle order: evaporation, condensation, precipitation, runoff and infiltration.", "The River Niger is Nigeria's longest river; it meets the Benue at Lokoja.", "Tides are caused mainly by the moon's gravitational pull.", "Warm currents flow from the equator; cold currents flow from the poles."],
+    mistakes: ["Saying tides are caused by the wind; they are caused mainly by the moon.", "Confusing the Guinea Current with the Benguela Current; Guinea is warm, Benguela is cold.", "Calling Lake Kainji natural; it is man-made, formed by the Kainji Dam.", "Forgetting that groundwater is stored in aquifers, not in rivers."],
+    facts: ["Lake Chad is the largest lake in Nigeria.", "The Kainji Dam on the River Niger provides hydroelectric power.", "The Guinea Current is a warm current along the Gulf of Guinea.", "There are usually two high tides and two low tides each day."],
+    quiz: [
+      { q: "The water cycle is mainly driven by energy from what?", options: ["The moon", "The sun", "The wind", "The Earth's core"], answer: 1, explanation: "Energy from the sun drives evaporation, which powers the whole water cycle." },
+      { q: "Evaporation is best described as what?", options: ["Water changing from liquid to vapour", "Water vapour cooling into droplets", "Rain falling to the ground", "Water soaking into the ground"], answer: 0, explanation: "Evaporation is when liquid water changes into water vapour and rises into the air." },
+      { q: "Which is the largest lake in Nigeria?", options: ["Lake Kainji", "Oguta Lake", "Lake Chad", "Lake Bosomtwe"], answer: 2, explanation: "Lake Chad, shared with neighbouring countries, is the largest lake in Nigeria." },
+      { q: "Groundwater is stored in what?", options: ["Rivers", "Aquifers", "Clouds", "Dams"], answer: 1, explanation: "Groundwater is stored underground in aquifers, layers of porous rock such as sandstone." },
+      { q: "Which ocean borders Nigeria?", options: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"], answer: 0, explanation: "Nigeria borders the Atlantic Ocean through the Gulf of Guinea." },
+      { q: "The Guinea Current is best described as what?", options: ["A cold current", "A deep current", "A warm current", "A tidal current"], answer: 2, explanation: "The Guinea Current is a warm current flowing east along the Gulf of Guinea coast." },
+      { q: "Tides are mainly caused by what?", options: ["Wind blowing over the sea", "The moon's gravitational pull", "Earthquakes under the sea", "Ocean currents"], answer: 1, explanation: "The moon's gravitational pull raises the sea level, causing the regular rise and fall of tides." },
+      { q: "Which is the longest river in Nigeria?", options: ["River Niger", "River Benue", "River Cross", "River Kaduna"], answer: 0, explanation: "The River Niger is the longest river in Nigeria, flowing from Guinea to the Atlantic." },
+      { q: "The Kainji Dam is built on which river?", options: ["River Benue", "River Niger", "River Cross", "River Gongola"], answer: 1, explanation: "The Kainji Dam is built on the River Niger and forms Kainji Lake for hydroelectric power." },
+      { q: "The continental shelf is best described as what?", options: ["The deepest part of the ocean", "A steep cliff under the sea", "A mountain in the sea", "The shallow seabed near the coast"], answer: 3, explanation: "The continental shelf is the shallow, gently sloping seabed near the coast, rich in fish and oil." },
+      { q: "Which is a use of ocean water and the sea in Nigeria?", options: ["Fishing and transport", "Growing cocoa", "Mining coal", "Building dams"], answer: 0, explanation: "The sea provides fish for food and a route for ships carrying Nigeria's trade." },
+      { q: "Condensation is best described as what?", options: ["Water soaking into the ground", "Rain falling to the ground", "Water vapour cooling to form droplets", "Water changing into vapour"], answer: 2, explanation: "Condensation is when water vapour cools and changes into tiny droplets, forming clouds." },
+      { q: "Why is Lake Chad shrinking?", options: ["Too much rainfall", "Reduced rainfall and heavy water use", "Earthquakes", "Too many fish"], answer: 1, explanation: "Less rainfall and more water taken from rivers for irrigation mean less water reaches the lake." },
+      { q: "Which current cools the coast of south-west Africa?", options: ["Benguela Current", "Guinea Current", "Gulf Stream", "Kuroshio Current"], answer: 0, explanation: "The cold Benguela Current flows north along the south-west African coast, cooling it and helping form the Namib Desert." },
+      { q: "A catchment receives 2,000 mm of rain, 1,200 mm evaporates and 300 mm infiltrates. How much runs off?", options: ["300 mm", "500 mm", "800 mm", "2,000 mm"], answer: 1, explanation: "Runoff equals precipitation minus evaporation minus infiltration: 2,000 minus 1,200 minus 300 equals 500 mm." }
     ],
     status: "published"
   }

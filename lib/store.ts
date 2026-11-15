@@ -28,11 +28,25 @@ export interface AiUsage { id: string; userId: string; at: string; subject: stri
 export interface WeeklyResult { week: string; year: number; computedAt: string; scorers: { userId: string; name: string; score: number; assessments: number; accuracy: number }[]; scholars: { userId: string; name: string; score: number; detail: string }[]; }
 export interface DraftLesson { id: string; subjectId: string; topic: string; title: string; content: string; status: 'draft' | 'approved' | 'published'; createdAt: string; source: 'ai' | 'manual'; }
 
+/** Admin-published lessons (created in Content Studio, stored in the local DB).
+ *  Same shape as a curriculum Lesson; ids start with `custom_`. */
+export interface CustomLesson {
+  id: string; subjectId: string; topic: string; subtopic: string; title: string; order: number;
+  introduction: string; objectives: string[];
+  sections: { heading: string; body: string }[];
+  definitions: { term: string; meaning: string }[];
+  formulas?: string[];
+  examples: { title: string; problem: string; steps: string[]; answer: string }[];
+  tips: string[]; mistakes: string[]; facts: string[];
+  quiz: { q: string; options: [string, string, string, string]; answer: number; explanation: string }[];
+  status: 'published' | 'draft';
+}
+
 export interface DB {
   profiles: Profile[]; attempts: Attempt[]; progress: Record<string, LessonProgress[]>; // keyed by userId
   notifications: NotificationItem[]; badges: Badge[]; announcements: Announcement[];
   conversations: AiConversation[]; aiUsage: AiUsage[]; weekly: WeeklyResult[];
-  drafts: DraftLesson[]; sessionUserId: string | null;
+  drafts: DraftLesson[]; customLessons: CustomLesson[]; sessionUserId: string | null;
   resetCodes: { email: string; code: string; expiresAt: number }[];
   publishedOverrides: Record<string, boolean>; // lessonId -> published?
   lessonOrder: Record<string, string[]>; // subjectId -> ordered lesson ids (admin reorder)
@@ -41,7 +55,7 @@ export interface DB {
 const KEY = 'djp-db-v1';
 
 export function emptyDB(): DB {
-  return { profiles: [], attempts: [], progress: {}, notifications: [], badges: [], announcements: [], conversations: [], aiUsage: [], weekly: [], drafts: [], sessionUserId: null, resetCodes: [], publishedOverrides: {}, lessonOrder: {} };
+  return { profiles: [], attempts: [], progress: {}, notifications: [], badges: [], announcements: [], conversations: [], aiUsage: [], weekly: [], drafts: [], customLessons: [], sessionUserId: null, resetCodes: [], publishedOverrides: {}, lessonOrder: {} };
 }
 
 export function loadDB(): DB {
@@ -88,8 +102,8 @@ export function seedDemo(db: DB): DB {
     { lessonId: 'physics-01', completed: true, bestScore: 75, attempts: 2, completedAt: now, timeSpentSec: 500 },
   ];
   db.attempts.push(
-    { id: uid('att'), userId: 'demo_student', lessonId: 'english-01', subjectId: 'english', kind: 'lesson', title: 'Comprehension: Reading Strategies', total: 5, correct: 4, score: 80, answers: [], startedAt: now, completedAt: now, durationSec: 300 },
-    { id: uid('att'), userId: 'demo_student', lessonId: 'mathematics-01', subjectId: 'mathematics', kind: 'lesson', title: 'Indices and Logarithms', total: 5, correct: 5, score: 100, answers: [], startedAt: now, completedAt: now, durationSec: 280 },
+    { id: uid('att'), userId: 'demo_student', lessonId: 'english-01', subjectId: 'english', kind: 'lesson', title: 'Comprehension: Reading Strategies', total: 15, correct: 12, score: 80, answers: [], startedAt: now, completedAt: now, durationSec: 300 },
+    { id: uid('att'), userId: 'demo_student', lessonId: 'mathematics-01', subjectId: 'mathematics', kind: 'lesson', title: 'Indices and Logarithms', total: 15, correct: 15, score: 100, answers: [], startedAt: now, completedAt: now, durationSec: 280 },
   );
   db.notifications.push({ id: uid('ntf'), userId: 'demo_student', title: 'Welcome to Darax JAMB Prep', body: 'Your free science JAMB preparation starts here. Complete your first lesson to unlock the next one.', kind: 'announcement', link: '/app/dashboard', read: false, createdAt: now });
   db.announcements.push({ id: uid('ann'), title: 'Welcome to The Official Darax Free JAMB Prep', body: 'Learn. Practice. Improve. Excel. All lessons are free for science students. Score at least 70% on each lesson quiz to unlock the next lesson.', createdAt: now, author: 'Official Darax' });

@@ -141,3 +141,146 @@ mobile 390px overflow on 5 routes (0px each).
   key, so server-side weekly boards need a service-role-backed job later.
   Leaderboard/badge rows are NOT mirrored from the client (RLS: only
   service_role writes them, except admin writes via djp_roles).
+
+## UI upgrade — slideshow lessons, reshuffle-on-retake, structured tutor, admin publish (2026-11-15, v1.1.0)
+
+Work by the UI subagent (uncommitted; coordinator commits). Content workers
+expanded the curriculum in parallel — final count verified at the end of this
+work (see below). Roemichs blue palette (#3367c1/#173b78) and the theme system
+unchanged; lib/auth.ts, lib/supabase.ts, lib/sync.ts untouched; migration
+table structure untouched; the 8 lib/curriculum/*.ts subject files untouched
+(only the types.ts quiz comment, as instructed).
+
+### What changed
+1. **Slideshow lessons** (`app/app/learn/[lessonId]/page.tsx`, rewritten):
+   one slide at a time in reading order — Introduction → Objectives → each
+   notes section → Definitions → Formulas/Laws (if any) → one slide per worked
+   example → JAMB tips → Common mistakes → Key facts → Quiz start slide.
+   Previous/Next buttons, clickable slide dots (labelled, wrapping), progress
+   bar, slide counter (e.g. 3/12), keyboard ArrowLeft/ArrowRight, touch swipe
+   (touchstart/touchend, 50px threshold). Time-spent recording and the
+   60-second scholar rule note kept; locked-lesson gate and prev/next-lesson
+   navigation kept. Quiz slide says 15 questions and links to the quiz.
+2. **Reshuffle on retry** (`components/QuizRunner.tsx` rewritten,
+   `app/api/attempts/route.ts` extended without changing the grading contract):
+   every attempt (first load AND every retake) gets a fresh seeded shuffle
+   (mulberry32) of BOTH question order AND option order. QuizRunner converts
+   displayed choices back to original option indices and sends refs in
+   display order, so the server still grades by `lessonId:originalIndex` +
+   original option index. Visible note: "Questions and answer options
+   reshuffle on every retake." Applies to lesson quizzes, topic tests, subject
+   exams, mixed revision and mocks — all use QuizRunner (verified by reading
+   `app/app/quiz/[lessonId]/page.tsx`, `app/app/assessments/page.tsx`,
+   `app/app/mock/page.tsx`; all three now also pass the db-aware lesson lists).
+   Custom-lesson questions (see §5) carry their answer key to the route,
+   which grades them from that key and returns `serverValidated: false` with
+   an honest on-screen label; built-in questions are graded from the server
+   bank exactly as before.
+3. **Structured AI answers** (new `components/Markdown.tsx`, no new
+   dependency — headings, bold, italic, inline code, fenced code blocks,
+   ordered/unordered lists, tables, horizontal rules, paragraphs, links;
+   raw HTML never rendered): used for assistant replies in
+   `app/app/tutor/page.tsx`. `SYSTEM_PROMPT` in `app/api/tutor/route.ts` now
+   enforces ONE structure — ## Direct answer first, then ## Step by step,
+   then ## Worked example, then ## Try this (one practice question) — with
+   Markdown required; educational-only redirect and the never-invent-past-
+   question-years rule kept; GROQ_API_KEY server-only and the honest 503
+   kept. Tutor UI: subject chips, pinned input, copy button per answer
+   (with "✓ Copied" feedback), typing dots while busy, dismissible error
+   banner, auto-scroll to the latest reply, conversation history / new /
+   clear kept.
+4. **UI cleanup sweep**: every page audited at 390px and 1280px in both
+   themes (see headless results). Fixes: `min-w-0` on the Settings name
+   input, `break-all` on badge IDs (achievements list + detail, admin badge
+   log), `break-words` guards on lesson/quiz/tutor/admin text. No other
+   overlaps found — the rest of the sweep was verification-only.
+5. **Admin publish flow** (`app/admin/content/page.tsx` rewritten,
+   `lib/store.ts` + `lib/curriculum.ts` + `lib/progression.ts`):
+   - New `db.customLessons` store; `getCustomLessons()` /
+     `getAllLessons(db)` / `getLessonById(id, db)` /
+     `getSubjectLessons(subjectId, db)` merge published custom lessons into
+     the Academy; progression (`orderedLessons`, `isLessonUnlocked`) uses
+     the merged lists, so published lessons sit in the 70% unlock chain.
+     Subject page also renders topics that only exist on custom lessons.
+   - NEW manual lesson form: full content (intro, objectives, sections,
+     definitions, formulas, examples, tips, mistakes, facts) + a 15-question
+     quiz editor (4 options, radio for the correct answer, explanation each).
+     Saves as a draft, never directly live.
+   - Drafts (AI via Groq, or manual) get a rendered preview (counts,
+     section list, sample quiz question) instead of raw JSON. Approve →
+     Publish validates strictly (full notes + exactly 15 quiz questions,
+     4 options + valid answer + explanation each); invalid drafts are
+     blocked with the exact problems listed. Publish assigns id + next
+     unlock order and the lesson appears immediately in the Academy.
+   - `app/api/admin/generate-lesson` prompt now asks for exactly 15 quiz
+     questions (was 5) and max_tokens raised 4000 → 8000 for the longer
+     output. AI drafts still save as drafts and need approval before publish.
+   - Stale copy fixed: "5 questions" → 15 (lesson quiz slide);
+     `lib/curriculum/types.ts` quiz comment exactly 5 → exactly 15;
+     `lib/curriculum.ts` comment 80 → 112 lessons; landing "80 lessons" →
+     112; demo seed attempts updated to 15-question totals (12/15 = 80%,
+     15/15 = 100% — same scores).
+   - Count helper saved at `scripts/count-curriculum.js` (transpiles the
+     curriculum files and reports lessons + quiz lengths per subject).
+
+### Build
+- `npm run build` passes, tsc clean (24 routes). Mid-task the working-tree
+  build FAILED on syntax errors in `lib/curriculum/agricultural-science.ts`
+  (stray `""`) and `biology.ts` (extra `},`) while the content workers were
+  mid-edit — those files are not mine to edit, so my code was verified
+  against a HEAD-curriculum worktree first (build green), and the working
+  tree built green once the workers' files were syntactically valid again.
+
+### Headless verification (production builds, playwright-core + headless Chromium, demo_student / Demo1234!)
+- **Content count** (only verified once it reported the target):
+  `node scripts/count-curriculum.js` → **112 lessons, 1680 questions** —
+  every subject 14 lessons × 15 questions, zero lessons with a non-15 quiz.
+- **Suite 1 — 109/109 passed** (real 112-lesson build): overflow sweep on
+  22 routes × 390px/1280px × Dark/Light = 88 combos, all 0px overflow, no
+  element extending past the viewport; slideshow Next / dot jump to slide 5 /
+  ArrowRight / ArrowLeft / swipe-left all move correctly (15 slides on
+  mathematics-01); quiz-start slide says 15 questions, links to the quiz,
+  60-second note present; lesson quiz shows **15 questions**; two
+  consecutive retakes each produced a DIFFERENT question order AND a
+  DIFFERENT option order; submit → server-graded result; tutor renders a
+  seeded Markdown reply as headings/lists/bold/table/code block (no raw
+  `##` or `**` text), copy button + subject chips present.
+- **Suite 2 — 14/14 passed** (real 112-lesson build): admin claim (default
+  code) → Content Studio; seeded 15-question AI draft preview renders
+  content; Approve → Publish → "now live in the Academy"; published lesson
+  visible on the subject page, unlocked in the chain, opens as a 10-slide
+  slideshow, and its 15-question quiz submits and grades (labelled honestly
+  "graded on this device"); manual form filled end-to-end (all 15 questions)
+  saves as a draft with a 15-question quiz.
+- **Screenshots reviewed**: landing, lesson (quiz slide), quiz, tutor,
+  settings at 390px dark; subject page at 390px dark; admin Content Studio
+  at 1280px dark (published custom lesson listed as #15, "Admin-created").
+  No overlaps or clipping. (The fixed mobile bottom nav covers content only
+  at the fold in screenshots; the page scrolls past it via the existing
+  bottom padding — pre-existing behaviour, not an overlap.)
+
+### Bugs found and fixed during testing
+- Manual quiz `<details>` toggle: the native toggle + React `open` prop
+  fought, leaving a question stuck closed. Fixed by making the summary
+  click fully controlled (`preventDefault` + explicit open state).
+- Duplicate placeholder "Lesson title" on the AI card and the manual form
+  (a fill landed in the wrong input). Manual form placeholder changed to
+  "e.g. Indices and Logarithms".
+
+### Still unverified live (needs David / deploy-time)
+1. **Live Groq tutor answer structure** — no GROQ_API_KEY in the test env,
+   so no live tutor reply was observed; the prompt change and the Markdown
+   renderer are verified (seeded reply), but a real Groq reply following the
+   four-section structure still needs one live message after deploy.
+2. **Phone acceptance** — all checks above are headless Chromium; David's
+   phone test (slideshow swipe, retake reshuffle, tutor chat, admin publish)
+   is still owed.
+3. **Cross-device publish** — admin-published lessons live in the local
+   store on the device that published them (same tier as everything else in
+   this build). They appear immediately for students on that device; making
+   them visible on other students' devices needs Supabase lesson tables,
+   which the frozen migration does not have — flagged for the coordinator,
+   not silently claimed.
+4. **Live AI lesson generation with 15 questions** — the prompt and token
+   budget changed, but no live Groq generation was run in this task (no key
+   in test env); verify one AI draft end-to-end after deploy.

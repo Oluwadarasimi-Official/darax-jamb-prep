@@ -56,7 +56,7 @@ export default function SettingsPage() {
         <h2 className="font-bold text-lg mb-3">Profile</h2>
         <p className="text-sm muted">Full name: <strong className="text-ink">{user.fullName}</strong> · Username: <strong className="text-ink">@{user.username}</strong> (username cannot be changed) · Email: <strong className="text-ink">{user.email}</strong></p>
         <div className="flex gap-2 mt-3">
-          <input className="glass-input flex-1" value={name} onChange={e => setName(e.target.value)} placeholder="New full name" />
+          <input className="glass-input flex-1 min-w-0" value={name} onChange={e => setName(e.target.value)} placeholder="New full name" />
           <button onClick={saveName} className="btn-primary text-sm">Save name</button>
         </div>
       </GlassCard>

@@ -6,7 +6,7 @@ import { subjectProgress } from '@/lib/progression';
 import { GlassCard, ProgressBar } from '@/components/ui';
 
 export default function SubjectsPage() {
-  const { user } = useDb();
+  const { db, user } = useDb();
   if (!user) return null;
   return (
     <div className="flex flex-col gap-5">
@@ -17,7 +17,7 @@ export default function SubjectsPage() {
       <div className="grid md:grid-cols-2 gap-4">
         {user.subjects.map(id => {
           const s = getSubject(id)!;
-          const lessons = getSubjectLessons(id);
+          const lessons = getSubjectLessons(id, db);
           return (
             <GlassCard key={id}>
               <div className="flex items-start justify-between gap-3">

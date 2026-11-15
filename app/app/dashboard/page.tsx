@@ -12,7 +12,7 @@ export default function DashboardPage() {
   const overall = overallProgress(db, user.id, user.subjects);
   const attempts = db.attempts.filter(a => a.userId === user.id).sort((a, b) => b.completedAt.localeCompare(a.completedAt));
   const recent = attempts.slice(0, 4);
-  const pending = user.subjects.flatMap(s => getSubjectLessons(s).filter(l => {
+  const pending = user.subjects.flatMap(s => getSubjectLessons(s, db).filter(l => {
     const p = (db.progress[user.id] || []).find(x => x.lessonId === l.id);
     return !p?.completed;
   })).length;

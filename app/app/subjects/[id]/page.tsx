@@ -13,7 +13,7 @@ export default function SubjectDetailPage() {
   if (!user) return null;
   const subject = getSubject(id);
   if (!subject) return <EmptyState title="Subject not found" body="This subject does not exist on the platform." action={<Link href="/app/subjects" className="btn-primary">Back to subjects</Link>} />;
-  const lessons = getSubjectLessons(id);
+  const lessons = getSubjectLessons(id, db);
   const prog = subjectProgress(db, user.id, id);
   const enrolled = user.subjects.includes(id);
 
@@ -25,7 +25,7 @@ export default function SubjectDetailPage() {
         <p className="text-sm mt-2">{enrolled ? `Progress: ${prog.percent}% · ${prog.completed}/${prog.total} lessons completed · ${prog.unlocked - prog.completed} unlocked` : 'You are not enrolled in this subject. Enrol from My Profile to study it.'}</p>
         <ProgressBar value={prog.percent} className="mt-3" />
       </GlassCard>
-      {subject.topics.map(topic => {
+      {[...subject.topics, ...lessons.map(l => l.topic).filter(t => !subject.topics.includes(t))].map(topic => {
         const topicLessons = lessons.filter(l => l.topic === topic);
         return (
           <GlassCard key={topic}>

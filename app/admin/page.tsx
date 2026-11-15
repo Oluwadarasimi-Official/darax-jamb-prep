@@ -96,7 +96,7 @@ export default function AdminPage() {
             <h3 className="font-semibold text-sm mb-2">Badge issuance records ({db.badges.length})</h3>
             {db.badges.length === 0 ? <p className="text-sm muted">No badges issued yet.</p> : (
               <div className="flex flex-col gap-1.5 max-h-40 overflow-y-auto">
-                {db.badges.slice(0, 10).map(b => <p key={b.id} className="text-xs glass-soft p-2 font-mono">{b.id} · {b.fullName} · #{b.position}</p>)}
+                {db.badges.slice(0, 10).map(b => <p key={b.id} className="text-xs glass-soft p-2 font-mono break-all">{b.id} · {b.fullName} · #{b.position}</p>)}
               </div>
             )}
           </div>
