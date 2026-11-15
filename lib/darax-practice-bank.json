@@ -1,5 +1,5 @@
 {
-  "notice": "Original DARAX practice questions written in JAMB-style format. These are not reproduced historical JAMB questions.",
+  "notice": "Original DARAX JAMB-style practice sets organised by year. They are not verbatim historical JAMB papers.",
   "questions": [
     {
       "id": "darax-eng-001",
@@ -350,6 +350,6385 @@
       ],
       "answer": 2,
       "explanation": "Haemoglobin in red blood cells binds and transports most oxygen in the blood."
+    },
+    {
+      "id": "y2010e1",
+      "year": 2010,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"ABATE\".",
+      "options": [
+        "A. lessen",
+        "B. increase",
+        "C. remain",
+        "D. vanish"
+      ],
+      "answer": 0,
+      "explanation": "abate means lessen."
+    },
+    {
+      "id": "y2010e2",
+      "year": 2010,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"EXPAND\".",
+      "options": [
+        "A. contract",
+        "B. enlarge",
+        "C. extend",
+        "D. stretch"
+      ],
+      "answer": 0,
+      "explanation": "contract is the opposite of expand."
+    },
+    {
+      "id": "y2010e3",
+      "year": 2010,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "Each of the pupils _____ a textbook.",
+      "options": [
+        "A. has",
+        "B. have",
+        "C. are",
+        "D. were"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"has\"."
+    },
+    {
+      "id": "y2010e4",
+      "year": 2010,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"spill the beans\" means",
+      "options": [
+        "A. reveal a secret",
+        "B. cook badly",
+        "C. waste food",
+        "D. make a mess"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means reveal a secret."
+    },
+    {
+      "id": "y2010e5",
+      "year": 2010,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The scientist repeated the test to _____ the result.",
+      "options": [
+        "A. verify",
+        "B. decorate",
+        "C. divide",
+        "D. delay"
+      ],
+      "answer": 0,
+      "explanation": "\"verify\" correctly completes the sentence."
+    },
+    {
+      "id": "y2010m1",
+      "year": 2010,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 3x + 2 = 17.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 2, then divide by 3; x = 5."
+    },
+    {
+      "id": "y2010m2",
+      "year": 2010,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2000. A discount of 10% is given. Find the sale price.",
+      "options": [
+        "A. ₦1800.00",
+        "B. ₦200.00",
+        "C. ₦2200.00",
+        "D. ₦1990"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 10% of ₦2000 = ₦200.00; sale price = ₦1800.00."
+    },
+    {
+      "id": "y2010m3",
+      "year": 2010,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦750 is shared in the ratio 2:3. Find the first share.",
+      "options": [
+        "A. ₦300",
+        "B. ₦450",
+        "C. ₦750",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 5; first share = 2 × ₦150 = ₦300."
+    },
+    {
+      "id": "y2010m4",
+      "year": 2010,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 3 cm.",
+      "options": [
+        "A. 9 cm²",
+        "B. 12 cm²",
+        "C. 6 cm²",
+        "D. 6 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 3² = 9 cm²."
+    },
+    {
+      "id": "y2010m5",
+      "year": 2010,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 4, 6, 8, 10.",
+      "options": [
+        "A. 7",
+        "B. 8",
+        "C. 6",
+        "D. 9"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 28 ÷ 4 = 7."
+    },
+    {
+      "id": "y2010p1",
+      "year": 2010,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 2 m s⁻¹ accelerates at 3 m s⁻² for 2 s. Find its final velocity.",
+      "options": [
+        "A. 8 m s⁻¹",
+        "B. 5 m s⁻¹",
+        "C. 6 m s⁻¹",
+        "D. 10 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 2 + 3×2 = 8 m s⁻¹."
+    },
+    {
+      "id": "y2010p2",
+      "year": 2010,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 3 Ω resistor carries 2 A. Calculate the potential difference.",
+      "options": [
+        "A. 6 V",
+        "B. 8 V",
+        "C. 1.5 V",
+        "D. 0.6666666666666666 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 2 × 3 = 6 V."
+    },
+    {
+      "id": "y2010p3",
+      "year": 2010,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 2 kg object is raised 3 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 60 J",
+        "B. 6 J",
+        "C. 20 J",
+        "D. 30 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 2×10×3 = 60 J."
+    },
+    {
+      "id": "y2010p4",
+      "year": 2010,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 200 g and volume 300 cm³. Find its density.",
+      "options": [
+        "A. 0.67 g cm⁻³",
+        "B. 6.00 g cm⁻³",
+        "C. 1.50 g cm⁻³",
+        "D. 1.67 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 200/300 = 0.67 g cm⁻³."
+    },
+    {
+      "id": "y2010p5",
+      "year": 2010,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 2 Hz and wavelength 2 m. Find its speed.",
+      "options": [
+        "A. 4 m s⁻¹",
+        "B. 4 m s⁻¹",
+        "C. 1.00 m s⁻¹",
+        "D. 8 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 2×2 = 4 m s⁻¹."
+    },
+    {
+      "id": "y2010c1",
+      "year": 2010,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 1 mol of a substance with molar mass 12 g mol⁻¹.",
+      "options": [
+        "A. 12 g",
+        "B. 13 g",
+        "C. 12.00 g",
+        "D. 22 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 1×12 = 12 g."
+    },
+    {
+      "id": "y2010c2",
+      "year": 2010,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 6 protons and 6 neutrons. Find its mass number.",
+      "options": [
+        "A. 12",
+        "B. 6",
+        "C. 6",
+        "D. 0"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 12."
+    },
+    {
+      "id": "y2010c3",
+      "year": 2010,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 1 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2010c4",
+      "year": 2010,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 1 electron during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2010c5",
+      "year": 2010,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 2 dm³ at 273 K. At constant pressure, what volume will it occupy at 273 K?",
+      "options": [
+        "A. 2.00 dm³",
+        "B. 2.00 dm³",
+        "C. 275 dm³",
+        "D. 2 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 2×273/273 = 2.00 dm³."
+    },
+    {
+      "id": "y2010b1",
+      "year": 2010,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2010b2",
+      "year": 2010,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 2 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2010b3",
+      "year": 2010,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2010b4",
+      "year": 2010,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the kidney is",
+      "options": [
+        "A. removal of nitrogenous wastes and water regulation",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The kidney is responsible for removal of nitrogenous wastes and water regulation."
+    },
+    {
+      "id": "y2010b5",
+      "year": 2010,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Fungi?",
+      "options": [
+        "A. absorbs nutrients from organic material",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Fungi is that it absorbs nutrients from organic material."
+    },
+    {
+      "id": "y2011e1",
+      "year": 2011,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"CANDID\".",
+      "options": [
+        "A. truthful",
+        "B. secretive",
+        "C. careless",
+        "D. uncertain"
+      ],
+      "answer": 0,
+      "explanation": "candid means truthful."
+    },
+    {
+      "id": "y2011e2",
+      "year": 2011,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"ANCIENT\".",
+      "options": [
+        "A. modern",
+        "B. old",
+        "C. historic",
+        "D. antique"
+      ],
+      "answer": 0,
+      "explanation": "modern is the opposite of ancient."
+    },
+    {
+      "id": "y2011e3",
+      "year": 2011,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "The news _____ encouraging.",
+      "options": [
+        "A. is",
+        "B. are",
+        "C. were",
+        "D. have been"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"is\"."
+    },
+    {
+      "id": "y2011e4",
+      "year": 2011,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"once in a blue moon\" means",
+      "options": [
+        "A. very rarely",
+        "B. every day",
+        "C. at dawn",
+        "D. twice daily"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means very rarely."
+    },
+    {
+      "id": "y2011e5",
+      "year": 2011,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The speaker's argument was clear and _____.",
+      "options": [
+        "A. convincing",
+        "B. careless",
+        "C. doubtful",
+        "D. silent"
+      ],
+      "answer": 0,
+      "explanation": "\"convincing\" correctly completes the sentence."
+    },
+    {
+      "id": "y2011m1",
+      "year": 2011,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 4x + 5 = 25.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 5, then divide by 4; x = 5."
+    },
+    {
+      "id": "y2011m2",
+      "year": 2011,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2137. A discount of 15% is given. Find the sale price.",
+      "options": [
+        "A. ₦1816.45",
+        "B. ₦320.55",
+        "C. ₦2457.55",
+        "D. ₦2122"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 15% of ₦2137 = ₦320.55; sale price = ₦1816.45."
+    },
+    {
+      "id": "y2011m3",
+      "year": 2011,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1200 is shared in the ratio 3:5. Find the first share.",
+      "options": [
+        "A. ₦450",
+        "B. ₦750",
+        "C. ₦1200",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 8; first share = 3 × ₦150 = ₦450."
+    },
+    {
+      "id": "y2011m4",
+      "year": 2011,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 4 cm.",
+      "options": [
+        "A. 16 cm²",
+        "B. 16 cm²",
+        "C. 8 cm²",
+        "D. 8 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 4² = 16 cm²."
+    },
+    {
+      "id": "y2011m5",
+      "year": 2011,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 5, 7, 9, 11.",
+      "options": [
+        "A. 8",
+        "B. 9",
+        "C. 7",
+        "D. 10"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 32 ÷ 4 = 8."
+    },
+    {
+      "id": "y2011p1",
+      "year": 2011,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 3 m s⁻¹ accelerates at 4 m s⁻² for 3 s. Find its final velocity.",
+      "options": [
+        "A. 15 m s⁻¹",
+        "B. 7 m s⁻¹",
+        "C. 12 m s⁻¹",
+        "D. 18 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 3 + 4×3 = 15 m s⁻¹."
+    },
+    {
+      "id": "y2011p2",
+      "year": 2011,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 4 Ω resistor carries 3 A. Calculate the potential difference.",
+      "options": [
+        "A. 12 V",
+        "B. 14 V",
+        "C. 1.3333333333333333 V",
+        "D. 0.75 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 3 × 4 = 12 V."
+    },
+    {
+      "id": "y2011p3",
+      "year": 2011,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 3 kg object is raised 4 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 120 J",
+        "B. 12 J",
+        "C. 30 J",
+        "D. 60 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 3×10×4 = 120 J."
+    },
+    {
+      "id": "y2011p4",
+      "year": 2011,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 300 g and volume 400 cm³. Find its density.",
+      "options": [
+        "A. 0.75 g cm⁻³",
+        "B. 12.00 g cm⁻³",
+        "C. 1.33 g cm⁻³",
+        "D. 1.75 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 300/400 = 0.75 g cm⁻³."
+    },
+    {
+      "id": "y2011p5",
+      "year": 2011,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 3 Hz and wavelength 3 m. Find its speed.",
+      "options": [
+        "A. 9 m s⁻¹",
+        "B. 6 m s⁻¹",
+        "C. 1.00 m s⁻¹",
+        "D. 18 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 3×3 = 9 m s⁻¹."
+    },
+    {
+      "id": "y2011c1",
+      "year": 2011,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 2 mol of a substance with molar mass 14 g mol⁻¹.",
+      "options": [
+        "A. 28 g",
+        "B. 16 g",
+        "C. 7.00 g",
+        "D. 38 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 2×14 = 28 g."
+    },
+    {
+      "id": "y2011c2",
+      "year": 2011,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 7 protons and 8 neutrons. Find its mass number.",
+      "options": [
+        "A. 15",
+        "B. 8",
+        "C. 7",
+        "D. 1"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 15."
+    },
+    {
+      "id": "y2011c3",
+      "year": 2011,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 2 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2011c4",
+      "year": 2011,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 2 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2011c5",
+      "year": 2011,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 3 dm³ at 273 K. At constant pressure, what volume will it occupy at 280 K?",
+      "options": [
+        "A. 3.08 dm³",
+        "B. 2.92 dm³",
+        "C. 283 dm³",
+        "D. 3 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 3×280/273 = 3.08 dm³."
+    },
+    {
+      "id": "y2011b1",
+      "year": 2011,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2011b2",
+      "year": 2011,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 3 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2011b3",
+      "year": 2011,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2011b4",
+      "year": 2011,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the lung is",
+      "options": [
+        "A. gas exchange between air and blood",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The lung is responsible for gas exchange between air and blood."
+    },
+    {
+      "id": "y2011b5",
+      "year": 2011,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Plantae?",
+      "options": [
+        "A. typically contains chlorophyll for photosynthesis",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Plantae is that it typically contains chlorophyll for photosynthesis."
+    },
+    {
+      "id": "y2012e1",
+      "year": 2012,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"DILIGENT\".",
+      "options": [
+        "A. hard-working",
+        "B. lazy",
+        "C. impatient",
+        "D. fearful"
+      ],
+      "answer": 0,
+      "explanation": "diligent means hard-working."
+    },
+    {
+      "id": "y2012e2",
+      "year": 2012,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"CONCEAL\".",
+      "options": [
+        "A. reveal",
+        "B. hide",
+        "C. cover",
+        "D. mask"
+      ],
+      "answer": 0,
+      "explanation": "reveal is the opposite of conceal."
+    },
+    {
+      "id": "y2012e3",
+      "year": 2012,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "By noon, the visitors _____.",
+      "options": [
+        "A. had arrived",
+        "B. has arrive",
+        "C. is arriving",
+        "D. will arrived"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"had arrived\"."
+    },
+    {
+      "id": "y2012e4",
+      "year": 2012,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"hit the nail on the head\" means",
+      "options": [
+        "A. be exactly right",
+        "B. cause damage",
+        "C. miss a target",
+        "D. work as a carpenter"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means be exactly right."
+    },
+    {
+      "id": "y2012e5",
+      "year": 2012,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "Students should _____ their time wisely.",
+      "options": [
+        "A. utilise",
+        "B. waste",
+        "C. avoid",
+        "D. postpone"
+      ],
+      "answer": 0,
+      "explanation": "\"utilise\" correctly completes the sentence."
+    },
+    {
+      "id": "y2012m1",
+      "year": 2012,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 5x + 8 = 33.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 8, then divide by 5; x = 5."
+    },
+    {
+      "id": "y2012m2",
+      "year": 2012,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2274. A discount of 20% is given. Find the sale price.",
+      "options": [
+        "A. ₦1819.20",
+        "B. ₦454.80",
+        "C. ₦2728.80",
+        "D. ₦2254"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 20% of ₦2274 = ₦454.80; sale price = ₦1819.20."
+    },
+    {
+      "id": "y2012m3",
+      "year": 2012,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1650 is shared in the ratio 4:7. Find the first share.",
+      "options": [
+        "A. ₦600",
+        "B. ₦1050",
+        "C. ₦1650",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 11; first share = 4 × ₦150 = ₦600."
+    },
+    {
+      "id": "y2012m4",
+      "year": 2012,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 5 cm.",
+      "options": [
+        "A. 25 cm²",
+        "B. 20 cm²",
+        "C. 10 cm²",
+        "D. 10 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 5² = 25 cm²."
+    },
+    {
+      "id": "y2012m5",
+      "year": 2012,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 6, 8, 10, 12.",
+      "options": [
+        "A. 9",
+        "B. 10",
+        "C. 8",
+        "D. 11"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 36 ÷ 4 = 9."
+    },
+    {
+      "id": "y2012p1",
+      "year": 2012,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 4 m s⁻¹ accelerates at 5 m s⁻² for 4 s. Find its final velocity.",
+      "options": [
+        "A. 24 m s⁻¹",
+        "B. 9 m s⁻¹",
+        "C. 20 m s⁻¹",
+        "D. 28 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 4 + 5×4 = 24 m s⁻¹."
+    },
+    {
+      "id": "y2012p2",
+      "year": 2012,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 5 Ω resistor carries 4 A. Calculate the potential difference.",
+      "options": [
+        "A. 20 V",
+        "B. 22 V",
+        "C. 1.25 V",
+        "D. 0.8 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 4 × 5 = 20 V."
+    },
+    {
+      "id": "y2012p3",
+      "year": 2012,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 4 kg object is raised 5 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 200 J",
+        "B. 20 J",
+        "C. 40 J",
+        "D. 100 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 4×10×5 = 200 J."
+    },
+    {
+      "id": "y2012p4",
+      "year": 2012,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 400 g and volume 500 cm³. Find its density.",
+      "options": [
+        "A. 0.80 g cm⁻³",
+        "B. 20.00 g cm⁻³",
+        "C. 1.25 g cm⁻³",
+        "D. 1.80 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 400/500 = 0.80 g cm⁻³."
+    },
+    {
+      "id": "y2012p5",
+      "year": 2012,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 4 Hz and wavelength 4 m. Find its speed.",
+      "options": [
+        "A. 16 m s⁻¹",
+        "B. 8 m s⁻¹",
+        "C. 1.00 m s⁻¹",
+        "D. 32 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 4×4 = 16 m s⁻¹."
+    },
+    {
+      "id": "y2012c1",
+      "year": 2012,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 3 mol of a substance with molar mass 16 g mol⁻¹.",
+      "options": [
+        "A. 48 g",
+        "B. 19 g",
+        "C. 5.33 g",
+        "D. 58 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 3×16 = 48 g."
+    },
+    {
+      "id": "y2012c2",
+      "year": 2012,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 8 protons and 10 neutrons. Find its mass number.",
+      "options": [
+        "A. 18",
+        "B. 10",
+        "C. 8",
+        "D. 2"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 18."
+    },
+    {
+      "id": "y2012c3",
+      "year": 2012,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 3 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2012c4",
+      "year": 2012,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 3 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2012c5",
+      "year": 2012,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 4 dm³ at 273 K. At constant pressure, what volume will it occupy at 287 K?",
+      "options": [
+        "A. 4.21 dm³",
+        "B. 3.80 dm³",
+        "C. 291 dm³",
+        "D. 4 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 4×287/273 = 4.21 dm³."
+    },
+    {
+      "id": "y2012b1",
+      "year": 2012,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2012b2",
+      "year": 2012,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 4 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2012b3",
+      "year": 2012,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2012b4",
+      "year": 2012,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the liver is",
+      "options": [
+        "A. production of bile and nutrient processing",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The liver is responsible for production of bile and nutrient processing."
+    },
+    {
+      "id": "y2012b5",
+      "year": 2012,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Animalia?",
+      "options": [
+        "A. obtains nutrients by ingestion",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Animalia is that it obtains nutrients by ingestion."
+    },
+    {
+      "id": "y2013e1",
+      "year": 2013,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"ELATED\".",
+      "options": [
+        "A. joyful",
+        "B. worried",
+        "C. tired",
+        "D. angry"
+      ],
+      "answer": 0,
+      "explanation": "elated means joyful."
+    },
+    {
+      "id": "y2013e2",
+      "year": 2013,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"GENEROUS\".",
+      "options": [
+        "A. stingy",
+        "B. kind",
+        "C. giving",
+        "D. charitable"
+      ],
+      "answer": 0,
+      "explanation": "stingy is the opposite of generous."
+    },
+    {
+      "id": "y2013e3",
+      "year": 2013,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "She prefers tea _____ coffee.",
+      "options": [
+        "A. to",
+        "B. than",
+        "C. from",
+        "D. over"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"to\"."
+    },
+    {
+      "id": "y2013e4",
+      "year": 2013,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"break the ice\" means",
+      "options": [
+        "A. make people relaxed",
+        "B. damage property",
+        "C. stop a meeting",
+        "D. start a quarrel"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means make people relaxed."
+    },
+    {
+      "id": "y2013e5",
+      "year": 2013,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "Keep the medicine out of the _____ of children.",
+      "options": [
+        "A. reach",
+        "B. sight",
+        "C. hearing",
+        "D. thought"
+      ],
+      "answer": 0,
+      "explanation": "\"reach\" correctly completes the sentence."
+    },
+    {
+      "id": "y2013m1",
+      "year": 2013,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 6x + 3 = 33.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 3, then divide by 6; x = 5."
+    },
+    {
+      "id": "y2013m2",
+      "year": 2013,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2411. A discount of 25% is given. Find the sale price.",
+      "options": [
+        "A. ₦1808.25",
+        "B. ₦602.75",
+        "C. ₦3013.75",
+        "D. ₦2386"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 25% of ₦2411 = ₦602.75; sale price = ₦1808.25."
+    },
+    {
+      "id": "y2013m3",
+      "year": 2013,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1200 is shared in the ratio 5:3. Find the first share.",
+      "options": [
+        "A. ₦750",
+        "B. ₦450",
+        "C. ₦1200",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 8; first share = 5 × ₦150 = ₦750."
+    },
+    {
+      "id": "y2013m4",
+      "year": 2013,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 6 cm.",
+      "options": [
+        "A. 36 cm²",
+        "B. 24 cm²",
+        "C. 12 cm²",
+        "D. 12 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 6² = 36 cm²."
+    },
+    {
+      "id": "y2013m5",
+      "year": 2013,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 7, 9, 11, 13.",
+      "options": [
+        "A. 10",
+        "B. 11",
+        "C. 9",
+        "D. 12"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 40 ÷ 4 = 10."
+    },
+    {
+      "id": "y2013p1",
+      "year": 2013,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 5 m s⁻¹ accelerates at 6 m s⁻² for 5 s. Find its final velocity.",
+      "options": [
+        "A. 35 m s⁻¹",
+        "B. 11 m s⁻¹",
+        "C. 30 m s⁻¹",
+        "D. 40 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 5 + 6×5 = 35 m s⁻¹."
+    },
+    {
+      "id": "y2013p2",
+      "year": 2013,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 6 Ω resistor carries 5 A. Calculate the potential difference.",
+      "options": [
+        "A. 30 V",
+        "B. 32 V",
+        "C. 1.2 V",
+        "D. 0.8333333333333334 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 5 × 6 = 30 V."
+    },
+    {
+      "id": "y2013p3",
+      "year": 2013,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 5 kg object is raised 6 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 300 J",
+        "B. 30 J",
+        "C. 50 J",
+        "D. 150 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 5×10×6 = 300 J."
+    },
+    {
+      "id": "y2013p4",
+      "year": 2013,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 500 g and volume 600 cm³. Find its density.",
+      "options": [
+        "A. 0.83 g cm⁻³",
+        "B. 30.00 g cm⁻³",
+        "C. 1.20 g cm⁻³",
+        "D. 1.83 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 500/600 = 0.83 g cm⁻³."
+    },
+    {
+      "id": "y2013p5",
+      "year": 2013,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 5 Hz and wavelength 5 m. Find its speed.",
+      "options": [
+        "A. 25 m s⁻¹",
+        "B. 10 m s⁻¹",
+        "C. 1.00 m s⁻¹",
+        "D. 50 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 5×5 = 25 m s⁻¹."
+    },
+    {
+      "id": "y2013c1",
+      "year": 2013,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 4 mol of a substance with molar mass 18 g mol⁻¹.",
+      "options": [
+        "A. 72 g",
+        "B. 22 g",
+        "C. 4.50 g",
+        "D. 82 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 4×18 = 72 g."
+    },
+    {
+      "id": "y2013c2",
+      "year": 2013,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 9 protons and 12 neutrons. Find its mass number.",
+      "options": [
+        "A. 21",
+        "B. 12",
+        "C. 9",
+        "D. 3"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 21."
+    },
+    {
+      "id": "y2013c3",
+      "year": 2013,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 4 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2013c4",
+      "year": 2013,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 4 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2013c5",
+      "year": 2013,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 5 dm³ at 273 K. At constant pressure, what volume will it occupy at 294 K?",
+      "options": [
+        "A. 5.38 dm³",
+        "B. 4.64 dm³",
+        "C. 299 dm³",
+        "D. 5 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 5×294/273 = 5.38 dm³."
+    },
+    {
+      "id": "y2013b1",
+      "year": 2013,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2013b2",
+      "year": 2013,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 5 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2013b3",
+      "year": 2013,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2013b4",
+      "year": 2013,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the heart is",
+      "options": [
+        "A. pumping blood around the body",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The heart is responsible for pumping blood around the body."
+    },
+    {
+      "id": "y2013b5",
+      "year": 2013,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Protista?",
+      "options": [
+        "A. consists of eukaryotic organisms",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Protista is that it consists of eukaryotic organisms."
+    },
+    {
+      "id": "y2014e1",
+      "year": 2014,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"FRUGAL\".",
+      "options": [
+        "A. economical",
+        "B. wasteful",
+        "C. reckless",
+        "D. generous"
+      ],
+      "answer": 0,
+      "explanation": "frugal means economical."
+    },
+    {
+      "id": "y2014e2",
+      "year": 2014,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"PERMIT\".",
+      "options": [
+        "A. forbid",
+        "B. allow",
+        "C. approve",
+        "D. accept"
+      ],
+      "answer": 0,
+      "explanation": "forbid is the opposite of permit."
+    },
+    {
+      "id": "y2014e3",
+      "year": 2014,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "Neither the boys nor their teacher _____ absent.",
+      "options": [
+        "A. was",
+        "B. were",
+        "C. are",
+        "D. have"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"was\"."
+    },
+    {
+      "id": "y2014e4",
+      "year": 2014,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"blessing in disguise\" means",
+      "options": [
+        "A. good from an apparent misfortune",
+        "B. an obvious disaster",
+        "C. a public event",
+        "D. an expensive gift"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means good from an apparent misfortune."
+    },
+    {
+      "id": "y2014e5",
+      "year": 2014,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The panel will _____ the proposal.",
+      "options": [
+        "A. consider",
+        "B. scatter",
+        "C. forget",
+        "D. decorate"
+      ],
+      "answer": 0,
+      "explanation": "\"consider\" correctly completes the sentence."
+    },
+    {
+      "id": "y2014m1",
+      "year": 2014,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 7x + 6 = 41.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 6, then divide by 7; x = 5."
+    },
+    {
+      "id": "y2014m2",
+      "year": 2014,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2548. A discount of 30% is given. Find the sale price.",
+      "options": [
+        "A. ₦1783.60",
+        "B. ₦764.40",
+        "C. ₦3312.40",
+        "D. ₦2518"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 30% of ₦2548 = ₦764.40; sale price = ₦1783.60."
+    },
+    {
+      "id": "y2014m3",
+      "year": 2014,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1650 is shared in the ratio 6:5. Find the first share.",
+      "options": [
+        "A. ₦900",
+        "B. ₦750",
+        "C. ₦1650",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 11; first share = 6 × ₦150 = ₦900."
+    },
+    {
+      "id": "y2014m4",
+      "year": 2014,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 7 cm.",
+      "options": [
+        "A. 49 cm²",
+        "B. 28 cm²",
+        "C. 14 cm²",
+        "D. 14 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 7² = 49 cm²."
+    },
+    {
+      "id": "y2014m5",
+      "year": 2014,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 4, 10, 12, 14.",
+      "options": [
+        "A. 10",
+        "B. 11",
+        "C. 9",
+        "D. 12"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 40 ÷ 4 = 10."
+    },
+    {
+      "id": "y2014p1",
+      "year": 2014,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 6 m s⁻¹ accelerates at 7 m s⁻² for 2 s. Find its final velocity.",
+      "options": [
+        "A. 20 m s⁻¹",
+        "B. 13 m s⁻¹",
+        "C. 14 m s⁻¹",
+        "D. 22 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 6 + 7×2 = 20 m s⁻¹."
+    },
+    {
+      "id": "y2014p2",
+      "year": 2014,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 7 Ω resistor carries 6 A. Calculate the potential difference.",
+      "options": [
+        "A. 42 V",
+        "B. 44 V",
+        "C. 1.1666666666666667 V",
+        "D. 0.8571428571428571 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 6 × 7 = 42 V."
+    },
+    {
+      "id": "y2014p3",
+      "year": 2014,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 6 kg object is raised 7 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 420 J",
+        "B. 42 J",
+        "C. 60 J",
+        "D. 210 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 6×10×7 = 420 J."
+    },
+    {
+      "id": "y2014p4",
+      "year": 2014,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 600 g and volume 700 cm³. Find its density.",
+      "options": [
+        "A. 0.86 g cm⁻³",
+        "B. 42.00 g cm⁻³",
+        "C. 1.17 g cm⁻³",
+        "D. 1.86 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 600/700 = 0.86 g cm⁻³."
+    },
+    {
+      "id": "y2014p5",
+      "year": 2014,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 6 Hz and wavelength 6 m. Find its speed.",
+      "options": [
+        "A. 36 m s⁻¹",
+        "B. 12 m s⁻¹",
+        "C. 1.00 m s⁻¹",
+        "D. 72 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 6×6 = 36 m s⁻¹."
+    },
+    {
+      "id": "y2014c1",
+      "year": 2014,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 5 mol of a substance with molar mass 12 g mol⁻¹.",
+      "options": [
+        "A. 60 g",
+        "B. 17 g",
+        "C. 2.40 g",
+        "D. 70 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 5×12 = 60 g."
+    },
+    {
+      "id": "y2014c2",
+      "year": 2014,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 10 protons and 14 neutrons. Find its mass number.",
+      "options": [
+        "A. 24",
+        "B. 14",
+        "C. 10",
+        "D. 4"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 24."
+    },
+    {
+      "id": "y2014c3",
+      "year": 2014,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 5 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2014c4",
+      "year": 2014,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 5 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2014c5",
+      "year": 2014,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 6 dm³ at 273 K. At constant pressure, what volume will it occupy at 301 K?",
+      "options": [
+        "A. 6.62 dm³",
+        "B. 5.44 dm³",
+        "C. 307 dm³",
+        "D. 6 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 6×301/273 = 6.62 dm³."
+    },
+    {
+      "id": "y2014b1",
+      "year": 2014,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2014b2",
+      "year": 2014,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 2 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2014b3",
+      "year": 2014,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2014b4",
+      "year": 2014,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the small intestine is",
+      "options": [
+        "A. absorption of digested nutrients",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The small intestine is responsible for absorption of digested nutrients."
+    },
+    {
+      "id": "y2014b5",
+      "year": 2014,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Monera?",
+      "options": [
+        "A. has prokaryotic cells",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Monera is that it has prokaryotic cells."
+    },
+    {
+      "id": "y2015e1",
+      "year": 2015,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"HINDER\".",
+      "options": [
+        "A. obstruct",
+        "B. assist",
+        "C. finish",
+        "D. explain"
+      ],
+      "answer": 0,
+      "explanation": "hinder means obstruct."
+    },
+    {
+      "id": "y2015e2",
+      "year": 2015,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"VICTORY\".",
+      "options": [
+        "A. defeat",
+        "B. success",
+        "C. triumph",
+        "D. win"
+      ],
+      "answer": 0,
+      "explanation": "defeat is the opposite of victory."
+    },
+    {
+      "id": "y2015e3",
+      "year": 2015,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "If I _____ earlier, I would have seen him.",
+      "options": [
+        "A. had left",
+        "B. leave",
+        "C. left",
+        "D. have leave"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"had left\"."
+    },
+    {
+      "id": "y2015e4",
+      "year": 2015,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"burn the midnight oil\" means",
+      "options": [
+        "A. work late",
+        "B. waste electricity",
+        "C. light a fire",
+        "D. sleep early"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means work late."
+    },
+    {
+      "id": "y2015e5",
+      "year": 2015,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "A good leader listens _____.",
+      "options": [
+        "A. carefully",
+        "B. careless",
+        "C. care",
+        "D. caring"
+      ],
+      "answer": 0,
+      "explanation": "\"carefully\" correctly completes the sentence."
+    },
+    {
+      "id": "y2015m1",
+      "year": 2015,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 8x + 9 = 49.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 9, then divide by 8; x = 5."
+    },
+    {
+      "id": "y2015m2",
+      "year": 2015,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2685. A discount of 35% is given. Find the sale price.",
+      "options": [
+        "A. ₦1745.25",
+        "B. ₦939.75",
+        "C. ₦3624.75",
+        "D. ₦2650"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 35% of ₦2685 = ₦939.75; sale price = ₦1745.25."
+    },
+    {
+      "id": "y2015m3",
+      "year": 2015,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1350 is shared in the ratio 2:7. Find the first share.",
+      "options": [
+        "A. ₦300",
+        "B. ₦1050",
+        "C. ₦1350",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 9; first share = 2 × ₦150 = ₦300."
+    },
+    {
+      "id": "y2015m4",
+      "year": 2015,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 8 cm.",
+      "options": [
+        "A. 64 cm²",
+        "B. 32 cm²",
+        "C. 16 cm²",
+        "D. 16 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 8² = 64 cm²."
+    },
+    {
+      "id": "y2015m5",
+      "year": 2015,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 5, 6, 13, 15.",
+      "options": [
+        "A. 9.75",
+        "B. 10.75",
+        "C. 8.75",
+        "D. 11.75"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 39 ÷ 4 = 9.75."
+    },
+    {
+      "id": "y2015p1",
+      "year": 2015,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 7 m s⁻¹ accelerates at 3 m s⁻² for 3 s. Find its final velocity.",
+      "options": [
+        "A. 16 m s⁻¹",
+        "B. 10 m s⁻¹",
+        "C. 9 m s⁻¹",
+        "D. 19 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 7 + 3×3 = 16 m s⁻¹."
+    },
+    {
+      "id": "y2015p2",
+      "year": 2015,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 8 Ω resistor carries 7 A. Calculate the potential difference.",
+      "options": [
+        "A. 56 V",
+        "B. 58 V",
+        "C. 1.1428571428571428 V",
+        "D. 0.875 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 7 × 8 = 56 V."
+    },
+    {
+      "id": "y2015p3",
+      "year": 2015,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 7 kg object is raised 8 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 560 J",
+        "B. 56 J",
+        "C. 70 J",
+        "D. 280 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 7×10×8 = 560 J."
+    },
+    {
+      "id": "y2015p4",
+      "year": 2015,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 700 g and volume 800 cm³. Find its density.",
+      "options": [
+        "A. 0.88 g cm⁻³",
+        "B. 56.00 g cm⁻³",
+        "C. 1.14 g cm⁻³",
+        "D. 1.88 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 700/800 = 0.88 g cm⁻³."
+    },
+    {
+      "id": "y2015p5",
+      "year": 2015,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 7 Hz and wavelength 2 m. Find its speed.",
+      "options": [
+        "A. 14 m s⁻¹",
+        "B. 9 m s⁻¹",
+        "C. 3.50 m s⁻¹",
+        "D. 28 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 7×2 = 14 m s⁻¹."
+    },
+    {
+      "id": "y2015c1",
+      "year": 2015,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 6 mol of a substance with molar mass 14 g mol⁻¹.",
+      "options": [
+        "A. 84 g",
+        "B. 20 g",
+        "C. 2.33 g",
+        "D. 94 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 6×14 = 84 g."
+    },
+    {
+      "id": "y2015c2",
+      "year": 2015,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 11 protons and 16 neutrons. Find its mass number.",
+      "options": [
+        "A. 27",
+        "B. 16",
+        "C. 11",
+        "D. 5"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 27."
+    },
+    {
+      "id": "y2015c3",
+      "year": 2015,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 1 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2015c4",
+      "year": 2015,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 6 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2015c5",
+      "year": 2015,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 2 dm³ at 273 K. At constant pressure, what volume will it occupy at 308 K?",
+      "options": [
+        "A. 2.26 dm³",
+        "B. 1.77 dm³",
+        "C. 310 dm³",
+        "D. 2 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 2×308/273 = 2.26 dm³."
+    },
+    {
+      "id": "y2015b1",
+      "year": 2015,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2015b2",
+      "year": 2015,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 3 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2015b3",
+      "year": 2015,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2015b4",
+      "year": 2015,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the kidney is",
+      "options": [
+        "A. removal of nitrogenous wastes and water regulation",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The kidney is responsible for removal of nitrogenous wastes and water regulation."
+    },
+    {
+      "id": "y2015b5",
+      "year": 2015,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Fungi?",
+      "options": [
+        "A. absorbs nutrients from organic material",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Fungi is that it absorbs nutrients from organic material."
+    },
+    {
+      "id": "y2016e1",
+      "year": 2016,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"IMPARTIAL\".",
+      "options": [
+        "A. unbiased",
+        "B. hostile",
+        "C. careless",
+        "D. uncertain"
+      ],
+      "answer": 0,
+      "explanation": "impartial means unbiased."
+    },
+    {
+      "id": "y2016e2",
+      "year": 2016,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"FREQUENT\".",
+      "options": [
+        "A. rare",
+        "B. common",
+        "C. regular",
+        "D. usual"
+      ],
+      "answer": 0,
+      "explanation": "rare is the opposite of frequent."
+    },
+    {
+      "id": "y2016e3",
+      "year": 2016,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "The books, with the pen, _____ on the desk.",
+      "options": [
+        "A. are",
+        "B. is",
+        "C. was",
+        "D. has"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"are\"."
+    },
+    {
+      "id": "y2016e4",
+      "year": 2016,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"call it a day\" means",
+      "options": [
+        "A. stop work for now",
+        "B. make a phone call",
+        "C. begin a task",
+        "D. announce a date"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means stop work for now."
+    },
+    {
+      "id": "y2016e5",
+      "year": 2016,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The bridge was closed because it was no longer _____.",
+      "options": [
+        "A. safe",
+        "B. safely",
+        "C. safety",
+        "D. safer"
+      ],
+      "answer": 0,
+      "explanation": "\"safe\" correctly completes the sentence."
+    },
+    {
+      "id": "y2016m1",
+      "year": 2016,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 9x + 4 = 49.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 4, then divide by 9; x = 5."
+    },
+    {
+      "id": "y2016m2",
+      "year": 2016,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2822. A discount of 40% is given. Find the sale price.",
+      "options": [
+        "A. ₦1693.20",
+        "B. ₦1128.80",
+        "C. ₦3950.80",
+        "D. ₦2782"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 40% of ₦2822 = ₦1128.80; sale price = ₦1693.20."
+    },
+    {
+      "id": "y2016m3",
+      "year": 2016,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦900 is shared in the ratio 3:3. Find the first share.",
+      "options": [
+        "A. ₦450",
+        "B. ₦450",
+        "C. ₦900",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 6; first share = 3 × ₦150 = ₦450."
+    },
+    {
+      "id": "y2016m4",
+      "year": 2016,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 9 cm.",
+      "options": [
+        "A. 81 cm²",
+        "B. 36 cm²",
+        "C. 18 cm²",
+        "D. 18 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 9² = 81 cm²."
+    },
+    {
+      "id": "y2016m5",
+      "year": 2016,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 6, 7, 8, 16.",
+      "options": [
+        "A. 9.25",
+        "B. 10.25",
+        "C. 8.25",
+        "D. 11.25"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 37 ÷ 4 = 9.25."
+    },
+    {
+      "id": "y2016p1",
+      "year": 2016,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 2 m s⁻¹ accelerates at 4 m s⁻² for 4 s. Find its final velocity.",
+      "options": [
+        "A. 18 m s⁻¹",
+        "B. 6 m s⁻¹",
+        "C. 16 m s⁻¹",
+        "D. 22 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 2 + 4×4 = 18 m s⁻¹."
+    },
+    {
+      "id": "y2016p2",
+      "year": 2016,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 9 Ω resistor carries 8 A. Calculate the potential difference.",
+      "options": [
+        "A. 72 V",
+        "B. 74 V",
+        "C. 1.125 V",
+        "D. 0.8888888888888888 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 8 × 9 = 72 V."
+    },
+    {
+      "id": "y2016p3",
+      "year": 2016,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 8 kg object is raised 9 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 720 J",
+        "B. 72 J",
+        "C. 80 J",
+        "D. 360 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 8×10×9 = 720 J."
+    },
+    {
+      "id": "y2016p4",
+      "year": 2016,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 800 g and volume 300 cm³. Find its density.",
+      "options": [
+        "A. 2.67 g cm⁻³",
+        "B. 24.00 g cm⁻³",
+        "C. 0.38 g cm⁻³",
+        "D. 3.67 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 800/300 = 2.67 g cm⁻³."
+    },
+    {
+      "id": "y2016p5",
+      "year": 2016,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 8 Hz and wavelength 3 m. Find its speed.",
+      "options": [
+        "A. 24 m s⁻¹",
+        "B. 11 m s⁻¹",
+        "C. 2.67 m s⁻¹",
+        "D. 48 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 8×3 = 24 m s⁻¹."
+    },
+    {
+      "id": "y2016c1",
+      "year": 2016,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 1 mol of a substance with molar mass 16 g mol⁻¹.",
+      "options": [
+        "A. 16 g",
+        "B. 17 g",
+        "C. 16.00 g",
+        "D. 26 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 1×16 = 16 g."
+    },
+    {
+      "id": "y2016c2",
+      "year": 2016,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 12 protons and 18 neutrons. Find its mass number.",
+      "options": [
+        "A. 30",
+        "B. 18",
+        "C. 12",
+        "D. 6"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 30."
+    },
+    {
+      "id": "y2016c3",
+      "year": 2016,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 2 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2016c4",
+      "year": 2016,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 7 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2016c5",
+      "year": 2016,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 3 dm³ at 273 K. At constant pressure, what volume will it occupy at 315 K?",
+      "options": [
+        "A. 3.46 dm³",
+        "B. 2.60 dm³",
+        "C. 318 dm³",
+        "D. 3 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 3×315/273 = 3.46 dm³."
+    },
+    {
+      "id": "y2016b1",
+      "year": 2016,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2016b2",
+      "year": 2016,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 4 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2016b3",
+      "year": 2016,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2016b4",
+      "year": 2016,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the lung is",
+      "options": [
+        "A. gas exchange between air and blood",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The lung is responsible for gas exchange between air and blood."
+    },
+    {
+      "id": "y2016b5",
+      "year": 2016,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Plantae?",
+      "options": [
+        "A. typically contains chlorophyll for photosynthesis",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Plantae is that it typically contains chlorophyll for photosynthesis."
+    },
+    {
+      "id": "y2017e1",
+      "year": 2017,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"METICULOUS\".",
+      "options": [
+        "A. thorough",
+        "B. careless",
+        "C. annoyed",
+        "D. reckless"
+      ],
+      "answer": 0,
+      "explanation": "meticulous means thorough."
+    },
+    {
+      "id": "y2017e2",
+      "year": 2017,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"HUMBLE\".",
+      "options": [
+        "A. arrogant",
+        "B. modest",
+        "C. simple",
+        "D. plain"
+      ],
+      "answer": 0,
+      "explanation": "arrogant is the opposite of humble."
+    },
+    {
+      "id": "y2017e3",
+      "year": 2017,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "He has worked here _____ 2020.",
+      "options": [
+        "A. since",
+        "B. for",
+        "C. during",
+        "D. by"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"since\"."
+    },
+    {
+      "id": "y2017e4",
+      "year": 2017,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"get cold feet\" means",
+      "options": [
+        "A. become nervous",
+        "B. feel cold",
+        "C. become ill",
+        "D. walk barefoot"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means become nervous."
+    },
+    {
+      "id": "y2017e5",
+      "year": 2017,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The farmer expects a _____ harvest.",
+      "options": [
+        "A. bountiful",
+        "B. empty",
+        "C. scarce",
+        "D. weak"
+      ],
+      "answer": 0,
+      "explanation": "\"bountiful\" correctly completes the sentence."
+    },
+    {
+      "id": "y2017m1",
+      "year": 2017,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 3x + 7 = 22.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 7, then divide by 3; x = 5."
+    },
+    {
+      "id": "y2017m2",
+      "year": 2017,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦2959. A discount of 10% is given. Find the sale price.",
+      "options": [
+        "A. ₦2663.10",
+        "B. ₦295.90",
+        "C. ₦3254.90",
+        "D. ₦2949"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 10% of ₦2959 = ₦295.90; sale price = ₦2663.10."
+    },
+    {
+      "id": "y2017m3",
+      "year": 2017,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1350 is shared in the ratio 4:5. Find the first share.",
+      "options": [
+        "A. ₦600",
+        "B. ₦750",
+        "C. ₦1350",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 9; first share = 4 × ₦150 = ₦600."
+    },
+    {
+      "id": "y2017m4",
+      "year": 2017,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 10 cm.",
+      "options": [
+        "A. 100 cm²",
+        "B. 40 cm²",
+        "C. 20 cm²",
+        "D. 20 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 10² = 100 cm²."
+    },
+    {
+      "id": "y2017m5",
+      "year": 2017,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 7, 8, 9, 10.",
+      "options": [
+        "A. 8.5",
+        "B. 9.5",
+        "C. 7.5",
+        "D. 10.5"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 34 ÷ 4 = 8.5."
+    },
+    {
+      "id": "y2017p1",
+      "year": 2017,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 3 m s⁻¹ accelerates at 5 m s⁻² for 5 s. Find its final velocity.",
+      "options": [
+        "A. 28 m s⁻¹",
+        "B. 8 m s⁻¹",
+        "C. 25 m s⁻¹",
+        "D. 33 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 3 + 5×5 = 28 m s⁻¹."
+    },
+    {
+      "id": "y2017p2",
+      "year": 2017,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 3 Ω resistor carries 9 A. Calculate the potential difference.",
+      "options": [
+        "A. 27 V",
+        "B. 29 V",
+        "C. 0.3333333333333333 V",
+        "D. 3 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 9 × 3 = 27 V."
+    },
+    {
+      "id": "y2017p3",
+      "year": 2017,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 9 kg object is raised 10 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 900 J",
+        "B. 90 J",
+        "C. 90 J",
+        "D. 450 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 9×10×10 = 900 J."
+    },
+    {
+      "id": "y2017p4",
+      "year": 2017,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 200 g and volume 400 cm³. Find its density.",
+      "options": [
+        "A. 0.50 g cm⁻³",
+        "B. 8.00 g cm⁻³",
+        "C. 2.00 g cm⁻³",
+        "D. 1.50 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 200/400 = 0.50 g cm⁻³."
+    },
+    {
+      "id": "y2017p5",
+      "year": 2017,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 2 Hz and wavelength 4 m. Find its speed.",
+      "options": [
+        "A. 8 m s⁻¹",
+        "B. 6 m s⁻¹",
+        "C. 0.50 m s⁻¹",
+        "D. 16 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 2×4 = 8 m s⁻¹."
+    },
+    {
+      "id": "y2017c1",
+      "year": 2017,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 2 mol of a substance with molar mass 18 g mol⁻¹.",
+      "options": [
+        "A. 36 g",
+        "B. 20 g",
+        "C. 9.00 g",
+        "D. 46 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 2×18 = 36 g."
+    },
+    {
+      "id": "y2017c2",
+      "year": 2017,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 13 protons and 6 neutrons. Find its mass number.",
+      "options": [
+        "A. 19",
+        "B. 6",
+        "C. 13",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 19."
+    },
+    {
+      "id": "y2017c3",
+      "year": 2017,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 3 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2017c4",
+      "year": 2017,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 1 electron during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2017c5",
+      "year": 2017,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 4 dm³ at 273 K. At constant pressure, what volume will it occupy at 322 K?",
+      "options": [
+        "A. 4.72 dm³",
+        "B. 3.39 dm³",
+        "C. 326 dm³",
+        "D. 4 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 4×322/273 = 4.72 dm³."
+    },
+    {
+      "id": "y2017b1",
+      "year": 2017,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2017b2",
+      "year": 2017,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 5 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2017b3",
+      "year": 2017,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2017b4",
+      "year": 2017,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the liver is",
+      "options": [
+        "A. production of bile and nutrient processing",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The liver is responsible for production of bile and nutrient processing."
+    },
+    {
+      "id": "y2017b5",
+      "year": 2017,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Animalia?",
+      "options": [
+        "A. obtains nutrients by ingestion",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Animalia is that it obtains nutrients by ingestion."
+    },
+    {
+      "id": "y2018e1",
+      "year": 2018,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"OBSOLETE\".",
+      "options": [
+        "A. outdated",
+        "B. modern",
+        "C. praised",
+        "D. expensive"
+      ],
+      "answer": 0,
+      "explanation": "obsolete means outdated."
+    },
+    {
+      "id": "y2018e2",
+      "year": 2018,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"RIGID\".",
+      "options": [
+        "A. flexible",
+        "B. stiff",
+        "C. firm",
+        "D. solid"
+      ],
+      "answer": 0,
+      "explanation": "flexible is the opposite of rigid."
+    },
+    {
+      "id": "y2018e3",
+      "year": 2018,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "The committee _____ made its decision.",
+      "options": [
+        "A. has",
+        "B. have",
+        "C. are",
+        "D. were"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"has\"."
+    },
+    {
+      "id": "y2018e4",
+      "year": 2018,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"in hot water\" means",
+      "options": [
+        "A. in trouble",
+        "B. taking a bath",
+        "C. feeling warm",
+        "D. outdoors"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means in trouble."
+    },
+    {
+      "id": "y2018e5",
+      "year": 2018,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The witness gave a _____ account.",
+      "options": [
+        "A. detailed",
+        "B. detail",
+        "C. detailing",
+        "D. details"
+      ],
+      "answer": 0,
+      "explanation": "\"detailed\" correctly completes the sentence."
+    },
+    {
+      "id": "y2018m1",
+      "year": 2018,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 4x + 2 = 22.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 2, then divide by 4; x = 5."
+    },
+    {
+      "id": "y2018m2",
+      "year": 2018,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3096. A discount of 15% is given. Find the sale price.",
+      "options": [
+        "A. ₦2631.60",
+        "B. ₦464.40",
+        "C. ₦3560.40",
+        "D. ₦3081"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 15% of ₦3096 = ₦464.40; sale price = ₦2631.60."
+    },
+    {
+      "id": "y2018m3",
+      "year": 2018,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1800 is shared in the ratio 5:7. Find the first share.",
+      "options": [
+        "A. ₦750",
+        "B. ₦1050",
+        "C. ₦1800",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 12; first share = 5 × ₦150 = ₦750."
+    },
+    {
+      "id": "y2018m4",
+      "year": 2018,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 11 cm.",
+      "options": [
+        "A. 121 cm²",
+        "B. 44 cm²",
+        "C. 22 cm²",
+        "D. 22 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 11² = 121 cm²."
+    },
+    {
+      "id": "y2018m5",
+      "year": 2018,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 4, 9, 10, 11.",
+      "options": [
+        "A. 8.5",
+        "B. 9.5",
+        "C. 7.5",
+        "D. 10.5"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 34 ÷ 4 = 8.5."
+    },
+    {
+      "id": "y2018p1",
+      "year": 2018,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 4 m s⁻¹ accelerates at 6 m s⁻² for 2 s. Find its final velocity.",
+      "options": [
+        "A. 16 m s⁻¹",
+        "B. 10 m s⁻¹",
+        "C. 12 m s⁻¹",
+        "D. 18 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 4 + 6×2 = 16 m s⁻¹."
+    },
+    {
+      "id": "y2018p2",
+      "year": 2018,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 4 Ω resistor carries 2 A. Calculate the potential difference.",
+      "options": [
+        "A. 8 V",
+        "B. 10 V",
+        "C. 2 V",
+        "D. 0.5 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 2 × 4 = 8 V."
+    },
+    {
+      "id": "y2018p3",
+      "year": 2018,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 10 kg object is raised 3 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 300 J",
+        "B. 30 J",
+        "C. 100 J",
+        "D. 150 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 10×10×3 = 300 J."
+    },
+    {
+      "id": "y2018p4",
+      "year": 2018,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 300 g and volume 500 cm³. Find its density.",
+      "options": [
+        "A. 0.60 g cm⁻³",
+        "B. 15.00 g cm⁻³",
+        "C. 1.67 g cm⁻³",
+        "D. 1.60 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 300/500 = 0.60 g cm⁻³."
+    },
+    {
+      "id": "y2018p5",
+      "year": 2018,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 3 Hz and wavelength 5 m. Find its speed.",
+      "options": [
+        "A. 15 m s⁻¹",
+        "B. 8 m s⁻¹",
+        "C. 0.60 m s⁻¹",
+        "D. 30 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 3×5 = 15 m s⁻¹."
+    },
+    {
+      "id": "y2018c1",
+      "year": 2018,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 3 mol of a substance with molar mass 12 g mol⁻¹.",
+      "options": [
+        "A. 36 g",
+        "B. 15 g",
+        "C. 4.00 g",
+        "D. 46 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 3×12 = 36 g."
+    },
+    {
+      "id": "y2018c2",
+      "year": 2018,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 14 protons and 8 neutrons. Find its mass number.",
+      "options": [
+        "A. 22",
+        "B. 8",
+        "C. 14",
+        "D. 6"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 22."
+    },
+    {
+      "id": "y2018c3",
+      "year": 2018,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 4 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2018c4",
+      "year": 2018,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 2 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2018c5",
+      "year": 2018,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 5 dm³ at 273 K. At constant pressure, what volume will it occupy at 329 K?",
+      "options": [
+        "A. 6.03 dm³",
+        "B. 4.15 dm³",
+        "C. 334 dm³",
+        "D. 5 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 5×329/273 = 6.03 dm³."
+    },
+    {
+      "id": "y2018b1",
+      "year": 2018,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2018b2",
+      "year": 2018,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 2 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2018b3",
+      "year": 2018,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2018b4",
+      "year": 2018,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the heart is",
+      "options": [
+        "A. pumping blood around the body",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The heart is responsible for pumping blood around the body."
+    },
+    {
+      "id": "y2018b5",
+      "year": 2018,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Protista?",
+      "options": [
+        "A. consists of eukaryotic organisms",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Protista is that it consists of eukaryotic organisms."
+    },
+    {
+      "id": "y2019e1",
+      "year": 2019,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"PRUDENT\".",
+      "options": [
+        "A. wise",
+        "B. rash",
+        "C. dishonest",
+        "D. noisy"
+      ],
+      "answer": 0,
+      "explanation": "prudent means wise."
+    },
+    {
+      "id": "y2019e2",
+      "year": 2019,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"OPTIMISTIC\".",
+      "options": [
+        "A. pessimistic",
+        "B. hopeful",
+        "C. positive",
+        "D. confident"
+      ],
+      "answer": 0,
+      "explanation": "pessimistic is the opposite of optimistic."
+    },
+    {
+      "id": "y2019e3",
+      "year": 2019,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "No sooner had he sat down _____ the bell rang.",
+      "options": [
+        "A. than",
+        "B. when",
+        "C. then",
+        "D. while"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"than\"."
+    },
+    {
+      "id": "y2019e4",
+      "year": 2019,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"keep an eye on\" means",
+      "options": [
+        "A. watch carefully",
+        "B. close one's eyes",
+        "C. avoid someone",
+        "D. look away"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means watch carefully."
+    },
+    {
+      "id": "y2019e5",
+      "year": 2019,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The coach urged the players to remain _____.",
+      "options": [
+        "A. focused",
+        "B. focus",
+        "C. focusing",
+        "D. focuses"
+      ],
+      "answer": 0,
+      "explanation": "\"focused\" correctly completes the sentence."
+    },
+    {
+      "id": "y2019m1",
+      "year": 2019,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 5x + 5 = 30.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 5, then divide by 5; x = 5."
+    },
+    {
+      "id": "y2019m2",
+      "year": 2019,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3233. A discount of 20% is given. Find the sale price.",
+      "options": [
+        "A. ₦2586.40",
+        "B. ₦646.60",
+        "C. ₦3879.60",
+        "D. ₦3213"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 20% of ₦3233 = ₦646.60; sale price = ₦2586.40."
+    },
+    {
+      "id": "y2019m3",
+      "year": 2019,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1350 is shared in the ratio 6:3. Find the first share.",
+      "options": [
+        "A. ₦900",
+        "B. ₦450",
+        "C. ₦1350",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 9; first share = 6 × ₦150 = ₦900."
+    },
+    {
+      "id": "y2019m4",
+      "year": 2019,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 3 cm.",
+      "options": [
+        "A. 9 cm²",
+        "B. 12 cm²",
+        "C. 6 cm²",
+        "D. 6 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 3² = 9 cm²."
+    },
+    {
+      "id": "y2019m5",
+      "year": 2019,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 5, 10, 11, 12.",
+      "options": [
+        "A. 9.5",
+        "B. 10.5",
+        "C. 8.5",
+        "D. 11.5"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 38 ÷ 4 = 9.5."
+    },
+    {
+      "id": "y2019p1",
+      "year": 2019,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 5 m s⁻¹ accelerates at 7 m s⁻² for 3 s. Find its final velocity.",
+      "options": [
+        "A. 26 m s⁻¹",
+        "B. 12 m s⁻¹",
+        "C. 21 m s⁻¹",
+        "D. 29 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 5 + 7×3 = 26 m s⁻¹."
+    },
+    {
+      "id": "y2019p2",
+      "year": 2019,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 5 Ω resistor carries 3 A. Calculate the potential difference.",
+      "options": [
+        "A. 15 V",
+        "B. 17 V",
+        "C. 1.6666666666666667 V",
+        "D. 0.6 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 3 × 5 = 15 V."
+    },
+    {
+      "id": "y2019p3",
+      "year": 2019,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 2 kg object is raised 4 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 80 J",
+        "B. 8 J",
+        "C. 20 J",
+        "D. 40 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 2×10×4 = 80 J."
+    },
+    {
+      "id": "y2019p4",
+      "year": 2019,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 400 g and volume 600 cm³. Find its density.",
+      "options": [
+        "A. 0.67 g cm⁻³",
+        "B. 24.00 g cm⁻³",
+        "C. 1.50 g cm⁻³",
+        "D. 1.67 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 400/600 = 0.67 g cm⁻³."
+    },
+    {
+      "id": "y2019p5",
+      "year": 2019,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 4 Hz and wavelength 6 m. Find its speed.",
+      "options": [
+        "A. 24 m s⁻¹",
+        "B. 10 m s⁻¹",
+        "C. 0.67 m s⁻¹",
+        "D. 48 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 4×6 = 24 m s⁻¹."
+    },
+    {
+      "id": "y2019c1",
+      "year": 2019,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 4 mol of a substance with molar mass 14 g mol⁻¹.",
+      "options": [
+        "A. 56 g",
+        "B. 18 g",
+        "C. 3.50 g",
+        "D. 66 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 4×14 = 56 g."
+    },
+    {
+      "id": "y2019c2",
+      "year": 2019,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 15 protons and 10 neutrons. Find its mass number.",
+      "options": [
+        "A. 25",
+        "B. 10",
+        "C. 15",
+        "D. 5"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 25."
+    },
+    {
+      "id": "y2019c3",
+      "year": 2019,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 5 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2019c4",
+      "year": 2019,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 3 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2019c5",
+      "year": 2019,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 6 dm³ at 273 K. At constant pressure, what volume will it occupy at 336 K?",
+      "options": [
+        "A. 7.38 dm³",
+        "B. 4.88 dm³",
+        "C. 342 dm³",
+        "D. 6 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 6×336/273 = 7.38 dm³."
+    },
+    {
+      "id": "y2019b1",
+      "year": 2019,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2019b2",
+      "year": 2019,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 3 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2019b3",
+      "year": 2019,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2019b4",
+      "year": 2019,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the small intestine is",
+      "options": [
+        "A. absorption of digested nutrients",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The small intestine is responsible for absorption of digested nutrients."
+    },
+    {
+      "id": "y2019b5",
+      "year": 2019,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Monera?",
+      "options": [
+        "A. has prokaryotic cells",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Monera is that it has prokaryotic cells."
+    },
+    {
+      "id": "y2020e1",
+      "year": 2020,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"RELUCTANT\".",
+      "options": [
+        "A. unwilling",
+        "B. eager",
+        "C. prepared",
+        "D. certain"
+      ],
+      "answer": 0,
+      "explanation": "reluctant means unwilling."
+    },
+    {
+      "id": "y2020e2",
+      "year": 2020,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"TRANSPARENT\".",
+      "options": [
+        "A. opaque",
+        "B. clear",
+        "C. open",
+        "D. obvious"
+      ],
+      "answer": 0,
+      "explanation": "opaque is the opposite of transparent."
+    },
+    {
+      "id": "y2020e3",
+      "year": 2020,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "One of the girls _____ won the prize.",
+      "options": [
+        "A. has",
+        "B. have",
+        "C. are",
+        "D. were"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"has\"."
+    },
+    {
+      "id": "y2020e4",
+      "year": 2020,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"make ends meet\" means",
+      "options": [
+        "A. manage one's expenses",
+        "B. finish a rope",
+        "C. end a journey",
+        "D. settle a quarrel"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means manage one's expenses."
+    },
+    {
+      "id": "y2020e5",
+      "year": 2020,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The policy should _____ access to education.",
+      "options": [
+        "A. improve",
+        "B. improvement",
+        "C. improved",
+        "D. improving"
+      ],
+      "answer": 0,
+      "explanation": "\"improve\" correctly completes the sentence."
+    },
+    {
+      "id": "y2020m1",
+      "year": 2020,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 6x + 8 = 38.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 8, then divide by 6; x = 5."
+    },
+    {
+      "id": "y2020m2",
+      "year": 2020,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3370. A discount of 25% is given. Find the sale price.",
+      "options": [
+        "A. ₦2527.50",
+        "B. ₦842.50",
+        "C. ₦4212.50",
+        "D. ₦3345"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 25% of ₦3370 = ₦842.50; sale price = ₦2527.50."
+    },
+    {
+      "id": "y2020m3",
+      "year": 2020,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1050 is shared in the ratio 2:5. Find the first share.",
+      "options": [
+        "A. ₦300",
+        "B. ₦750",
+        "C. ₦1050",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 7; first share = 2 × ₦150 = ₦300."
+    },
+    {
+      "id": "y2020m4",
+      "year": 2020,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 4 cm.",
+      "options": [
+        "A. 16 cm²",
+        "B. 16 cm²",
+        "C. 8 cm²",
+        "D. 8 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 4² = 16 cm²."
+    },
+    {
+      "id": "y2020m5",
+      "year": 2020,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 6, 6, 12, 13.",
+      "options": [
+        "A. 9.25",
+        "B. 10.25",
+        "C. 8.25",
+        "D. 11.25"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 37 ÷ 4 = 9.25."
+    },
+    {
+      "id": "y2020p1",
+      "year": 2020,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 6 m s⁻¹ accelerates at 3 m s⁻² for 4 s. Find its final velocity.",
+      "options": [
+        "A. 18 m s⁻¹",
+        "B. 9 m s⁻¹",
+        "C. 12 m s⁻¹",
+        "D. 22 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 6 + 3×4 = 18 m s⁻¹."
+    },
+    {
+      "id": "y2020p2",
+      "year": 2020,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 6 Ω resistor carries 4 A. Calculate the potential difference.",
+      "options": [
+        "A. 24 V",
+        "B. 26 V",
+        "C. 1.5 V",
+        "D. 0.6666666666666666 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 4 × 6 = 24 V."
+    },
+    {
+      "id": "y2020p3",
+      "year": 2020,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 3 kg object is raised 5 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 150 J",
+        "B. 15 J",
+        "C. 30 J",
+        "D. 75 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 3×10×5 = 150 J."
+    },
+    {
+      "id": "y2020p4",
+      "year": 2020,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 500 g and volume 700 cm³. Find its density.",
+      "options": [
+        "A. 0.71 g cm⁻³",
+        "B. 35.00 g cm⁻³",
+        "C. 1.40 g cm⁻³",
+        "D. 1.71 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 500/700 = 0.71 g cm⁻³."
+    },
+    {
+      "id": "y2020p5",
+      "year": 2020,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 5 Hz and wavelength 2 m. Find its speed.",
+      "options": [
+        "A. 10 m s⁻¹",
+        "B. 7 m s⁻¹",
+        "C. 2.50 m s⁻¹",
+        "D. 20 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 5×2 = 10 m s⁻¹."
+    },
+    {
+      "id": "y2020c1",
+      "year": 2020,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 5 mol of a substance with molar mass 16 g mol⁻¹.",
+      "options": [
+        "A. 80 g",
+        "B. 21 g",
+        "C. 3.20 g",
+        "D. 90 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 5×16 = 80 g."
+    },
+    {
+      "id": "y2020c2",
+      "year": 2020,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 16 protons and 12 neutrons. Find its mass number.",
+      "options": [
+        "A. 28",
+        "B. 12",
+        "C. 16",
+        "D. 4"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 28."
+    },
+    {
+      "id": "y2020c3",
+      "year": 2020,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 1 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2020c4",
+      "year": 2020,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 4 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2020c5",
+      "year": 2020,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 2 dm³ at 273 K. At constant pressure, what volume will it occupy at 343 K?",
+      "options": [
+        "A. 2.51 dm³",
+        "B. 1.59 dm³",
+        "C. 345 dm³",
+        "D. 2 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 2×343/273 = 2.51 dm³."
+    },
+    {
+      "id": "y2020b1",
+      "year": 2020,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2020b2",
+      "year": 2020,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 4 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2020b3",
+      "year": 2020,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2020b4",
+      "year": 2020,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the kidney is",
+      "options": [
+        "A. removal of nitrogenous wastes and water regulation",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The kidney is responsible for removal of nitrogenous wastes and water regulation."
+    },
+    {
+      "id": "y2020b5",
+      "year": 2020,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Fungi?",
+      "options": [
+        "A. absorbs nutrients from organic material",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Fungi is that it absorbs nutrients from organic material."
+    },
+    {
+      "id": "y2021e1",
+      "year": 2021,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"SCARCE\".",
+      "options": [
+        "A. limited",
+        "B. plentiful",
+        "C. cheap",
+        "D. ordinary"
+      ],
+      "answer": 0,
+      "explanation": "scarce means limited."
+    },
+    {
+      "id": "y2021e2",
+      "year": 2021,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"TEMPORARY\".",
+      "options": [
+        "A. permanent",
+        "B. brief",
+        "C. short-lived",
+        "D. passing"
+      ],
+      "answer": 0,
+      "explanation": "permanent is the opposite of temporary."
+    },
+    {
+      "id": "y2021e3",
+      "year": 2021,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "I look forward to _____ you.",
+      "options": [
+        "A. meeting",
+        "B. meet",
+        "C. met",
+        "D. have meet"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"meeting\"."
+    },
+    {
+      "id": "y2021e4",
+      "year": 2021,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"under the weather\" means",
+      "options": [
+        "A. feeling unwell",
+        "B. standing in rain",
+        "C. cheerful",
+        "D. travelling"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means feeling unwell."
+    },
+    {
+      "id": "y2021e5",
+      "year": 2021,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "Submit the assignment _____ Friday.",
+      "options": [
+        "A. by",
+        "B. at",
+        "C. among",
+        "D. beside"
+      ],
+      "answer": 0,
+      "explanation": "\"by\" correctly completes the sentence."
+    },
+    {
+      "id": "y2021m1",
+      "year": 2021,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 7x + 3 = 38.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 3, then divide by 7; x = 5."
+    },
+    {
+      "id": "y2021m2",
+      "year": 2021,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3507. A discount of 30% is given. Find the sale price.",
+      "options": [
+        "A. ₦2454.90",
+        "B. ₦1052.10",
+        "C. ₦4559.10",
+        "D. ₦3477"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 30% of ₦3507 = ₦1052.10; sale price = ₦2454.90."
+    },
+    {
+      "id": "y2021m3",
+      "year": 2021,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1500 is shared in the ratio 3:7. Find the first share.",
+      "options": [
+        "A. ₦450",
+        "B. ₦1050",
+        "C. ₦1500",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 10; first share = 3 × ₦150 = ₦450."
+    },
+    {
+      "id": "y2021m4",
+      "year": 2021,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 5 cm.",
+      "options": [
+        "A. 25 cm²",
+        "B. 20 cm²",
+        "C. 10 cm²",
+        "D. 10 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 5² = 25 cm²."
+    },
+    {
+      "id": "y2021m5",
+      "year": 2021,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 7, 7, 13, 14.",
+      "options": [
+        "A. 10.25",
+        "B. 11.25",
+        "C. 9.25",
+        "D. 12.25"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 41 ÷ 4 = 10.25."
+    },
+    {
+      "id": "y2021p1",
+      "year": 2021,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 7 m s⁻¹ accelerates at 4 m s⁻² for 5 s. Find its final velocity.",
+      "options": [
+        "A. 27 m s⁻¹",
+        "B. 11 m s⁻¹",
+        "C. 20 m s⁻¹",
+        "D. 32 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 7 + 4×5 = 27 m s⁻¹."
+    },
+    {
+      "id": "y2021p2",
+      "year": 2021,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 7 Ω resistor carries 5 A. Calculate the potential difference.",
+      "options": [
+        "A. 35 V",
+        "B. 37 V",
+        "C. 1.4 V",
+        "D. 0.7142857142857143 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 5 × 7 = 35 V."
+    },
+    {
+      "id": "y2021p3",
+      "year": 2021,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 4 kg object is raised 6 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 240 J",
+        "B. 24 J",
+        "C. 40 J",
+        "D. 120 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 4×10×6 = 240 J."
+    },
+    {
+      "id": "y2021p4",
+      "year": 2021,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 600 g and volume 800 cm³. Find its density.",
+      "options": [
+        "A. 0.75 g cm⁻³",
+        "B. 48.00 g cm⁻³",
+        "C. 1.33 g cm⁻³",
+        "D. 1.75 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 600/800 = 0.75 g cm⁻³."
+    },
+    {
+      "id": "y2021p5",
+      "year": 2021,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 6 Hz and wavelength 3 m. Find its speed.",
+      "options": [
+        "A. 18 m s⁻¹",
+        "B. 9 m s⁻¹",
+        "C. 2.00 m s⁻¹",
+        "D. 36 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 6×3 = 18 m s⁻¹."
+    },
+    {
+      "id": "y2021c1",
+      "year": 2021,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 6 mol of a substance with molar mass 18 g mol⁻¹.",
+      "options": [
+        "A. 108 g",
+        "B. 24 g",
+        "C. 3.00 g",
+        "D. 118 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 6×18 = 108 g."
+    },
+    {
+      "id": "y2021c2",
+      "year": 2021,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 17 protons and 14 neutrons. Find its mass number.",
+      "options": [
+        "A. 31",
+        "B. 14",
+        "C. 17",
+        "D. 3"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 31."
+    },
+    {
+      "id": "y2021c3",
+      "year": 2021,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 2 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2021c4",
+      "year": 2021,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 5 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2021c5",
+      "year": 2021,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 3 dm³ at 273 K. At constant pressure, what volume will it occupy at 350 K?",
+      "options": [
+        "A. 3.85 dm³",
+        "B. 2.34 dm³",
+        "C. 353 dm³",
+        "D. 3 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 3×350/273 = 3.85 dm³."
+    },
+    {
+      "id": "y2021b1",
+      "year": 2021,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2021b2",
+      "year": 2021,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 5 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2021b3",
+      "year": 2021,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2021b4",
+      "year": 2021,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the lung is",
+      "options": [
+        "A. gas exchange between air and blood",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The lung is responsible for gas exchange between air and blood."
+    },
+    {
+      "id": "y2021b5",
+      "year": 2021,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Plantae?",
+      "options": [
+        "A. typically contains chlorophyll for photosynthesis",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Plantae is that it typically contains chlorophyll for photosynthesis."
+    },
+    {
+      "id": "y2022e1",
+      "year": 2022,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"TRANQUIL\".",
+      "options": [
+        "A. peaceful",
+        "B. crowded",
+        "C. dangerous",
+        "D. confusing"
+      ],
+      "answer": 0,
+      "explanation": "tranquil means peaceful."
+    },
+    {
+      "id": "y2022e2",
+      "year": 2022,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"ARTIFICIAL\".",
+      "options": [
+        "A. natural",
+        "B. fake",
+        "C. synthetic",
+        "D. imitation"
+      ],
+      "answer": 0,
+      "explanation": "natural is the opposite of artificial."
+    },
+    {
+      "id": "y2022e3",
+      "year": 2022,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "The teacher asked if we _____ ready.",
+      "options": [
+        "A. were",
+        "B. was",
+        "C. is",
+        "D. be"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"were\"."
+    },
+    {
+      "id": "y2022e4",
+      "year": 2022,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"turn a deaf ear\" means",
+      "options": [
+        "A. refuse to listen",
+        "B. listen closely",
+        "C. speak loudly",
+        "D. ask for help"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means refuse to listen."
+    },
+    {
+      "id": "y2022e5",
+      "year": 2022,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The audience remained _____ throughout.",
+      "options": [
+        "A. attentive",
+        "B. attention",
+        "C. attend",
+        "D. attending"
+      ],
+      "answer": 0,
+      "explanation": "\"attentive\" correctly completes the sentence."
+    },
+    {
+      "id": "y2022m1",
+      "year": 2022,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 8x + 6 = 46.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 6, then divide by 8; x = 5."
+    },
+    {
+      "id": "y2022m2",
+      "year": 2022,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3644. A discount of 35% is given. Find the sale price.",
+      "options": [
+        "A. ₦2368.60",
+        "B. ₦1275.40",
+        "C. ₦4919.40",
+        "D. ₦3609"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 35% of ₦3644 = ₦1275.40; sale price = ₦2368.60."
+    },
+    {
+      "id": "y2022m3",
+      "year": 2022,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1050 is shared in the ratio 4:3. Find the first share.",
+      "options": [
+        "A. ₦600",
+        "B. ₦450",
+        "C. ₦1050",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 7; first share = 4 × ₦150 = ₦600."
+    },
+    {
+      "id": "y2022m4",
+      "year": 2022,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 6 cm.",
+      "options": [
+        "A. 36 cm²",
+        "B. 24 cm²",
+        "C. 12 cm²",
+        "D. 12 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 6² = 36 cm²."
+    },
+    {
+      "id": "y2022m5",
+      "year": 2022,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 4, 8, 8, 15.",
+      "options": [
+        "A. 8.75",
+        "B. 9.75",
+        "C. 7.75",
+        "D. 10.75"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 35 ÷ 4 = 8.75."
+    },
+    {
+      "id": "y2022p1",
+      "year": 2022,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 2 m s⁻¹ accelerates at 5 m s⁻² for 2 s. Find its final velocity.",
+      "options": [
+        "A. 12 m s⁻¹",
+        "B. 7 m s⁻¹",
+        "C. 10 m s⁻¹",
+        "D. 14 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 2 + 5×2 = 12 m s⁻¹."
+    },
+    {
+      "id": "y2022p2",
+      "year": 2022,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 8 Ω resistor carries 6 A. Calculate the potential difference.",
+      "options": [
+        "A. 48 V",
+        "B. 50 V",
+        "C. 1.3333333333333333 V",
+        "D. 0.75 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 6 × 8 = 48 V."
+    },
+    {
+      "id": "y2022p3",
+      "year": 2022,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 5 kg object is raised 7 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 350 J",
+        "B. 35 J",
+        "C. 50 J",
+        "D. 175 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 5×10×7 = 350 J."
+    },
+    {
+      "id": "y2022p4",
+      "year": 2022,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 700 g and volume 300 cm³. Find its density.",
+      "options": [
+        "A. 2.33 g cm⁻³",
+        "B. 21.00 g cm⁻³",
+        "C. 0.43 g cm⁻³",
+        "D. 3.33 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 700/300 = 2.33 g cm⁻³."
+    },
+    {
+      "id": "y2022p5",
+      "year": 2022,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 7 Hz and wavelength 4 m. Find its speed.",
+      "options": [
+        "A. 28 m s⁻¹",
+        "B. 11 m s⁻¹",
+        "C. 1.75 m s⁻¹",
+        "D. 56 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 7×4 = 28 m s⁻¹."
+    },
+    {
+      "id": "y2022c1",
+      "year": 2022,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 1 mol of a substance with molar mass 12 g mol⁻¹.",
+      "options": [
+        "A. 12 g",
+        "B. 13 g",
+        "C. 12.00 g",
+        "D. 22 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 1×12 = 12 g."
+    },
+    {
+      "id": "y2022c2",
+      "year": 2022,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 6 protons and 16 neutrons. Find its mass number.",
+      "options": [
+        "A. 22",
+        "B. 16",
+        "C. 6",
+        "D. 10"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 22."
+    },
+    {
+      "id": "y2022c3",
+      "year": 2022,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 3 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2022c4",
+      "year": 2022,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 6 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2022c5",
+      "year": 2022,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 4 dm³ at 273 K. At constant pressure, what volume will it occupy at 357 K?",
+      "options": [
+        "A. 5.23 dm³",
+        "B. 3.06 dm³",
+        "C. 361 dm³",
+        "D. 4 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 4×357/273 = 5.23 dm³."
+    },
+    {
+      "id": "y2022b1",
+      "year": 2022,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2022b2",
+      "year": 2022,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 2 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2022b3",
+      "year": 2022,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2022b4",
+      "year": 2022,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the liver is",
+      "options": [
+        "A. production of bile and nutrient processing",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The liver is responsible for production of bile and nutrient processing."
+    },
+    {
+      "id": "y2022b5",
+      "year": 2022,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Animalia?",
+      "options": [
+        "A. obtains nutrients by ingestion",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Animalia is that it obtains nutrients by ingestion."
+    },
+    {
+      "id": "y2023e1",
+      "year": 2023,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"VIVID\".",
+      "options": [
+        "A. lively",
+        "B. dull",
+        "C. brief",
+        "D. hidden"
+      ],
+      "answer": 0,
+      "explanation": "vivid means lively."
+    },
+    {
+      "id": "y2023e2",
+      "year": 2023,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"COMPLEX\".",
+      "options": [
+        "A. simple",
+        "B. difficult",
+        "C. complicated",
+        "D. intricate"
+      ],
+      "answer": 0,
+      "explanation": "simple is the opposite of complex."
+    },
+    {
+      "id": "y2023e3",
+      "year": 2023,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "Hardly had the bus stopped _____ passengers rushed in.",
+      "options": [
+        "A. when",
+        "B. than",
+        "C. then",
+        "D. while"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"when\"."
+    },
+    {
+      "id": "y2023e4",
+      "year": 2023,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"last straw\" means",
+      "options": [
+        "A. final intolerable difficulty",
+        "B. a good chance",
+        "C. a small success",
+        "D. first attempt"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means final intolerable difficulty."
+    },
+    {
+      "id": "y2023e5",
+      "year": 2023,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The dispute was settled in a _____ manner.",
+      "options": [
+        "A. fair",
+        "B. fairly",
+        "C. fairness",
+        "D. fairest"
+      ],
+      "answer": 0,
+      "explanation": "\"fair\" correctly completes the sentence."
+    },
+    {
+      "id": "y2023m1",
+      "year": 2023,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 9x + 9 = 54.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 9, then divide by 9; x = 5."
+    },
+    {
+      "id": "y2023m2",
+      "year": 2023,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3781. A discount of 40% is given. Find the sale price.",
+      "options": [
+        "A. ₦2268.60",
+        "B. ₦1512.40",
+        "C. ₦5293.40",
+        "D. ₦3741"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 40% of ₦3781 = ₦1512.40; sale price = ₦2268.60."
+    },
+    {
+      "id": "y2023m3",
+      "year": 2023,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1500 is shared in the ratio 5:5. Find the first share.",
+      "options": [
+        "A. ₦750",
+        "B. ₦750",
+        "C. ₦1500",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 10; first share = 5 × ₦150 = ₦750."
+    },
+    {
+      "id": "y2023m4",
+      "year": 2023,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 7 cm.",
+      "options": [
+        "A. 49 cm²",
+        "B. 28 cm²",
+        "C. 14 cm²",
+        "D. 14 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 7² = 49 cm²."
+    },
+    {
+      "id": "y2023m5",
+      "year": 2023,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 5, 9, 9, 16.",
+      "options": [
+        "A. 9.75",
+        "B. 10.75",
+        "C. 8.75",
+        "D. 11.75"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 39 ÷ 4 = 9.75."
+    },
+    {
+      "id": "y2023p1",
+      "year": 2023,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 3 m s⁻¹ accelerates at 6 m s⁻² for 3 s. Find its final velocity.",
+      "options": [
+        "A. 21 m s⁻¹",
+        "B. 9 m s⁻¹",
+        "C. 18 m s⁻¹",
+        "D. 24 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 3 + 6×3 = 21 m s⁻¹."
+    },
+    {
+      "id": "y2023p2",
+      "year": 2023,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 9 Ω resistor carries 7 A. Calculate the potential difference.",
+      "options": [
+        "A. 63 V",
+        "B. 65 V",
+        "C. 1.2857142857142858 V",
+        "D. 0.7777777777777778 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 7 × 9 = 63 V."
+    },
+    {
+      "id": "y2023p3",
+      "year": 2023,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 6 kg object is raised 8 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 480 J",
+        "B. 48 J",
+        "C. 60 J",
+        "D. 240 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 6×10×8 = 480 J."
+    },
+    {
+      "id": "y2023p4",
+      "year": 2023,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 800 g and volume 400 cm³. Find its density.",
+      "options": [
+        "A. 2.00 g cm⁻³",
+        "B. 32.00 g cm⁻³",
+        "C. 0.50 g cm⁻³",
+        "D. 3.00 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 800/400 = 2.00 g cm⁻³."
+    },
+    {
+      "id": "y2023p5",
+      "year": 2023,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 8 Hz and wavelength 5 m. Find its speed.",
+      "options": [
+        "A. 40 m s⁻¹",
+        "B. 13 m s⁻¹",
+        "C. 1.60 m s⁻¹",
+        "D. 80 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 8×5 = 40 m s⁻¹."
+    },
+    {
+      "id": "y2023c1",
+      "year": 2023,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 2 mol of a substance with molar mass 14 g mol⁻¹.",
+      "options": [
+        "A. 28 g",
+        "B. 16 g",
+        "C. 7.00 g",
+        "D. 38 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 2×14 = 28 g."
+    },
+    {
+      "id": "y2023c2",
+      "year": 2023,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 7 protons and 18 neutrons. Find its mass number.",
+      "options": [
+        "A. 25",
+        "B. 18",
+        "C. 7",
+        "D. 11"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 25."
+    },
+    {
+      "id": "y2023c3",
+      "year": 2023,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 4 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2023c4",
+      "year": 2023,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 7 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2023c5",
+      "year": 2023,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 5 dm³ at 273 K. At constant pressure, what volume will it occupy at 364 K?",
+      "options": [
+        "A. 6.67 dm³",
+        "B. 3.75 dm³",
+        "C. 369 dm³",
+        "D. 5 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 5×364/273 = 6.67 dm³."
+    },
+    {
+      "id": "y2023b1",
+      "year": 2023,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2023b2",
+      "year": 2023,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 3 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2023b3",
+      "year": 2023,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2023b4",
+      "year": 2023,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the heart is",
+      "options": [
+        "A. pumping blood around the body",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The heart is responsible for pumping blood around the body."
+    },
+    {
+      "id": "y2023b5",
+      "year": 2023,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Protista?",
+      "options": [
+        "A. consists of eukaryotic organisms",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Protista is that it consists of eukaryotic organisms."
+    },
+    {
+      "id": "y2024e1",
+      "year": 2024,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"WARY\".",
+      "options": [
+        "A. cautious",
+        "B. carefree",
+        "C. excited",
+        "D. confused"
+      ],
+      "answer": 0,
+      "explanation": "wary means cautious."
+    },
+    {
+      "id": "y2024e2",
+      "year": 2024,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"NOISY\".",
+      "options": [
+        "A. quiet",
+        "B. loud",
+        "C. rowdy",
+        "D. clamorous"
+      ],
+      "answer": 0,
+      "explanation": "quiet is the opposite of noisy."
+    },
+    {
+      "id": "y2024e3",
+      "year": 2024,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "Physics _____ an interesting subject.",
+      "options": [
+        "A. is",
+        "B. are",
+        "C. were",
+        "D. have"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"is\"."
+    },
+    {
+      "id": "y2024e4",
+      "year": 2024,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"take with a pinch of salt\" means",
+      "options": [
+        "A. not fully believe",
+        "B. eat carefully",
+        "C. accept eagerly",
+        "D. refuse politely"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means not fully believe."
+    },
+    {
+      "id": "y2024e5",
+      "year": 2024,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The road became _____ after the rain.",
+      "options": [
+        "A. impassable",
+        "B. impossible",
+        "C. impatient",
+        "D. improper"
+      ],
+      "answer": 0,
+      "explanation": "\"impassable\" correctly completes the sentence."
+    },
+    {
+      "id": "y2024m1",
+      "year": 2024,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 3x + 4 = 19.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 4, then divide by 3; x = 5."
+    },
+    {
+      "id": "y2024m2",
+      "year": 2024,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦3918. A discount of 10% is given. Find the sale price.",
+      "options": [
+        "A. ₦3526.20",
+        "B. ₦391.80",
+        "C. ₦4309.80",
+        "D. ₦3908"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 10% of ₦3918 = ₦391.80; sale price = ₦3526.20."
+    },
+    {
+      "id": "y2024m3",
+      "year": 2024,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1950 is shared in the ratio 6:7. Find the first share.",
+      "options": [
+        "A. ₦900",
+        "B. ₦1050",
+        "C. ₦1950",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 13; first share = 6 × ₦150 = ₦900."
+    },
+    {
+      "id": "y2024m4",
+      "year": 2024,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 8 cm.",
+      "options": [
+        "A. 64 cm²",
+        "B. 32 cm²",
+        "C. 16 cm²",
+        "D. 16 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 8² = 64 cm²."
+    },
+    {
+      "id": "y2024m5",
+      "year": 2024,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 6, 10, 10, 10.",
+      "options": [
+        "A. 9",
+        "B. 10",
+        "C. 8",
+        "D. 11"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 36 ÷ 4 = 9."
+    },
+    {
+      "id": "y2024p1",
+      "year": 2024,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 4 m s⁻¹ accelerates at 7 m s⁻² for 4 s. Find its final velocity.",
+      "options": [
+        "A. 32 m s⁻¹",
+        "B. 11 m s⁻¹",
+        "C. 28 m s⁻¹",
+        "D. 36 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 4 + 7×4 = 32 m s⁻¹."
+    },
+    {
+      "id": "y2024p2",
+      "year": 2024,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 3 Ω resistor carries 8 A. Calculate the potential difference.",
+      "options": [
+        "A. 24 V",
+        "B. 26 V",
+        "C. 0.375 V",
+        "D. 2.6666666666666665 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 8 × 3 = 24 V."
+    },
+    {
+      "id": "y2024p3",
+      "year": 2024,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 7 kg object is raised 9 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 630 J",
+        "B. 63 J",
+        "C. 70 J",
+        "D. 315 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 7×10×9 = 630 J."
+    },
+    {
+      "id": "y2024p4",
+      "year": 2024,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 200 g and volume 500 cm³. Find its density.",
+      "options": [
+        "A. 0.40 g cm⁻³",
+        "B. 10.00 g cm⁻³",
+        "C. 2.50 g cm⁻³",
+        "D. 1.40 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 200/500 = 0.40 g cm⁻³."
+    },
+    {
+      "id": "y2024p5",
+      "year": 2024,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 2 Hz and wavelength 6 m. Find its speed.",
+      "options": [
+        "A. 12 m s⁻¹",
+        "B. 8 m s⁻¹",
+        "C. 0.33 m s⁻¹",
+        "D. 24 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 2×6 = 12 m s⁻¹."
+    },
+    {
+      "id": "y2024c1",
+      "year": 2024,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 3 mol of a substance with molar mass 16 g mol⁻¹.",
+      "options": [
+        "A. 48 g",
+        "B. 19 g",
+        "C. 5.33 g",
+        "D. 58 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 3×16 = 48 g."
+    },
+    {
+      "id": "y2024c2",
+      "year": 2024,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 8 protons and 6 neutrons. Find its mass number.",
+      "options": [
+        "A. 14",
+        "B. 6",
+        "C. 8",
+        "D. 2"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 14."
+    },
+    {
+      "id": "y2024c3",
+      "year": 2024,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 5 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2024c4",
+      "year": 2024,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 1 electron during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2024c5",
+      "year": 2024,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 6 dm³ at 273 K. At constant pressure, what volume will it occupy at 371 K?",
+      "options": [
+        "A. 8.15 dm³",
+        "B. 4.42 dm³",
+        "C. 377 dm³",
+        "D. 6 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 6×371/273 = 8.15 dm³."
+    },
+    {
+      "id": "y2024b1",
+      "year": 2024,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2024b2",
+      "year": 2024,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 4 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2024b3",
+      "year": 2024,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2024b4",
+      "year": 2024,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the small intestine is",
+      "options": [
+        "A. absorption of digested nutrients",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The small intestine is responsible for absorption of digested nutrients."
+    },
+    {
+      "id": "y2024b5",
+      "year": 2024,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Monera?",
+      "options": [
+        "A. has prokaryotic cells",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Monera is that it has prokaryotic cells."
+    },
+    {
+      "id": "y2025e1",
+      "year": 2025,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"YIELD\".",
+      "options": [
+        "A. produce",
+        "B. destroy",
+        "C. conceal",
+        "D. refuse"
+      ],
+      "answer": 0,
+      "explanation": "yield means produce."
+    },
+    {
+      "id": "y2025e2",
+      "year": 2025,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"ACCEPT\".",
+      "options": [
+        "A. reject",
+        "B. receive",
+        "C. admit",
+        "D. approve"
+      ],
+      "answer": 0,
+      "explanation": "reject is the opposite of accept."
+    },
+    {
+      "id": "y2025e3",
+      "year": 2025,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "She is senior _____ her brother.",
+      "options": [
+        "A. to",
+        "B. than",
+        "C. from",
+        "D. over"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"to\"."
+    },
+    {
+      "id": "y2025e4",
+      "year": 2025,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"at loggerheads\" means",
+      "options": [
+        "A. in disagreement",
+        "B. working together",
+        "C. asleep",
+        "D. in a hurry"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means in disagreement."
+    },
+    {
+      "id": "y2025e5",
+      "year": 2025,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "She answered with great _____.",
+      "options": [
+        "A. confidence",
+        "B. confident",
+        "C. confidently",
+        "D. confide"
+      ],
+      "answer": 0,
+      "explanation": "\"confidence\" correctly completes the sentence."
+    },
+    {
+      "id": "y2025m1",
+      "year": 2025,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 4x + 7 = 27.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 7, then divide by 4; x = 5."
+    },
+    {
+      "id": "y2025m2",
+      "year": 2025,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦4055. A discount of 15% is given. Find the sale price.",
+      "options": [
+        "A. ₦3446.75",
+        "B. ₦608.25",
+        "C. ₦4663.25",
+        "D. ₦4040"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 15% of ₦4055 = ₦608.25; sale price = ₦3446.75."
+    },
+    {
+      "id": "y2025m3",
+      "year": 2025,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦750 is shared in the ratio 2:3. Find the first share.",
+      "options": [
+        "A. ₦300",
+        "B. ₦450",
+        "C. ₦750",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 5; first share = 2 × ₦150 = ₦300."
+    },
+    {
+      "id": "y2025m4",
+      "year": 2025,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 9 cm.",
+      "options": [
+        "A. 81 cm²",
+        "B. 36 cm²",
+        "C. 18 cm²",
+        "D. 18 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 9² = 81 cm²."
+    },
+    {
+      "id": "y2025m5",
+      "year": 2025,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 7, 6, 11, 11.",
+      "options": [
+        "A. 8.75",
+        "B. 9.75",
+        "C. 7.75",
+        "D. 10.75"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 35 ÷ 4 = 8.75."
+    },
+    {
+      "id": "y2025p1",
+      "year": 2025,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 5 m s⁻¹ accelerates at 3 m s⁻² for 5 s. Find its final velocity.",
+      "options": [
+        "A. 20 m s⁻¹",
+        "B. 8 m s⁻¹",
+        "C. 15 m s⁻¹",
+        "D. 25 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 5 + 3×5 = 20 m s⁻¹."
+    },
+    {
+      "id": "y2025p2",
+      "year": 2025,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 4 Ω resistor carries 9 A. Calculate the potential difference.",
+      "options": [
+        "A. 36 V",
+        "B. 38 V",
+        "C. 0.4444444444444444 V",
+        "D. 2.25 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 9 × 4 = 36 V."
+    },
+    {
+      "id": "y2025p3",
+      "year": 2025,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 8 kg object is raised 10 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 800 J",
+        "B. 80 J",
+        "C. 80 J",
+        "D. 400 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 8×10×10 = 800 J."
+    },
+    {
+      "id": "y2025p4",
+      "year": 2025,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 300 g and volume 600 cm³. Find its density.",
+      "options": [
+        "A. 0.50 g cm⁻³",
+        "B. 18.00 g cm⁻³",
+        "C. 2.00 g cm⁻³",
+        "D. 1.50 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 300/600 = 0.50 g cm⁻³."
+    },
+    {
+      "id": "y2025p5",
+      "year": 2025,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 3 Hz and wavelength 2 m. Find its speed.",
+      "options": [
+        "A. 6 m s⁻¹",
+        "B. 5 m s⁻¹",
+        "C. 1.50 m s⁻¹",
+        "D. 12 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 3×2 = 6 m s⁻¹."
+    },
+    {
+      "id": "y2025c1",
+      "year": 2025,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 4 mol of a substance with molar mass 18 g mol⁻¹.",
+      "options": [
+        "A. 72 g",
+        "B. 22 g",
+        "C. 4.50 g",
+        "D. 82 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 4×18 = 72 g."
+    },
+    {
+      "id": "y2025c2",
+      "year": 2025,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 9 protons and 8 neutrons. Find its mass number.",
+      "options": [
+        "A. 17",
+        "B. 8",
+        "C. 9",
+        "D. 1"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 17."
+    },
+    {
+      "id": "y2025c3",
+      "year": 2025,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 1 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2025c4",
+      "year": 2025,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 2 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2025c5",
+      "year": 2025,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 2 dm³ at 273 K. At constant pressure, what volume will it occupy at 278 K?",
+      "options": [
+        "A. 2.04 dm³",
+        "B. 1.96 dm³",
+        "C. 280 dm³",
+        "D. 2 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 2×278/273 = 2.04 dm³."
+    },
+    {
+      "id": "y2025b1",
+      "year": 2025,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2025b2",
+      "year": 2025,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 5 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2025b3",
+      "year": 2025,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2025b4",
+      "year": 2025,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the kidney is",
+      "options": [
+        "A. removal of nitrogenous wastes and water regulation",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The kidney is responsible for removal of nitrogenous wastes and water regulation."
+    },
+    {
+      "id": "y2025b5",
+      "year": 2025,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Fungi?",
+      "options": [
+        "A. absorbs nutrients from organic material",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Fungi is that it absorbs nutrients from organic material."
+    },
+    {
+      "id": "y2026e1",
+      "year": 2026,
+      "subject": "english",
+      "topic": "Vocabulary",
+      "question": "Choose the option nearest in meaning to \"ZEALOUS\".",
+      "options": [
+        "A. enthusiastic",
+        "B. indifferent",
+        "C. timid",
+        "D. uncertain"
+      ],
+      "answer": 0,
+      "explanation": "zealous means enthusiastic."
+    },
+    {
+      "id": "y2026e2",
+      "year": 2026,
+      "subject": "english",
+      "topic": "Antonyms",
+      "question": "Choose the option opposite in meaning to \"VICTORY\".",
+      "options": [
+        "A. failure",
+        "B. triumph",
+        "C. success",
+        "D. achievement"
+      ],
+      "answer": 0,
+      "explanation": "failure is the opposite of victory."
+    },
+    {
+      "id": "y2026e3",
+      "year": 2026,
+      "subject": "english",
+      "topic": "Grammar",
+      "question": "The police _____ arrived.",
+      "options": [
+        "A. have",
+        "B. has",
+        "C. is",
+        "D. was"
+      ],
+      "answer": 0,
+      "explanation": "The correct form is \"have\"."
+    },
+    {
+      "id": "y2026e4",
+      "year": 2026,
+      "subject": "english",
+      "topic": "Idioms",
+      "question": "The expression \"through thick and thin\" means",
+      "options": [
+        "A. in all circumstances",
+        "B. only in trouble",
+        "C. very quickly",
+        "D. unprepared"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means in all circumstances."
+    },
+    {
+      "id": "y2026e5",
+      "year": 2026,
+      "subject": "english",
+      "topic": "Sentence completion",
+      "question": "The results were released _____ the examination.",
+      "options": [
+        "A. after",
+        "B. among",
+        "C. beside",
+        "D. across"
+      ],
+      "answer": 0,
+      "explanation": "\"after\" correctly completes the sentence."
+    },
+    {
+      "id": "y2026m1",
+      "year": 2026,
+      "subject": "mathematics",
+      "topic": "Algebra",
+      "question": "Solve: 5x + 2 = 27.",
+      "options": [
+        "A. 5",
+        "B. 4",
+        "C. 6",
+        "D. 7"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 2, then divide by 5; x = 5."
+    },
+    {
+      "id": "y2026m2",
+      "year": 2026,
+      "subject": "mathematics",
+      "topic": "Percentages",
+      "question": "An item costs ₦4192. A discount of 20% is given. Find the sale price.",
+      "options": [
+        "A. ₦3353.60",
+        "B. ₦838.40",
+        "C. ₦5030.40",
+        "D. ₦4172"
+      ],
+      "answer": 0,
+      "explanation": "Discount = 20% of ₦4192 = ₦838.40; sale price = ₦3353.60."
+    },
+    {
+      "id": "y2026m3",
+      "year": 2026,
+      "subject": "mathematics",
+      "topic": "Ratio",
+      "question": "₦1200 is shared in the ratio 3:5. Find the first share.",
+      "options": [
+        "A. ₦450",
+        "B. ₦750",
+        "C. ₦1200",
+        "D. ₦150"
+      ],
+      "answer": 0,
+      "explanation": "Total parts = 8; first share = 3 × ₦150 = ₦450."
+    },
+    {
+      "id": "y2026m4",
+      "year": 2026,
+      "subject": "mathematics",
+      "topic": "Mensuration",
+      "question": "Find the area of a square of side 10 cm.",
+      "options": [
+        "A. 100 cm²",
+        "B. 40 cm²",
+        "C. 20 cm²",
+        "D. 20 cm²"
+      ],
+      "answer": 0,
+      "explanation": "Area = side² = 10² = 100 cm²."
+    },
+    {
+      "id": "y2026m5",
+      "year": 2026,
+      "subject": "mathematics",
+      "topic": "Statistics",
+      "question": "Find the mean of 4, 7, 12, 12.",
+      "options": [
+        "A. 8.75",
+        "B. 9.75",
+        "C. 7.75",
+        "D. 10.75"
+      ],
+      "answer": 0,
+      "explanation": "Mean = 35 ÷ 4 = 8.75."
+    },
+    {
+      "id": "y2026p1",
+      "year": 2026,
+      "subject": "physics",
+      "topic": "Motion",
+      "question": "A body moving at 6 m s⁻¹ accelerates at 4 m s⁻² for 2 s. Find its final velocity.",
+      "options": [
+        "A. 14 m s⁻¹",
+        "B. 10 m s⁻¹",
+        "C. 8 m s⁻¹",
+        "D. 16 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "v = u + at = 6 + 4×2 = 14 m s⁻¹."
+    },
+    {
+      "id": "y2026p2",
+      "year": 2026,
+      "subject": "physics",
+      "topic": "Electricity",
+      "question": "A 5 Ω resistor carries 2 A. Calculate the potential difference.",
+      "options": [
+        "A. 10 V",
+        "B. 12 V",
+        "C. 2.5 V",
+        "D. 0.4 V"
+      ],
+      "answer": 0,
+      "explanation": "V = IR = 2 × 5 = 10 V."
+    },
+    {
+      "id": "y2026p3",
+      "year": 2026,
+      "subject": "physics",
+      "topic": "Energy",
+      "question": "A 9 kg object is raised 3 m. Take g = 10 m s⁻². Find its gain in potential energy.",
+      "options": [
+        "A. 270 J",
+        "B. 27 J",
+        "C. 90 J",
+        "D. 135 J"
+      ],
+      "answer": 0,
+      "explanation": "P.E. = mgh = 9×10×3 = 270 J."
+    },
+    {
+      "id": "y2026p4",
+      "year": 2026,
+      "subject": "physics",
+      "topic": "Density",
+      "question": "A sample has mass 400 g and volume 700 cm³. Find its density.",
+      "options": [
+        "A. 0.57 g cm⁻³",
+        "B. 28.00 g cm⁻³",
+        "C. 1.75 g cm⁻³",
+        "D. 1.57 g cm⁻³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass/volume = 400/700 = 0.57 g cm⁻³."
+    },
+    {
+      "id": "y2026p5",
+      "year": 2026,
+      "subject": "physics",
+      "topic": "Waves",
+      "question": "A wave has frequency 4 Hz and wavelength 3 m. Find its speed.",
+      "options": [
+        "A. 12 m s⁻¹",
+        "B. 7 m s⁻¹",
+        "C. 1.33 m s⁻¹",
+        "D. 24 m s⁻¹"
+      ],
+      "answer": 0,
+      "explanation": "Speed = frequency × wavelength = 4×3 = 12 m s⁻¹."
+    },
+    {
+      "id": "y2026c1",
+      "year": 2026,
+      "subject": "chemistry",
+      "topic": "Mole concept",
+      "question": "Find the mass of 5 mol of a substance with molar mass 12 g mol⁻¹.",
+      "options": [
+        "A. 60 g",
+        "B. 17 g",
+        "C. 2.40 g",
+        "D. 70 g"
+      ],
+      "answer": 0,
+      "explanation": "Mass = moles × molar mass = 5×12 = 60 g."
+    },
+    {
+      "id": "y2026c2",
+      "year": 2026,
+      "subject": "chemistry",
+      "topic": "Atomic structure",
+      "question": "An atom has 10 protons and 10 neutrons. Find its mass number.",
+      "options": [
+        "A. 20",
+        "B. 10",
+        "C. 10",
+        "D. 0"
+      ],
+      "answer": 0,
+      "explanation": "Mass number = protons + neutrons = 20."
+    },
+    {
+      "id": "y2026c3",
+      "year": 2026,
+      "subject": "chemistry",
+      "topic": "Acids and bases",
+      "question": "A solution has pH 2 at 25°C. It is",
+      "options": [
+        "A. acidic",
+        "B. neutral",
+        "C. alkaline",
+        "D. without water"
+      ],
+      "answer": 0,
+      "explanation": "A pH below 7 is acidic."
+    },
+    {
+      "id": "y2026c4",
+      "year": 2026,
+      "subject": "chemistry",
+      "topic": "Chemical bonding",
+      "question": "An atom loses 3 electrons during bonding. It forms",
+      "options": [
+        "A. a positive ion",
+        "B. a negative ion",
+        "C. a neutral atom",
+        "D. a neutron"
+      ],
+      "answer": 0,
+      "explanation": "Loss of negatively charged electrons leaves a positive ion."
+    },
+    {
+      "id": "y2026c5",
+      "year": 2026,
+      "subject": "chemistry",
+      "topic": "Gas laws",
+      "question": "A gas occupies 3 dm³ at 273 K. At constant pressure, what volume will it occupy at 285 K?",
+      "options": [
+        "A. 3.13 dm³",
+        "B. 2.87 dm³",
+        "C. 288 dm³",
+        "D. 3 dm³"
+      ],
+      "answer": 0,
+      "explanation": "Charles' law gives V₂ = V₁T₂/T₁ = 3×285/273 = 3.13 dm³."
+    },
+    {
+      "id": "y2026b1",
+      "year": 2026,
+      "subject": "biology",
+      "topic": "Cell biology",
+      "question": "Which structure controls the activities of a typical plant cell?",
+      "options": [
+        "A. Nucleus",
+        "B. Cell wall",
+        "C. Vacuole",
+        "D. Chloroplast"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus contains genetic material and regulates cell activities."
+    },
+    {
+      "id": "y2026b2",
+      "year": 2026,
+      "subject": "biology",
+      "topic": "Ecology",
+      "question": "A consumer at trophic level 2 obtains energy directly from",
+      "options": [
+        "A. organisms at the level immediately below",
+        "B. organisms at the level above",
+        "C. the soil only",
+        "D. the Sun in every case"
+      ],
+      "answer": 0,
+      "explanation": "Consumers obtain energy from organisms at the trophic level immediately below."
+    },
+    {
+      "id": "y2026b3",
+      "year": 2026,
+      "subject": "biology",
+      "topic": "Genetics",
+      "question": "In a cross involving Tt, where T is dominant over t, which phenotype is expressed?",
+      "options": [
+        "A. The dominant phenotype",
+        "B. The recessive phenotype",
+        "C. Both traits disappear",
+        "D. No trait is expressed"
+      ],
+      "answer": 0,
+      "explanation": "A heterozygote expresses the dominant trait."
+    },
+    {
+      "id": "y2026b4",
+      "year": 2026,
+      "subject": "biology",
+      "topic": "Human physiology",
+      "question": "A major function of the lung is",
+      "options": [
+        "A. gas exchange between air and blood",
+        "B. production of all hormones",
+        "C. formation of the skeleton",
+        "D. storage of hereditary information"
+      ],
+      "answer": 0,
+      "explanation": "The lung is responsible for gas exchange between air and blood."
+    },
+    {
+      "id": "y2026b5",
+      "year": 2026,
+      "subject": "biology",
+      "topic": "Classification",
+      "question": "Which feature is associated with kingdom Plantae?",
+      "options": [
+        "A. typically contains chlorophyll for photosynthesis",
+        "B. all members are vertebrates",
+        "C. all members photosynthesise",
+        "D. all members have a true nucleus"
+      ],
+      "answer": 0,
+      "explanation": "A general feature of Plantae is that it typically contains chlorophyll for photosynthesis."
     }
+  ],
+  "yearRange": [
+    2010,
+    2026
   ]
 }
