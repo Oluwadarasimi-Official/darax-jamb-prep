@@ -1,6 +1,12 @@
 -- 004: close admin authorization gaps and persist shared admin operations.
 -- Run after 001, 002_platform_analytics.sql and 003_admin_user_management.sql.
 
+-- Prevent users from promoting themselves by updating their own profile row.
+-- Ordinary users may edit only their own non-privileged profile fields.
+revoke update on table public.djp_profiles from authenticated;
+grant update (full_name, onboarded, intended_course, last_active_at)
+  on table public.djp_profiles to authenticated;
+
 -- djp_roles.user_id references djp_profiles.id, not auth.users.id.
 create or replace function public.djp_is_admin()
 returns boolean
