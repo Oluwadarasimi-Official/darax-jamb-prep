@@ -1,4 +1,4 @@
-// Curriculum index — aggregates the 15 per-subject files (210 lessons total).
+// Curriculum index — aggregates the 16 per-subject files (224 lessons total).
 import type { Lesson, SubjectDef } from './curriculum/types';
 import type { DB } from './store';
 import { SUBJECT as ENGLISH, LESSONS as ENGLISH_LESSONS } from './curriculum/english';
@@ -12,17 +12,18 @@ import { SUBJECT as COMPUTER, LESSONS as COMPUTER_LESSONS } from './curriculum/c
 import { SUBJECT as LITERATURE, LESSONS as LITERATURE_LESSONS } from './curriculum/literature';
 import { SUBJECT as GOVERNMENT, LESSONS as GOVERNMENT_LESSONS } from './curriculum/government';
 import { SUBJECT as CRS, LESSONS as CRS_LESSONS } from './curriculum/crs';
+import { SUBJECT as IRS, LESSONS as IRS_LESSONS } from './curriculum/irs';
 import { SUBJECT as YORUBA, LESSONS as YORUBA_LESSONS } from './curriculum/yoruba';
 import { SUBJECT as ECONOMICS, LESSONS as ECONOMICS_LESSONS } from './curriculum/economics';
 import { SUBJECT as COMMERCE, LESSONS as COMMERCE_LESSONS } from './curriculum/commerce';
 import { SUBJECT as ACCOUNTING, LESSONS as ACCOUNTING_LESSONS } from './curriculum/accounting';
 
 export const SUBJECTS: SubjectDef[] = [ENGLISH, MATHS, PHYSICS, CHEMISTRY, BIOLOGY, AGRIC, GEOGRAPHY, COMPUTER,
-  LITERATURE, GOVERNMENT, CRS, YORUBA, ECONOMICS, COMMERCE, ACCOUNTING];
+  LITERATURE, GOVERNMENT, CRS, IRS, YORUBA, ECONOMICS, COMMERCE, ACCOUNTING];
 export const ALL_LESSONS: Lesson[] = [
   ...ENGLISH_LESSONS, ...MATHS_LESSONS, ...PHYSICS_LESSONS, ...CHEMISTRY_LESSONS,
   ...BIOLOGY_LESSONS, ...AGRIC_LESSONS, ...GEOGRAPHY_LESSONS, ...COMPUTER_LESSONS,
-  ...LITERATURE_LESSONS, ...GOVERNMENT_LESSONS, ...CRS_LESSONS, ...YORUBA_LESSONS,
+  ...LITERATURE_LESSONS, ...GOVERNMENT_LESSONS, ...CRS_LESSONS, ...IRS_LESSONS, ...YORUBA_LESSONS,
   ...ECONOMICS_LESSONS, ...COMMERCE_LESSONS, ...ACCOUNTING_LESSONS,
 ];
 

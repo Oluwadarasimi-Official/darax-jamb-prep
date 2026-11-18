@@ -6,7 +6,7 @@ export type Department = 'science' | 'arts' | 'commercial';
 
 export const DEPARTMENTS: { id: Department; name: string; tagline: string }[] = [
   { id: 'science', name: 'Science', tagline: 'Mathematics, Physics, Chemistry, Biology and more.' },
-  { id: 'arts', name: 'Arts', tagline: 'Literature, Government, CRS and Yoruba.' },
+  { id: 'arts', name: 'Arts', tagline: 'Literature, Government, CRS, IRS and Yoruba.' },
   { id: 'commercial', name: 'Commercial', tagline: 'Economics, Commerce, Accounting and more.' },
 ];
 
@@ -126,12 +126,12 @@ export const SUBJECT_NAMES: Record<string, string> = {
   chemistry: 'Chemistry', biology: 'Biology', 'agricultural-science': 'Agricultural Science',
   geography: 'Geography', 'computer-studies': 'Computer Studies',
   literature: 'Literature in English', government: 'Government', crs: 'Christian Religious Studies',
-  yoruba: 'Yoruba',
+  irs: 'Islamic Religious Studies', yoruba: 'Yoruba',
   economics: 'Economics', commerce: 'Commerce', accounting: 'Accounting',
 };
 export const SCIENCE_SUBJECTS = ['mathematics', 'physics', 'chemistry', 'biology', 'agricultural-science', 'geography', 'computer-studies'];
 /** Subjects a student may pick (besides compulsory English) per department. */
-export const ARTS_SUBJECTS = ['literature', 'government', 'crs', 'yoruba'];
+export const ARTS_SUBJECTS = ['literature', 'government', 'crs', 'yoruba', 'irs'];
 export const COMMERCIAL_SUBJECTS = ['economics', 'commerce', 'accounting', 'mathematics', 'geography', 'government', 'crs'];
 export const DEPARTMENT_SUBJECTS: Record<Department, string[]> = {
   science: SCIENCE_SUBJECTS, arts: ARTS_SUBJECTS, commercial: COMMERCIAL_SUBJECTS,
@@ -151,13 +151,14 @@ export const COURSE_REQUIREMENTS: { course: string; dept: Department; required: 
   { course: 'Microbiology', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Microbiology requires English, Biology, Chemistry and Physics.' },
   { course: 'Mathematics', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Mathematics requires English, Mathematics, Physics and Chemistry.' },
   { course: 'Statistics', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'economics', 'physics']], note: 'Statistics requires English, Mathematics and Physics, plus Chemistry.' },
-  { course: 'Law', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'Law requires English, Literature in English, Government and CRS.' },
+  { course: 'Law', dept: 'arts', required: [['english', 'literature', 'government', 'crs'], ['english', 'literature', 'government', 'irs']], note: 'Law requires English, Literature in English, Government and CRS (or IRS).' },
   { course: 'Mass Communication', dept: 'arts', required: [['english', 'literature', 'government', 'economics'], ['english', 'literature', 'government', 'crs']], note: 'Mass Communication requires English, Literature in English, Government and Economics (or CRS).' },
   { course: 'English Language', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'English Language requires English, Literature in English, Government and CRS.' },
   { course: 'Theatre Arts', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'Theatre Arts requires English, Literature in English, Government and CRS.' },
   { course: 'Linguistics', dept: 'arts', required: [['english', 'literature', 'yoruba', 'government']], note: 'Linguistics requires English, Literature in English, a Nigerian language (Yoruba) and Government.' },
   { course: 'Yoruba Language', dept: 'arts', required: [['english', 'yoruba', 'literature', 'government']], note: 'Yoruba Language requires English, Yoruba, Literature in English and Government.' },
-  { course: 'Religious Studies', dept: 'arts', required: [['english', 'crs', 'government', 'literature']], note: 'Religious Studies requires English, CRS, Government and Literature in English.' },
+  { course: 'Religious Studies', dept: 'arts', required: [['english', 'crs', 'government', 'literature'], ['english', 'irs', 'government', 'literature']], note: 'Religious Studies requires English, CRS (or IRS), Government and Literature in English.' },
+  { course: 'Islamic Studies', dept: 'arts', required: [['english', 'irs', 'government', 'literature']], note: 'Islamic Studies requires English, Islamic Religious Studies, Government and Literature in English.' },
   { course: 'Accounting', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce'], ['english', 'mathematics', 'economics', 'accounting']], note: 'Accounting requires English, Mathematics, Economics and Commerce (or Accounting).' },
   { course: 'Business Administration', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce']], note: 'Business Administration requires English, Mathematics, Economics and Commerce.' },
   { course: 'Economics', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'government'], ['english', 'mathematics', 'economics', 'geography']], note: 'Economics requires English, Mathematics, Economics and Government (or Geography).' },

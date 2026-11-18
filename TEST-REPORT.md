@@ -481,3 +481,71 @@ Rebased v1.2.0 onto them; two conflicts, both merged rather than reverted:
 - Full re-verification after the rebase: tsc clean, counts 15 / 210 / 3,150 /
   zero non-15, `npm run build` passes, headless suite **62/62 passed**
   (61 original + the signed-in redirect check).
+
+---
+
+## IRS — Islamic Religious Studies (2026-11-18, v1.3.0)
+
+New subject: 14 lessons (irs-01..irs-14), 15 questions each, 7 topics.
+Colour `#2563eb` (verified unused by every other subject). Content assembled
+from the three verified part files (part-a irs-01..06, part-b irs-07..10,
+part-c irs-11..14); the part files' `topic` strings already matched the 7
+SUBJECT topics exactly, so no mismatch fixes were needed. `irs-parts/`
+deleted after assembly.
+
+**What changed**
+- `lib/curriculum/irs.ts` (new): SUBJECT + LESSONS, same shape as `crs.ts`.
+- `lib/curriculum.ts`: IRS imported and added to SUBJECTS + ALL_LESSONS
+  (header comment now 16 files, 224 lessons).
+- `lib/store.ts`: `irs` in SUBJECT_NAMES; ARTS_SUBJECTS now
+  `[literature, government, crs, yoruba, irs]`; Arts tagline includes IRS;
+  new course `Islamic Studies` (English, IRS, Government, Literature);
+  IRS variant added to `Religious Studies` and to `Law` (CRS variants kept).
+- `app/api/tutor/route.ts`: SYSTEM_PROMPT Arts/Commercial list now includes
+  'Islamic Religious Studies'.
+- `supabase/migrations/006_djp_irs.sql` (new): seeds the IRS subject row and
+  the 3 IRS course combinations into `djp_subject_combinations`
+  (`on conflict do nothing`); grants NARROW like 005 — select on
+  `djp_subjects` + `djp_subject_combinations` only, no profile grants.
+- Admin Content Studio: no code change needed — its dropdowns are built from
+  SUBJECTS + DEPARTMENT_SUBJECTS (verified by code read + headless check);
+  IRS appears under Arts and its 7 topics show once IRS is picked.
+
+**Verification (production build on :3100, playwright-core + headless Chromium)**
+- `npx tsc --noEmit`: clean.
+- `node scripts/count-curriculum.js` → **16 subjects, 224 lessons, 3,360
+  questions, zero non-15 quizzes** (IRS: 14 lessons, 210 questions).
+- `npm run build`: passes.
+- Headless suite `/tmp/pwtest/irs-check.js` → **40/40 passed**:
+  landing shows 224 lessons / 16 subjects; Arts onboarding lists IRS
+  alongside Literature/Government/CRS/Yoruba; Islamic Studies, Law+IRS and
+  Religious Studies+IRS combinations all validate ("meets the JAMB
+  requirement"); dashboard shows IRS; IRS subject page lists 14 lessons;
+  irs-01 slideshow Next advances (1/13 → 2/13) and Previous returns
+  (→ 1/13); irs-01 quiz shows exactly 15 questions, submits with a score,
+  retake reshuffles the question order; irs-14 loads once irs-01..13 are
+  passed at 80% (the 70% unlock rule correctly locks it before that);
+  Content Studio lists IRS under Arts with all 7 topics on selection.
+  Overflow sweep: onboarding, dashboard, subject, lesson irs-01/irs-14,
+  quiz irs-01, admin content at 390px + 1280px × Dark + Light — all 0px
+  horizontal overflow, no element extending past the viewport.
+- Two suite failures on the first run were test artifacts, not product bugs:
+  irs-14 initially showed the expected "This lesson is locked" screen
+  (70% rule), and IRS topics only render after IRS is picked in the
+  Content Studio dropdown. Both checks were corrected and now pass.
+
+**Still unverified live (parent / David's phone):**
+- Migration 006 NOT applied on the live Supabase project — apply via the
+  dashboard SQL editor; do not claim it is live until the verify queries at
+  the end of 006 return the IRS row + 3 combinations.
+- Live site update not proven by the push — Vercel must deploy this commit
+  first; live signup/onboarding/lesson/quiz on
+  https://daraxjambprep.vercel.app still owed.
+- Headless signup could NOT be exercised in this VM: the headless browser's
+  fetch to supabase.co fails ("Failed to fetch") while curl from the shell
+  reaches it (401) — an environment egress limit, not an IRS defect. The
+  suite therefore seeded the Arts student + admin straight into
+  localStorage (the same store the app reads); the Supabase Auth signup
+  round-trip itself was not re-proven here (it was proven in v1.2.0).
+- David's phone acceptance of IRS (onboarding pick, slideshow, quiz,
+  retake reshuffle) still owed.
