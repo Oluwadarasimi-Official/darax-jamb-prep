@@ -117,7 +117,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
       const durationSec = Math.round((Date.now() - startedAt.current) / 1000);
       const attemptId = uid('att');
       const attempt = {
-        id: attemptId, userId: user.id, lessonId, subjectId, kind, title,
+        id: attemptId, userId: user.id, lessonId, subjectId, department: user.department || 'science', kind, title,
         total: data.total, correct: data.correct, score: data.score,
         answers: data.graded.map((g: GradeResult) => ({ q: g.q, chosen: g.chosen, correct: g.correct })),
         startedAt: new Date(startedAt.current).toISOString(), completedAt: new Date().toISOString(), durationSec,

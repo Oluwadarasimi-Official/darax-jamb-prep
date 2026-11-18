@@ -2,12 +2,17 @@
 import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { getSubject, getSubjectLessons, SUBJECTS } from '@/lib/curriculum';
+import { DEPARTMENTS, DEPARTMENT_SUBJECTS } from '@/lib/store';
 import { subjectProgress } from '@/lib/progression';
 import { GlassCard, ProgressBar } from '@/components/ui';
 
 export default function SubjectsPage() {
   const { db, user } = useDb();
   if (!user) return null;
+  const dept = user.department || 'science';
+  const deptName = DEPARTMENTS.find(d => d.id === dept)?.name || 'Science';
+  const deptSubjectIds = ['english', ...DEPARTMENT_SUBJECTS[dept]];
+  const deptSubjects = SUBJECTS.filter(s => deptSubjectIds.includes(s.id));
   return (
     <div className="flex flex-col gap-5">
       <div>
@@ -33,9 +38,9 @@ export default function SubjectsPage() {
         })}
       </div>
       <GlassCard>
-        <h2 className="font-bold text-lg mb-3">All available subjects</h2>
+        <h2 className="font-bold text-lg mb-3">All {deptName} subjects</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          {SUBJECTS.map(s => {
+          {deptSubjects.map(s => {
             const enrolled = user.subjects.includes(s.id);
             return (
               <div key={s.id} className="glass-soft p-3">

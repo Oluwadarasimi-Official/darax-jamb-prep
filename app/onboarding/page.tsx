@@ -4,16 +4,25 @@ import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { Logo } from '@/components/Logo';
 import { mirrorOnboarding } from '@/lib/sync';
-import { COURSE_REQUIREMENTS, SCIENCE_SUBJECTS, SUBJECT_NAMES, validateCombination } from '@/lib/store';
+import { COURSE_REQUIREMENTS, DEPARTMENTS, DEPARTMENT_SUBJECTS, SUBJECT_NAMES, validateCombination, type Department } from '@/lib/store';
 
 export default function OnboardingPage() {
   const { user, setDb } = useDb();
   const router = useRouter();
+  const [department, setDepartment] = useState<Department>(user?.department || 'science');
   const [picked, setPicked] = useState<string[]>([]);
   const [course, setCourse] = useState('');
   const [error, setError] = useState('');
 
   if (!user) return <div className="min-h-screen flex items-center justify-center"><p className="muted">Loading…</p></div>;
+
+  const deptSubjects = DEPARTMENT_SUBJECTS[department];
+  const deptCourses = COURSE_REQUIREMENTS.filter(c => c.dept === department);
+  const deptName = DEPARTMENTS.find(d => d.id === department)?.name || 'Science';
+
+  const pickDept = (d: Department) => {
+    setDepartment(d); setPicked([]); setCourse(''); setError('');
+  };
 
   const toggle = (id: string) => {
     setError('');
@@ -21,17 +30,17 @@ export default function OnboardingPage() {
   };
 
   const subjects = ['english', ...picked];
-  const validation = validateCombination(subjects, course || undefined);
+  const validation = validateCombination(subjects, course || undefined, department);
 
   const submit = () => {
-    if (picked.length !== 3) { setError('Pick exactly three science subjects in addition to English Language.'); return; }
+    if (picked.length !== 3) { setError(`Pick exactly three ${deptName} subjects in addition to English Language.`); return; }
     if (course && !validation.ok) { setError(validation.message); return; }
     setDb(d => {
       const u = d.profiles.find(p => p.id === user.id)!;
-      u.subjects = subjects; u.intendedCourse = course || undefined; u.onboarded = true;
+      u.department = department; u.subjects = subjects; u.intendedCourse = course || undefined; u.onboarded = true;
       return d;
     });
-    mirrorOnboarding(user.id, subjects, course || undefined);
+    mirrorOnboarding(user.id, subjects, course || undefined, department);
     router.replace('/app/dashboard');
   };
 
@@ -40,17 +49,32 @@ export default function OnboardingPage() {
       <div className="glass p-7 w-full max-w-2xl">
         <Logo />
         <h1 className="text-2xl font-bold mt-5">Welcome, {user.fullName.split(' ')[0]} — set up your JAMB subjects</h1>
-        <p className="muted text-sm mt-1">This platform is strictly for JAMB science students. English Language is compulsory for every candidate.</p>
+        <p className="muted text-sm mt-1">Pick your department first, then your subjects. English Language is compulsory for every candidate.</p>
 
-        <h2 className="font-semibold mt-6 mb-2">1. English Language <span className="chip">Compulsory</span></h2>
+        <h2 className="font-semibold mt-6 mb-2">1. Your department</h2>
+        <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Department">
+          {DEPARTMENTS.map(d => {
+            const on = department === d.id;
+            return (
+              <button key={d.id} type="button" role="radio" aria-checked={on} onClick={() => pickDept(d.id)}
+                className={`p-3 rounded-xl border text-left transition-colors ${on ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
+                <span className="block font-semibold text-sm">{d.name}</span>
+                <span className="block text-xs muted mt-1 leading-snug">{d.tagline}</span>
+                <span className="block text-right text-sm mt-1">{on ? '✓' : '○'}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <h2 className="font-semibold mt-6 mb-2">2. English Language <span className="chip">Compulsory</span></h2>
         <div className="glass-soft p-3 flex items-center justify-between">
           <span className="font-medium">English Language</span>
           <span className="text-accent text-sm font-semibold">✓ Locked in</span>
         </div>
 
-        <h2 className="font-semibold mt-6 mb-2">2. Pick exactly three more science subjects <span className="muted font-normal">({picked.length}/3 selected)</span></h2>
+        <h2 className="font-semibold mt-6 mb-2">3. Pick exactly three more {deptName} subjects <span className="muted font-normal">({picked.length}/3 selected)</span></h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {SCIENCE_SUBJECTS.map(id => {
+          {deptSubjects.map(id => {
             const on = picked.includes(id);
             return (
               <button key={id} onClick={() => toggle(id)} aria-pressed={on}
@@ -62,10 +86,10 @@ export default function OnboardingPage() {
           })}
         </div>
 
-        <h2 className="font-semibold mt-6 mb-2">3. Intended university course <span className="muted font-normal">(optional)</span></h2>
+        <h2 className="font-semibold mt-6 mb-2">4. Intended university course <span className="muted font-normal">(optional)</span></h2>
         <select className="glass-input" value={course} onChange={e => { setCourse(e.target.value); setError(''); }}>
           <option value="">— No course selected yet —</option>
-          {COURSE_REQUIREMENTS.map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
+          {deptCourses.map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
         </select>
         {course && (
           <p className={`text-sm mt-2 px-3 py-2 rounded-lg border ${validation.ok ? 'text-accent bg-accent/10 border-accent/30' : 'text-warn bg-warn/10 border-warn/30'}`}>
@@ -77,7 +101,7 @@ export default function OnboardingPage() {
         <button onClick={submit} className="btn-primary w-full mt-6" disabled={picked.length !== 3}>
           {picked.length !== 3 ? `Pick ${3 - picked.length} more subject${3 - picked.length === 1 ? '' : 's'} to continue` : 'Save my subjects and start learning'}
         </button>
-        <p className="text-xs muted mt-3 text-center">You can change your subjects later in My Profile — your completed lessons and scores are preserved.</p>
+        <p className="text-xs muted mt-3 text-center">You can change your department and subjects later in My Profile — your completed lessons and scores are preserved.</p>
       </div>
     </div>
   );

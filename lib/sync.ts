@@ -18,7 +18,7 @@ export function sbProfileToLocal(row: SbProfileRow, subjects: string[]): Profile
     id: row.id,
     fullName: row.full_name, username: row.username, email: row.email,
     passwordHash: '', salt: '',
-    role: row.role, onboarded: row.onboarded, subjects,
+    role: row.role, department: row.department || 'science', onboarded: row.onboarded, subjects,
     intendedCourse: row.intended_course || undefined,
     createdAt: row.created_at, lastActiveAt: row.last_active_at,
     isDemo: row.is_demo, active: row.active,
@@ -53,10 +53,11 @@ export async function syncUserFromSupabase(db: DB, authUser: User): Promise<DB |
       const meta = (authUser.user_metadata || {}) as Record<string, unknown>;
       const username = String(meta.username || authUser.email?.split('@')[0] || `user_${authUser.id.slice(0, 8)}`);
       const fullName = String(meta.full_name || username);
+      const dept = (meta.department === 'arts' || meta.department === 'commercial') ? meta.department : 'science';
       row = await sbInsertProfile({
         auth_id: authUser.id, full_name: fullName,
         username: username.toLowerCase().replace(/[^a-z0-9_]/g, '_').slice(0, 20) || `user_${authUser.id.slice(0, 8)}`,
-        email: (authUser.email || '').toLowerCase(),
+        email: (authUser.email || '').toLowerCase(), department: dept,
       });
     }
     // Record genuine account activity in the shared database, not only in this browser cache.
@@ -107,10 +108,10 @@ function fire(p: Promise<unknown>, label: string) {
   p.catch(e => console.warn(`[darax-sync] ${label} failed:`, e instanceof Error ? e.message : e));
 }
 
-export function mirrorOnboarding(profileId: string, subjects: string[], intendedCourse?: string) {
+export function mirrorOnboarding(profileId: string, subjects: string[], intendedCourse?: string, department?: 'science' | 'arts' | 'commercial', onboarded = true) {
   if (!SUPABASE_CONFIGURED) return;
   fire((async () => {
-    await sbUpdateProfile(profileId, { onboarded: true, intended_course: intendedCourse || null });
+    await sbUpdateProfile(profileId, { onboarded, intended_course: intendedCourse || null, ...(department ? { department } : {}) });
     await sbSetSubjects(profileId, subjects);
   })(), 'mirror onboarding');
 }

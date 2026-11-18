@@ -2,16 +2,25 @@
 // Tier 2 (Supabase) activates only when env vars are set — see lib/supabase.ts.
 // README states this plainly. Never claim Supabase is live until verified.
 
+export type Department = 'science' | 'arts' | 'commercial';
+
+export const DEPARTMENTS: { id: Department; name: string; tagline: string }[] = [
+  { id: 'science', name: 'Science', tagline: 'Mathematics, Physics, Chemistry, Biology and more.' },
+  { id: 'arts', name: 'Arts', tagline: 'Literature, Government, CRS and Yoruba.' },
+  { id: 'commercial', name: 'Commercial', tagline: 'Economics, Commerce, Accounting and more.' },
+];
+
 export interface Profile {
   id: string; fullName: string; username: string; email: string;
   passwordHash: string; salt: string;
   role: 'student' | 'admin';
+  department: Department;
   onboarded: boolean; subjects: string[]; intendedCourse?: string;
   createdAt: string; lastActiveAt: string; isDemo?: boolean; active: boolean;
   notifyPrefs?: { weekly: boolean; lessons: boolean; results: boolean; announcements: boolean };
 }
 export interface Attempt {
-  id: string; userId: string; lessonId?: string; subjectId: string; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock' | 'utme';
+  id: string; userId: string; lessonId?: string; subjectId: string; department?: Department; kind: 'lesson' | 'topic' | 'subject' | 'mixed' | 'mock' | 'utme';
   title: string; total: number; correct: number; score: number; // percent
   answers: { q: string; chosen: number; correct: number }[];
   startedAt: string; completedAt: string; durationSec: number;
@@ -64,6 +73,8 @@ export function loadDB(): DB {
     const raw = localStorage.getItem(KEY);
     if (!raw) return emptyDB();
     const db = JSON.parse(raw) as DB;
+    // Backfill: accounts created before departments existed default to Science.
+    db.profiles = (db.profiles || []).map(p => ({ ...p, department: p.department || 'science' }));
     return { ...emptyDB(), ...db };
   } catch { return emptyDB(); }
 }
@@ -88,7 +99,7 @@ export function seedDemo(db: DB): DB {
   const demo: Profile = {
     id: 'demo_student', fullName: 'Demo Student', username: 'demo_student',
     email: 'demo@darax.example', passwordHash: '', salt: 'demo',
-    role: 'student', onboarded: true,
+    role: 'student', department: 'science', onboarded: true,
     subjects: ['english', 'mathematics', 'physics', 'chemistry'],
     intendedCourse: 'Engineering', createdAt: now, lastActiveAt: now, isDemo: true, active: true,
     notifyPrefs: { weekly: true, lessons: true, results: true, announcements: true },
@@ -106,7 +117,7 @@ export function seedDemo(db: DB): DB {
     { id: uid('att'), userId: 'demo_student', lessonId: 'mathematics-01', subjectId: 'mathematics', kind: 'lesson', title: 'Indices and Logarithms', total: 15, correct: 15, score: 100, answers: [], startedAt: now, completedAt: now, durationSec: 280 },
   );
   db.notifications.push({ id: uid('ntf'), userId: 'demo_student', title: 'Welcome to Darax JAMB Prep', body: 'Your free science JAMB preparation starts here. Complete your first lesson to unlock the next one.', kind: 'announcement', link: '/app/dashboard', read: false, createdAt: now });
-  db.announcements.push({ id: uid('ann'), title: 'Welcome to The Official Darax Free JAMB Prep', body: 'Learn. Practice. Improve. Excel. All lessons are free for science students. Score at least 70% on each lesson quiz to unlock the next lesson.', createdAt: now, author: 'Official Darax' });
+  db.announcements.push({ id: uid('ann'), title: 'Welcome to The Official Darax Free JAMB Prep', body: 'Learn. Practice. Improve. Excel. All lessons are free for Science, Arts and Commercial students. Score at least 70% on each lesson quiz to unlock the next lesson.', createdAt: now, author: 'Official Darax' });
   return db;
 }
 
@@ -114,31 +125,54 @@ export const SUBJECT_NAMES: Record<string, string> = {
   english: 'English Language', mathematics: 'Mathematics', physics: 'Physics',
   chemistry: 'Chemistry', biology: 'Biology', 'agricultural-science': 'Agricultural Science',
   geography: 'Geography', 'computer-studies': 'Computer Studies',
+  literature: 'Literature in English', government: 'Government', crs: 'Christian Religious Studies',
+  yoruba: 'Yoruba',
+  economics: 'Economics', commerce: 'Commerce', accounting: 'Accounting',
 };
 export const SCIENCE_SUBJECTS = ['mathematics', 'physics', 'chemistry', 'biology', 'agricultural-science', 'geography', 'computer-studies'];
+/** Subjects a student may pick (besides compulsory English) per department. */
+export const ARTS_SUBJECTS = ['literature', 'government', 'crs', 'yoruba'];
+export const COMMERCIAL_SUBJECTS = ['economics', 'commerce', 'accounting', 'mathematics', 'geography', 'government', 'crs'];
+export const DEPARTMENT_SUBJECTS: Record<Department, string[]> = {
+  science: SCIENCE_SUBJECTS, arts: ARTS_SUBJECTS, commercial: COMMERCIAL_SUBJECTS,
+};
 
 /** JAMB combination validation map (course -> acceptable subject sets, English always included). */
-export const COURSE_REQUIREMENTS: { course: string; required: string[][]; note: string }[] = [
-  { course: 'Medicine and Surgery', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Medicine requires English, Biology, Chemistry and Physics.' },
-  { course: 'Nursing Science', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Nursing requires English, Biology, Chemistry and Physics.' },
-  { course: 'Pharmacy', required: [['english', 'biology', 'chemistry', 'physics'], ['english', 'biology', 'chemistry', 'mathematics']], note: 'Pharmacy requires English, Biology, Chemistry and Physics (or Mathematics).' },
-  { course: 'Engineering (all branches)', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Engineering requires English, Mathematics, Physics and Chemistry.' },
-  { course: 'Architecture', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Architecture requires English, Mathematics, Physics and Chemistry.' },
-  { course: 'Computer Science', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'physics', 'computer-studies']], note: 'Computer Science requires English, Mathematics, Physics and Chemistry (or Computer Studies).' },
-  { course: 'Agriculture', required: [['english', 'biology', 'chemistry', 'agricultural-science'], ['english', 'biology', 'chemistry', 'physics']], note: 'Agriculture requires English, Biology, Chemistry and Agricultural Science (or Physics).' },
-  { course: 'Geology', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'physics', 'geography']], note: 'Geology requires English, Mathematics, Physics and Chemistry (or Geography).' },
-  { course: 'Biochemistry', required: [['english', 'biology', 'chemistry', 'physics'], ['english', 'biology', 'chemistry', 'mathematics']], note: 'Biochemistry requires English, Biology, Chemistry and Physics (or Mathematics).' },
-  { course: 'Microbiology', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Microbiology requires English, Biology, Chemistry and Physics.' },
-  { course: 'Mathematics', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Mathematics requires English, Mathematics, Physics and Chemistry.' },
-  { course: 'Statistics', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'economics', 'physics']], note: 'Statistics requires English, Mathematics and Physics, plus Chemistry.' },
+export const COURSE_REQUIREMENTS: { course: string; dept: Department; required: string[][]; note: string }[] = [
+  { course: 'Medicine and Surgery', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Medicine requires English, Biology, Chemistry and Physics.' },
+  { course: 'Nursing Science', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Nursing requires English, Biology, Chemistry and Physics.' },
+  { course: 'Pharmacy', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics'], ['english', 'biology', 'chemistry', 'mathematics']], note: 'Pharmacy requires English, Biology, Chemistry and Physics (or Mathematics).' },
+  { course: 'Engineering (all branches)', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Engineering requires English, Mathematics, Physics and Chemistry.' },
+  { course: 'Architecture', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Architecture requires English, Mathematics, Physics and Chemistry.' },
+  { course: 'Computer Science', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'physics', 'computer-studies']], note: 'Computer Science requires English, Mathematics, Physics and Chemistry (or Computer Studies).' },
+  { course: 'Agriculture', dept: 'science', required: [['english', 'biology', 'chemistry', 'agricultural-science'], ['english', 'biology', 'chemistry', 'physics']], note: 'Agriculture requires English, Biology, Chemistry and Agricultural Science (or Physics).' },
+  { course: 'Geology', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'physics', 'geography']], note: 'Geology requires English, Mathematics, Physics and Chemistry (or Geography).' },
+  { course: 'Biochemistry', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics'], ['english', 'biology', 'chemistry', 'mathematics']], note: 'Biochemistry requires English, Biology, Chemistry and Physics (or Mathematics).' },
+  { course: 'Microbiology', dept: 'science', required: [['english', 'biology', 'chemistry', 'physics']], note: 'Microbiology requires English, Biology, Chemistry and Physics.' },
+  { course: 'Mathematics', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry']], note: 'Mathematics requires English, Mathematics, Physics and Chemistry.' },
+  { course: 'Statistics', dept: 'science', required: [['english', 'mathematics', 'physics', 'chemistry'], ['english', 'mathematics', 'economics', 'physics']], note: 'Statistics requires English, Mathematics and Physics, plus Chemistry.' },
+  { course: 'Law', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'Law requires English, Literature in English, Government and CRS.' },
+  { course: 'Mass Communication', dept: 'arts', required: [['english', 'literature', 'government', 'economics'], ['english', 'literature', 'government', 'crs']], note: 'Mass Communication requires English, Literature in English, Government and Economics (or CRS).' },
+  { course: 'English Language', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'English Language requires English, Literature in English, Government and CRS.' },
+  { course: 'Theatre Arts', dept: 'arts', required: [['english', 'literature', 'government', 'crs']], note: 'Theatre Arts requires English, Literature in English, Government and CRS.' },
+  { course: 'Linguistics', dept: 'arts', required: [['english', 'literature', 'yoruba', 'government']], note: 'Linguistics requires English, Literature in English, a Nigerian language (Yoruba) and Government.' },
+  { course: 'Yoruba Language', dept: 'arts', required: [['english', 'yoruba', 'literature', 'government']], note: 'Yoruba Language requires English, Yoruba, Literature in English and Government.' },
+  { course: 'Religious Studies', dept: 'arts', required: [['english', 'crs', 'government', 'literature']], note: 'Religious Studies requires English, CRS, Government and Literature in English.' },
+  { course: 'Accounting', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce'], ['english', 'mathematics', 'economics', 'accounting']], note: 'Accounting requires English, Mathematics, Economics and Commerce (or Accounting).' },
+  { course: 'Business Administration', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce']], note: 'Business Administration requires English, Mathematics, Economics and Commerce.' },
+  { course: 'Economics', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'government'], ['english', 'mathematics', 'economics', 'geography']], note: 'Economics requires English, Mathematics, Economics and Government (or Geography).' },
+  { course: 'Banking and Finance', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce']], note: 'Banking and Finance requires English, Mathematics, Economics and Commerce.' },
+  { course: 'Marketing', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce']], note: 'Marketing requires English, Mathematics, Economics and Commerce.' },
+  { course: 'Insurance', dept: 'commercial', required: [['english', 'mathematics', 'economics', 'commerce']], note: 'Insurance requires English, Mathematics, Economics and Commerce.' },
 ];
 
-export function validateCombination(subjects: string[], course?: string): { ok: boolean; message: string } {
+export function validateCombination(subjects: string[], course?: string, dept: Department = 'science'): { ok: boolean; message: string } {
+  const deptName = DEPARTMENTS.find(d => d.id === dept)?.name || 'Science';
   if (!subjects.includes('english')) return { ok: false, message: 'English Language is compulsory for every JAMB candidate.' };
-  if (subjects.length !== 4) return { ok: false, message: 'Select exactly four subjects: English Language plus three science subjects.' };
-  if (!course) return { ok: true, message: 'Valid four-subject science combination.' };
+  if (subjects.length !== 4) return { ok: false, message: `Select exactly four subjects: English Language plus three ${deptName} subjects.` };
+  if (!course) return { ok: true, message: `Valid four-subject ${deptName} combination.` };
   const req = COURSE_REQUIREMENTS.find(c => c.course === course);
-  if (!req) return { ok: true, message: 'Valid four-subject science combination.' };
+  if (!req) return { ok: true, message: `Valid four-subject ${deptName} combination.` };
   const sorted = [...subjects].sort().join(',');
   const match = req.required.some(set => [...set].sort().join(',') === sorted);
   if (match) return { ok: true, message: `${course}: your combination meets the JAMB requirement.` };

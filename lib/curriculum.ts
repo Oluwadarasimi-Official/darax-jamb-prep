@@ -1,4 +1,4 @@
-// Curriculum index — aggregates the 8 per-subject files (112 lessons total).
+// Curriculum index — aggregates the 15 per-subject files (210 lessons total).
 import type { Lesson, SubjectDef } from './curriculum/types';
 import type { DB } from './store';
 import { SUBJECT as ENGLISH, LESSONS as ENGLISH_LESSONS } from './curriculum/english';
@@ -9,11 +9,21 @@ import { SUBJECT as BIOLOGY, LESSONS as BIOLOGY_LESSONS } from './curriculum/bio
 import { SUBJECT as AGRIC, LESSONS as AGRIC_LESSONS } from './curriculum/agricultural-science';
 import { SUBJECT as GEOGRAPHY, LESSONS as GEOGRAPHY_LESSONS } from './curriculum/geography';
 import { SUBJECT as COMPUTER, LESSONS as COMPUTER_LESSONS } from './curriculum/computer-studies';
+import { SUBJECT as LITERATURE, LESSONS as LITERATURE_LESSONS } from './curriculum/literature';
+import { SUBJECT as GOVERNMENT, LESSONS as GOVERNMENT_LESSONS } from './curriculum/government';
+import { SUBJECT as CRS, LESSONS as CRS_LESSONS } from './curriculum/crs';
+import { SUBJECT as YORUBA, LESSONS as YORUBA_LESSONS } from './curriculum/yoruba';
+import { SUBJECT as ECONOMICS, LESSONS as ECONOMICS_LESSONS } from './curriculum/economics';
+import { SUBJECT as COMMERCE, LESSONS as COMMERCE_LESSONS } from './curriculum/commerce';
+import { SUBJECT as ACCOUNTING, LESSONS as ACCOUNTING_LESSONS } from './curriculum/accounting';
 
-export const SUBJECTS: SubjectDef[] = [ENGLISH, MATHS, PHYSICS, CHEMISTRY, BIOLOGY, AGRIC, GEOGRAPHY, COMPUTER];
+export const SUBJECTS: SubjectDef[] = [ENGLISH, MATHS, PHYSICS, CHEMISTRY, BIOLOGY, AGRIC, GEOGRAPHY, COMPUTER,
+  LITERATURE, GOVERNMENT, CRS, YORUBA, ECONOMICS, COMMERCE, ACCOUNTING];
 export const ALL_LESSONS: Lesson[] = [
   ...ENGLISH_LESSONS, ...MATHS_LESSONS, ...PHYSICS_LESSONS, ...CHEMISTRY_LESSONS,
   ...BIOLOGY_LESSONS, ...AGRIC_LESSONS, ...GEOGRAPHY_LESSONS, ...COMPUTER_LESSONS,
+  ...LITERATURE_LESSONS, ...GOVERNMENT_LESSONS, ...CRS_LESSONS, ...YORUBA_LESSONS,
+  ...ECONOMICS_LESSONS, ...COMMERCE_LESSONS, ...ACCOUNTING_LESSONS,
 ];
 
 export function getSubject(id: string): SubjectDef | undefined { return SUBJECTS.find(s => s.id === id); }

@@ -15,7 +15,7 @@ export const viewport = { width: 'device-width', initialScale: 1, viewportFit: '
 
 export const metadata: Metadata = {
   title: 'The Official Darax Free JAMB Prep — Learn. Practice. Improve. Excel.',
-  description: 'Free JAMB preparation for science students, powered by Official Darax. Structured lessons, quizzes, mock exams, AI tutor, leaderboards and achievement badges.',
+  description: 'Free JAMB preparation for Science, Arts and Commercial students, powered by Official Darax. Structured lessons, quizzes, mock exams, AI tutor, leaderboards and achievement badges.',
   metadataBase: new URL('https://daraxjambprep.vercel.app'),
   icons: { icon: '/logo.png' },
 };

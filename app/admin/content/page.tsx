@@ -4,9 +4,29 @@ import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { ALL_LESSONS, SUBJECTS, getSubjectLessons } from '@/lib/curriculum';
 import { orderedLessons } from '@/lib/progression';
-import { uid, type CustomLesson, type DraftLesson } from '@/lib/store';
+import { uid, DEPARTMENTS, DEPARTMENT_SUBJECTS, type CustomLesson, type DraftLesson } from '@/lib/store';
 import { GlassCard } from '@/components/ui';
 import { getSb, SUPABASE_CONFIGURED } from '@/lib/supabase';
+
+/* ------------------------------------------------------------------ */
+/* Subject dropdown, grouped by department (Science / Arts / Commercial) */
+/* Shared by the manual form, AI authoring and the lessons filter.     */
+/* ------------------------------------------------------------------ */
+function SubjectSelect({ value, onChange, className }: { value: string; onChange: (v: string) => void; className?: string }) {
+  return (
+    <select className={className || 'glass-input'} value={value} onChange={e => onChange(e.target.value)}>
+      {DEPARTMENTS.map(dept => {
+        const ids = ['english', ...DEPARTMENT_SUBJECTS[dept.id]];
+        const group = SUBJECTS.filter(s => ids.includes(s.id));
+        return (
+          <optgroup key={dept.id} label={`${dept.name} Department`}>
+            {group.map(s => <option key={`${dept.id}:${s.id}`} value={s.id}>{s.name}</option>)}
+          </optgroup>
+        );
+      })}
+    </select>
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /* Draft validation + publishing                                       */
@@ -155,9 +175,7 @@ function ManualLessonForm({ subjectId, onSaved }: { subjectId: string; onSaved: 
     <div className="flex flex-col gap-3 mt-3">
       <div className="grid md:grid-cols-2 gap-2">
         <label className="text-sm font-medium">Subject
-          <select className="glass-input mt-1" value={form.subjectId} onChange={e => set('subjectId', e.target.value)}>
-            {SUBJECTS.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-          </select>
+          <SubjectSelect className="glass-input mt-1" value={form.subjectId} onChange={v => set('subjectId', v)} />
         </label>
         <label className="text-sm font-medium">Topic
           <input className="glass-input mt-1" value={form.topic} onChange={e => set('topic', e.target.value)} placeholder="e.g. Algebraic Processes" list="cs-topics" />
@@ -447,9 +465,7 @@ export default function ContentStudioPage() {
         <h2 className="font-bold text-lg mb-3">AI lesson authoring (Groq)</h2>
         <p className="text-sm muted">Drafts are saved for review and are NEVER published automatically. An admin must approve each draft before it goes live. AI drafts are generated with a full 15-question quiz.</p>
         <div className="grid md:grid-cols-2 gap-2 mt-3">
-          <select className="glass-input" value={subjectId} onChange={e => setSubjectId(e.target.value)}>
-            {SUBJECTS.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-          </select>
+          <SubjectSelect value={subjectId} onChange={setSubjectId} />
           <input className="glass-input" value={genTopic} onChange={e => setGenTopic(e.target.value)} placeholder="Topic (e.g. Algebraic Processes)" />
           <input className="glass-input" value={genTitle} onChange={e => setGenTitle(e.target.value)} placeholder="Lesson title" />
           <input className="glass-input" value={genObjectives} onChange={e => setGenObjectives(e.target.value)} placeholder="Objectives (separate with commas)" />
@@ -496,9 +512,7 @@ export default function ContentStudioPage() {
       <GlassCard>
         <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
           <h2 className="font-bold text-lg">Lessons — manage & reorder</h2>
-          <select className="glass-input !w-auto" value={subjectId} onChange={e => setSubjectId(e.target.value)}>
-            {SUBJECTS.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-          </select>
+          <SubjectSelect className="glass-input !w-auto" value={subjectId} onChange={setSubjectId} />
         </div>
         <div className="flex flex-col gap-2">
           {lessons.map((l, i) => {

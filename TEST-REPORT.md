@@ -369,3 +369,115 @@ and never committed.
 - All seeded test data (conversation, draft, published lesson, admin role)
   lived only in the throwaway headless browser profile — nothing was written
   to the repo or the live database by the seeding itself.
+
+---
+
+## Arts + Commercial departments — 2026-11-18 (v1.2.0, unreleased to live until Vercel deploys)
+
+**What shipped:** Arts + Commercial departments at the same standard as Science.
+Final subject lists (after David's three changes — French, History, Fine Art and
+Music all REMOVED, Yoruba ADDED):
+- Arts (new): Literature in English, Government, CRS, Yoruba (+ English).
+- Commercial (new): Economics, Commerce, Accounting (+ English, Mathematics,
+  Geography, Government, CRS shared).
+- 7 new subjects × 14 lessons × 15 questions = 98 new lessons, 1,470 new
+  questions. Grand totals: **15 subjects, 210 lessons, 3,150 questions** —
+  verified by `scripts/count-curriculum.js`: 15 subjects, 210 lessons,
+  3,150 questions, **zero non-15 quizzes**.
+- Department selector on signup (three glass cards); department saved on the
+  profile (local store + Supabase via `djp_profiles.department`); onboarding
+  picks department FIRST, then English locked + exactly 3 subjects from that
+  department only; course-combination validation per department (Arts: Law,
+  Mass Communication, English Language, Theatre Arts, Linguistics, Yoruba
+  Language, Religious Studies; Commercial: Accounting, Business Administration,
+  Economics, Banking and Finance, Marketing, Insurance). Existing accounts
+  backfill to 'science'. Changing department in My Profile resets enrolment
+  to that department's onboarding.
+- Landing copy now Science / Arts / Commercial (dynamic counts: 210 lessons,
+  15 subjects); dashboard + subjects pages scoped to the student's department;
+  Academy grouped by department; AI tutor prompts cover all 15 subjects;
+  admin Content Studio subject dropdowns (manual form, AI authoring, lessons
+  filter) all grouped by department via a shared `SubjectSelect`; attempts
+  record `department` for a future filter (filter NOT built).
+- New migration: `supabase/migrations/005_djp_departments.sql` (renumbered from 002 —
+  002/003/004 were taken by parallel admin-platform work: 002_platform_analytics,
+  002_utme_assessment_kind, 003_admin_user_management, 004_admin_platform_fixes;
+  apply AFTER 004. Its grants are deliberately NARROW: read-only on the new
+  reference rows plus UPDATE on the department column only — a table-wide
+  UPDATE grant would have undone 004's column allow-list that stops users
+  promoting themselves. Adds
+  `djp_profiles.department`, seeds the 7 new subjects with Roemichs-blue
+  colours, seeds Arts/Commercial course combinations, explicit GRANTs).
+  **002 is NOT applied to the live project yet — apply via the Supabase
+  dashboard SQL editor before students sign up as Arts/Commercial.**
+- Science content untouched (all 112 lessons / 1,680 questions unchanged).
+  Demo account stays Science.
+
+**Build:** `npm run build` passes (tsc clean, exit 0); 24 routes.
+
+**Headless Chromium checks (production build, playwright-core + headless
+shell, 2026-11-18) — 61/61 passed** (script `/tmp/pwtest/dept-check.js`;
+manual-form dropdown checked separately, `/tmp/pwtest/manual-form.js`):
+- Landing 390px + 1280px × Dark + Light: 0px overflow everywhere; chip
+  "SCIENCE · ARTS · COMMERCIAL"; Science/Arts/Commercial group headings;
+  "210 lessons", "15 subjects".
+- Signup as Arts → onboarding shows ONLY Literature in English, Government,
+  CRS, Yoruba; hides Mathematics, Physics, French, History, Fine Art, Music.
+  Law combination (English + Literature + Government + CRS) validated as
+  meeting the JAMB requirement. Dashboard shows Literature + Yoruba after a
+  Yoruba enrolment; subjects page shows no Mathematics/Economics.
+- Signup as Commercial → onboarding shows ONLY Economics, Commerce,
+  Accounting, Mathematics, Geography, Government, CRS; hides Biology and
+  Literature. Accounting combination (English + Mathematics + Economics +
+  Commerce) validated.
+- Signup as Science (control) → onboarding shows Mathematics/Physics/
+  Chemistry only; hides Literature, Economics, Yoruba.
+- Arts lesson slideshow: `/app/learn/literature-01` loads, Next advances the
+  slide counter 1/13 → 2/13.
+- Commercial quiz: `/app/quiz/commerce-01` header "15 questions", exactly 15
+  questions found, submit works (score shown, "X correct out of 15"), result
+  lists 15 graded questions, **Retake reshuffles the question order**.
+- Admin Content Studio: all three subject dropdowns grouped into "Science
+  Department" / "Arts Department" / "Commercial Department" optgroups;
+  Yoruba and Economics listed; no French / History / Fine Art / Music anywhere.
+- Overflow: 0px on every page checked (landing, onboarding, dashboard,
+  lesson, quiz, admin content) at 390px and 1280px, both themes.
+
+**Test-env note (honest):** the headless run used a production build WITHOUT
+the Supabase env vars (`.env.local` moved aside, rebuilt, restored after),
+because the VM's egress proxy blocks the headless browser's fetch to
+supabase.co ("Failed to fetch" on signup against the live project — the same
+proxy limit as the v1.1.0 MathJax CDN failure). All department logic was
+therefore exercised through the local-store path; the Supabase sync path is
+the same code as v1.1.0 (proven live then) with `department` carried through
+`sbInsertProfile` / `sbUpdateProfile` / `mirrorOnboarding`. The final build
+was restored WITH `.env.local` and rebuilds clean.
+
+**Still unverified live (parent / David's phone):**
+- Migration 005 not applied on the live Supabase project (see above).
+- Live signup per department + live onboarding scoping on
+  https://daraxjambprep.vercel.app after Vercel deploys this push.
+- Admin publish flow for an Arts/Commercial lesson end-to-end (the publish
+  path is subject-agnostic and the grouped dropdowns are proven; a full
+  Yoruba/Accounting draft→publish on the live site is still owed).
+- David's phone acceptance of the new departments.
+
+**Rebase note (same day, before push):** the push was first rejected — five
+commits had landed on master in parallel (admin security/persistence +
+"Redirect app entry to dashboard", migrations 002_platform_analytics,
+002_utme_assessment_kind, 003_admin_user_management, 004_admin_platform_fixes).
+Rebased v1.2.0 onto them; two conflicts, both merged rather than reverted:
+- `app/page.tsx`: the other work replaced the landing page with a server
+  redirect to /app/dashboard. Merged: the page is now a client component —
+  signed-in visitors are sent to /app/dashboard, new visitors still see the
+  public landing page (with the new Science/Arts/Commercial copy). Verified
+  headless: fresh contexts see the landing page; a signed-in Arts user
+  visiting `/` lands on /app/dashboard.
+- `lib/store.ts`: kept both sides — `Attempt.department` (this work) and the
+  `'utme'` assessment kind (their work).
+- Migration renumbered 002 → 005 (three files already used 002); its grants
+  narrowed so it does NOT undo 004's column allow-list on djp_profiles (see
+  the migration header). `Attempt.department` + `'utme'` both kept.
+- Full re-verification after the rebase: tsc clean, counts 15 / 210 / 3,150 /
+  zero non-15, `npm run build` passes, headless suite **62/62 passed**
+  (61 original + the signed-in redirect check).

@@ -1,17 +1,20 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { getSubject } from '@/lib/curriculum';
 import { mirrorOnboarding } from '@/lib/sync';
-import { COURSE_REQUIREMENTS, SCIENCE_SUBJECTS, SUBJECT_NAMES, validateCombination } from '@/lib/store';
+import { COURSE_REQUIREMENTS, DEPARTMENTS, DEPARTMENT_SUBJECTS, SUBJECT_NAMES, validateCombination, type Department } from '@/lib/store';
 import { GlassCard, Avatar, ProgressBar } from '@/components/ui';
 import { overallProgress, subjectProgress } from '@/lib/progression';
 
 export default function ProfilePage() {
   const { db, user, setDb } = useDb();
+  const router = useRouter();
   const [editingSubjects, setEditingSubjects] = useState(false);
   const [picked, setPicked] = useState<string[]>([]);
+  const [department, setDepartment] = useState<Department>('science');
   const [course, setCourse] = useState('');
   const [msg, setMsg] = useState('');
   const [error, setError] = useState('');
@@ -20,25 +23,35 @@ export default function ProfilePage() {
   const overall = overallProgress(db, user.id, user.subjects);
   const attempts = db.attempts.filter(a => a.userId === user.id);
   const myBadges = db.badges.filter(b => b.userId === user.id);
+  const deptName = DEPARTMENTS.find(d => d.id === (user.department || 'science'))?.name || 'Science';
 
   const startEdit = () => {
+    setDepartment(user.department || 'science');
     setPicked(user.subjects.filter(s => s !== 'english'));
     setCourse(user.intendedCourse || '');
     setEditingSubjects(true); setMsg(''); setError('');
   };
 
+  const pickDept = (d: Department) => {
+    setDepartment(d); setPicked([]); setCourse(''); setError('');
+  };
+
   const saveSubjects = () => {
-    if (picked.length !== 3) { setError('Pick exactly three science subjects in addition to English Language.'); return; }
+    if (picked.length !== 3) { setError(`Pick exactly three ${DEPARTMENTS.find(d => d.id === department)?.name || ''} subjects in addition to English Language.`); return; }
     const subjects = ['english', ...picked];
-    const v = validateCombination(subjects, course || undefined);
+    const v = validateCombination(subjects, course || undefined, department);
     if (course && !v.ok) { setError(v.message); return; }
+    const deptChanged = department !== (user.department || 'science');
     setDb(d => {
       const u = d.profiles.find(p => p.id === user.id)!;
-      u.subjects = subjects; u.intendedCourse = course || undefined;
+      u.department = department; u.subjects = subjects; u.intendedCourse = course || undefined;
+      // Changing department resets the enrolment to that department's onboarding.
+      if (deptChanged) { u.onboarded = false; u.subjects = ['english']; }
       return d;
     });
-    mirrorOnboarding(user.id, subjects, course || undefined);
+    mirrorOnboarding(user.id, deptChanged ? ['english'] : subjects, deptChanged ? undefined : course || undefined, department, !deptChanged);
     setEditingSubjects(false);
+    if (deptChanged) { router.replace('/onboarding'); return; }
     setMsg('Subjects updated. Your completed lessons, scores and badges are preserved.');
   };
 
@@ -50,7 +63,7 @@ export default function ProfilePage() {
           <div>
             <h1 className="text-2xl font-bold">{user.fullName}</h1>
             <p className="muted text-sm">@{user.username} · {user.email}{user.isDemo ? ' · Demo account (test data)' : ''}</p>
-            <p className="text-sm mt-1">Member since {new Date(user.createdAt).toLocaleDateString()} · Role: {user.role}</p>
+            <p className="text-sm mt-1">Member since {new Date(user.createdAt).toLocaleDateString()} · Role: {user.role} · Department: {deptName}</p>
           </div>
           <Link href="/app/settings" className="btn-ghost ml-auto text-sm">Edit profile →</Link>
         </div>
@@ -74,9 +87,24 @@ export default function ProfilePage() {
         </div>
         {editingSubjects ? (
           <div className="mt-3">
-            <p className="text-sm muted mb-2">English Language stays compulsory. Pick exactly three more science subjects. Your learning records are preserved.</p>
+            <p className="text-sm muted mb-2">English Language stays compulsory. Pick exactly three more {DEPARTMENTS.find(d => d.id === department)?.name} subjects. Changing your department resets your enrolment — you will pick your new subjects again, and your old progress stays in your records but no longer counts toward your new department.</p>
+            <label className="text-sm font-medium block mb-3">Department
+              <div className="grid grid-cols-3 gap-2 mt-1" role="radiogroup" aria-label="Department">
+                {DEPARTMENTS.map(d => {
+                  const on = department === d.id;
+                  return (
+                    <button key={d.id} type="button" role="radio" aria-checked={on} onClick={() => pickDept(d.id)}
+                      className={`p-3 rounded-xl border text-left transition-colors ${on ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
+                      <span className="block font-semibold text-sm">{d.name}</span>
+                      <span className="block text-xs muted mt-1 leading-snug">{d.tagline}</span>
+                      <span className="block text-right text-sm mt-1">{on ? '✓' : '○'}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {SCIENCE_SUBJECTS.map(id => {
+              {DEPARTMENT_SUBJECTS[department].map(id => {
                 const on = picked.includes(id);
                 return (
                   <button key={id} onClick={() => setPicked(p => p.includes(id) ? p.filter(x => x !== id) : p.length >= 3 ? p : [...p, id])}
@@ -89,10 +117,10 @@ export default function ProfilePage() {
             <label className="text-sm font-medium block mt-4">Intended course (optional)
               <select className="glass-input mt-1" value={course} onChange={e => setCourse(e.target.value)}>
                 <option value="">— No course selected —</option>
-                {COURSE_REQUIREMENTS.map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
+                {COURSE_REQUIREMENTS.filter(c => c.dept === department).map(c => <option key={c.course} value={c.course}>{c.course}</option>)}
               </select>
             </label>
-            {course && <p className="text-sm mt-2 px-3 py-2 rounded-lg border bg-ink/5 border-ink/15">{validateCombination(['english', ...picked], course).message}</p>}
+            {course && <p className="text-sm mt-2 px-3 py-2 rounded-lg border bg-ink/5 border-ink/15">{validateCombination(['english', ...picked], course, department).message}</p>}
             {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 mt-3">{error}</p>}
             <div className="flex gap-2 mt-4">
               <button onClick={saveSubjects} className="btn-primary text-sm">Save subjects</button>

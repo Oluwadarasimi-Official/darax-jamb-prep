@@ -25,7 +25,7 @@ export type RegisterResult = { ok: boolean; error?: string; code?: string; user?
 
 function validEmail(email: string) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
 
-async function registerLocal(db: DB, fullName: string, username: string, email: string, password: string): Promise<RegisterResult> {
+async function registerLocal(db: DB, fullName: string, username: string, email: string, password: string, department: 'science' | 'arts' | 'commercial' = 'science'): Promise<RegisterResult> {
   if (db.profiles.some(p => p.username.toLowerCase() === username.toLowerCase())) return { ok: false, error: 'That username is already taken. Choose another.' };
   if (db.profiles.some(p => p.email.toLowerCase() === email.toLowerCase())) return { ok: false, error: 'An account with this email already exists. Log in instead.' };
   const salt = Math.random().toString(36).slice(2, 14);
@@ -33,7 +33,7 @@ async function registerLocal(db: DB, fullName: string, username: string, email: 
     id: `u_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`,
     fullName: fullName.trim(), username, email: email.toLowerCase(),
     passwordHash: await hashPassword(password, salt), salt,
-    role: 'student', onboarded: false, subjects: [],
+    role: 'student', department, onboarded: false, subjects: [],
     createdAt: new Date().toISOString(), lastActiveAt: new Date().toISOString(), active: true,
     notifyPrefs: { weekly: true, lessons: true, results: true, announcements: true },
   };
@@ -42,20 +42,20 @@ async function registerLocal(db: DB, fullName: string, username: string, email: 
   return { ok: true, user };
 }
 
-export async function register(db: DB, fullName: string, username: string, email: string, password: string): Promise<RegisterResult> {
+export async function register(db: DB, fullName: string, username: string, email: string, password: string, department: 'science' | 'arts' | 'commercial' = 'science'): Promise<RegisterResult> {
   if (fullName.trim().length < 3) return { ok: false, error: 'Enter your full name.' };
   if (!/^[a-zA-Z0-9_]{3,20}$/.test(username)) return { ok: false, error: 'Username must be 3–20 letters, numbers or underscores.' };
   if (!validEmail(email)) return { ok: false, error: 'Enter a valid email address.' };
   if (password.length < 8) return { ok: false, error: 'Password must be at least 8 characters.' };
 
   const sb = getSb();
-  if (!sb) return registerLocal(db, fullName, username, email, password);
+  if (!sb) return registerLocal(db, fullName, username, email, password, department);
 
   // Supabase Auth signup. No email confirmation is expected (Confirm email is
   // disabled on the project): a session must come back immediately.
   const { data, error } = await sb.auth.signUp({
     email: email.toLowerCase(), password,
-    options: { data: { full_name: fullName.trim(), username } },
+    options: { data: { full_name: fullName.trim(), username, department } },
   });
   if (error) {
     const msg = error.message.toLowerCase();
@@ -76,11 +76,11 @@ export async function register(db: DB, fullName: string, username: string, email
   try {
     const { sbInsertProfile } = await import('./supabase');
     const row = await sbInsertProfile({
-      auth_id: data.user.id, full_name: fullName.trim(), username, email: email.toLowerCase(),
+      auth_id: data.user.id, full_name: fullName.trim(), username, email: email.toLowerCase(), department,
     });
     const user: Profile = {
       id: row.id, fullName: row.full_name, username: row.username, email: row.email,
-      passwordHash: '', salt: '', role: 'student', onboarded: false, subjects: [],
+      passwordHash: '', salt: '', role: 'student', department: row.department || department, onboarded: false, subjects: [],
       createdAt: row.created_at, lastActiveAt: row.last_active_at, active: true,
       notifyPrefs: { weekly: true, lessons: true, results: true, announcements: true },
     };

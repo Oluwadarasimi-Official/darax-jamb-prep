@@ -37,7 +37,8 @@ export type { User };
 // ---------------------------------------------------------------- row shapes
 export interface SbProfileRow {
   id: string; auth_id: string; full_name: string; username: string; email: string;
-  role: 'student' | 'admin'; onboarded: boolean; intended_course: string | null;
+  role: 'student' | 'admin'; department: 'science' | 'arts' | 'commercial';
+  onboarded: boolean; intended_course: string | null;
   is_demo: boolean; active: boolean; created_at: string; last_active_at: string;
 }
 export interface SbProgressRow {
@@ -96,17 +97,18 @@ export async function sbNotificationsFor(profileId: string): Promise<SbNotificat
 }
 
 // ---------------------------------------------------------------- writes
-export async function sbInsertProfile(input: { auth_id: string; full_name: string; username: string; email: string }): Promise<SbProfileRow> {
+export async function sbInsertProfile(input: { auth_id: string; full_name: string; username: string; email: string; department?: 'science' | 'arts' | 'commercial' }): Promise<SbProfileRow> {
   const sb = getSb();
   if (!sb) throw new Error('Supabase is not configured.');
   const { data, error } = await sb.from('djp_profiles').insert({
     auth_id: input.auth_id, full_name: input.full_name, username: input.username, email: input.email,
+    department: input.department || 'science',
   }).select().single();
   if (error) throw error;
   return data as SbProfileRow;
 }
 
-export async function sbUpdateProfile(profileId: string, patch: Partial<Pick<SbProfileRow, 'full_name' | 'role' | 'onboarded' | 'intended_course' | 'active' | 'last_active_at'>>): Promise<void> {
+export async function sbUpdateProfile(profileId: string, patch: Partial<Pick<SbProfileRow, 'full_name' | 'role' | 'department' | 'onboarded' | 'intended_course' | 'active' | 'last_active_at'>>): Promise<void> {
   const sb = getSb();
   if (!sb) return;
   const { error } = await sb.from('djp_profiles').update(patch).eq('id', profileId);

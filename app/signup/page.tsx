@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { register } from '@/lib/auth';
+import { DEPARTMENTS, type Department } from '@/lib/store';
 import { Logo } from '@/components/Logo';
 
 export default function SignupPage() {
@@ -14,6 +15,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
+  const [department, setDepartment] = useState<Department>('science');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
 
@@ -21,7 +23,7 @@ export default function SignupPage() {
     e.preventDefault();
     if (password !== confirm) { setError('Passwords do not match.'); return; }
     setError(''); setBusy(true);
-    const res = await register(db, fullName, username.trim(), email.trim(), password);
+    const res = await register(db, fullName, username.trim(), email.trim(), password, department);
     if (!res.ok) { setError(res.error || 'Registration failed.'); setBusy(false); return; }
     setDb(d => { if (!d.profiles.some(p => p.id === res.user!.id)) d.profiles.push(res.user!); d.sessionUserId = res.user!.id; return d; });
     router.replace('/onboarding');
@@ -34,6 +36,23 @@ export default function SignupPage() {
         <h1 className="text-2xl font-bold mt-5">Create your free account</h1>
         <p className="muted text-sm mt-1">No email confirmation needed. No payment, ever.</p>
         <form onSubmit={submit} className="mt-6 flex flex-col gap-3">
+          <div>
+            <span className="text-sm font-medium">Your department</span>
+            <div className="grid grid-cols-3 gap-2 mt-1" role="radiogroup" aria-label="Department">
+              {DEPARTMENTS.map(d => {
+                const on = department === d.id;
+                return (
+                  <button key={d.id} type="button" role="radio" aria-checked={on} onClick={() => setDepartment(d.id)}
+                    className={`p-3 rounded-xl border text-left transition-colors ${on ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
+                    <span className="block font-semibold text-sm">{d.name}</span>
+                    <span className="block text-xs muted mt-1 leading-snug">{d.tagline}</span>
+                    <span className="block text-right text-sm mt-1">{on ? '✓' : '○'}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-xs muted mt-1">Your lessons, subjects and mocks follow your department. You can change it later in My Profile.</p>
+          </div>
           <label className="text-sm font-medium">Full name
             <input className="glass-input mt-1" value={fullName} onChange={e => setFullName(e.target.value)} placeholder="e.g. Adaeze Okafor" required autoComplete="name" />
           </label>
