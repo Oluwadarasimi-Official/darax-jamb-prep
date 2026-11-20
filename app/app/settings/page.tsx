@@ -8,6 +8,7 @@ import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
 import { resetTour } from '@/components/MascotTour';
 import { APP_VERSION } from '@/lib/version';
+import { BackLink } from '@/components/BackLink';
 
 export default function SettingsPage() {
   const { db, user, setDb } = useDb();
@@ -48,6 +49,7 @@ export default function SettingsPage() {
 
   return (
     <div className="flex flex-col gap-5 max-w-2xl">
+      <BackLink href="/app/profile" />
       <h1 className="text-2xl font-bold">Settings</h1>
       {msg && <p className="text-sm text-accent bg-accent/10 border border-accent/30 rounded-lg px-3 py-2">{msg}</p>}
       {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{error}</p>}

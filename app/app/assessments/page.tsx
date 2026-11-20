@@ -5,6 +5,7 @@ import { useDb } from '@/components/db-context';
 import { ALL_LESSONS, getSubject, getSubjectLessons, isCustomLesson } from '@/lib/curriculum';
 import { QuizRunner, type RunnerQ } from '@/components/QuizRunner';
 import { GlassCard, EmptyState } from '@/components/ui';
+import { BackLink } from '@/components/BackLink';
 
 type Mode = 'menu' | 'topic' | 'subject' | 'mixed';
 
@@ -68,6 +69,7 @@ export default function AssessmentsPage() {
 
   return (
     <div className="flex flex-col gap-5">
+      <BackLink href="/app/subjects" crumb="/app/subjects" crumbLabel="My subjects" />
       <div>
         <h1 className="text-2xl font-bold">Assessments</h1>
         <p className="muted text-sm mt-1">Lesson quizzes, topic tests, subject practice exams, mixed revision tests and timed JAMB-style mocks. Every score is graded by the server and saved to your history.</p>

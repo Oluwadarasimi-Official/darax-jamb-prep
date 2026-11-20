@@ -17,6 +17,7 @@ export default function TutorPage() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+  const [lastFailed, setLastFailed] = useState<string | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -26,7 +27,22 @@ export default function TutorPage() {
   const active = convs.find(c => c.id === activeId) || convs[0] || null;
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }); }, [active?.messages.length, busy]);
+
+  // Escape closes the conversation drawer on mobile, like every other overlay.
+  useEffect(() => {
+    if (!historyOpen) return;
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') setHistoryOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [historyOpen]);
+
   if (!user) return null;
+
+  // A conversation can outlive a subject change in My Profile. Keep its own
+  // subject selectable rather than silently showing a different one.
+  const subjectOptions = active && !user.subjects.includes(active.subject)
+    ? [active.subject, ...user.subjects]
+    : user.subjects;
 
   const newConversation = () => {
     const id = uid('conv');
@@ -50,11 +66,10 @@ export default function TutorPage() {
     setError('');
   };
 
-  const send = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    const text = input.trim();
-    if (!text || busy) return;
+  const sendText = async (text: string) => {
+    if (!text.trim() || busy) return;
     setError('');
+    setLastFailed(null);
     setBusy(true);
     setInput('');
     let convId = active?.id;
@@ -92,6 +107,7 @@ export default function TutorPage() {
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'The tutor could not answer right now.';
       setError(msg);
+      setLastFailed(text);
       setDb(d => {
         d.aiUsage.push({ id: uid('aiu'), userId: user.id, at: new Date().toISOString(), subject, ok: false });
         return d;
@@ -100,6 +116,13 @@ export default function TutorPage() {
       setBusy(false);
       inputRef.current?.focus();
     }
+  };
+
+  const send = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    const text = input.trim();
+    if (!text) return;
+    void sendText(text);
   };
 
   const copy = async (text: string, idx: number) => {
@@ -162,7 +185,7 @@ export default function TutorPage() {
             <label className="flex items-center gap-2 text-xs muted">
               Subject
               <select className="glass-input !w-auto max-w-[190px] !py-2 text-sm" value={subject} onChange={e => setSubject(e.target.value)}>
-                {user.subjects.map(s => <option key={s} value={s}>{getSubject(s)?.name || s}</option>)}
+                {subjectOptions.map(s => <option key={s} value={s}>{getSubject(s)?.name || s}</option>)}
               </select>
             </label>
             <div className="flex items-center gap-3">
@@ -205,7 +228,20 @@ export default function TutorPage() {
 
           <div className="shrink-0 border-t border-ink/10 bg-ink/5 px-3 pb-[max(12px,env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl sm:px-6">
             <div className="mx-auto max-w-4xl">
-              {error && <div role="alert" className="mb-2 rounded-xl border border-danger/30 bg-danger/10 px-3 py-2 text-sm text-danger">{error}</div>}
+              {error && (
+                <div role="alert" className="mb-2 flex flex-wrap items-center gap-3 rounded-xl border border-danger/30 bg-danger/10 px-3 py-2 text-sm text-danger">
+                  <span className="min-w-0 flex-1">{error}</span>
+                  {lastFailed && (
+                    <button
+                      type="button"
+                      onClick={() => { setError(''); void sendText(lastFailed); }}
+                      className="shrink-0 rounded-lg border border-danger/40 px-2.5 py-1 text-xs font-semibold hover:bg-danger/10"
+                    >
+                      Try again
+                    </button>
+                  )}
+                </div>
+              )}
               <form onSubmit={send} className="flex items-end gap-2 rounded-2xl border border-ink/15 bg-ink/5 p-2 shadow-[0_12px_40px_rgba(0,0,0,.12)] focus-within:border-accent/50">
                 <textarea ref={inputRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); void send(); } }} rows={1} maxLength={2000} placeholder="Message Darax AI…" className="max-h-36 min-h-[44px] flex-1 resize-y bg-transparent px-2 py-3 text-sm leading-6 text-ink outline-none placeholder:text-ink/40" />
                 <button type="submit" disabled={busy || !input.trim()} className="btn-primary grid h-11 w-11 shrink-0 !p-0 place-items-center text-lg font-bold disabled:cursor-not-allowed disabled:opacity-40" aria-label="Send message">{busy ? '…' : '↑'}</button>

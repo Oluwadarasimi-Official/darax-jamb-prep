@@ -5,6 +5,7 @@ import { useDb } from '@/components/db-context';
 import { getSubject, getSubjectLessons } from '@/lib/curriculum';
 import { isLessonUnlocked, subjectProgress } from '@/lib/progression';
 import { GlassCard, ProgressBar, EmptyState } from '@/components/ui';
+import { BackLink } from '@/components/BackLink';
 
 export default function SubjectDetailPage() {
   const params = useParams();
@@ -19,6 +20,7 @@ export default function SubjectDetailPage() {
 
   return (
     <div className="flex flex-col gap-5">
+      <BackLink href="/app/subjects" crumb="/app/subjects" crumbLabel="My subjects" />
       <GlassCard className="!p-5 sm:!p-6">
         <p className="font-bold text-2xl sm:text-[1.75rem] flex items-center gap-3 tracking-tight"><span className="w-3 h-3 rounded-full inline-block shrink-0" style={{ background: subject.colour }} />{subject.name}</p>
         <p className="muted text-sm sm:text-[.95rem] mt-2 leading-7 max-w-3xl">{subject.description}</p>
