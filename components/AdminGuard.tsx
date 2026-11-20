@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useDb } from './db-context';
 import { Logo } from './Logo';
+import { APP_VERSION } from '../lib/version';
 
 export function AdminGuard({ children }: { children: React.ReactNode }) {
   const { user } = useDb();
@@ -40,7 +41,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
         </nav>
       </header>
       {children}
-      <p className="text-xs muted text-center mt-8">Admin Panel · Official Darax Free JAMB Prep · v1.0.0</p>
+      <p className="text-xs muted text-center mt-8">Admin Panel · Official Darax Free JAMB Prep · v{APP_VERSION}</p>
     </div>
   );
 }

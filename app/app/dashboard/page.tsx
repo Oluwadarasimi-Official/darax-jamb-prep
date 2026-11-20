@@ -30,7 +30,7 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <GlassCard>
+      <GlassCard data-tour="tour-progress">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-4">
             <Avatar name={user.fullName} size={56} />

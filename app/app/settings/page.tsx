@@ -6,7 +6,8 @@ import { changePassword, logout } from '@/lib/auth';
 import { SUPABASE_CONFIGURED } from '@/lib/supabase';
 import { mirrorProfile } from '@/lib/sync';
 import { GlassCard } from '@/components/ui';
-import { THEME_OPTIONS, useThemeChoice } from '@/components/ThemeToggle';
+import { resetTour } from '@/components/MascotTour';
+import { APP_VERSION } from '@/lib/version';
 
 export default function SettingsPage() {
   const { db, user, setDb } = useDb();
@@ -16,7 +17,6 @@ export default function SettingsPage() {
   const [newPw, setNewPw] = useState('');
   const [confirmPw, setConfirmPw] = useState('');
   const [prefs, setPrefs] = useState(user?.notifyPrefs || { weekly: true, lessons: true, results: true, announcements: true });
-  const [themeChoice, setThemeChoice] = useThemeChoice();
   const [msg, setMsg] = useState('');
   const [error, setError] = useState('');
   if (!user) return null;
@@ -62,25 +62,6 @@ export default function SettingsPage() {
       </GlassCard>
 
       <GlassCard>
-        <h2 className="font-bold text-lg mb-3">Appearance</h2>
-        <p className="text-sm muted mb-3">Choose how the app looks. Your choice applies instantly and is remembered on this device.</p>
-        <div className="grid grid-cols-3 gap-2">
-          {THEME_OPTIONS.map(o => (
-            <button
-              key={o.value}
-              type="button"
-              onClick={() => setThemeChoice(o.value)}
-              aria-pressed={themeChoice === o.value}
-              className={`text-left p-3 rounded-xl border transition-colors ${themeChoice === o.value ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}
-            >
-              <span className="block font-semibold text-sm">{o.label}</span>
-              <span className="block text-xs muted mt-0.5">{o.hint}</span>
-            </button>
-          ))}
-        </div>
-      </GlassCard>
-
-      <GlassCard>
         <h2 className="font-bold text-lg mb-3">Change password</h2>
         <div className="flex flex-col gap-2">
           <input className="glass-input" type="password" value={currentPw} onChange={e => setCurrentPw(e.target.value)} placeholder="Current password" autoComplete="current-password" />
@@ -108,6 +89,15 @@ export default function SettingsPage() {
       </GlassCard>
 
       <GlassCard>
+        <h2 className="font-bold text-lg mb-3">Guided tour</h2>
+        <p className="text-sm muted leading-relaxed">Dara&apos;s first-timer tour points out where to start. You can replay it any time — it will open the next time you visit your dashboard.</p>
+        <button
+          onClick={() => { resetTour(user.id); setMsg('Tour reset. It will play again on your next dashboard visit.'); setError(''); }}
+          className="btn-ghost text-sm mt-3"
+        >Replay the tutorial</button>
+      </GlassCard>
+
+      <GlassCard>
         <h2 className="font-bold text-lg mb-3">Sessions</h2>
         <p className="text-sm muted">You are signed in on this device. Sessions persist until you log out.</p>
         <div className="flex gap-2 mt-3">
@@ -118,7 +108,7 @@ export default function SettingsPage() {
 
       <GlassCard>
         <h2 className="font-bold text-lg mb-2">About this platform</h2>
-        <p className="text-sm muted leading-relaxed">The Official Darax Free JAMB Prep · v1.0.0 · Powered by Official Darax. {SUPABASE_CONFIGURED ? 'Your account and learning records are stored securely in Supabase and sync across your devices.' : 'Data in this build is stored on your device (localStorage) until Supabase is connected. See the README for the Supabase migration and deploy steps.'}</p>
+        <p className="text-sm muted leading-relaxed">The Official Darax Free JAMB Prep · v{APP_VERSION} · Powered by Official Darax. {SUPABASE_CONFIGURED ? 'Your account and learning records are stored securely in Supabase and sync across your devices.' : 'Data in this build is stored on your device (localStorage) until Supabase is connected. See the README for the Supabase migration and deploy steps.'}</p>
       </GlassCard>
     </div>
   );

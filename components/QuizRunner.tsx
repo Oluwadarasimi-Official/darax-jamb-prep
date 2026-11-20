@@ -247,47 +247,92 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="glass p-5 flex flex-wrap items-center justify-between gap-3">
-        <div className="min-w-0">
-          <h1 className="text-xl font-bold break-words">{title}</h1>
-          <p className="muted text-sm mt-0.5">{shuffled.length} questions · Pass mark {PASS_MARK}% · Answers are hidden until you submit</p>
-          <p className="text-xs muted mt-1">🔀 Questions and answer options reshuffle on every retake.</p>
+      {examMode ? (
+        // Faithful JAMB CBT top bar: green, carrying the timer and the subject list.
+        <div className="cbt-bar rounded-card px-4 py-3.5 sm:px-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/70">Darax CBT · Practice</p>
+              <h1 className="text-base font-bold leading-snug break-words text-white sm:text-lg">{title}</h1>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="rounded-lg bg-white/15 px-2.5 py-1.5 text-[11px] font-semibold text-white">
+                {answered}/{shuffled.length} answered
+              </span>
+              {timeLimitSec ? (
+                <p className={`rounded-lg px-2.5 py-1.5 text-sm font-bold tabular-nums ${secondsLeft < 120 ? 'bg-danger text-white' : 'bg-white text-[#006633]'}`}>
+                  ⏱ {hh}:{String(mm).padStart(2, '0')}:{ss}
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
+            {examSubjects.map(subject => {
+              const indexes = subjectQuestionIndexes(subject);
+              const done = indexes.filter(index => answers[index] !== undefined).length;
+              const active = shuffled[currentIndex]?.subjectId === subject;
+              return (
+                <button
+                  type="button"
+                  key={subject}
+                  onClick={() => {
+                    const target = indexes.find(index => answers[index] === undefined) ?? indexes[0];
+                    if (target !== undefined) setCurrentIndex(target);
+                  }}
+                  aria-current={active ? 'true' : undefined}
+                  className={`rounded-lg border px-2.5 py-2 text-left transition ${active ? 'cbt-q-current' : 'border-white/25 bg-white/10 text-white hover:bg-white/20'}`}
+                >
+                  <span className="block truncate text-[11px] font-bold">{SUBJECT_NAMES[subject] || subject}</span>
+                  <span className={`mt-0.5 block text-[10px] ${active ? 'text-[#08203a]/75' : 'text-white/70'}`}>{done}/{indexes.length}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-        {timeLimitSec ? <p className={`font-bold text-lg shrink-0 ${secondsLeft < 120 ? 'text-danger' : ''}`}>⏱ {examMode ? `${hh}:${String(mm).padStart(2, '0')}:${ss}` : `${mm}:${ss}`} left</p> : <p className="text-sm muted shrink-0">Answered {answered}/{shuffled.length}</p>}
-      </div>
+      ) : (
+        <div className="glass p-5 flex flex-wrap items-center justify-between gap-3">
+          <div className="min-w-0">
+            <h1 className="text-xl font-bold break-words">{title}</h1>
+            <p className="muted text-sm mt-0.5">{shuffled.length} questions · Pass mark {PASS_MARK}% · Answers are hidden until you submit</p>
+            <p className="text-xs muted mt-1">🔀 Questions and answer options reshuffle on every retake.</p>
+          </div>
+          {timeLimitSec ? <p className={`font-bold text-lg shrink-0 ${secondsLeft < 120 ? 'text-danger' : ''}`}>⏱ {mm}:{ss} left</p> : <p className="text-sm muted shrink-0">Answered {answered}/{shuffled.length}</p>}
+        </div>
+      )}
       {error && <p className="text-sm text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2 break-words">{error}</p>}
       {examMode ? (() => {
         const q = shuffled[currentIndex];
         const unanswered = shuffled.length - answered;
         return <>
           <div className="glass p-4">
-            <div className="mb-4">
-              <p className="text-xs font-semibold muted mb-2">JUMP TO SUBJECT</p>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                {examSubjects.map(subject => {
-                  const indexes = subjectQuestionIndexes(subject);
-                  const done = indexes.filter(index => answers[index] !== undefined).length;
-                  const active = q.subjectId === subject;
-                  return <button type="button" key={subject} onClick={() => {
-                    const target = indexes.find(index => answers[index] === undefined) ?? indexes[0];
-                    if (target !== undefined) setCurrentIndex(target);
-                  }} aria-current={active ? 'true' : undefined}
-                    className={`rounded-xl border px-3 py-2.5 text-left transition-colors ${active ? 'bg-accent text-white border-accent' : 'bg-ink/5 border-ink/10 hover:border-accent/50'}`}>
-                    <span className="block text-xs font-bold">{SUBJECT_NAMES[subject] || subject}</span>
-                    <span className={`block text-[11px] mt-1 ${active ? 'text-white/80' : 'muted'}`}>{done}/{indexes.length} answered</span>
-                  </button>;
-                })}
-              </div>
-            </div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] muted mb-2">Question map</p>
             <div className="flex items-center justify-between gap-3 text-sm"><strong>Question {currentIndex + 1} of {shuffled.length}</strong><span className="muted">{answered} answered · {unanswered} remaining</span></div>
             <div className="h-2 rounded-full bg-ink/10 mt-3 overflow-hidden"><div className="h-full rounded-full bg-accent" style={{ width: `${(answered / shuffled.length) * 100}%` }} /></div>
-            <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 mt-4 max-h-36 overflow-y-auto">{shuffled.map((item, index) => <button type="button" key={`${attemptNo}-nav-${item.ref}`} onClick={() => setCurrentIndex(index)} aria-label={`Go to question ${index + 1}`} className={`aspect-square rounded-lg border text-xs font-semibold ${index === currentIndex ? 'bg-accent text-white border-accent' : answers[index] !== undefined ? 'bg-accent/15 border-accent/40 text-ink' : 'bg-ink/5 border-ink/10 text-ink/70'}`}>{index + 1}</button>)}</div>
-            <div className="flex flex-wrap gap-3 text-[11px] muted mt-3"><span>Current</span><span>Answered</span><span>Not answered</span></div>
+            <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 mt-4 max-h-36 overflow-y-auto">{shuffled.map((item, index) => (
+              <button
+                type="button"
+                key={`${attemptNo}-nav-${item.ref}`}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to question ${index + 1}${answers[index] !== undefined ? ' (answered)' : ' (not answered)'}`}
+                aria-current={index === currentIndex ? 'true' : undefined}
+                className={'aspect-square rounded-lg border text-xs ' + (index === currentIndex ? 'cbt-q-current' : answers[index] !== undefined ? 'cbt-q-answered' : 'cbt-q-unanswered')}
+              >{index + 1}</button>
+            ))}</div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] muted mt-3">
+              <span className="inline-flex items-center gap-1.5"><span className="cbt-q-current h-3 w-3 rounded" aria-hidden="true" />Current question</span>
+              <span className="inline-flex items-center gap-1.5"><span className="cbt-q-answered h-3 w-3 rounded" aria-hidden="true" />Answered</span>
+              <span className="inline-flex items-center gap-1.5"><span className="cbt-q-unanswered h-3 w-3 rounded" aria-hidden="true" />Not answered</span>
+            </div>
           </div>
           <div className="glass p-5">
             <div className="flex items-center justify-between gap-2 mb-4"><span className="text-xs font-bold uppercase tracking-wide text-accent">{SUBJECT_NAMES[q.subjectId || ''] || 'UTME'}</span><span className="text-xs muted">Question {currentIndex + 1}</span></div>
             <p className="font-semibold text-base md:text-lg break-words leading-relaxed">{q.q}</p>
-            <div className="grid gap-2 mt-4">{q.options.map((opt, oi) => { const sel = answers[currentIndex] === oi; return <button key={oi} onClick={() => setAnswers(a => ({ ...a, [currentIndex]: oi }))} className={`text-left p-3.5 rounded-xl border text-sm transition-colors break-words ${sel ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}><span className="font-bold mr-2">{'ABCD'[oi]}.</span>{opt}</button>; })}</div>
+            <div className="grid gap-2 mt-4">{q.options.map((opt, oi) => { const sel = answers[currentIndex] === oi; return (
+              <button key={oi} onClick={() => setAnswers(a => ({ ...a, [currentIndex]: oi }))} aria-pressed={sel} className={`flex items-start gap-3 text-left p-3.5 rounded-xl border text-sm transition-colors break-words ${sel ? 'border-accent bg-accent/10' : 'border-ink/15 bg-white hover:bg-accent/5'}`}>
+                <span className={`grid h-6 w-6 shrink-0 place-items-center rounded-full border text-[11px] font-bold ${sel ? 'border-accent bg-accent text-white' : 'border-ink/25 text-ink/70'}`}>{'ABCD'[oi]}</span>
+                <span className="min-w-0">{opt}</span>
+              </button>
+            ); })}</div>
             <div className="flex items-center justify-between gap-3 mt-6"><button type="button" onClick={() => setCurrentIndex(i => Math.max(0, i - 1))} disabled={currentIndex === 0} className="btn-ghost disabled:opacity-40">← Previous</button><button type="button" onClick={() => setCurrentIndex(i => Math.min(shuffled.length - 1, i + 1))} disabled={currentIndex === shuffled.length - 1} className="btn-primary disabled:opacity-40">Next →</button></div>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-xs muted">Answer all questions before submission. Keyboard: A–D select · N/P navigate · S then Y submit.</p><button onClick={() => { if (window.confirm('Submit your completed examination? You cannot change answers afterwards.')) submit(false); }} disabled={submitting || answered !== shuffled.length} className="btn-primary disabled:opacity-40">{submitting ? 'Submitting…' : answered !== shuffled.length ? `Answer all questions (${answered}/${shuffled.length})` : 'Submit examination'}</button></div>
@@ -299,7 +344,7 @@ export function QuizRunner({ questions, title, kind, subjectId, lessonId, timeLi
             {q.options.map((opt, oi) => {
               const sel = answers[i] === oi;
               return (
-                <button key={oi} onClick={() => setAnswers(a => ({ ...a, [i]: oi }))}
+                <button key={oi} onClick={() => setAnswers(a => ({ ...a, [i]: oi }))} aria-pressed={sel}
                   className={`text-left p-3 rounded-xl border text-sm transition-colors break-words ${sel ? 'bg-accent/15 border-accent/50' : 'bg-ink/5 border-ink/10 hover:bg-ink/10'}`}>
                   <span className="font-bold mr-2">{'ABCD'[oi]}.</span>{opt}
                 </button>

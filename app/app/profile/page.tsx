@@ -88,7 +88,8 @@ export default function ProfilePage() {
         {editingSubjects ? (
           <div className="mt-3">
             <p className="text-sm muted mb-2">English Language stays compulsory. Pick exactly three more {DEPARTMENTS.find(d => d.id === department)?.name} subjects. Changing your department resets your enrolment — you will pick your new subjects again, and your old progress stays in your records but no longer counts toward your new department.</p>
-            <label className="text-sm font-medium block mb-3">Department
+            <div className="text-sm font-medium block mb-3">
+              <span className="block">Department</span>
               <div className="grid grid-cols-3 gap-2 mt-1" role="radiogroup" aria-label="Department">
                 {DEPARTMENTS.map(d => {
                   const on = department === d.id;
@@ -102,7 +103,7 @@ export default function ProfilePage() {
                   );
                 })}
               </div>
-            </label>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {DEPARTMENT_SUBJECTS[department].map(id => {
                 const on = picked.includes(id);
