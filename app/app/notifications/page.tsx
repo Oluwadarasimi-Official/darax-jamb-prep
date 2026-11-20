@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { GlassCard, EmptyState } from '@/components/ui';
+import { BackLink } from '@/components/BackLink';
 
 export default function NotificationsPage() {
   const { db, user, setDb } = useDb();
@@ -14,6 +15,7 @@ export default function NotificationsPage() {
 
   return (
     <div className="flex flex-col gap-5">
+      <BackLink href="/app/profile" />
       <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-2xl font-bold">Notifications</h1>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useDb } from '@/components/db-context';
 import { GlassCard, EmptyState } from '@/components/ui';
 import { VerifiedBadge } from '@/components/Logo';
+import { BackLink } from '@/components/BackLink';
 
 export default function AchievementsPage() {
   const { user, db } = useDb();
@@ -10,6 +11,7 @@ export default function AchievementsPage() {
   const mine = db.badges.filter(b => b.userId === user.id).sort((a, b) => b.issueDate.localeCompare(a.issueDate));
   return (
     <div className="flex flex-col gap-5">
+      <BackLink href="/app/profile" />
       <div>
         <h1 className="text-2xl font-bold">My Achievements</h1>
         <p className="muted text-sm mt-1">Official Darax badges earned by finishing in the weekly Top 10. Each badge is verifiable by its unique ID.</p>
