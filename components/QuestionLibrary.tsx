@@ -47,17 +47,17 @@ export default function QuestionLibrary() {
       <section className="glass rounded-2xl p-4 md:p-5">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
           {SUBJECTS.map(item => (
-            <button key={item.id} onClick={() => setSubject(item.id)} className={`rounded-xl px-3 py-2.5 text-xs sm:text-sm font-semibold border transition-colors ${subject === item.id ? 'bg-accent text-white border-accent' : 'bg-white/60 border-ink/10 hover:border-accent/40'}`}>
+            <button key={item.id} onClick={() => setSubject(item.id)} className={`rounded-xl px-3 py-2.5 text-xs sm:text-sm font-semibold border transition-colors ${subject === item.id ? 'bg-accent/25 border-accent text-ink' : 'bg-ink/5 border-ink/15 hover:border-accent/40'}`}>
               {item.label}
             </button>
           ))}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
-          <select aria-label="Filter by year" value={year} onChange={event => setYear(event.target.value)} className="w-full rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent">
+          <select aria-label="Filter by year" value={year} onChange={event => setYear(event.target.value)} className="glass-input">
             <option value="all">All years</option>
             {Array.from({ length: 17 }, (_, index) => 2010 + index).map(value => <option key={value} value={value}>{value}</option>)}
           </select>
-          <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a question or topic..." className="w-full rounded-xl border border-ink/10 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent" />
+          <input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search a question or topic..." className="glass-input" />
         </div>
         <div className="flex items-center justify-between gap-3 mt-4 text-xs muted">
           <span>{questions.length} questions</span>
@@ -81,13 +81,13 @@ export default function QuestionLibrary() {
                   const active = selected[item.id] === optionIndex;
                   const isCorrect = optionIndex === arranged.answer;
                   const style = isRevealed
-                    ? isCorrect ? 'border-emerald-500 bg-emerald-500/10' : active ? 'border-rose-400 bg-rose-400/10' : 'border-ink/10 bg-white/40'
-                    : active ? 'border-accent bg-accent/10' : 'border-ink/10 bg-white/50 hover:border-accent/40';
+                    ? isCorrect ? 'border-accent bg-accent/15' : active ? 'border-danger bg-danger/10' : 'border-ink/15 bg-ink/5'
+                    : active ? 'border-accent bg-accent/15' : 'border-ink/15 bg-ink/5 hover:border-accent/40';
                   return (
                     <button key={optionIndex} disabled={isRevealed} onClick={() => setSelected(current => ({ ...current, [item.id]: optionIndex }))} className={`w-full text-left rounded-xl border px-3.5 py-3 text-sm flex items-start gap-3 transition-colors ${style}`}>
                       <span className="font-bold shrink-0">{String.fromCharCode(65 + optionIndex)}.</span>
                       <span>{option}</span>
-                      {isRevealed && isCorrect && <span className="ml-auto text-emerald-700 font-bold">✓</span>}
+                      {isRevealed && isCorrect && <span className="ml-auto text-accent font-bold">✓</span>}
                     </button>
                   );
                 })}

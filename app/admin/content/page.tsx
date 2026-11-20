@@ -111,7 +111,7 @@ function DraftPreview({ draft }: { draft: DraftLesson }) {
         </div>
       )}
       <button onClick={() => setShowJson(v => !v)} className="text-xs text-accent underline mt-3">{showJson ? 'Hide raw JSON' : 'Show raw JSON'}</button>
-      {showJson && <pre className="text-xs whitespace-pre-wrap bg-black/30 rounded-lg p-3 mt-2 max-h-96 overflow-y-auto break-words">{draft.content}</pre>}
+      {showJson && <pre className="text-xs whitespace-pre-wrap bg-ink/5 border border-ink/15 rounded-lg p-3 mt-2 max-h-96 overflow-y-auto break-words">{draft.content}</pre>}
     </div>
   );
 }

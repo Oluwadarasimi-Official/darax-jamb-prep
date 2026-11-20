@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { DbProvider } from '@/components/db-context';
-import { THEME_BOOT_SCRIPT } from '@/lib/theme';
 import { PageViewTracker } from '@/components/PageViewTracker';
 
 const dmSans = DM_Sans({
@@ -20,12 +19,13 @@ export const metadata: Metadata = {
   icons: { icon: '/logo.png' },
 };
 
+// Light-only by design: the app follows the official JAMB interface palette,
+// so there is no theme switch and no pre-paint theme script.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: "window.MathJax = { loader: { load: ['[tex]/mhchem'] }, tex: { packages: { '[+]': ['mhchem'] }, inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]'], ['$$', '$$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };" }} />
+        <script dangerouslySetInnerHTML={{ __html: "window.MathJax = { loader: { load: ['[tex]/mhchem'] }, tex: { packages: { '[+]': ['mhchem'] }, inlineMath: [['\\\\(', '\\\\)']], displayMath: [['\\\\[', '\\\\]'], ['$$', '$$']], processEscapes: true }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }, startup: { typeset: false } };" }} />
       </head>
       <body className={dmSans.variable}>
         <DbProvider><PageViewTracker />{children}</DbProvider>

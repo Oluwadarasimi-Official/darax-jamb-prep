@@ -61,7 +61,7 @@ export function TutorMarkdown({ content }: { content: string }) {
       i += 1;
       while (i < lines.length && !lines[i].trim().startsWith(fence)) { code.push(lines[i]); i += 1; }
       if (i < lines.length) i += 1;
-      blocks.push(<pre key={blocks.length} className="overflow-x-auto rounded-xl border border-white/10 bg-black/20 p-4 text-xs leading-relaxed sm:text-sm"><code>{code.join('\n')}</code></pre>);
+      blocks.push(<pre key={blocks.length} className="overflow-x-auto rounded-xl border border-ink/15 bg-ink/10 p-4 text-xs leading-relaxed sm:text-sm"><code>{code.join('\n')}</code></pre>);
       continue;
     }
 
@@ -73,13 +73,13 @@ export function TutorMarkdown({ content }: { content: string }) {
         rows.push(lines[i].trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(v => v.trim()));
         i += 1;
       }
-      blocks.push(<div key={blocks.length} className="overflow-x-auto rounded-xl border border-white/10"><table className="w-full text-left text-sm"><thead className="bg-white/5"><tr>{headers.map((h, n) => <th key={n} className="px-3 py-2 font-semibold">{inline(h)}</th>)}</tr></thead><tbody>{rows.map((row, n) => <tr key={n} className="border-t border-white/10">{headers.map((_, c) => <td key={c} className="px-3 py-2 align-top">{inline(row[c] || '')}</td>)}</tr>)}</tbody></table></div>);
+      blocks.push(<div key={blocks.length} className="overflow-x-auto rounded-xl border border-ink/15"><table className="w-full text-left text-sm"><thead className="bg-ink/5"><tr>{headers.map((h, n) => <th key={n} className="px-3 py-2 font-semibold">{inline(h)}</th>)}</tr></thead><tbody>{rows.map((row, n) => <tr key={n} className="border-t border-ink/10">{headers.map((_, c) => <td key={c} className="px-3 py-2 align-top">{inline(row[c] || '')}</td>)}</tr>)}</tbody></table></div>);
       continue;
     }
 
     const heading = line.match(/^(#{1,3})\s+(.+)$/);
     if (heading) {
-      blocks.push(<h3 key={blocks.length} className="text-base font-semibold tracking-tight text-slate-100 sm:text-lg">{inline(heading[2])}</h3>);
+      blocks.push(<h3 key={blocks.length} className="text-base font-semibold tracking-tight text-ink sm:text-lg">{inline(heading[2])}</h3>);
       i += 1;
       continue;
     }
@@ -102,8 +102,8 @@ export function TutorMarkdown({ content }: { content: string }) {
       i += 1;
     }
     if (!paragraph.length) { paragraph.push(line); i += 1; }
-    blocks.push(<p key={blocks.length} className="min-w-0 break-words whitespace-pre-wrap text-sm leading-7 text-slate-200">{inline(paragraph.join(' '))}</p>);
+    blocks.push(<p key={blocks.length} className="min-w-0 break-words whitespace-pre-wrap text-sm leading-7 text-ink/90">{inline(paragraph.join(' '))}</p>);
   }
 
-  return <div ref={rootRef} className="tutor-markdown flex min-w-0 flex-col gap-4 break-words [&_strong]:font-semibold [&_strong]:text-white [&_mjx-container]:max-w-full [&_mjx-container]:overflow-x-auto">{blocks}</div>;
+  return <div ref={rootRef} className="tutor-markdown flex min-w-0 flex-col gap-4 break-words [&_strong]:font-semibold [&_strong]:text-ink [&_mjx-container]:max-w-full [&_mjx-container]:overflow-x-auto">{blocks}</div>;
 }

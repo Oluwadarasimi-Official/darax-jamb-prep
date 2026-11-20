@@ -27,9 +27,9 @@ export default function BadgeDetailPage() {
     canvas.width = 1080; canvas.height = 1080;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    ctx.fillStyle = '#173b78'; ctx.fillRect(0, 0, 1080, 1080);
-    ctx.strokeStyle = 'rgba(30,158,80,0.7)'; ctx.lineWidth = 6; ctx.strokeRect(36, 36, 1008, 1008);
-    ctx.fillStyle = '#3367c1'; ctx.font = 'bold 44px system-ui'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#00452A'; ctx.fillRect(0, 0, 1080, 1080);
+    ctx.strokeStyle = 'rgba(232,126,4,0.85)'; ctx.lineWidth = 6; ctx.strokeRect(36, 36, 1008, 1008);
+    ctx.fillStyle = '#8BB4E7'; ctx.font = 'bold 44px system-ui'; ctx.textAlign = 'center';
     ctx.fillText('★ OFFICIAL DARAX ★', 540, 150);
     ctx.fillStyle = '#fff'; ctx.font = 'bold 64px system-ui';
     ctx.fillText(badge.title, 540, 300);
@@ -37,7 +37,7 @@ export default function BadgeDetailPage() {
     ctx.fillText('Awarded to', 540, 420);
     ctx.font = 'bold 56px system-ui'; ctx.fillStyle = '#fff';
     ctx.fillText(badge.fullName, 540, 500);
-    ctx.font = '40px system-ui'; ctx.fillStyle = '#b9d0f7';
+    ctx.font = '40px system-ui'; ctx.fillStyle = '#D8EDDF';
     ctx.fillText(`Position #${badge.position} · Week ${badge.week} · ${badge.year}`, 540, 600);
     ctx.fillStyle = 'rgba(255,255,255,0.75)'; ctx.font = '32px system-ui';
     ctx.fillText(`Badge ID: ${badge.id}`, 540, 700);

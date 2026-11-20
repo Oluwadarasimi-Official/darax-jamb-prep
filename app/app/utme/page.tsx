@@ -114,7 +114,7 @@ export default function UTMEPage() {
 
         <div className="mt-6">
           <label htmlFor="practice-year" className="block text-sm font-semibold mb-2">Select practice year</label>
-          <select id="practice-year" value={year} onChange={event => setYear(event.target.value)} className="w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent">
+          <select id="practice-year" value={year} onChange={event => setYear(event.target.value)} className="glass-input">
             {Array.from({ length: 17 }, (_, index) => 2026 - index).map(value => <option key={value} value={value}>{value}</option>)}
           </select>
         </div>
@@ -134,7 +134,7 @@ export default function UTMEPage() {
               const active = selected.includes(subject.id);
               const disabled = !active && selected.length === 3;
               return <button key={subject.id} type="button" disabled={disabled} onClick={() => toggleSubject(subject.id)} aria-pressed={active}
-                className={`rounded-xl border p-4 text-left flex items-center justify-between gap-3 transition-colors ${active ? 'border-accent bg-accent/10' : 'border-ink/10 bg-white/50 hover:border-accent/40'} ${disabled ? 'opacity-40 cursor-not-allowed' : ''}`}>
+                className={`rounded-xl border p-4 text-left flex items-center justify-between gap-3 transition-colors ${active ? 'border-accent bg-accent/15' : 'border-ink/15 bg-ink/5 hover:border-accent/40'} ${disabled ? 'opacity-40 cursor-not-allowed' : ''}`}>
                 <span className="font-semibold text-sm">{subject.label}</span>
                 <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-xs ${active ? 'bg-accent text-white border-accent' : 'border-ink/25'}`}>{active ? '✓' : ''}</span>
               </button>;
@@ -144,7 +144,7 @@ export default function UTMEPage() {
 
         <div className="mt-5">
           <label htmlFor="exam-duration" className="block text-sm font-semibold mb-2">Choose examination duration</label>
-          <select id="exam-duration" value={duration} onChange={event => setDuration(event.target.value)} className="w-full rounded-xl border border-ink/15 bg-white/70 px-4 py-3 text-sm outline-none focus:border-accent">
+          <select id="exam-duration" value={duration} onChange={event => setDuration(event.target.value)} className="glass-input">
             <option value="90">1 hour 30 minutes</option>
             <option value="100">1 hour 40 minutes</option>
             <option value="110">1 hour 50 minutes</option>
@@ -169,7 +169,7 @@ export default function UTMEPage() {
           </ul>
         </div>
 
-        <div className="mt-4 rounded-xl border border-amber-500/25 bg-amber-500/5 p-3 text-xs muted leading-relaxed">
+        <div className="mt-4 rounded-xl border border-warn/25 bg-warn/5 p-3 text-xs muted leading-relaxed">
           Each year has its own full-length set: 60 Use of English questions and 40 for each optional subject. These are original DARAX JAMB-style practice questions, not authenticated or verbatim historical JAMB papers.
         </div>
 
