@@ -50,7 +50,14 @@ export function MascotTour({ steps, open, onClose, finishHref }: { steps: TourSt
   // ---- measure the current target -----------------------------------------
   const measure = useCallback(() => {
     if (!open || !step?.target) { setSpot(null); return; }
-    const el = document.querySelector(step.target) as HTMLElement | null;
+    // A target can exist yet be invisible — the desktop sidebar on a phone,
+    // for example. Prefer the first match that is actually on screen, so the
+    // tour points at the mobile tab bar instead of giving up.
+    const matches = Array.from(document.querySelectorAll(step.target)) as HTMLElement[];
+    const el = matches.find(node => {
+      const box = node.getBoundingClientRect();
+      return box.width > 0 && box.height > 0;
+    }) || null;
     if (!el) { setSpot(null); return; }
     const r = el.getBoundingClientRect();
     if (r.width === 0 || r.height === 0) { setSpot(null); return; }

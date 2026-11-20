@@ -37,6 +37,28 @@ export default function SubjectsPage() {
           );
         })}
       </div>
+
+      {/* Practice lives with the subjects it tests — this is where the
+          Assessments, UTME Simulation and Past Questions destinations live on
+          mobile, where the sidebar is not available. */}
+      <GlassCard>
+        <h2 className="font-bold text-lg">Practice &amp; revise</h2>
+        <p className="muted text-sm mt-1">Everything that tests you, outside of your lessons.</p>
+        <div className="grid sm:grid-cols-3 gap-3 mt-4">
+          {[
+            { href: '/app/assessments', title: 'Assessments', body: 'Topic tests and full subject practice exams, graded instantly.' },
+            { href: '/app/utme', title: 'Full UTME Simulation', body: 'A 180-question timed paper with the real CBT question map.' },
+            { href: '/app/archive', title: 'Past Questions', body: 'The study library — one question at a time, with worked solutions.' },
+          ].map(entry => (
+            <Link key={entry.href} href={entry.href} className="glass-soft p-4 border border-ink/10 hover:border-accent/50 transition-colors">
+              <p className="font-semibold text-sm">{entry.title}</p>
+              <p className="text-xs muted mt-1 leading-relaxed">{entry.body}</p>
+              <p className="text-xs font-semibold text-accent mt-3">Open →</p>
+            </Link>
+          ))}
+        </div>
+      </GlassCard>
+
       <GlassCard>
         <h2 className="font-bold text-lg mb-3">All {deptName} subjects</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
