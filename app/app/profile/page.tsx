@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useDb } from '@/components/db-context';
 import { getSubject } from '@/lib/curriculum';
 import { mirrorOnboarding } from '@/lib/sync';
+import { logout as signOut } from '@/lib/auth';
 import { COURSE_REQUIREMENTS, DEPARTMENTS, DEPARTMENT_SUBJECTS, SUBJECT_NAMES, validateCombination, type Department } from '@/lib/store';
 import { GlassCard, Avatar, ProgressBar } from '@/components/ui';
 import { overallProgress, subjectProgress } from '@/lib/progression';
@@ -19,6 +20,13 @@ export default function ProfilePage() {
   const [msg, setMsg] = useState('');
   const [error, setError] = useState('');
   if (!user) return null;
+
+  const handleLogout = () => {
+    signOut(db).finally(() => {
+      setDb(d => { d.sessionUserId = null; return d; });
+      router.replace('/login');
+    });
+  };
 
   const overall = overallProgress(db, user.id, user.subjects);
   const attempts = db.attempts.filter(a => a.userId === user.id);
@@ -172,6 +180,28 @@ export default function ProfilePage() {
             {myBadges.map(b => <Link key={b.id} href={`/app/achievements/${b.id}`} className="chip !py-1.5 !px-3">★ {b.title} · #{b.position} · {b.week}</Link>)}
           </div>
         )}
+      </GlassCard>
+
+      {/* Account destinations — reachable from Profile on mobile, where the
+          sidebar is not available. */}
+      <GlassCard>
+        <h2 className="font-bold text-lg">Account</h2>
+        <p className="muted text-sm mt-1">Notifications, achievements and account settings.</p>
+        <div className="grid sm:grid-cols-3 gap-2 mt-4">
+          <Link href="/app/notifications" className="glass-soft p-3.5 border border-ink/10 hover:border-accent/50 transition-colors">
+            <p className="font-semibold text-sm">Notifications</p>
+            <p className="text-xs muted mt-1">{db.notifications.filter(n => n.userId === user.id && !n.read).length} unread</p>
+          </Link>
+          <Link href="/app/achievements" className="glass-soft p-3.5 border border-ink/10 hover:border-accent/50 transition-colors">
+            <p className="font-semibold text-sm">Achievements</p>
+            <p className="text-xs muted mt-1">{myBadges.length} badge{myBadges.length === 1 ? '' : 's'}</p>
+          </Link>
+          <Link href="/app/settings" className="glass-soft p-3.5 border border-ink/10 hover:border-accent/50 transition-colors">
+            <p className="font-semibold text-sm">Settings</p>
+            <p className="text-xs muted mt-1">Name, username, subjects</p>
+          </Link>
+        </div>
+        <button onClick={handleLogout} className="btn-ghost text-sm mt-4">Log out</button>
       </GlassCard>
     </div>
   );

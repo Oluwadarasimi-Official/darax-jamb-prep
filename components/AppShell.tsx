@@ -8,6 +8,7 @@ import { Logo } from './Logo';
 import { Avatar } from './ui';
 import { APP_VERSION } from '../lib/version';
 import { MascotTour, hasSeenTour, markTourSeen, type TourStep } from './MascotTour';
+import { MobileTabBar } from './MobileTabBar';
 
 const NAV = [
   { href: '/app/dashboard', label: 'Dashboard', icon: 'dashboard' },
@@ -89,7 +90,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
 
   useEffect(() => {
@@ -125,8 +125,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <span className="w-6 shrink-0 flex justify-center"><NavIcon name={item.icon} /></span>
           {!isCollapsed && <span className="truncate">{item.label}</span>}
           {item.href === '/app/notifications' && unread > 0 && (isCollapsed
-            ? <span className="ml-auto h-2 w-2 shrink-0 rounded-full bg-brand" role="img" aria-label={`${unread} unread notifications`} title={`${unread} unread notifications`} />
-            : <span className="ml-auto bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>)}
+            ? <span className="ml-auto h-2 w-2 shrink-0 rounded-full bg-accent" role="img" aria-label={`${unread} unread notifications`} title={`${unread} unread notifications`} />
+            : <span className="ml-auto bg-accent text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>)}
         </Link>;
       })}
     </nav>
@@ -150,25 +150,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <header className="md:hidden sticky top-0 z-40 glass !rounded-none border-x-0 border-t-0 px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] min-h-[64px] flex items-center justify-between">
           <Logo size={32} />
           <div className="flex items-center gap-2">
-            <Link href="/app/notifications" className="btn-ghost !px-3 !py-2 relative flex items-center" aria-label="Notifications"><NavIcon name="bell" />{unread > 0 && <span className="absolute -top-1 -right-1 bg-brand text-white text-[10px] font-bold rounded-full px-1.5">{unread}</span>}</Link>
-            <button onClick={() => setMobileOpen(true)} data-tour="mobile-menu" className="btn-ghost !px-3 !py-2" aria-label="Open menu">☰</button>
+            <Link href="/app/notifications" className="btn-ghost !px-3 !py-2 relative flex items-center" aria-label="Notifications"><NavIcon name="bell" />{unread > 0 && <span className="absolute -top-1 -right-1 bg-accent text-white text-[10px] font-bold rounded-full px-1.5">{unread}</span>}</Link>
           </div>
         </header>
-        {mobileOpen && <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
-          <button type="button" className="absolute inset-0 bg-[var(--scrim)]" onClick={() => setMobileOpen(false)} aria-label="Close menu overlay" />
-          <div className="absolute left-0 top-0 bottom-0 w-[min(84vw,320px)] glass !rounded-none border-y-0 border-l-0 p-4 flex flex-col">
-            <div className="flex items-center justify-between"><Logo /><button onClick={() => setMobileOpen(false)} className="btn-ghost !px-2 !py-1" aria-label="Close menu">✕</button></div>
-            <div className="flex-1 overflow-y-auto">{navList(() => setMobileOpen(false), false)}</div>
-            <div className="flex gap-2 mt-3"><button onClick={logout} className="btn-ghost flex-1">Log out</button></div>
-            <p className="text-[11px] muted mt-3">v{APP_VERSION} · Official Darax</p>
-          </div>
-        </div>}
         <header className="hidden md:flex items-center justify-between px-6 py-4">
           <p className="text-sm muted">LEARN. PRACTICE. IMPROVE. EXCEL.</p>
-          <div className="flex items-center gap-3"><Link href="/app/notifications" className="btn-ghost relative">Notifications{unread > 0 && <span className="ml-2 bg-brand text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}</Link><button onClick={logout} className="btn-ghost">Log out</button></div>
+          <div className="flex items-center gap-3"><Link href="/app/notifications" className="btn-ghost relative">Notifications{unread > 0 && <span className="ml-2 bg-accent text-white text-[11px] font-bold rounded-full px-2 py-0.5">{unread}</span>}</Link><button onClick={logout} className="btn-ghost">Log out</button></div>
         </header>
-        <main className="flex-1 min-w-0 px-4 md:px-6 pt-5 md:pt-2 pb-[max(2.5rem,env(safe-area-inset-bottom))] max-w-6xl w-full mx-auto">{children}</main>
+        <main className="flex-1 min-w-0 px-4 md:px-6 pt-5 md:pt-2 pb-[calc(6.25rem_+_env(safe-area-inset-bottom))] md:pb-10 max-w-6xl w-full mx-auto">{children}</main>
       </div>
+      <MobileTabBar />
       <MascotTour steps={TOUR_STEPS} open={tourOpen} onClose={endTour} finishHref="/app/subjects" />
     </div>
   );
